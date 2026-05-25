@@ -12,7 +12,7 @@ export default defineConfig({
       // Drop a logo file at src/assets/peakhour-logo.svg and uncomment:
       // logo: { src: './src/assets/peakhour-logo.svg', replacesTitle: false },
       social: {
-        github: 'https://github.com/peakhourapp',
+        github: 'https://github.com/EpaL/help-peakhourapp-com',
       },
       customCss: [
         './src/styles/theme.css',
