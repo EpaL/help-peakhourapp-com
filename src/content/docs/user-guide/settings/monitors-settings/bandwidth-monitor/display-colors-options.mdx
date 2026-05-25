@@ -1,0 +1,70 @@
+---
+title: "Display & Colors Options"
+description: "The Display & Colors tab contains options for customizing how the device is displayed."
+sidebar:
+  order: 15
+status: needs-review
+---
+
+import NeedsReview from '@/components/NeedsReview.astro';
+import img1 from './display-colors-options-images/cleanshot-2024-05-25-at-10-58-20-2x-20240525-145825.png';
+import img2 from './display-colors-options-images/cleanshot-2024-05-25-at-10-59-47-2x-20240525-145955.png';
+
+<NeedsReview />
+
+The **Display & Colors** tab contains options for customizing how the device is displayed.
+
+![CleanShot 2024 05 25 at 10.57.06@2x 20240525 145713](./display-colors-options-images/cleanshot-2024-05-25-at-10-57-06-2x-20240525-145713.png)
+
+## Main View
+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Graph View</strong></td>
+<td><p>Sets the view of the target in the main window to include a graph as well as details. You can also toggle the graph on and off by clicking the disclosure triangle.</p>
+<img src={img1.src} width="348" alt="CleanShot 2024 05 25 at 10.58.20@2x 20240525 145825" /></td>
+</tr>
+<tr class="even">
+<td><strong>Summary View</strong></td>
+<td><p>Summary View just shows the inbound (download) and outbound (upload) speed.</p>
+<img src={img2.src} width="362" alt="CleanShot 2024 05 25 at 10.59.47@2x 20240525 145955" />
+<div class="confluence-information-macro confluence-information-macro-information">
+<span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+<div class="confluence-information-macro-body">
+<p>If Display &gt; Fuel Gauges is enabled, a gauge will be displayed behind the numbers showing the current upload or download speed relative to the maximum bandwidth. See <a href="/user-guide/settings/display/">Display</a> for more details.</p>
+</div>
+</div>
+<div class="confluence-information-macro confluence-information-macro-information">
+<span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+<div class="confluence-information-macro-body">
+<p>Clicking the upload / download numbers toggles between the upload / download speed and total uploaded and downloaded traffic. See <a href="/user-guide/settings/monitors-settings/bandwidth-monitor/totals-options/">Totals options</a> for more details.</p>
+</div>
+</div></td>
+</tr>
+<tr class="odd">
+<td><strong>Keep</strong></td>
+<td><p>Sets how many minutes of data the main graph will retain. The main graph can be scrolled vertically with either the mouse or trackpad, allowing you to see data up to 12 hours in the past. Note that larger values here can impact performance.</p>
+<div class="confluence-information-macro confluence-information-macro-information">
+<span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+<div class="confluence-information-macro-body">
+<p>You can use the <a href="/user-guide/history-view/">History view</a> to view data further in the past.</p>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+## Colors
+
+|              |                                              |
+| ------------ | -------------------------------------------- |
+| **Download** | The color used to represent downloaded data. |
+| **Upload**   | The color used to represent uploaded data.   |
+
+If you'd like to copy the color(s) used from one target to another, you can drag and drop colors into the color well at the bottom of the color chooser window. For example:
+
+![Screen Shot 2013 10 26 at 1.13.42 pm 3](./display-colors-options-images/screen-shot-2013-10-26-at-1-13-42-pm-3.png)
+
+You can then reverse the process to copy that color to other targets.
+

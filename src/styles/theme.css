@@ -1,0 +1,49 @@
+/* PeakHour 6 brand theming — tuned for dark-first look.
+   Adjust --peakhour-green to match the exact hex used on the marketing site. */
+
+:root {
+  --peakhour-green: #7FCE3B;       /* Approximate — paste exact hex from marketing site to refine */
+  --peakhour-green-bright: #A4E25A;
+  --peakhour-green-dim: #4A8F1F;
+}
+
+/* Dark theme (default) */
+:root[data-theme='dark'] {
+  --sl-color-accent-low: #1a2e0b;
+  --sl-color-accent: var(--peakhour-green-dim);
+  --sl-color-accent-high: var(--peakhour-green-bright);
+
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #e5e7eb;
+  --sl-color-gray-2: #c0c4cc;
+  --sl-color-gray-3: #8a8f9a;
+  --sl-color-gray-4: #5a5f69;
+  --sl-color-gray-5: #2a2d33;
+  --sl-color-gray-6: #1a1d22;
+  --sl-color-black: #0e1013;
+
+  --sl-color-text-accent: var(--peakhour-green-bright);
+}
+
+/* Light theme */
+:root[data-theme='light'] {
+  --sl-color-accent-low: #e8f5d8;
+  --sl-color-accent: #4A8F1F;
+  --sl-color-accent-high: #2e5a12;
+  --sl-color-text-accent: #2e5a12;
+}
+
+/* Callout / banner used on migrated-but-not-yet-reviewed articles */
+.needs-review-banner {
+  border: 1px solid rgba(255, 165, 0, 0.3);
+  background: rgba(255, 165, 0, 0.08);
+  color: var(--sl-color-text);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.needs-review-banner strong {
+  color: #ffaa33;
+}

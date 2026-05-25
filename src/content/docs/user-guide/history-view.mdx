@@ -1,0 +1,64 @@
+---
+title: "History view"
+description: "The History view offers a more comprehensive perspective of your monitor's data, enabling you to visualize the bandwidth activity or connection quality of your…"
+sidebar:
+  order: 6
+status: needs-review
+---
+
+import NeedsReview from '@/components/NeedsReview.astro';
+
+<NeedsReview />
+
+The History view offers a more comprehensive perspective of your monitor's data, enabling you to visualize the bandwidth activity or connection quality of your targets for periods extending up to years in the past.
+
+![CleanShot 2024 05 19 at 22.36.50@2x](./history-view-images/cleanshot-2024-05-19-at-22-36-50-2x.png)
+
+Bring up the History view for any monitor by either clicking the ![Screen Shot 2015 02 09 at 9.19.46 pm](./history-view-images/screen-shot-2015-02-09-at-9-19-46-pm.png) button in the toolbar above the graph, or (if the graph is not visible), right-clicking the Monitor and choosing **History…** from the menu.
+
+![CleanShot 2023 12 10 at 14.14.29@2x](./history-view-images/cleanshot-2023-12-10-at-14-14-29-2x.png)
+
+## Viewing data points / details
+
+The History graph supports mousing over individual points to see the actual values. You can also drag-select a range of values to see either a total or aggregate (average) for that period.
+
+## The Toolbar
+
+The toolbar along the top of the History window controls the period of time being shown in the graph, as well as what sort of information is shown (usage or speed), how it is displays (combined or split) and the level-of-detail.
+
+From left to right, the controls are:
+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Period</strong></td>
+<td>This dropdown controls the period for which to display data. There are a number of preset periods, or you can select <strong>Choose Dates...</strong> and choose a start and end date.</td>
+</tr>
+<tr class="even">
+<td><strong>Level-of-detail</strong></td>
+<td>This controls how much time each point on the graph represents. For example, if you're viewing 12 hours of data you're likely going to want to see the data in 5 minute intervals. If however you're viewing several months of data, you're likely going to want to see the data in one-day intervals. Note that viewing higher levels of detail for longer periods may require a few seconds to calculate.</td>
+</tr>
+<tr class="odd">
+<td><strong>Combined / Split</strong></td>
+<td>Determines whether to show inbound and outbound graphs on the same axis or split them onto separate axes.</td>
+</tr>
+<tr class="even">
+<td><strong>Usage / Speed</strong></td>
+<td>This toggles whether each point on the graph shows the total amount of data used (usage) or the average speed for that period (speed). Usage is always shown as a bar chart whilst speed is always shown as an area chart.</td>
+</tr>
+<tr class="odd">
+<td><strong>Share</strong></td>
+<td>Brings up the Sharing menu allows you to export a picture of the graph via Email, iMessage, Airdrop etc.</td>
+</tr>
+<tr class="even">
+<td><strong>Export to CSV</strong></td>
+<td>Exports the data currently being shown to a CSV file.</td>
+</tr>
+<tr class="odd">
+<td><strong>Refresh</strong></td>
+<td><p>Forces a refresh of the graph.</p>
+<p>Note: the view will auto-refresh every minute or so. There are some circumstances where this will not happen however: if the graph takes a long time to render, auto-refresh will be automatically disabled to prevent excessive CPU utilisation. If you're finding the graph isn't automatically refreshing, try dropping the level of detail or the time period to speed up rendering and re-enable auto-refresh.</p></td>
+</tr>
+</tbody>
+</table>
+

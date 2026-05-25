@@ -1,0 +1,113 @@
+---
+title: "Gathering Diagnostic Logs and Crash Dumps"
+description: "If you're experiencing crashes or hangs, these steps will allow you to gather the crash dumps and logs for analysis."
+sidebar:
+  order: 30
+status: needs-review
+---
+
+import NeedsReview from '@/components/NeedsReview.astro';
+
+<NeedsReview />
+
+If you're experiencing crashes or hangs, these steps will allow you to gather the crash dumps and logs for analysis.
+
+## Capturing Logs
+
+1.  Open Terminal.
+
+2.  Run the following command:  
+    `log collect \`  
+    `   --predicate ‘eventMessage CONTAINS[c] "peakhour"' \ `  
+    `   --last 12h \ `  
+    `   --output ~/Desktop/PeakHourLogs.logarchive `  
+    Change the ‘last’ argument to capture the time period in question (e.g. ‘30m’ for the last 30 minutes, ‘2d’ for the last 2 days etc.)
+
+3.  Send the file PeakHourLogs.logarchive as directed.
+
+## Capturing SNMP / UPnP Debug Logs
+
+1.  Quit PeakHour
+
+2.  Open Terminal.
+    
+    1.  To enable **SNMP** debug logging, run the following command:  
+        `defaults write com.digitician.peakhour5 EnableSNMPDebugLogging -bool YES`
+    
+    2.  To enable **UPnP** debug logging, run the following command:  
+        `defaults write com.digitician.peakhour5 EnableUPnPDebugLogging -bool YES`
+
+3.  Run the following command to enable writing debug log events to disk:  
+    `sudo log config --mode "level:debug,persist:debug" --subsystem com.digitician.peakhour5`
+
+4.  Start PeakHour and reproduce the issue.
+
+5.  When the issue has been reproduced, run the following command in Terminal:  
+    `log collect --predicate 'subsystem BEGINSWITH "com.digitician.peakhour" AND (category == "upnp" OR category == "snmp")' \`  
+    `  --last 12h \ `  
+    `  --output ~/Desktop/PeakHourLogs.logarchive `
+
+6.  Run the following command to disable debug log writing:  
+    `sudo log config --mode "level:default,persist:default" --subsystem com.digitician.peakhour5`
+
+7.  Send the file PeakHourLogs.logarchive as directed.
+
+8.  To disable SNMP / UPnP debug logging, run the following commands:  
+    `defaults delete com.digitician.peakhour5 EnableSNMPDebugLogging`  
+    `defaults delete com.digitician.peakhour5 EnableUPNPDebugLogging`
+
+## Capturing Logs (manual method)
+
+1.  Click the Spotlight (magnifying glass) icon in the top-right corner of the screen.
+
+2.  Type 'Console' - when you see the **Console** app highlighted, tap Enter.
+    
+    ![CleanShot 2023 12 17 at 20.04.30@2x 20231218 010437](./gathering-diagnostic-logs-and-crash-dumps-images/cleanshot-2023-12-17-at-20-04-30-2x-20231218-010437.png)
+
+3.  If the Sources view is not visible down the left-side, choose **View \> Show Sources**.
+
+4.  In the **Sources** view, choose the top most source under **Devices**. It will be called the same name as your Mac.
+    
+    ![CleanShot 2023 12 17 at 20.05.03@2x 20231218 010508](./gathering-diagnostic-logs-and-crash-dumps-images/cleanshot-2023-12-17-at-20-05-03-2x-20231218-010508.png)
+
+5.  In the search field, type `peakhour` and press Enter.
+    
+    ![CleanShot 2023 12 17 at 20.06.45@2x 20231218 010649](./gathering-diagnostic-logs-and-crash-dumps-images/cleanshot-2023-12-17-at-20-06-45-2x-20231218-010649.png)
+
+6.  In the **Action** menu, ensure **Include Info Messages** and **Include Debug Messages** are enabled.
+    
+    ![Screenshot 2025 02 02 at 6.30.43 PM](./gathering-diagnostic-logs-and-crash-dumps-images/screenshot-2025-02-02-at-6-30-43-pm.png)
+
+7.  Click **Start Streaming** to start gathering logs.
+
+8.  Reproduce the problem / issue you're having.
+
+9.  Once the problem is reproduced, go back to **Console**.
+
+10. Choose **Edit \> Select All** then **Edit \> Copy.**
+
+11. Save the contents of the clipboard to a file, attach into an email.  
+    **DO NOT** paste directly into a message, as long messages can crash some email clients.
+
+12. Send the log file to support, as directed.
+
+## Sending Crash Dumps
+
+1.  Click the Spotlight (magnifying glass) icon in the top-right corner of the screen.
+
+2.  Type 'Console' - when you see the Console app highlighted, tap Enter.
+    
+    ![CleanShot 2023 12 17 at 20.04.30@2x 20231218 010437](./gathering-diagnostic-logs-and-crash-dumps-images/cleanshot-2023-12-17-at-20-04-30-2x-20231218-010437-2.png)
+
+3.  If the Sources view is not visible down the left-side, choose **View \> Show Sources**.
+
+4.  In the Sources view, choose **Crash Reports.**
+    
+    ![CleanShot 2023 12 17 at 20.08.07@2x 20231218 010813](./gathering-diagnostic-logs-and-crash-dumps-images/cleanshot-2023-12-17-at-20-08-07-2x-20231218-010813.png)
+
+5.  Locate reports related to PeakHour. 
+
+6.  Choose one and choose **Reveal in Finder**.
+
+7.  Right-click the file in Finder and choose Share \> Mail or drop as an attachment in your email client and send to <support@peakhourapp.com.>
+

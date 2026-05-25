@@ -1,0 +1,28 @@
+---
+title: "Can PeakHour monitor the usage of individual computers / devices?"
+description: "PeakHour can directly monitor any device that supports SNMP and most devices that support UPnP ."
+sidebar:
+  order: 40
+status: needs-review
+---
+
+import NeedsReview from '@/components/NeedsReview.astro';
+
+<NeedsReview />
+
+PeakHour can directly monitor any device that supports [SNMP](/troubleshooting/wiki/terminology/snmp/)  and most devices that support [UPnP](/troubleshooting/wiki/terminology/upnp/) . 
+
+If you're unsure if your device can be monitored, grab the free trial from [peakhourapp.com](http://peakhourapp.com).
+
+  - Most network devices, PCs, Macs and servers support SNMP or can be enabled for SNMP. Check the following FAQ for more information: 
+
+  - Most routers and WiFi access points support at least [UPnP](/troubleshooting/wiki/terminology/upnp/) (higher end routers often support both [SNMP](/troubleshooting/wiki/terminology/snmp/) and [UPnP](/troubleshooting/wiki/terminology/upnp/) ).
+
+  - You can run [PeakHour Enabler](https://peakhoursupport.atlassian.net/wiki/spaces/P5D/pages/7144061/Monitor+Another+Mac+PeakHour+Enabler) on other Macs to automatically configure and enable them to be monitored by PeakHour.
+
+  - Devices that do not support SNMP or UPnP can't be monitored individually as there is no way to determine their usage directly. You may be able to monitor them indirectly if you have a switch/router that supports monitoring of individual ports.  
+
+### Expert Tip
+
+Note that neither SNMP nor UPnP provide a breakdown of traffic, per-device. This means that, to monitor how much traffic an individual device is using, you need to monitor it directly with PeakHour.
+

@@ -1,0 +1,34 @@
+---
+title: PeakHour Help
+description: Documentation, guides and troubleshooting for PeakHour 6 — professional network monitoring for macOS.
+template: splash
+hero:
+  tagline: Get the most out of PeakHour 6 — from first launch to advanced configuration.
+  actions:
+    - text: Read the User Guide
+      link: /user-guide/
+      icon: right-arrow
+      variant: primary
+    - text: Troubleshooting & FAQ
+      link: /troubleshooting/
+      icon: external
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Quick links
+
+<CardGrid stagger>
+  <Card title="First-time setup" icon="rocket">
+    New to PeakHour? Start here to get the app configured for your network.
+  </Card>
+  <Card title="Understanding the Dashboard" icon="laptop">
+    Learn what every gauge, graph and indicator in the Internet Dashboard means.
+  </Card>
+  <Card title="Advanced configuration" icon="setting">
+    Fine-tune polling intervals, alert thresholds, and menu bar behaviour.
+  </Card>
+  <Card title="Troubleshooting" icon="warning">
+    Common problems, SNMP and UPnP diagnostics, and how to report issues.
+  </Card>
+</CardGrid>

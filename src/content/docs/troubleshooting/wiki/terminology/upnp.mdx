@@ -1,0 +1,18 @@
+---
+title: "UPnP"
+description: "UPnP or Universal Plug and Play (Wikipedia: UPnP) is protocol designed to allow seamless discovery, configuration, monitoring and management of all of the vari…"
+sidebar:
+  order: 5
+status: needs-review
+---
+
+import NeedsReview from '@/components/NeedsReview.astro';
+
+<NeedsReview />
+
+UPnP or Universal Plug and Play (Wikipedia: [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play)) is protocol designed to allow seamless discovery, configuration, monitoring and management of all of the various devices on your network.
+
+PeakHour can use UPnP to monitor the traffic going passing through your router (or *Internet Gateway Devices* in UPnP parlance).
+
+Whilst UPnP does provide rudimentary monitoring, it's primary use is for data sharing, communications and entertainment. For this reason UPnP is slightly more limited in terms of what information PeakHour is able to retrieve; for instance, UPnP only supports 32bit counters where as some SNMP devices support 64bit counters - important for monitoring Usage.
+

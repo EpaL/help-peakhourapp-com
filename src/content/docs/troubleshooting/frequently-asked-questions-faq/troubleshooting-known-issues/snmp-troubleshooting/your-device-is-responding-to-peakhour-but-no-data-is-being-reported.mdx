@@ -1,0 +1,34 @@
+---
+title: "Your device is responding to PeakHour but no data is being reported."
+description: "We have found a very small number of routers will send a blank SNMP reply if more that a certain number of SNMP OIDs are requested simultaneously."
+sidebar:
+  order: 24
+status: needs-review
+---
+
+import NeedsReview from '@/components/NeedsReview.astro';
+
+<NeedsReview />
+
+We have found a very small number of routers will send a blank SNMP reply if more that a certain number of SNMP OIDs are requested simultaneously.
+
+You can adjust the number of OIDs that PeakHour will send in a single request using the following steps:
+
+1.  Quit PeakHour / make sure it is not running.
+
+2.  Open Terminal (click the Spotlight icon in the top-right corner and type 'Terminal' then hit Enter).
+
+3.  In Terminal, enter the following command:
+    
+    **Mac AppStore version**
+    
+    ``` syntaxhighlighter-pre
+    defaults write ~Library/Containers/com.digitician.peakhour5/Data/Library/Preferences/com.digitician.peakhour5.plist SnmpMaxOidsPerQuery 1
+    ```
+
+4.  Start PeakHour.
+
+If this worked, your router should respond to PeakHour normally.
+
+Reducing the number of simultaneous OIDs sent increases the amount of work both PeakHour and your router have to do. For optimal performance, you may want to increase the number to find the 'breaking point' for your router and keep the value to just under that.
+

@@ -1,0 +1,61 @@
+---
+title: "I have an Apple Airport Express / Airport Extreme / Time Capsule - Can I monitor it?"
+description: "Below is a summary of Airport Express / Airport Extreme / Time Capsule compatibility and PeakHour:"
+sidebar:
+  order: 39
+status: needs-review
+---
+
+import NeedsReview from '@/components/NeedsReview.astro';
+
+<NeedsReview />
+
+Below is a summary of Airport Express / Airport Extreme / Time Capsule compatibility and PeakHour:
+
+<table>
+<thead>
+<tr class="header">
+<th><strong>Device</strong></th>
+<th><strong>Compatible</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Airport Extreme / Time Capsule</strong></td>
+<td><br />
+</td>
+</tr>
+<tr class="even">
+<td>Airport Extreme / Time Capsule 1st-5th Generation (2007-2012)</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Airport Extreme / Time Capsule 6th Generation (2012+)</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td><strong>Airport Express</strong></td>
+<td><br />
+</td>
+</tr>
+<tr class="odd">
+<td>Airport Express 1st Generation (2004-2008)</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Airport Express 2nd Generation (2008-2012)</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Airport Express 3rd Generation (2012+)</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+
+#### A note about the Apple AirPort Extreme / Time Capsule 2013+
+
+As of the this writing, Apple have removed all support for SNMP in their latest hardware, making them impossible to monitor (with any software). There is further discussion about the issue on Apple's support forum: [Apple Support Discussion - SNMP and 2013 Airport/Time Capsule](https://discussions.apple.com/thread/5101886).
+
+If you have one of these routers, you can still use PeakHour to monitor [this Mac](https://peakhoursupport.atlassian.net/wiki/spaces/P4D/pages/655607/Monitor+This+Mac), [other Macs](https://peakhoursupport.atlassian.net/wiki/spaces/P4D/pages/655609/Monitor+another+Mac) PCs, servers and other SNMP-compatible devices on your network. PeakHour 4 now supports Connection Quality monitoring, which lets you monitor the responsiveness of your connection. See [this page](/troubleshooting/frequently-asked-questions-faq/monitoring-compatibility/bandwidth-monitoring-faq/) for more information.
+

@@ -1,0 +1,38 @@
+---
+title: "High Capacity Counters"
+description: "Since the advent of faster and faster network interfaces, SNMP's original use of 32 bits for counters has become somewhat outdated. As a counter of network thr…"
+sidebar:
+  order: 8
+status: needs-review
+---
+
+import NeedsReview from '@/components/NeedsReview.astro';
+
+<NeedsReview />
+
+## What are High Capacity Counters?
+
+Since the advent of faster and faster network interfaces, SNMP's original use of 32 bits for counters has become somewhat outdated. As a counter of network throughput in bytes, a 32bit counter can only count up to approximately **4GB** before rolling back to zero. On a very fast interface, the counter may reset before it can be read again.
+
+High Capacity Counters are designed to solve this issue by increasing counters from 32-bit (maximum of 4,294,967,295 bytes) to 64-bit (maximum of 9,223,372,036,854,775,807 bytes).
+
+## How does PeakHour use them?
+
+If PeakHour detects that your router supports High Capacity (64-bit) counters, it will automatically use them to measure throughput. This will result in more accurate usage while your Mac is asleep or switched off.
+
+PeakHour will indicate if it has detected 64-bit counters in the Bandwidth Monitor Summary section under Monitors \> Target:
+
+**High Capacity Counters Detected?**
+
+Yes
+
+![CleanShot 2023 12 18 at 19.40.56@2x 20231219 004102](./high-capacity-counters-images/cleanshot-2023-12-18-at-19-40-56-2x-20231219-004102.png)
+
+No
+
+![Screen Shot 2015 09 28 at 11.05.00 AM](./high-capacity-counters-images/screen-shot-2015-09-28-at-11-05-00-am.png)
+
+For more information on High Capacity Counters, see the 2nd question of this FAQ: 
+
+<http://www.cisco.com/en/US/tech/tk648/tk362/technologies_q_and_a_item09186a00800b69ac.shtml>
+
