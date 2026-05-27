@@ -18,7 +18,9 @@ export default defineConfig({
         './src/styles/theme.css',
       ],
       components: {
-        // Override if/when we need custom page/header components
+        // Inject the "needs review" banner automatically when an article's
+        // frontmatter has `status: needs-review`.
+        MarkdownContent: './src/components/MarkdownContent.astro',
       },
       sidebar: [
         {

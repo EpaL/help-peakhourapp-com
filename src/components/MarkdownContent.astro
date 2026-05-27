@@ -1,0 +1,21 @@
+---
+// Override of Starlight's MarkdownContent. Reads the article's frontmatter
+// and prepends the "needs review" banner inside the content area when
+// `status: needs-review` is set. Replaces the per-article
+// `<NeedsReview />` component so articles only need to flip the status
+// field to drop the banner.
+import '@astrojs/starlight/style/markdown.css';
+
+const { status } = Astro.locals.starlightRoute.entry.data as { status?: 'needs-review' | 'reviewed' };
+---
+
+<div class="sl-markdown-content">
+  {status === 'needs-review' && (
+    <aside class="needs-review-banner">
+      <strong>Heads up:</strong> This article was migrated from the PeakHour 5
+      documentation and may contain outdated screenshots or content. We're
+      working through updates for PeakHour 6.
+    </aside>
+  )}
+  <slot />
+</div>
