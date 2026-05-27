@@ -19,16 +19,24 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 ## Quick links
 
 <CardGrid stagger>
-  <Card title="First-time setup" icon="rocket">
-    New to PeakHour? Start here to get the app configured for your network.
-  </Card>
-  <Card title="Understanding the Dashboard" icon="laptop">
-    Learn what every gauge, graph and indicator in the Internet Dashboard means.
-  </Card>
-  <Card title="Advanced configuration" icon="setting">
-    Fine-tune polling intervals, alert thresholds, and menu bar behaviour.
-  </Card>
-  <Card title="Troubleshooting" icon="warning">
-    Common problems, SNMP and UPnP diagnostics, and how to report issues.
-  </Card>
+  <a class="card-link" href="/user-guide/first-time-setup/">
+    <Card title="First-time setup" icon="rocket">
+      New to PeakHour? Start here to get the app configured for your network.
+    </Card>
+  </a>
+  <a class="card-link" href="/user-guide/main-view/understanding-the-internet-dashboard/">
+    <Card title="Understanding the Dashboard" icon="laptop">
+      Learn what every gauge, graph and indicator in the Internet Dashboard means.
+    </Card>
+  </a>
+  <a class="card-link" href="/user-guide/settings/">
+    <Card title="Advanced configuration" icon="setting">
+      Fine-tune polling intervals, alert thresholds, and menu bar behaviour.
+    </Card>
+  </a>
+  <a class="card-link" href="/troubleshooting/">
+    <Card title="Troubleshooting" icon="warning">
+      Common problems, SNMP and UPnP diagnostics, and how to report issues.
+    </Card>
+  </a>
 </CardGrid>
