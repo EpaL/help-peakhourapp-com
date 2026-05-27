@@ -25,11 +25,91 @@ export default defineConfig({
       sidebar: [
         {
           label: 'User Guide',
-          autogenerate: { directory: 'user-guide' },
+          items: [
+            {
+              label: 'Main View',
+              autogenerate: { directory: 'user-guide/main-view' },
+            },
+            { label: 'Overview', slug: 'user-guide' },
+            { slug: 'user-guide/requirements' },
+            { slug: 'user-guide/first-time-setup' },
+            { slug: 'user-guide/history-view' },
+            {
+              label: 'Configuration Assistant',
+              autogenerate: { directory: 'user-guide/configuration-assistant' },
+            },
+            { slug: 'user-guide/monitor-another-mac-peakhour-enabler' },
+            {
+              label: 'Settings',
+              autogenerate: { directory: 'user-guide/settings' },
+            },
+          ],
         },
         {
           label: 'Troubleshooting & FAQ',
-          autogenerate: { directory: 'troubleshooting' },
+          items: [
+            {
+              label: 'Frequently Asked Questions',
+              items: [
+                { label: 'Overview', slug: 'troubleshooting/frequently-asked-questions-faq' },
+                { slug: 'troubleshooting/frequently-asked-questions-faq/what-is-peakhour' },
+                { slug: 'troubleshooting/frequently-asked-questions-faq/how-do-i-beta-test-early-release-versions-of-peakhour' },
+                {
+                  label: 'Configuration',
+                  autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/configuration' },
+                },
+                {
+                  label: 'Monitoring & Compatibility',
+                  autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/monitoring-compatibility' },
+                },
+                {
+                  label: 'Purchasing & Licensing',
+                  autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/purchasing-licensing' },
+                },
+                {
+                  label: 'Known Issues',
+                  items: [
+                    { label: 'Overview', slug: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues' },
+                    { slug: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/adjust-scaling-factor' },
+                    { slug: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/error-initializing-appstore-offerings' },
+                    { slug: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/how-do-i-check-if-peakhour-is-reporting-data-accurately' },
+                    { slug: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/my-graph-isn-t-smooth-or-network-traffic-appears-in-bursts-instead-of-a-smooth-line' },
+                    {
+                      label: 'Common Troubleshooting',
+                      autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/common-troubleshooting' },
+                    },
+                    {
+                      label: 'SNMP Troubleshooting',
+                      autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/snmp-troubleshooting' },
+                    },
+                    {
+                      label: 'UPnP Troubleshooting',
+                      autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/upnp-troubleshooting' },
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: 'Wiki',
+              items: [
+                { label: 'Overview', slug: 'troubleshooting/wiki' },
+                { slug: 'troubleshooting/wiki/peakhour' },
+                { slug: 'troubleshooting/wiki/usage-monitoring' },
+                {
+                  label: 'Terminology',
+                  items: [
+                    { label: 'Overview', slug: 'troubleshooting/wiki/terminology' },
+                    { slug: 'troubleshooting/wiki/terminology/upnp' },
+                    {
+                      label: 'SNMP',
+                      autogenerate: { directory: 'troubleshooting/wiki/terminology/snmp' },
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
         },
       ],
       editLink: {
