@@ -1,78 +1,118 @@
 ---
 title: "First Time Setup"
-description: "Before you set up PeakHour on your Mac, check that your system meets the Requirements."
+description: "Set up PeakHour 6 on your Mac with the First Time Setup Assistant: discover your router, choose which features to enable, and start monitoring."
 sidebar:
   order: 3
-status: needs-review
+status: reviewed
 ---
-
-import NeedsReview from '@/components/NeedsReview.astro';
-
-<NeedsReview />
 
 # Prerequisites
 
-Before you set up PeakHour on your Mac, check that your system meets the [Requirements](/user-guide/requirements/).
+Before you set up PeakHour on your Mac:
 
-# Getting Started.
+- Check that your system meets the [Requirements](/user-guide/requirements/).
+- **Enable UPnP on your Internet router.** PeakHour uses UPnP to discover your router automatically during setup. Most routers ship with UPnP on by default — if yours doesn't, look for an option labelled **UPnP** or **Universal Plug & Play** in your router's admin interface and turn it on before launching PeakHour. See [UPnP Troubleshooting](https://peakhoursupport.atlassian.net/wiki/spaces/P5W/pages/9503200/UPnP+Troubleshooting) if your router still isn't discovered.
+
+# Getting Started
 
 When you launch PeakHour for the first time, the First Time Setup Assistant will appear to guide you through the setup process.
 
-Setting up PeakHour involves a couple of steps, which the First Time Setup Assistant will walk you through:
+<div class="img-md">
+![First Time Setup - Introduction](./first-time-setup-images/first-time-setup-intro.png)
+</div>
 
-  - **Discovering your Internet router**  
-    PeakHour will first look for your Internet router using UPnP discovery. It’s OK if it doesn’t find your router here; you can look for it or add it manually later.  
+Setup takes four short steps:
 
-  - **Adjust Monitor Settings**  
-    Here you can add additional monitors and choose whether or not to enable Usage Monitoring.  
-     
+1. **Welcome** — a quick overview of what PeakHour does.
+2. **Discover Your Network** — PeakHour finds your router and lets you pick which features to enable.
+3. **You're All Set** — confirm your configuration before finishing.
+4. **Stay in Touch** — optional: subscribe to updates or follow PeakHour on social.
 
-  - **Internet Dashboard**  
-    In this step, you can enable the Internet Dashboard and, optionally, regular speed tests of your network. The Internet Dashboard will monitor your connection out to the Internet and show you when potential problems arise.  
+If you've previously used PeakHour on another Mac with iCloud sync enabled, see [Restoring from iCloud](#restoring-from-icloud) — setup can apply those settings in a single click.
 
-  - **Final Setup**  
-    In this step you can add other network devices such as other Macs, PCs, WiFi access points, Network Attached Storage (NAS) or any other device that supports [SNMP](https://peakhoursupport.atlassian.net/wiki/spaces/P5W/pages/9503401/SNMP).  
+# 1. Welcome
 
-# Search for Internet Router
+The Welcome screen introduces the three main views you'll work with in PeakHour: bandwidth monitoring for your router, ISP and internet endpoints; the Connection Quality Dashboard; and the menu bar widget. Click **Get Started** to continue.
 
-![CleanShot 2024 05 19 at 17.48.01@2x 20240519 214801](./first-time-setup-images/cleanshot-2024-05-19-at-17-48-01-2x-20240519-214801.png)
+# 2. Discover Your Network
 
-In the first step, PeakHour will search for your Internet router. If the list is empty, you may need to enable UPnP on your router first in order for it to be discoverable. Check your router's manual and setup interface for an option labeled [UPnP](https://peakhoursupport.atlassian.net/wiki/spaces/P5W/pages/9503464/UPnP) or sometimes **Universal Plug & Play** and ensure it is enabled. You may need to restart your router and / or PeakHour in order for it to become visible.
+<div class="img-md">
+![Discover Your Network step](./first-time-setup-images/first-time-setup-discover.png)
+</div>
 
-  
+PeakHour scans your local network for routers and gateways that support UPnP. If a device is found and is reporting usage correctly, it appears under **Devices Found** with a **Reporting** badge. If your router doesn't appear, see [Can't find your Internet router?](#cant-find-your-internet-router) below.
 
-  
+Below the devices list, choose which features to enable:
 
-  
+| Feature | Description |
+|---------|-------------|
+| **Internet Dashboard** | An at-a-glance view of your network's health and live diagnostics. |
+| **Network Quality Checks** | Periodic speed tests for latency under load and max throughput. |
+| **Usage Monitoring** | Tracks bandwidth consumption against your data plan. |
 
-Some routers do not fully implement the UPnP spec, or implement it poorly. PeakHour will do it's best to validate the information being reported by your router and indicate whether it appears valid or not. If you see the router as **Reporting**, that means it is reporting back the information that PeakHour needs. For information on troubleshooting UPnP, check out these FAQs: [UPnP Troubleshooting](https://peakhoursupport.atlassian.net/wiki/spaces/P5W/pages/9503200/UPnP+Troubleshooting).
+All three are enabled by default. Click **Continue** to apply them, or **Skip – Set Up Later** to configure things manually from [Settings](/user-guide/settings/) later.
 
-# Choose What to Monitor
+## Can't find your Internet router?
 
-![CleanShot 2024 05 19 at 17.49.10@2x 20240519 214911](./first-time-setup-images/cleanshot-2024-05-19-at-17-49-10-2x-20240519-214911.png)
+If the **Devices Found** list is empty or your router isn't appearing:
 
-In this screen, you get to choose the monitors that will be added:
+- Make sure UPnP is enabled on your router — see [Prerequisites](#prerequisites). Look for an option labelled **UPnP** or **Universal Plug & Play** in your router's admin interface.
+- Restart both your router and PeakHour after enabling UPnP so PeakHour re-runs discovery.
+- Some routers don't fully implement the UPnP spec, or implement it poorly. PeakHour validates what your router reports and marks it as **Reporting** when the data looks valid.
+- For deeper diagnostics, see [UPnP Troubleshooting](https://peakhoursupport.atlassian.net/wiki/spaces/P5W/pages/9503200/UPnP+Troubleshooting).
 
-  - **Monitor Internet via \[Your-Router-Model\]**  
-    If a router was found and reporting was detected in the previous step, this checkbox will set up a monitor for it. If you don't wish to add a monitor, uncheck this box.
+**Using SNMP instead?** PeakHour can monitor SNMP-enabled routers and other devices, but SNMP doesn't support auto-discovery — SNMP devices won't appear in First Time Setup. Skip the Discover step and add them after setup from [Settings](/user-guide/settings/).
 
-  - **Add More Devices**  
-    This will bring up the Configuration Assistant so you can configure additional devices, such as SNMP-enabled routers, servers, Macs or other network devices. You can also add local interfaces from your Mac as well. You can add as many additional devices here as you like. Note that you can also do this later on in Settings.
+# 3. You're All Set
 
-  - **Enable Usage Monitoring**  
-    Enabling this will enable Usage Monitoring of your primary Internet Gateway (by default, the router that was discovered).
+<div class="img-md">
+![You're All Set summary screen](./first-time-setup-images/first-time-setup-youre-all-set.png)
+</div>
 
-# Internet Dashboard
+Review the configuration PeakHour is about to apply:
 
-![CleanShot 2024 05 19 at 17.51.45@2x 20240519 215146](./first-time-setup-images/cleanshot-2024-05-19-at-17-51-45-2x-20240519-215146.png)
+- **Internet Gateway** — the router PeakHour found in the previous step.
+- **Internet Dashboard**, **Network Quality**, **Usage Monitoring** — the features you enabled.
+- **Launch at Login** — toggle on if you'd like PeakHour to start automatically when you log in to your Mac.
 
-This page lets you enable or disable the Internet Dashboard. The Internet Dashboard is a single view that lets you monitor your vital stats that impact the quality of your Internet experience. Enabling the Internet Dashboard will automatically create a series of Connection Quality monitors that will ping various points along your path to the Internet and provide you with real-time information on latency, throughput, jitter, errors and dropped packets. The
+Click **Continue** to apply your configuration.
 
-The Dashboard can optionally periodically speed test your Internet connection and display the maximum measured throughput in the dashboard.
+# 4. Stay in Touch
 
-# Finish
+<div class="img-md">
+![Stay in Touch step](./first-time-setup-images/first-time-setup-stay-in-touch.png)
+</div>
 
-Once you're done, click Finish to enable your configuration and start monitoring\! 🎉
+The final step is optional. Join the mailing list for occasional updates and tips (no spam), or follow PeakHour on [X](https://x.com/peakhourapp), [Mastodon](https://mastodon.social/@peakhour) or [Bluesky](https://bsky.app/profile/peakhour.app).
+
+Click **Get Started** to finish setup and start monitoring. 🎉
+
+# After Setup
+
+<div class="img-sm">
+![You're All Set popover anchored from the menu bar](./first-time-setup-images/first-time-setup-popover.png)
+</div>
+
+Once setup completes, PeakHour starts monitoring in the background and a short popover appears from its menu bar icon confirming everything is up and running. Click anywhere to dismiss it.
+
+## Can't see PeakHour in your menu bar?
+
+PeakHour needs some horizontal space in the menu bar to display its monitors — especially on Macs with the notch (MacBook Pro 14"/16"), where usable menu-bar width is limited. If PeakHour's icons aren't visible, macOS has likely hidden them behind the notch or another app's menu-bar item.
+
+To make room:
+
+- Open **PeakHour Settings → [Menu Bar](/user-guide/settings/menu-bar/)** and disable any Menu Bar Items you don't need by dragging them from **Active Items** back to **Available Items**.
+- Or remove other apps' menu-bar icons from **System Settings → Control Center**, or use a menu-bar manager like Bartender or Ice to hide them.
+
+If you can't see PeakHour at all, click its icon in the Dock to open the main window — monitoring continues regardless of whether the menu bar item is visible.
+
+# Restoring from iCloud
+
+<div class="img-md">
+![iCloud restore option on the Welcome screen](./first-time-setup-images/first-time-setup-icloud-restore.png)
+</div>
+
+If you've previously set up PeakHour on another Mac signed in to the same Apple Account, the Welcome screen detects your saved settings and offers to restore them. Click **Restore & Finish** to apply your existing configuration in a single step, or **Set Up Manually** to go through the regular four-step flow.
 
 # Next Steps
 
@@ -81,6 +121,3 @@ Now that PeakHour is running, here are some additional resources to help you use
   - To open PeakHour and view your monitors, click the menu bar area or the Dock icon to open PeakHour. For detailed instructions and explanation of the interface, visit [Main View](/user-guide/main-view/).
 
   - To read more about PeakHour's many options, visit [Settings](/user-guide/settings/).
-    
-    ![CleanShot 2024 05 19 at 17.52.14@2x 20240519 215215](./first-time-setup-images/cleanshot-2024-05-19-at-17-52-14-2x-20240519-215215.png)
-
