@@ -1,0 +1,47 @@
+---
+title: "Bandwidth Monitors"
+description: "Real-time throughput graphs for routers, gateways, and local interfaces in PeakHour's main view."
+sidebar:
+  order: 3
+status: needs-review
+---
+
+Bandwidth Monitors display live upload and download throughput for a router, gateway, network interface, or other device. They appear in the [Main View](/user-guide/main-view/) between the Internet Dashboard (above) and Latency Monitors (below).
+
+## What can be monitored
+
+A Bandwidth Monitor can pull data from:
+
+- **Your internet router** via UPnP (auto-discovered during [First Time Setup](/user-guide/first-time-setup/)) or SNMP.
+- **A local network interface** on your Mac (Wi-Fi, Ethernet, USB tethering, VPN).
+- **SNMP-enabled network devices** (switches, access points, NAS, servers) added manually via [Configuration Assistant](/user-guide/configuration-assistant/).
+
+## Reading the graph
+
+Each monitor shows live upload (↑) and download (↓) throughput, plus a graph of recent activity. Hover over an expanded graph to reveal the [graph toolbar](#graph-toolbar) below.
+
+## Configuring
+
+Add, remove, and customize Bandwidth Monitors from [Settings → Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/), where you can adjust polling intervals, units, colors, alert thresholds, and more.
+
+## Graph toolbar
+
+The same graph toolbar appears on both Bandwidth Monitors and [Latency Monitors](/user-guide/main-view/latency-monitors/). Hover over an expanded graph to reveal it:
+
+<div class="img-md">
+
+![Graph toolbar](./images/graph-toolbar.png)
+
+</div>
+
+From left to right:
+
+| Control | Description |
+|---------|-------------|
+| **Zoom out** | Zooms the graph out, showing more time. |
+| **Zoom slider** | Adjusts the graph zoom continuously. |
+| **Zoom in** | Zooms the graph in, showing less time. |
+| **Lock / unlock graph scale** | When locked, the vertical scale fits the visible area. When unlocked, the scale fits the entire graph history. |
+| **Toggle absolute / relative times** | Switches the Y axis between absolute (e.g. 8:39 pm) and relative (e.g. 13m ago) times. |
+| **Share** | Share the graph via Mail, Messages, AirDrop, etc. |
+| **History** | Opens the [History view](/user-guide/history-view/) for this target. |

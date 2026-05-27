@@ -1,0 +1,31 @@
+---
+title: "Latency Monitors"
+description: "Round-trip latency, jitter, and packet loss for hosts on the internet."
+sidebar:
+  order: 4
+status: needs-review
+---
+
+Latency Monitors (also called Connection Quality Monitors) measure round-trip latency, jitter, and packet loss to hosts on the internet. They appear at the bottom of the [Main View](/user-guide/main-view/).
+
+## What they measure
+
+| Metric | Description |
+|--------|-------------|
+| **Latency** | Round-trip time for a single ping, in milliseconds. |
+| **Jitter** | Variation in latency over time. High jitter suggests an unstable connection. |
+| **Packet loss** | Percentage of pings that didn't get a reply. |
+
+Higher latency, jitter, or packet loss can indicate problems on your network or along the route to a host.
+
+## Single-hop vs differential
+
+A Latency Monitor can target a single host (for example, `1.1.1.1`) or measure the *difference* between two hops (for example, **Router → ISP**). Differential measurements isolate problems to specific portions of the path, which is how the [Internet Dashboard](/user-guide/main-view/internet-dashboard/) measures latency to your router and ISP.
+
+## Reading the graph
+
+Each monitor shows the latest latency value, a colored quality indicator, and a graph of recent measurements. Hover over an expanded graph to reveal the [graph toolbar](/user-guide/main-view/bandwidth-monitors/#graph-toolbar) for zoom, scale-lock, time-axis toggle, share, and history controls.
+
+## Configuring
+
+Add, remove, and customize Latency Monitors from [Settings → Connection Quality Monitor](/user-guide/settings/monitors-settings/connection-quality-monitor/), where you can adjust polling intervals, latency thresholds, packet count, and colors.
