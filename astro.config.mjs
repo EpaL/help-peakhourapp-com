@@ -1,10 +1,16 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import remarkGfm from 'remark-gfm';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://help.peakhourapp.com',
+  markdown: {
+    // Astro 6 / @astrojs/mdx 5 stopped applying GFM to .mdx tables by
+    // default; add it explicitly so Markdown tables render.
+    remarkPlugins: [remarkGfm],
+  },
   integrations: [
     starlight({
       title: 'PeakHour Help',
