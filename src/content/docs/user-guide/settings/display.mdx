@@ -1,120 +1,114 @@
 ---
 title: "Display"
-description: "Display as <em>x bytes per second</em>.</p></li>"
+description: "Display settings — refresh interval, bandwidth units, and appearance options for PeakHour."
 sidebar:
   order: 24
 status: needs-review
 ---
 
-import img1 from './display-images/cleanshot-2023-12-15-at-20-17-34-2x-20231216-011738.png';
-import img2 from './display-images/cleanshot-2024-05-25-at-14-02-58-2x-20240525-180305.png';
-import img3 from './display-images/cleanshot-2024-05-26-at-13-53-55-2x-20240526-175402.png';
-import img4 from './display-images/cleanshot-2024-05-26-at-13-58-59-2x-20240526-175903.png';
-import img5 from './display-images/cleanshot-2024-05-26-at-14-03-39-2x-20240526-180344.png';
-import img6 from './display-images/screen-shot-2013-10-26-at-4-33-33-pm.png';
-import img7 from './display-images/screen-shot-2013-10-26-at-4-38-20-pm.png';
-import img8 from './display-images/vibrancy-disabled.png';
-import img9 from './display-images/vibrancy-enabled.png';
-
-
 ![CleanShot 2024 05 25 at 13.58.53@2x 20240525 175853](./display-images/cleanshot-2024-05-25-at-13-58-53-2x-20240525-175853.png)
 
 ## Refresh & Units
 
-<table>
-<tbody>
-<tr class="odd">
-<td><strong>Refresh</strong></td>
-<td><p>Controls how often PeakHour updates. This means polling each monitor for new data.</p>
-<p><strong>Note:</strong> The more often you poll, the more resources PeakHour will use and more load you'll place on each device.</p></td>
-</tr>
-<tr class="even">
-<td><strong>Bandwidth Units</strong></td>
-<td><p>Controls the display of bandwidth throughout PeakHour:</p>
-<ul>
-<li><p><strong>KBytes/s, MBytes/s, GBytes/s,</strong> ...<br />
-Display as <em>x bytes per second</em>.</p></li>
-<li><p><strong>Kbits/s, Mbits/s, Gbits/s</strong><br />
-Display as <em>x bits per second</em>.</p></li>
-<li><p><strong>MBytes/s, GBytes/s,...</strong><br />
-Display as <em>x bytes per second</em> (&lt;1 MByte/s is rounded up)</p></li>
-<li><p><strong>MBits/s, GBits/s,...</strong><br />
-Display as <em>x bits per second</em> (&lt;1 Mbit/s is rounded up)</p></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><strong>Bandwidth Display</strong></td>
-<td><p><strong>Bandwidth Fuel gauges:</strong> display a fuel guage behind bandwidth text. The gauge is scaled to the maximum bandwidth of the device.</p>
-<img src={img1.src} width="138" alt="CleanShot 2023 12 15 at 20.17.34@2x 20231216 011738" /></td>
-</tr>
-</tbody>
-</table>
+**Refresh**
+
+Controls how often PeakHour updates. This means polling each monitor for new data.
+
+**Note:** The more often you poll, the more resources PeakHour will use and more load you'll place on each device.
+
+**Bandwidth Units**
+
+Controls the display of bandwidth throughout PeakHour:
+
+- **KBytes/s, MBytes/s, GBytes/s,** ...
+  Display as *x bytes per second*.
+- **Kbits/s, Mbits/s, Gbits/s**
+  Display as *x bits per second*.
+- **MBytes/s, GBytes/s,...**
+  Display as *x bytes per second* (&lt;1 MByte/s is rounded up)
+- **MBits/s, GBits/s,...**
+  Display as *x bits per second* (&lt;1 Mbit/s is rounded up)
+
+**Bandwidth Display**
+
+**Bandwidth Fuel gauges:** display a fuel guage behind bandwidth text. The gauge is scaled to the maximum bandwidth of the device.
+
+![CleanShot 2023 12 15 at 20.17.34@2x 20231216 011738](./display-images/cleanshot-2023-12-15-at-20-17-34-2x-20231216-011738.png)
 
 ## Monitors
 
-<table>
-<tbody>
-<tr class="odd">
-<td><strong>Layout - Single Column</strong></td>
-<td><p>All monitors are in a single column, filling the full width of the view. The window can be resized to any width.</p>
-<img src={img2.src} width="417" alt="CleanShot 2024 05 25 at 14.02.58@2x 20240525 180305" /></td>
-</tr>
-<tr class="even">
-<td><strong>Layout - Multi Column</strong></td>
-<td><p>This enables Multi-Column mode, where you can layout monitors in a grid. Each monitor is a customizable, fixed width (adjustable via the <strong>Width</strong> slider, see below). The window can be resized in increments of that fixed width, allowing you to fit multiple monitors per row. The window sizes are snapped to the width of the graph. Graphs are all the same width, but you can adjust that width with the <strong>Graph Width</strong> slider.</p>
-<img src={img3.src} width="648" alt="CleanShot 2024 05 26 at 13.53.55@2x 20240526 175402" /></td>
-</tr>
-<tr class="odd">
-<td><strong>Width (Multi Column mode only)</strong></td>
-<td>In Multi Column mode, the monitors are a fixed width that is controlled by this slider. The window can be resized in increments of this width, allowing multiple monitors per row. This can be used to create a compact, space-efficient layout.</td>
-</tr>
-<tr class="even">
-<td><strong>Height</strong></td>
-<td>This controls the height of monitors with graph enabled. The slide controls the total height of the monitor, including the graph. Monitors in Summary mode (no graph showing) are not affected by this setting.</td>
-</tr>
-<tr class="odd">
-<td><strong>Summary Bar</strong></td>
-<td><p>This determines if the summary is above or below the graph.</p>
-<img src={img4.src} width="321" alt="CleanShot 2024 05 26 at 13.58.59@2x 20240526 175903" /><img src={img5.src} width="323" alt="CleanShot 2024 05 26 at 14.03.39@2x 20240526 180344" /></td>
-</tr>
-<tr class="even">
-<td><strong>Graph Smoothing</strong></td>
-<td><p>Enables smoothing of the data. This implements a rolling average where new values are average with the previous x values in an attempt to smooth out irregularities. For example:</p>
-<p><img src={img6.src} width="300" alt="Screen Shot 2013 10 26 at 4.33.33 pm" /> <em>Smoothing turned off</em></p>
-<p><img src={img7.src} width="300" alt="Screen Shot 2013 10 26 at 4.38.20 pm" /> <em>Smoothing set to <strong>Strong</strong></em></p>
-<p>Essentially: The higher this value is set, the longer changes in throughput will take to become evident. The lower the setting, the more 'jagged' the graph will tend to be.</p></td>
-</tr>
-<tr class="odd">
-<td><strong>Smooth Scrolling</strong></td>
-<td><p>This option enables smooth sideways scrolling of the graph. This uses Core Animation to constantly slide the graph sideways at a constant speed, giving a much more fluid look.</p>
-<p><strong>Note:</strong> this option requires more of your Mac’s resources.</p></td>
-</tr>
-<tr class="even">
-<td><strong>Interface Mode (Auto/Dark/Light)</strong></td>
-<td>Choose between <strong>Light</strong> and <strong>Dark</strong> interface modes. <strong>System</strong> will track the macOS setting (System Settings &gt; Appearance).</td>
-</tr>
-<tr class="odd">
-<td><strong>Enable Vibrancy</strong></td>
-<td><p>Vibrancy is the 'frosted glass'-like effect which allows some of the colors behind the window to bleed through.</p>
-<p>Vibrancy affects the following elements:</p>
-<ul>
-<li><p>Monitors (Graph+Detail and Detail Only) in the main dropdown.</p></li>
-<li><p>History windows</p></li>
-</ul>
+**Layout - Single Column**
+
+All monitors are in a single column, filling the full width of the view. The window can be resized to any width.
+
+![CleanShot 2024 05 25 at 14.02.58@2x 20240525 180305](./display-images/cleanshot-2024-05-25-at-14-02-58-2x-20240525-180305.png)
+
+**Layout - Multi Column**
+
+This enables Multi-Column mode, where you can layout monitors in a grid. Each monitor is a customizable, fixed width (adjustable via the **Width** slider, see below). The window can be resized in increments of that fixed width, allowing you to fit multiple monitors per row. The window sizes are snapped to the width of the graph. Graphs are all the same width, but you can adjust that width with the **Graph Width** slider.
+
+![CleanShot 2024 05 26 at 13.53.55@2x 20240526 175402](./display-images/cleanshot-2024-05-26-at-13-53-55-2x-20240526-175402.png)
+
+**Width (Multi Column mode only)**
+
+In Multi Column mode, the monitors are a fixed width that is controlled by this slider. The window can be resized in increments of this width, allowing multiple monitors per row. This can be used to create a compact, space-efficient layout.
+
+**Height**
+
+This controls the height of monitors with graph enabled. The slide controls the total height of the monitor, including the graph. Monitors in Summary mode (no graph showing) are not affected by this setting.
+
+**Summary Bar**
+
+This determines if the summary is above or below the graph.
+
+![CleanShot 2024 05 26 at 13.58.59@2x 20240526 175903](./display-images/cleanshot-2024-05-26-at-13-58-59-2x-20240526-175903.png)
+
+![CleanShot 2024 05 26 at 14.03.39@2x 20240526 180344](./display-images/cleanshot-2024-05-26-at-14-03-39-2x-20240526-180344.png)
+
+**Graph Smoothing**
+
+Enables smoothing of the data. This implements a rolling average where new values are average with the previous x values in an attempt to smooth out irregularities. For example:
+
+![Screen Shot 2013 10 26 at 4.33.33 pm](./display-images/screen-shot-2013-10-26-at-4-33-33-pm.png) *Smoothing turned off*
+
+![Screen Shot 2013 10 26 at 4.38.20 pm](./display-images/screen-shot-2013-10-26-at-4-38-20-pm.png) *Smoothing set to **Strong***
+
+Essentially: The higher this value is set, the longer changes in throughput will take to become evident. The lower the setting, the more 'jagged' the graph will tend to be.
+
+**Smooth Scrolling**
+
+This option enables smooth sideways scrolling of the graph. This uses Core Animation to constantly slide the graph sideways at a constant speed, giving a much more fluid look.
+
+**Note:** this option requires more of your Mac’s resources.
+
+**Interface Mode (Auto/Dark/Light)**
+
+Choose between **Light** and **Dark** interface modes. **System** will track the macOS setting (System Settings > Appearance).
+
+**Enable Vibrancy**
+
+Vibrancy is the 'frosted glass'-like effect which allows some of the colors behind the window to bleed through.
+
+Vibrancy affects the following elements:
+
+- Monitors (Graph+Detail and Detail Only) in the main dropdown.
+- History windows
+
 <div class="confluence-information-macro confluence-information-macro-information">
 <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
 <div class="confluence-information-macro-body">
 <p>PeakHour needs to restart for changes to this option to take effect.</p>
 </div>
 </div>
-<img src={img8.src} width="464" alt="vibrancy disabled" /><img src={img9.src} width="466" alt="vibrancy enabled" />
+
+![vibrancy disabled](./display-images/vibrancy-disabled.png)
+
+![vibrancy enabled](./display-images/vibrancy-enabled.png)
+
 <div class="confluence-information-macro confluence-information-macro-note">
 <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
 <div class="confluence-information-macro-body">
 <p>Vibrancy requires more resources to render, especially when many graphs are enabled. Switch it off you're aiming to optimize battery and/or performance.</p>
 </div>
-</div></td>
-</tr>
-</tbody>
-</table>
+</div>
 

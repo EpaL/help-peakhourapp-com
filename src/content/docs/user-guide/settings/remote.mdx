@@ -18,31 +18,27 @@ To access PeakHour Remote, ensure **Enable PeakHour Remote** is checked and then
 
 # Settings
 
-<table>
-<tbody>
-<tr class="odd">
-<td><strong>Enable PeakHour Remote</strong></td>
-<td>Starts the PeakHour Remote web application on the specified port.</td>
-</tr>
-<tr class="even">
-<td><strong>Port</strong></td>
-<td><p>The port that PeakHour Remote listens on. Defaults to port 8000.</p>
-<p><strong>Note:</strong> If another application is using the port, PeakHour Remote will fail to start and an error will be shown in <strong>Status</strong>. To fix this, change to a different port and restart PeakHour Remote.</p></td>
-</tr>
-<tr class="odd">
-<td><strong>Require Authentication</strong></td>
-<td>If this option is enabled, you will be prompted to enter the username and password you specify below it in order to access PeakHour Remote.</td>
-</tr>
-<tr class="even">
-<td><strong>Username</strong></td>
-<td>If <strong>Require Authentication</strong> is enabled, you will be required to enter this username.</td>
-</tr>
-<tr class="odd">
-<td><strong>Password</strong></td>
-<td>If <strong>Require Authentication</strong> is enabled, you will be required to enter this password.</td>
-</tr>
-</tbody>
-</table>
+**Enable PeakHour Remote**
+
+Starts the PeakHour Remote web application on the specified port.
+
+**Port**
+
+The port that PeakHour Remote listens on. Defaults to port 8000.
+
+**Note:** If another application is using the port, PeakHour Remote will fail to start and an error will be shown in **Status**. To fix this, change to a different port and restart PeakHour Remote.
+
+**Require Authentication**
+
+If this option is enabled, you will be prompted to enter the username and password you specify below it in order to access PeakHour Remote.
+
+**Username**
+
+If **Require Authentication** is enabled, you will be required to enter this username.
+
+**Password**
+
+If **Require Authentication** is enabled, you will be required to enter this password.
 
 Important: Connections to PeakHour Remote are **not encrypted**. That means that if you enable authentication, your credentials will not be encrypted when they are sent over the network. For this reason we **do not recommend** exposing PeakHour Remote directly to the Internet unless you add additional security such as a VPN.
 

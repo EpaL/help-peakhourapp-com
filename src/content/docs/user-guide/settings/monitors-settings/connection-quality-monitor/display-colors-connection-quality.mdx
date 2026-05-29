@@ -6,37 +6,27 @@ sidebar:
 status: needs-review
 ---
 
-import img1 from './display-colors-connection-quality-images/cleanshot-2024-05-25-at-11-34-27-2x-20240525-153432.png';
-import img2 from './display-colors-connection-quality-images/cleanshot-2024-05-25-at-11-36-22-2x-20240525-153627.png';
-import img3 from './display-colors-connection-quality-images/cleanshot-2024-05-25-at-13-36-12-2x-20240525-173616.png';
-import img4 from './display-colors-connection-quality-images/cleanshot-2024-05-25-at-13-48-29-2x-20240525-174836.png';
-import img5 from './display-colors-connection-quality-images/cleanshot-2024-05-25-at-13-49-12-2x-20240525-174919.png';
-
-
-The **Display** tab contains options for customising how the device is displayed.
+The **Display** tab contains options for customising how the device is displayed.
 
 ![CleanShot 2024 05 25 at 11.30.09@2x 20240525 153014](./display-colors-connection-quality-images/cleanshot-2024-05-25-at-11-30-09-2x-20240525-153014.png)
 
 ## View
 
-<table>
-<tbody>
-<tr class="odd">
-<td><strong>Graph View</strong></td>
-<td><p>Sets the view of the target in the main window to include a graph as well as details. You can also toggle the graph on and off by clicking the disclosure triangle.</p>
-<img src={img1.src} width="348" alt="CleanShot 2024 05 25 at 11.34.27@2x 20240525 153432" /></td>
-</tr>
-<tr class="even">
-<td><strong>Details Only View</strong></td>
-<td><p>Details only shows device and immediate inbound/outbound bandwidth but hides the graph.</p>
-<img src={img2.src} width="366" alt="CleanShot 2024 05 25 at 11.36.22@2x 20240525 153627" /></td>
-</tr>
-<tr class="odd">
-<td><strong>Retain</strong></td>
-<td>Sets how many minutes of data the main graph will retain. The main graph can be scrolled vertically with either the mouse or trackpad, allowing you to see data up to 12 hours in the past. Note that larger values here can impact performance.</td>
-</tr>
-</tbody>
-</table>
+**Graph View**
+
+Sets the view of the target in the main window to include a graph as well as details. You can also toggle the graph on and off by clicking the disclosure triangle.
+
+![CleanShot 2024 05 25 at 11.34.27@2x 20240525 153432](./display-colors-connection-quality-images/cleanshot-2024-05-25-at-11-34-27-2x-20240525-153432.png)
+
+**Details Only View**
+
+Details only shows device and immediate inbound/outbound bandwidth but hides the graph.
+
+![CleanShot 2024 05 25 at 11.36.22@2x 20240525 153627](./display-colors-connection-quality-images/cleanshot-2024-05-25-at-11-36-22-2x-20240525-153627.png)
+
+**Retain**
+
+Sets how many minutes of data the main graph will retain. The main graph can be scrolled vertically with either the mouse or trackpad, allowing you to see data up to 12 hours in the past. Note that larger values here can impact performance.
 
 ## Colors
 
@@ -46,48 +36,42 @@ Here you can customize the colors that are used to indicate latency. The monitor
 
 # Colors
 
-<table>
-<tbody>
-<tr class="odd">
-<td><strong>Normal</strong></td>
-<td>This is the base color that represents 'good' or 'optimum' connection quality. How the minimum latency is calculated can be configured under <a href="/user-guide/settings/monitors-settings/connection-quality-monitor/latency-options/">Latency options</a> .</td>
-</tr>
-<tr class="even">
-<td><strong>Light Congestion</strong></td>
-<td>The color that represents slight congestion.</td>
-</tr>
-<tr class="odd">
-<td><strong>Light Congestion Latency</strong></td>
-<td>This value adjusts what is considered 'slight' congestion. By default, <strong>Slight congestion</strong> = <strong>Normal latency</strong> + 75ms.</td>
-</tr>
-<tr class="even">
-<td><strong>Heavy Congestion</strong></td>
-<td>The color that represents significant congestion.</td>
-</tr>
-<tr class="odd">
-<td><strong>Heavy Congestion Latency</strong></td>
-<td>This value adjusts what is considered 'significant' congestion. By default, <strong>Significant congestion</strong> = <strong>Minimum latency</strong> + <strong>Slight congestion latency</strong> + 125ms.</td>
-</tr>
-<tr class="even">
-<td><strong>Packet Loss</strong></td>
-<td><p>The color that represents packet loss. Packet Loss isn’t plotted on the graph as a series, rather it is shown as a grey</p>
-<img src={img3.src} width="345" alt="CleanShot 2024 05 25 at 13.36.12@2x 20240525 173616" /></td>
-</tr>
-</tbody>
-</table>
+**Normal**
+
+This is the base color that represents 'good' or 'optimum' connection quality. How the minimum latency is calculated can be configured under [Latency options](/user-guide/settings/monitors-settings/connection-quality-monitor/latency-options/) .
+
+**Light Congestion**
+
+The color that represents slight congestion.
+
+**Light Congestion Latency**
+
+This value adjusts what is considered 'slight' congestion. By default, **Slight congestion** = **Normal latency** + 75ms.
+
+**Heavy Congestion**
+
+The color that represents significant congestion.
+
+**Heavy Congestion Latency**
+
+This value adjusts what is considered 'significant' congestion. By default, **Significant congestion** = **Minimum latency** + **Slight congestion latency** + 125ms.
+
+**Packet Loss**
+
+The color that represents packet loss. Packet Loss isn’t plotted on the graph as a series, rather it is shown as a grey
+
+![CleanShot 2024 05 25 at 13.36.12@2x 20240525 173616](./display-colors-connection-quality-images/cleanshot-2024-05-25-at-13-36-12-2x-20240525-173616.png)
 
 ## Options
 
-<table>
-<tbody>
-<tr class="odd">
-<td><strong>Background color indicates congestion</strong></td>
-<td><p>When enabled, the background of the details view is blended with the current latency color.</p>
-<p><strong>Enabled</strong></p>
-<img src={img4.src} width="341" alt="CleanShot 2024 05 25 at 13.48.29@2x 20240525 174836" />
-<p><strong>Disabled</strong></p>
-<img src={img5.src} width="341" alt="CleanShot 2024 05 25 at 13.49.12@2x 20240525 174919" /></td>
-</tr>
-</tbody>
-</table>
+**Background color indicates congestion**
 
+When enabled, the background of the details view is blended with the current latency color.
+
+**Enabled**
+
+![CleanShot 2024 05 25 at 13.48.29@2x 20240525 174836](./display-colors-connection-quality-images/cleanshot-2024-05-25-at-13-48-29-2x-20240525-174836.png)
+
+**Disabled**
+
+![CleanShot 2024 05 25 at 13.49.12@2x 20240525 174919](./display-colors-connection-quality-images/cleanshot-2024-05-25-at-13-49-12-2x-20240525-174919.png)

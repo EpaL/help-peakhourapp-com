@@ -54,7 +54,7 @@ The following describes the what the analysis means:
 |                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Responding to queries**              | Whether or not the device is responding to (SNMP or UPnP) queries and returning meaningful responses.                                                                                                                                                                                                                                                                                                                                                                   |
-| **Reporting bandwidth**                | Whether or not the device appears to be reporting bandwidth correctly. This will be Yes if PeakHour can see that the device / interface is reporting traffic moving through the device. Note that this can be Yes but the device or interface may not report bandwidth correctly. In order to ensure whats being reported matches up with what you expect, we recommend a test by either downloading a file of a known size or using a site like <http://speedtest.net> |
+| **Reporting bandwidth**                | Whether or not the device appears to be reporting bandwidth correctly. This will be Yes if PeakHour can see that the device / interface is reporting traffic moving through the device. Note that this can be Yes but the device or interface may not report bandwidth correctly. In order to ensure whats being reported matches up with what you expect, we recommend a test by either downloading a file of a known size or using a site like [speedtest.net](http://speedtest.net) |
 | **High Capacity Counters (SNMP only)** | If this is Yes, the interface supports High Capacity (64-bit) counters. See [High Capacity Counters](https://peakhoursupport.atlassian.net/wiki/spaces/WIKI3/pages/458852/High+Capacity+Counters) for more information.                                                                                                                                                                                                                                                 |
 
 If the graph appears to be showing throughput as you'd expect, click **Next**.
@@ -65,29 +65,20 @@ The last screen in the Configuration Assistant lets you set a few important para
 
 ![CleanShot 2024 05 19 at 22.56.56@2x 20240520 025659](./images/cleanshot-2024-05-19-at-22-56-56-2x-20240520-025659.png)
 
-<table>
-<tbody>
-<tr class="odd">
-<td><strong>Symbol &amp; Description</strong></td>
-<td>The symbol and description (or name) for this Monitor. Click either to change them.</td>
-</tr>
-<tr class="even">
-<td><strong>Visibility</strong></td>
-<td><ul>
-<li><p><strong>Hide If Unreachable:</strong> Hide this Monitor if it can’t be reached or is otherwise offline.</p></li>
-<li><p><strong>Always Visible:</strong> Always show this Monitor.</p></li>
-<li><p><strong>Always Hide:</strong> Always hide this Monitor.</p></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><strong>Graph View / Summary View</strong></td>
-<td><ul>
-<li><p><strong>Graph View:</strong> Shows this Monitor with graph (expanded) in the main view.</p></li>
-<li><p><strong>Summary View:</strong> Shows this Monitor without the graph (collapsed) in the main view.</p></li>
-</ul></td>
-</tr>
-</tbody>
-</table>
+**Symbol & Description**
+
+The symbol and description (or name) for this Monitor. Click either to change them.
+
+**Visibility**
+
+- **Hide If Unreachable:** Hide this Monitor if it can’t be reached or is otherwise offline.
+- **Always Visible:** Always show this Monitor.
+- **Always Hide:** Always hide this Monitor.
+
+**Graph View / Summary View**
+
+- **Graph View:** Shows this Monitor with graph (expanded) in the main view.
+- **Summary View:** Shows this Monitor without the graph (collapsed) in the main view.
 
 Once you're done, click Finish. The new monitor should appear in the Main Window and, if configured, the menu bar.
 

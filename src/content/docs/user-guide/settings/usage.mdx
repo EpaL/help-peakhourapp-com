@@ -6,9 +6,6 @@ sidebar:
 status: needs-review
 ---
 
-import img1 from './usage-images/cleanshot-2023-12-16-at-12-07-49-2x-20231216-170757-2.png';
-
-
 [Configuring Usage Monitoring](#Usage-ConfiguringUsageMonitoring) | [Usage](#Usage-Usage) | [Quota](#Usage-Quota) | [Triggers](#Usage-Triggers) | [Thresholds](#Usage-Thresholds) | [Accuracy](#Usage-Accuracy)
 
 Usage Monitoring provides a real-time view of your Internet usage. You can set a monthly quota and reset date and PeakHour will then track your usage, showing how much you have remaining.
@@ -36,31 +33,26 @@ To set up Usage Monitoring:
 
 ## Usage
 
-<table>
-<tbody>
-<tr class="odd">
-<td><strong>Internet Gateway</strong></td>
-<td><p>This shows the currently selected Internet Gateway. To change this, use the <strong>Internet Gateway</strong> switch on the Monitors tab.</p>
-<img src={img1.src} width="186" alt="CleanShot 2023 12 16 at 12.07.49@2x 20231216 170757" /></td>
-</tr>
-<tr class="even">
-<td><strong>Reset usage</strong></td>
-<td><p>This checkbox controls whether usage is automatically reset.</p>
-<ul>
-<li><p>If enabled, Usage will automatically reset on the chosen day &amp; hour of the month or each day on the chosen hour if set to 'Every'.</p></li>
-<li><p>If disabled, Usage will only reset if you manually click the <strong>Reset...</strong> button or right-click on the Usage area of the main window and choose <strong>Reset...</strong></p></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><strong>Reset...</strong></td>
-<td>Resets usage to zero.</td>
-</tr>
-<tr class="even">
-<td><strong>Adjust...</strong></td>
-<td>Opens a panel allowing you to manually adjust the current amount of usage. Use this if you're part way through your usage period and need to bring PeakHour 'into sync' with actual usage.</td>
-</tr>
-</tbody>
-</table>
+**Internet Gateway**
+
+This shows the currently selected Internet Gateway. To change this, use the **Internet Gateway** switch on the Monitors tab.
+
+![CleanShot 2023 12 16 at 12.07.49@2x 20231216 170757](./usage-images/cleanshot-2023-12-16-at-12-07-49-2x-20231216-170757-2.png)
+
+**Reset usage**
+
+This checkbox controls whether usage is automatically reset.
+
+- If enabled, Usage will automatically reset on the chosen day & hour of the month or each day on the chosen hour if set to 'Every'.
+- If disabled, Usage will only reset if you manually click the **Reset...** button or right-click on the Usage area of the main window and choose **Reset...**
+
+**Reset...**
+
+Resets usage to zero.
+
+**Adjust...**
+
+Opens a panel allowing you to manually adjust the current amount of usage. Use this if you're part way through your usage period and need to bring PeakHour 'into sync' with actual usage.
 
 ## Quota
 
@@ -68,28 +60,25 @@ The Quota tab is where you configure how much internet usage you are allowed.
 
 ![CleanShot 2024 05 27 at 21.53.23@2x 20240528 015324](./usage-images/cleanshot-2024-05-27-at-21-53-23-2x-20240528-015324.png)
 
-<table>
-<tbody>
-<tr class="odd">
-<td><strong>Anytime</strong></td>
-<td><p>Anytime quota lets you specify your maximum quota for the period.</p>
-<p><strong>Note:</strong> You can set a quota of '0' if you have no limit, but still want to track usage.</p></td>
-</tr>
-<tr class="even">
-<td><strong>Peak / Off-peak</strong></td>
-<td><p>If your ISP offers a different quota during Off Peak hours vs. Peak hours, choose this option.</p>
-<p>Note: specify a quota of '0' in either if you have no limit for that period but still want to track usage.</p></td>
-</tr>
-<tr class="odd">
-<td><strong>Between...</strong></td>
-<td>The time period for which Off-peak quota applies. Usage between these two times is considered <strong>Off Peak</strong> usage and usage outside these two times is considered <strong>Peak</strong> usage.</td>
-</tr>
-<tr class="even">
-<td><strong>Uploaded data counts towards quota</strong></td>
-<td>Some ISPs do not count uploads towards your quota usage. Turn this on to count uploaded data; turn it off to ignore it.</td>
-</tr>
-</tbody>
-</table>
+**Anytime**
+
+Anytime quota lets you specify your maximum quota for the period.
+
+**Note:** You can set a quota of '0' if you have no limit, but still want to track usage.
+
+**Peak / Off-peak**
+
+If your ISP offers a different quota during Off Peak hours vs. Peak hours, choose this option.
+
+Note: specify a quota of '0' in either if you have no limit for that period but still want to track usage.
+
+**Between...**
+
+The time period for which Off-peak quota applies. Usage between these two times is considered **Off Peak** usage and usage outside these two times is considered **Peak** usage.
+
+**Uploaded data counts towards quota**
+
+Some ISPs do not count uploads towards your quota usage. Turn this on to count uploaded data; turn it off to ignore it.
 
 ## Triggers
 

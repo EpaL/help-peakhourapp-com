@@ -33,62 +33,47 @@ These options determine how often data is written to the file and (optionally) h
 
 Log files are always stored in the **Log location** folder and have a different filename format depending on the log rotation frequency:
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Frequency</strong></th>
-<th><strong>Format</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Hourly</strong></td>
-<td><p><code>&lt;Target Description&gt; YY-MM-DD HH:MM.csv</code></p>
-<p>Where:</p>
-<ul>
-<li><p><code>YY-MM-DD</code> is the date in Year-Month-Day</p></li>
-<li><p><code>HH:MM</code> is the time in Hour:Minutes</p></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><strong>Daily</strong></td>
-<td><p><code>&lt;Target Description&gt; YY-MM-DD.csv</code></p>
-<p>Where:</p>
-<ul>
-<li><p><code>YY-MM-DD</code> is the date in Year-Month-Day</p></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><strong>Weekly</strong></td>
-<td><p><code>&lt;Target Description&gt; YY-MM-DD w.csv</code></p>
-<p>Where:</p>
-<ul>
-<li><p><code>YY-MM-DD</code> is the date in Year-Month-Day</p></li>
-<li><p><code>w</code> is the number of the week.</p></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><strong>Monthly</strong></td>
-<td><p><code>&lt;Target Description&gt; YY-MM.csv</code></p>
-<p>Where:</p>
-<ul>
-<li><p><code>YY-MM</code> is the date in Year-Month</p></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><strong>Yearly</strong></td>
-<td><p><code>&lt;Target Description&gt; YYYY.csv</code></p>
-<p>Where:</p>
-<ul>
-<li><p><code>YYYY</code> is the year</p></li>
-</ul></td>
-</tr>
-</tbody>
-</table>
+**Hourly**
+
+`<Target Description> YY-MM-DD HH:MM.csv`
+
+Where:
+
+- `YY-MM-DD` is the date in Year-Month-Day
+- `HH:MM` is the time in Hour:Minutes
+
+**Daily**
+
+`<Target Description> YY-MM-DD.csv`
+
+Where:
+
+- `YY-MM-DD` is the date in Year-Month-Day
+
+**Weekly**
+
+`<Target Description> YY-MM-DD w.csv`
+
+Where:
+
+- `YY-MM-DD` is the date in Year-Month-Day
+- `w` is the number of the week.
+
+**Monthly**
+
+`<Target Description> YY-MM.csv`
+
+Where:
+
+- `YY-MM` is the date in Year-Month
+
+**Yearly**
+
+`<Target Description> YYYY.csv`
+
+Where:
+
+- `YYYY` is the year
 
 `Target Description` is the description of the monitor configured in the **Target** tab.
 

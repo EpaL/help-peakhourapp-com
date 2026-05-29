@@ -22,36 +22,28 @@ Before you can add a device, you need to know the following:
 
 ![CleanShot 2023 12 10 at 17.32.11@2x](./adding-an-snmp-device-images/cleanshot-2023-12-10-at-17-32-11-2x.png)
 
-<table>
-<tbody>
-<tr class="odd">
-<td><strong>Device Name</strong></td>
-<td>The hostname, FQDN or IP address of the SNMP-compatible device you wish to monitor.</td>
-</tr>
-<tr class="even">
-<td><strong>Community (SNMP v1, SNMP v2c</strong></td>
-<td><p>The SNMP community this device will respond to. The SNMP community is essentially a password; the device will only respond if the community string is correct.</p>
-<p>Note the community need only be read-only, not read-write (although read-write will work also, but it is more permission than PeakHour needs).</p></td>
-</tr>
-<tr class="odd">
-<td><strong>Security Name</strong><br />
-<strong>Security Mode</strong><br />
-<strong>Auth Key</strong><br />
-<strong>Privacy Key</strong><br />
-<strong>Protocol</strong><br />
-<strong>(SNMP v3 only)</strong></td>
-<td><p>SNMPv3 provides must stronger security, authentication and encryption of data. SNMPv3 newer than SNMPv1/v2c and generally only supported by more fully featured devices. If you're unsure which version your router supports, try SNMPv1/v2c first.<br />
-</p>
-<div class="confluence-information-macro confluence-information-macro-information">
-<span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-<div class="confluence-information-macro-body">
-<p>For more information on SNMPv3 security, see this page:</p>
-<a href="http://www.snmp.com/snmpv3/snmpv3_intro.shtml" class="external-link">http://www.snmp.com/snmpv3/snmpv3_intro.shtml</a>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
+**Device Name**
+
+The hostname, FQDN or IP address of the SNMP-compatible device you wish to monitor.
+
+**Community (SNMP v1, SNMP v2c)**
+
+The SNMP community this device will respond to. The SNMP community is essentially a password; the device will only respond if the community string is correct.
+
+Note the community need only be read-only, not read-write (although read-write will work also, but it is more permission than PeakHour needs).
+
+**Security Name** \
+**Security Mode** \
+**Auth Key** \
+**Privacy Key** \
+**Protocol** \
+**(SNMP v3 only)**
+
+SNMPv3 provides must stronger security, authentication and encryption of data. SNMPv3 newer than SNMPv1/v2c and generally only supported by more fully featured devices. If you're unsure which version your router supports, try SNMPv1/v2c first.
+
+For more information on SNMPv3 security, see this page:
+
+[http://www.snmp.com/snmpv3/snmpv3_intro.shtml](http://www.snmp.com/snmpv3/snmpv3_intro.shtml)
 
 ## Choosing an interface
 
@@ -75,7 +67,7 @@ or something similar. Note that interface names vary from manufacturer to manufa
 
 ### Which interface?
 
-If you want to monitor Internet usage and you're unsure which interface, a good way to test is to visit somewhere like <http://speedtest.net> whilst the Interface list is visible. Watch each interface and see which one corresponds closest to the throughput of [speediest.net](http://speediest.net).
+If you want to monitor Internet usage and you're unsure which interface, a good way to test is to visit somewhere like [speedtest.net](http://speedtest.net) whilst the Interface list is visible. Watch each interface and see which one corresponds closest to the throughput of [speediest.net](http://speediest.net).
 
   
 For information on the next steps in the wizard, see [Configuration Assistant](/user-guide/configuration-assistant/).
