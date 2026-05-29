@@ -11,9 +11,9 @@ export default defineConfig({
       description: 'Documentation, guides and troubleshooting for PeakHour 6 — professional network monitoring for macOS.',
       // Drop a logo file at src/assets/peakhour-logo.svg and uncomment:
       // logo: { src: './src/assets/peakhour-logo.svg', replacesTitle: false },
-      social: {
-        github: 'https://github.com/EpaL/help-peakhourapp-com',
-      },
+      social: [
+        { icon: 'github', label: 'GitHub', href: 'https://github.com/EpaL/help-peakhourapp-com' },
+      ],
       customCss: [
         './src/styles/theme.css',
       ],
@@ -28,7 +28,7 @@ export default defineConfig({
           items: [
             {
               label: 'Main View',
-              autogenerate: { directory: 'user-guide/main-view' },
+              items: [{ autogenerate: { directory: 'user-guide/main-view' } }],
             },
             { label: 'Overview', slug: 'user-guide' },
             { slug: 'user-guide/requirements' },
@@ -36,12 +36,12 @@ export default defineConfig({
             { slug: 'user-guide/history-view' },
             {
               label: 'Configuration Assistant',
-              autogenerate: { directory: 'user-guide/configuration-assistant' },
+              items: [{ autogenerate: { directory: 'user-guide/configuration-assistant' } }],
             },
             { slug: 'user-guide/monitor-another-mac-peakhour-enabler' },
             {
               label: 'Settings',
-              autogenerate: { directory: 'user-guide/settings' },
+              items: [{ autogenerate: { directory: 'user-guide/settings' } }],
             },
           ],
         },
@@ -56,15 +56,15 @@ export default defineConfig({
                 { slug: 'troubleshooting/frequently-asked-questions-faq/how-do-i-beta-test-early-release-versions-of-peakhour' },
                 {
                   label: 'Configuration',
-                  autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/configuration' },
+                  items: [{ autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/configuration' } }],
                 },
                 {
                   label: 'Monitoring & Compatibility',
-                  autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/monitoring-compatibility' },
+                  items: [{ autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/monitoring-compatibility' } }],
                 },
                 {
                   label: 'Purchasing & Licensing',
-                  autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/purchasing-licensing' },
+                  items: [{ autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/purchasing-licensing' } }],
                 },
                 {
                   label: 'Known Issues',
@@ -76,15 +76,15 @@ export default defineConfig({
                     { slug: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/my-graph-isn-t-smooth-or-network-traffic-appears-in-bursts-instead-of-a-smooth-line' },
                     {
                       label: 'Common Troubleshooting',
-                      autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/common-troubleshooting' },
+                      items: [{ autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/common-troubleshooting' } }],
                     },
                     {
                       label: 'SNMP Troubleshooting',
-                      autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/snmp-troubleshooting' },
+                      items: [{ autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/snmp-troubleshooting' } }],
                     },
                     {
                       label: 'UPnP Troubleshooting',
-                      autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/upnp-troubleshooting' },
+                      items: [{ autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/upnp-troubleshooting' } }],
                     },
                   ],
                 },
@@ -103,7 +103,7 @@ export default defineConfig({
                     { slug: 'troubleshooting/wiki/terminology/upnp' },
                     {
                       label: 'SNMP',
-                      autogenerate: { directory: 'troubleshooting/wiki/terminology/snmp' },
+                      items: [{ autogenerate: { directory: 'troubleshooting/wiki/terminology/snmp' } }],
                     },
                   ],
                 },
