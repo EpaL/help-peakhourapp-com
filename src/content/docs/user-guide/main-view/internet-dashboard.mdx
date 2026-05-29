@@ -6,73 +6,276 @@ sidebar:
 status: needs-review
 ---
 
-import img1 from './internet-dashboard-images/cleanshot-2024-05-19-at-18-14-01-2x-20240519-221406.png';
-import img2 from './internet-dashboard-images/cleanshot-2024-05-19-at-18-26-30-2x-20240519-222635.png';
-import img3 from './internet-dashboard-images/cleanshot-2024-05-19-at-18-18-29-2x-20240519-221834.png';
-import img4 from './internet-dashboard-images/cleanshot-2024-05-19-at-18-31-01-2x-20240519-223108.png';
-import img5 from './internet-dashboard-images/cleanshot-2024-05-19-at-18-31-47-2x-20240519-223152.png';
-import img6 from './internet-dashboard-images/cleanshot-2024-05-19-at-18-34-02-2x-20240519-223404.png';
-import img7 from './internet-dashboard-images/cleanshot-2024-05-19-at-18-35-38-2x-20240519-223547.png';
-import img8 from './internet-dashboard-images/cleanshot-2024-05-19-at-18-34-02-2x-20240519-223745.png';
-
-
 The Internet Dashboard is specifically crafted to offer you a quick and comprehensive overview of your internet connection's latency and quality. Once activated, monitors are established to track each step of your internet connection, evaluating latency and jitter at crucial points including your router, ISP, and three distinct websites on the internet.
 
 In addition, the dashboard will exhibit both the upload and download speeds of your Mac along with those of your router (if set up). Additionally, if enabled, periodic speed checks for your internet connection will be performed by the dashboard to provide you with insights into the maximum upload and download speeds attained.
 
 You can configure all of these settings in [Internet Dashboard](/user-guide/settings/dashboard/) settings.
 
-## Internet Dashboard Overview
+## Choosing a view
 
-The Internet Dashboard can have two states: expanded (the default) or a more space-efficient collapsed state.
+The Internet Dashboard offers two views. Use the toggle at the top of the dashboard to switch between them:
 
-### Collapsed
+<div class="img-narrow">
 
-![Internet Dashboard Collapsed Annotated@2x](./internet-dashboard-images/internet-dashboard-collapsed-annotated-2x.png)
+![Simple / Detailed view toggle](./internet-dashboard-images/internet-dashboard-simple-detailed-pill.png)
 
-### Expanded
+</div>
 
-![Internet Dashboard Annotated@2x](./internet-dashboard-images/internet-dashboard-annotated-2x.png)
+- **Simple** — a compact, three-panel summary of your connection's health.
+- **Detailed** — the full path to the internet, broken into per-hop segments with latency and throughput.
 
-### Understanding the Dashboard
+Both are described below.
 
-The Dashboard can initially seem overwhelming due to the amount of information it presents. Its primary goal is to provide a clear overview of each hop your Mac goes through to get to the Internet. PeakHour assesses the quality of connection to each hop using the 'ping' protocol. It does this by continually sending ping packets to the destination host and measuring the time it takes for them to return.
+## Simple View
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><img src={img1.src} width="148" alt="CleanShot 2024 05 19 at 18.14.01@2x 20240519 221406" /><img src={img2.src} width="279" alt="CleanShot 2024 05 19 at 18.26.30@2x 20240519 222635" /><img src={img3.src} width="296" alt="CleanShot 2024 05 19 at 18.18.29@2x 20240519 221834" /></td>
-<td><p>This status at the top of each hop indicates the latency of the connection. If the latency (or the time packets take to return) is within an acceptable range, it will display <strong>OK</strong>. If the latency exceeds the Light congestion threshold, it will change to <strong>Light congestion</strong>. If latency exceeds the Heavy congestion threshold, it will change to <strong>Heavy congestion</strong>. The color will also change to indicate these congestion levels.</p>
-<p>The colors and latency thresholds can be customized in Settings &gt; <a href="/user-guide/settings/monitors-settings/connection-quality-monitor/display-colors-connection-quality/">Display &amp; Colors [Connection Quality]</a>.</p></td>
-</tr>
-<tr class="even">
-<td><img src={img4.src} width="112" alt="CleanShot 2024 05 19 at 18.31.01@2x 20240519 223108" /></td>
-<td>This graph shows this hop’s latency in the recent past (typically 30-45 seconds, depending on the Refresh Interval).</td>
-</tr>
-<tr class="odd">
-<td><img src={img5.src} width="159" alt="CleanShot 2024 05 19 at 18.31.47@2x 20240519 223152" /></td>
-<td>This graph represents the hop between two hosts. The line in the middle 'shimmers' with each ping. The speed of this shimmer effect indicates the latency relative to other hops.</td>
-</tr>
-<tr class="even">
-<td><img src={img6.src} width="317" alt="CleanShot 2024 05 19 at 18.34.02@2x 20240519 223404" /></td>
-<td><p>This indicates the last ping response time, in milliseconds. The color indicates the response time relative to the known latency of this hop. By default, the known latency is automatically calculated every time PeakHour starts, but this can be changed under <a href="/user-guide/settings/monitors-settings/connection-quality-monitor/latency-options/">Latency options</a>.</p>
-<p>If the <img src={img7.src} alt="CleanShot 2024 05 19 at 18.35.38@2x 20240519 223547" /> indicator is showing, it means some packet loss has been observed recently. Packet loss is where a ping is sent but no response is received. Mouse over this indicator for more details.</p>
-<p>If the <img src={img8.src} alt="CleanShot 2024 05 19 at 18.34.02@2x 20240519 223745" /> indicator is showing, it means the latency or ping responses times are varying significantly. This is known as ‘jitter’ and is typically an indication of instability.</p></td>
-</tr>
-</tbody>
-</table>
+The Simple View distils your connection's health into three panels you can read at a glance:
 
-It's important to note that for the last hop (ISP to Internet), the data displayed represents an aggregate or average of three Internet monitors (ISP to xx). If you wish to delve into details for each individual monitor, you can expand the section below for more in-depth insights or navigate back to the Monitors section where you can examine each monitor meticulously.
+<div class="img-md">
 
-### Additional Tips
+![Internet Dashboard simple view showing Link, Throughput and Health panels](./internet-dashboard-images/internet-dashboard-simple.png)
 
-  - By default, PeakHour uses differential latency to measure the round-trip times between two hops. For example, the latency shown for Router to ISP is actually the time a packet takes to travel between your router and your ISP, not between your Mac and your ISP.
+</div>
 
-  - You can customize any of the Monitors that power the Internet Dashboard, configuring them to suit your needs. You can do this under [Settings: Monitors](/user-guide/settings/monitors-settings/). Note that if you delete one of the Monitors intentionally or accidentally, and wish to get it back, you will need remove all Monitors and recreate them. See [Internet Dashboard](/user-guide/settings/dashboard/) settings for more information.
+| Panel | What it shows |
+|-------|---------------|
+| **Link** | Your active network connection — its type (e.g. Wi-Fi 6E), name, and current link speed.|
+| **Throughput** | Real-time upload (↑) and download (↓) speeds, with a ring showing usage relative to your [connection's capacity](/user-guide/settings/monitors-settings/bandwidth-monitor/bandwidth-options/). |
+| **Health** | Overall connection quality — current latency, a recent latency graph, and a letter **Rating** (A+ down to F) summarising stability. The rating is produced by the [AI Advisor](#ai-advisor). |
 
-  - If you see this icon displayed ![CleanShot 2024 05 19 at 19.14.09@2x 20240519 231411](./internet-dashboard-images/cleanshot-2024-05-19-at-19-14-09-2x-20240519-231411.png) , it means your Mac is currently experiencing high CPU usage, which can potentially have an impact on the accuracy of latency measurements.
+:::note
+The **Link** speed is the speed of your Mac's connection to the local network (for example, the Wi-Fi or Ethernet link rate) — not the speed of your internet connection. Your internet speed is shown under **Throughput** and, when speed tests are enabled, in the **ISP** segment of the [Detailed View](#detailed-view).
+:::
+
+## Detailed View
+
+Expanding the Internet Dashboard reveals the full path your traffic takes to reach the internet, broken into four segments — **This Mac**, **Router**, **ISP**, and **Internet** — with an overall connection quality rating on the right.
+
+<div class="img-md">
+
+![Internet Dashboard detailed view showing the This Mac, Router, ISP and Internet segments with per-hop latency and throughput](./internet-dashboard-images/internet-dashboard-detailed.png)
+
+</div>
+
+Each segment shows the same set of elements: a status indicator, a latency graph, the latency to the next hop, and (where applicable) a device selector and throughput dials. The sections below cover each segment in turn.
+
+### This Mac
+
+The **This Mac** segment represents your Mac's connection to the local network. It's the first segment in the path to the internet.
+
+<div class="img-narrow">
+
+![This Mac segment showing status, latency graph, connection selector and throughput dials](./internet-dashboard-images/internet-dashboard-detailed-this-mac-section.png)
+
+</div>
+
+The segment shows, from top to bottom:
+
+| Element | Description |
+|---------|-------------|
+| **Status** | The green dot and bar graph indicate the latency status of this hop (**OK**, **Light congestion**, or **Heavy congestion**). |
+| **Latency** | The figure beside the graph (e.g. 4.7 ms) is the latency from your Mac to the next hop. |
+| **Connection selector** | The dropdown (e.g. **Whole Home WiFi**) lets you choose which interface this segment tracks when your Mac has more than one. |
+| **Throughput** | The two dials show real-time download (↓) and upload (↑) speeds for your Mac. |
+
+The dots beneath the dials indicate that the panel has more than one page. Swipe left or right on the trackpad, or click the dots, to cycle through additional dials — **Signal Strength** and **Link Speed**.
+
+Click the segment to open a popover with full details about your Mac's connection to the local network:
+
+<div class="img-sm">
+
+![This Mac popover showing Tx rate, signal, channel, security and network identifiers for a Wi-Fi connection](./internet-dashboard-images/internet-dashboard-detailed-this-mac-popover.png)
+
+</div>
+
+The header shows your Mac's name, the active connection, and its type (for example, **Wi-Fi 6E**). Below that:
+
+| Field | Description |
+|-------|-------------|
+| **Tx Rate** | The current transmit link rate between your Mac and the network — not your internet speed. |
+| **Signal** | Wi-Fi signal strength in dBm. Values closer to 0 are stronger (e.g. −32 dBm is excellent; −70 dBm or lower is weak). |
+| **Channel** | The Wi-Fi channel, band, and channel width in use (e.g. 85, 6 GHz, 160 MHz). |
+| **Security** | The Wi-Fi security protocol (e.g. WPA3 Personal). |
+| **IP Address** | The local IP address assigned to your Mac. |
+| **Interface** | The macOS network interface name (e.g. `en0`). |
+| **MAC Address** | The hardware address of your Mac's network interface. |
+| **BSSID** | The hardware address of the access point your Mac is connected to. |
+
+:::note
+The fields shown depend on your connection type. Wi-Fi connections show signal, channel, security, and BSSID; a wired Ethernet connection shows the relevant subset.
+:::
+
+### Router
+
+The **Router** segment represents your internet router or gateway — the device that connects your local network to your ISP.
+
+<div class="img-narrow">
+
+![Router segment showing status, latency graphs, device selector and throughput dials](./internet-dashboard-images/internet-dashboard-detailed-router.png)
+
+</div>
+
+Because the router sits in the middle of the path, it shows a latency graph on each side — one for the hop from **This Mac** to the router, and one for the hop from the router to your **ISP**.
+
+PeakHour displays the detected Internet Gateway in this slot, recognising many router brands and showing the manufacturer's badge (for example, the UniFi logo) on the device icon. If no gateway is configured (via either UPnP or SNMP), it shows the default gateway with placeholder information instead. Throughput dials are only available when a gateway is actively being monitored. For more on configuring a gateway, see [First Time Setup](/user-guide/first-time-setup/) and [Settings → Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/).
+
+| Element | Description |
+|---------|-------------|
+| **Status** | The status dot and bar graphs indicate the latency status of the hops on either side of the router. |
+| **Latency** | The figures beside each graph are the latency to the router (left) and from the router to your ISP (right). |
+| **Device selector** | The dropdown (e.g. **UniFi Dream Machine**) lets you choose which monitored device represents your router. |
+| **Throughput** | The two dials show real-time download (↓) and upload (↑) throughput reported by the router. Each dial fills relative to the gateway's configured [Bandwidth settings](/user-guide/settings/monitors-settings/bandwidth-monitor/bandwidth-options/). |
+
+Click the segment to open a popover with full details about your router:
+
+<div class="img-sm">
+
+![Router popover showing brand, model, geolocated map, LAN address and WAN IP](./internet-dashboard-images/internet-dashboard-detailed-router-popover.png)
+
+</div>
+
+| Field | Description |
+|-------|-------------|
+| **Your Router** | The detected brand and model of your router (e.g. UniFi Dream Machine, UDM-Pro). |
+| **Map** | The approximate physical location of your connection, derived from your WAN IP address. |
+| **LAN Address** | Your router's address on your local network (e.g. 192.168.1.1) — typically the gateway your devices connect through. |
+| **WAN IP** | The public IP address your ISP has assigned to your router. |
+
+### ISP
+
+The **ISP** segment represents the connection from your router out to your internet service provider.
+
+<div class="img-narrow">
+
+![ISP segment showing status, latency graphs, ISP name, max throughput dials and Quality Report link](./internet-dashboard-images/internet-dashboard-detailed-isp.png)
+
+</div>
+
+Like the Router, the ISP segment sits mid-path and shows a latency graph on each side — the hop from your router to the ISP, and the hop from the ISP out to the internet. PeakHour identifies your ISP and shows its badge on the building icon.
+
+| Element | Description |
+|---------|-------------|
+| **Status** | The status dot and bar graphs indicate the latency status of the hops on either side of the ISP. |
+| **Latency** | The figures beside each graph are the latency from your router to the ISP (left) and from the ISP to the internet (right). |
+| **ISP selector** | The dropdown (e.g. **Optimum Fiber**) shows the detected ISP. |
+| **Max Throughput** | The two dials show the maximum download (↓) and upload (↑) speeds measured by the most recent [speed test](/user-guide/settings/dashboard/#speed-test) — not real-time throughput. |
+| **Quality Report** | Opens the [Network Quality Report](#network-quality-report) — a detailed measurement of your connection's responsiveness and latency. |
+
+:::note
+The **Max Throughput** dials are only populated when periodic speed tests are enabled. Enable them under [Internet Dashboard settings → Speed Test](/user-guide/settings/dashboard/#speed-test).
+:::
+
+Click the segment to open a popover with full details about your ISP:
+
+<div class="img-sm">
+
+![ISP popover showing provider name, website, geolocated map, ISP IP, ASN, connection type and last updated time](./internet-dashboard-images/internet-dashboard-detailed-isp-popover.png)
+
+</div>
+
+| Field | Description |
+|-------|-------------|
+| **Your ISP** | The detected name of your internet service provider (e.g. Comcast Cable Communications), with a link to its website. |
+| **Map** | The approximate location of your connection, derived from your public IP address. |
+| **ISP IP** | The public IP address your ISP has assigned you. |
+| **ASN** | The Autonomous System Number identifying your ISP's network (e.g. AS7922). |
+| **Connection Type** | The detected connection technology (e.g. Cable, Fiber, DSL). |
+| **Last Updated** | When PeakHour last refreshed this information. |
+
+#### Network Quality Report
+
+Clicking **Quality Report** shows the results of your most recent speed test. It measures not just raw speed but how *responsive* your connection stays under load — a better indicator of real-world experience for video calls, gaming, and browsing.
+
+:::note
+The Quality Report is only available when periodic [speed tests](/user-guide/settings/dashboard/#speed-test) are enabled. Clicking it displays the latest test results rather than running a new test — to re-run the test on demand, click the **Refresh** button at the top of the report.
+:::
+
+<div class="img-md">
+
+![Network Quality Report showing max throughput, responsiveness in RPM, and idle vs under-load latency](./internet-dashboard-images/internet-dashboard-detailed-isp-networkquality.png)
+
+</div>
+
+| Section | What it measures |
+|---------|------------------|
+| **Max Throughput** | The maximum download and upload speeds measured during the test. |
+| **Responsiveness** | Round-trips Per Minute (RPM) — how well your network stays responsive under heavy load. Higher is better. |
+| **Latency – Idle** | Time spent establishing a connection while the network is unloaded (Base RTT, TCP, TLS, H2 handshakes). Lower is better — this is the baseline for how quickly new connections start. |
+| **Latency – Under Load** | Latency measured while the connection is saturated. Spikes here indicate **bufferbloat** — congestion that delays interactive traffic like video calls and games. |
+
+The **Latency – Under Load** graphs (one for download, one for upload) each report three round-trip latency figures measured while the connection was saturated:
+
+| Value | Meaning |
+|-------|---------|
+| **Min** | The lowest round-trip time observed during the test — your best-case latency under load, usually close to your idle latency. |
+| **Avg** | The average round-trip time across the test — the most representative measure of how responsive the connection feels under load. |
+| **Max** | The highest round-trip time observed — the worst-case latency, typically at peak congestion. A large gap between **Min** and **Max** is a sign of bufferbloat. |
+
+Toggle **Show Advanced** in the top-right of the report for the per-handshake latency breakdown and the under-load latency graphs.
+
+### Internet
+
+The **Internet** segment represents the final hop — from your ISP out to the wider internet. It's the end of the path, so it shows a single latency graph (the hop from your ISP to the internet) alongside a globe icon.
+
+<div class="img-narrow">
+
+![Internet segment showing status, latency graph, globe icon and the overall connection quality rating](./internet-dashboard-images/internet-dashboard-detailed-internet.png)
+
+</div>
+
+| Element | Description |
+|---------|-------------|
+| **Status** | The status dot and bar graph indicate the latency status of the hop from your ISP to the internet. |
+| **Latency** | The figure beside the graph is the latency from your ISP out to the internet. |
+| **Rating** | The overall connection quality grade, described in [AI Advisor Rating](#ai-advisor-rating) below. |
+
+### AI Advisor Rating
+
+The large badge at the end of the dashboard is your overall **AI Advisor Rating** — a single letter grade (A+ down to F) summarising the health of your whole connection, based on latency, jitter, packet loss, and responsiveness.
+
+Click the rating to open the [AI Advisor](#ai-advisor) for a plain-language explanation of what the grade means for you.
+
+## AI Advisor
+
+The **AI Advisor** translates PeakHour's raw measurements into plain-language insight about your connection. Click the [AI Advisor Rating](#ai-advisor-rating) badge to open it.
+
+:::note
+The AI Advisor uses **Apple Intelligence** with on-device models. Your network data is analysed entirely on your Mac — nothing leaves your device.
+:::
+
+<div class="img-sm">
+
+![AI Advisor Network Insights popover with a plain-language summary, activity suitability icons and Internet Health stats](./internet-dashboard-images/internet-dashboard-detailed-internet-aiadvisor.png)
+
+</div>
+
+The **Network Insights** popover shows:
+
+| Element | Description |
+|---------|-------------|
+| **Summary** | A plain-language assessment of how your connection is performing and what it's well suited for. |
+| **Activity suitability** | Icons for common activities — **Video Calls**, **Gaming**, **Streaming** — each marked with a check when your connection comfortably supports it. |
+| **Internet Health** | The key metrics behind the rating: **Total Latency**, **Avg Jitter**, **Avg Packet Loss**, and **Load RPM** (responsiveness under load). |
+
+### Detailed Network Analysis
+
+Click **Explain** in the top-right of the Network Insights popover for a deeper, AI-powered diagnostic breakdown:
+
+<div class="img-sm">
+
+![Detailed Network Analysis breaking down summary, latency, packet loss, stability, throughput and connection](./internet-dashboard-images/internet-dashboard-detailed-internet-aiadvisor-explain.png)
+
+</div>
+
+The **Detailed Network Analysis** expands on each dimension of your connection in turn — **Summary**, **Latency**, **Packet Loss**, **Stability** (jitter), **Throughput**, and **Connection** — explaining what each measurement means and how it affects real-world use, followed by specific **Diagnostic Findings**.
+
+:::note
+Click the **Export** button at the top of the analysis to generate a detailed Markdown file of the full report — handy for saving a record or sharing with your ISP or IT support.
+:::
+
+## Tips
+
+- By default, PeakHour uses **differential latency** to measure the round-trip time between two hops. For example, the latency shown for Router → ISP is the time a packet takes to travel between your router and your ISP, not between your Mac and your ISP.
+- You can customise any of the monitors that power the Internet Dashboard under [Settings → Monitors](/user-guide/settings/monitors-settings/). If you delete one of these monitors and want it back, you'll need to recreate them all — see [Recreating Internet Dashboard monitors](/user-guide/settings/dashboard/#recreating-internet-dashboard-monitors).
+- If a high-CPU-usage indicator appears on the dashboard, your Mac is under heavy load, which can affect the accuracy of latency measurements.
 
