@@ -1,12 +1,10 @@
 ---
 title: "Usage"
-description: "Configuring Usage Monitoring | Usage | Quota | Triggers | Thresholds | Accuracy"
+description: "Track your internet data usage against a monthly quota — the Usage Monitor view and Usage settings in PeakHour 6."
 sidebar:
   order: 26
 status: needs-review
 ---
-
-[Configuring Usage Monitoring](#Usage-ConfiguringUsageMonitoring) | [Usage](#Usage-Usage) | [Quota](#Usage-Quota) | [Triggers](#Usage-Triggers) | [Thresholds](#Usage-Thresholds) | [Accuracy](#Usage-Accuracy)
 
 Usage Monitoring provides a real-time view of your Internet usage. You can set a monthly quota and reset date and PeakHour will then track your usage, showing how much you have remaining.
 
@@ -16,105 +14,63 @@ Usage Monitoring provides a real-time view of your Internet usage. You can set a
 
 </div>
 
-# Configuring Usage Monitoring
+The Usage Monitor view shows, at a glance:
 
-To set up Usage Monitoring:
+| Element | Description |
+|---------|-------------|
+| **Daily rate** | The average data used per day this billing cycle, shown top-right (e.g. 142.3 GB / day). |
+| **Data used** | The total data consumed so far in the current billing cycle (e.g. 1.5 TB Used). |
+| **Quota** | Your configured monthly data allowance, shown top-right of the bar (e.g. 2.0 TB Quota). Set this under [Quota](#quota) below. |
+| **Progress bar** | Fills as you consume data, showing usage relative to your quota. The marker indicates where your usage should be to stay on pace for the cycle. |
+| **Time remaining** | How long is left before your usage resets (e.g. 3 days, 1 hour remaining in billing cycle), based on your [reset day](#billing-cycle). |
 
-1.  Check the **Enable Usage Monitoring** checkbox at the top of the Usage tab.
+# Usage settings
 
-2.  Usage Monitoring will track usage of the Monitor designated as your Internet Gateway. The change which Monitor is your Internet Gateway, check the Internet Gateway switch on the Monitors tab.
-    
-    ![CleanShot 2023 12 16 at 12.07.49@2x 20231216 170757](./usage-images/cleanshot-2023-12-16-at-12-07-49-2x-20231216-170757.png)
+Configure Usage Monitoring under **Settings → Usage**. PeakHour tracks usage of the monitor designated as your Internet Gateway (set this with the **Internet Gateway** switch on the [Monitors](/user-guide/settings/monitors-settings/) tab).
 
-3.  Choose whether a **Mensiverary** (or monthly rollover) date applies**.** This is the day of the month that your usage resets. If you're unsure, check with your ISP.  
-    If you choose not to enable this, Usage operates in "Pre-paid" mode where usage will continue to accumulate until it is manually reset. This is useful if you buy your Internet in pre-paid chunks. 
+<div class="img-md">
 
-4.  On the **Quota** tab, choose between **Anytime** or **Peak/Off Peak**. Set the amounts of data included in your quota and (if** Peak/Off Peak** is chosen) the time of day when Off Peak applies.
+![Usage settings tab showing Enable Usage Monitoring, Billing Cycle, Quota, Notifications and Actions](./usage-images/usage-monitor-settings.png)
 
-5.  Choose whether **Uploaded data counts towards quota**.
+</div>
 
-![CleanShot 2024 05 27 at 21.52.42@2x 20240528 015243](./usage-images/cleanshot-2024-05-27-at-21-52-42-2x-20240528-015243.png)
+## Enable Usage Monitoring
 
-## Usage
+Turns Usage Monitoring on or off. When enabled, PeakHour tracks your data usage against a monthly quota to help you manage your internet plan.
 
-**Internet Gateway**
+## Billing Cycle
 
-This shows the currently selected Internet Gateway. To change this, use the **Internet Gateway** switch on the Monitors tab.
+**Automatically Reset on Billing Date**
 
-![CleanShot 2023 12 16 at 12.07.49@2x 20231216 170757](./usage-images/cleanshot-2023-12-16-at-12-07-49-2x-20231216-170757-2.png)
+When enabled, your usage resets automatically each billing cycle on the chosen **Reset Day**. When disabled, PeakHour operates in "pre-paid" mode — usage accumulates until you reset it manually, which is useful if you buy your internet in pre-paid chunks.
 
-**Reset usage**
+**Reset Day**
 
-This checkbox controls whether usage is automatically reset.
+The day of the month your usage resets (e.g. the 1st). If you're unsure when your billing cycle starts, check with your ISP.
 
-- If enabled, Usage will automatically reset on the chosen day & hour of the month or each day on the chosen hour if set to 'Every'.
-- If disabled, Usage will only reset if you manually click the **Reset...** button or right-click on the Usage area of the main window and choose **Reset...**
+**Count Uploads Toward Usage**
 
-**Reset...**
-
-Resets usage to zero.
-
-**Adjust...**
-
-Opens a panel allowing you to manually adjust the current amount of usage. Use this if you're part way through your usage period and need to bring PeakHour 'into sync' with actual usage.
+Some ISPs don't count uploaded data toward your quota. Turn this on to include uploads in your usage total; turn it off to count downloads only.
 
 ## Quota
 
-The Quota tab is where you configure how much internet usage you are allowed.
+**Quota Type**
 
-![CleanShot 2024 05 27 at 21.53.23@2x 20240528 015324](./usage-images/cleanshot-2024-05-27-at-21-53-23-2x-20240528-015324.png)
+- **Anytime** — a single quota that applies at all times.
+- **Peak / Off-Peak** — separate quotas for peak and off-peak hours, for ISPs that offer a different allowance during off-peak times. When selected, you can also set the time window during which off-peak rates apply.
 
-**Anytime**
+**Quota amount**
 
-Anytime quota lets you specify your maximum quota for the period.
+The amount of data included in your quota (e.g. 2000 GB). Set it to `0` if you have no limit but still want to track usage. With **Peak / Off-Peak** selected, you set an amount for each.
 
-**Note:** You can set a quota of '0' if you have no limit, but still want to track usage.
+## Notifications
 
-**Peak / Off-peak**
+Notifications alert you when your data usage reaches a threshold you specify. Click **Add Notification…** to create one; you can add as many as you like — for example, an alert at 50%, 75%, and 100% of your quota.
 
-If your ISP offers a different quota during Off Peak hours vs. Peak hours, choose this option.
+A threshold can be an absolute amount (in MB or GB) or a percentage of your quota. With a Peak / Off-Peak quota, you can set separate thresholds for each.
 
-Note: specify a quota of '0' in either if you have no limit for that period but still want to track usage.
+## Actions
 
-**Between...**
+**Reset Usage to Zero…**
 
-The time period for which Off-peak quota applies. Usage between these two times is considered **Off Peak** usage and usage outside these two times is considered **Peak** usage.
-
-**Uploaded data counts towards quota**
-
-Some ISPs do not count uploads towards your quota usage. Turn this on to count uploaded data; turn it off to ignore it.
-
-## Triggers
-
-Usage triggers allow you to set thresholds at which PeakHour will trigger an event.
-
-![CleanShot 2023 12 16 at 12.54.52@2x 20231216 175453](./usage-images/cleanshot-2023-12-16-at-12-54-52-2x-20231216-175453.png)
-
-PeakHour can perform these things in response to a trigger threshold being met:
-
-  - Display a notification
-
-  - Send an email
-
-For example, you may want to receive a notification when you've exceeded 50% and 75% of your monthly quota. You may then also want to receive a notification and an email at 100% of your monthly quota.
-
-You can create as many triggers as you like.
-
-### Thresholds
-
-Usage thresholds can either be:
-
-  - A specific amount of usage in Megabytes
-
-  - A specific amount of usage in Gigabytes
-
-  - A percentage of your total usage.
-
-When a Peak/Off-Peak quota usage is specified, you can specify different triggers for both.
-
-## Accuracy
-
-The accuracy tab displays some information about the currently chosen Target and allows you to disable the warning about usage inaccuracy.
-
-For detailed information about Usage Monitoring and accuracy, see the [Usage Monitoring](https://peakhoursupport.atlassian.net/wiki/spaces/wiki/pages/655483/Usage+Monitoring) Wiki page.
-
+Manually resets your tracked usage to zero. You can also reset usage by right-clicking the Usage Monitor area in the main window.
