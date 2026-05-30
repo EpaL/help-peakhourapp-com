@@ -49,10 +49,10 @@
 }
 
 /* Screenshot sizing helpers — wrap a Markdown image in <div class="img-*"> to constrain */
-.img-narrow img { max-width: 200px; height: auto; display: block; }
-.img-sm img     { max-width: 300px; height: auto; display: block; }
-.img-md img     { max-width: 500px; height: auto; display: block; }
-.img-lg img     { max-width: 800px; height: auto; display: block; }
+.img-narrow img { max-width: min(200px, 100%); height: auto; display: block; }
+.img-sm img     { max-width: min(300px, 100%); height: auto; display: block; }
+.img-md img     { max-width: min(500px, 100%); height: auto; display: block; }
+.img-lg img     { max-width: min(800px, 100%); height: auto; display: block; }
 
 /* Wrap a Starlight <Card> in <a class="card-link"> to make the whole card clickable */
 .card-link {

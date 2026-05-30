@@ -16,9 +16,58 @@ A Bandwidth Monitor can pull data from:
 - **A local network interface** on your Mac (Wi-Fi, Ethernet, USB tethering, VPN).
 - **SNMP-enabled network devices** (switches, access points, NAS, servers) added manually via [Configuration Assistant](/user-guide/configuration-assistant/).
 
+## Section header
+
+The header bar above the monitors holds controls for the whole Bandwidth Monitors section:
+
+<div class="img-lg">
+
+![The Bandwidth Monitors section header with its controls labelled](./bandwidth-monitors-images/bandwidth-monitors-header.png)
+
+</div>
+
+From left to right:
+
+| Control | Description |
+|---------|-------------|
+| **Show / Hide** | Collapses or expands the entire Bandwidth Monitors section. |
+| **New Monitor** | Adds a new Bandwidth Monitor via the [Configuration Assistant](/user-guide/configuration-assistant/). |
+| **Counts** | Summarises monitors by status, with a colored dot for each: green for **Active**, yellow for **Warning**, red for **Error**, and grey for **Disabled**. |
+| **Split Graph** | Toggles between a single combined graph and a separate graph for each monitor. |
+| **Shared Y Axis** | Puts every monitor's graph on the same vertical scale so throughput can be compared directly. |
+| **Open History** | Opens the [History view](/user-guide/history-view/) for the monitors in this section. |
+
 ## Reading the graph
 
+<div class="img-lg">
+
+![Bandwidth Monitors in the Main View](./bandwidth-monitors-images/bandwidth-monitors.png)
+
+</div>
+
 Each monitor shows live upload (↑) and download (↓) throughput, plus a graph of recent activity. Hover over an expanded graph to reveal the [graph toolbar](#graph-toolbar) below.
+
+A single monitor packs more detail than it first appears:
+
+<div class="img-lg">
+
+![A single Bandwidth Monitor with its fuel gauges and maximum bandwidth lines labelled](./bandwidth-monitors-images/bandwidth-monitor-detail.png)
+
+</div>
+
+Along the top of each monitor, from left to right:
+
+- **Disclosure triangle** — expands or collapses the monitor's graph, leaving just the title and throughput visible.
+- **Status light** — a colored dot showing the monitor's current state: green for **Active**, yellow for **No Data** or **Initializing**, red for **Error**, and grey for **Disabled**.
+- **Symbol** — the icon representing device or interface being monitored. This can be configured in [Settings → Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/).
+- **Name** — the monitor's label. Set this in [Settings → Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/).
+- **Download speed** — current inbound throughput, marked with a down arrow (↓).
+- **Upload speed** — current outbound throughput, marked with an up arrow (↑).
+
+The graph itself adds a couple more details:
+
+- **Fuel gauges** — the slim bars beside the monitor title fill up to show current upload and download speed relative to the device's maximum bandwidth. Enable or disable them from [Settings → Display](/user-guide/settings/display/).
+- **Maximum bandwidth lines** — the dashed lines mark the maximum inbound and outbound bandwidth for the device, with optional numeric labels. This shows the configured theoretical maximum bandwidth for the given device or interface. Configure the maximum bandwidth under [Bandwidth Options](/user-guide/settings/monitors-settings/bandwidth-monitor/bandwidth-options/).
 
 ## Configuring
 
@@ -30,7 +79,7 @@ The same graph toolbar appears on both Bandwidth Monitors and [Latency Monitors]
 
 <div class="img-md">
 
-![Graph toolbar](./images/graph-toolbar.png)
+![Graph toolbar](./bandwidth-monitors-images/bandwidth-monitor-graph-toolbar.png)
 
 </div>
 
@@ -39,9 +88,7 @@ From left to right:
 | Control | Description |
 |---------|-------------|
 | **Zoom out** | Zooms the graph out, showing more time. |
-| **Zoom slider** | Adjusts the graph zoom continuously. |
 | **Zoom in** | Zooms the graph in, showing less time. |
-| **Lock / unlock graph scale** | When locked, the vertical scale fits the visible area. When unlocked, the scale fits the entire graph history. |
-| **Toggle absolute / relative times** | Switches the Y axis between absolute (e.g. 8:39 pm) and relative (e.g. 13m ago) times. |
-| **Share** | Share the graph via Mail, Messages, AirDrop, etc. |
+| **Share** | Shares the graph via Mail, Messages, AirDrop, etc. |
 | **History** | Opens the [History view](/user-guide/history-view/) for this target. |
+| **Settings** | Opens the settings for this monitor in [Settings → Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/). |
