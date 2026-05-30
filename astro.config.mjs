@@ -32,11 +32,11 @@ export default defineConfig({
         {
           label: 'User Guide',
           items: [
+            { label: 'Overview', slug: 'user-guide' },
             {
               label: 'Main View',
               items: [{ autogenerate: { directory: 'user-guide/main-view' } }],
             },
-            { label: 'Overview', slug: 'user-guide' },
             { slug: 'user-guide/requirements' },
             { slug: 'user-guide/first-time-setup' },
             { slug: 'user-guide/history-view' },
