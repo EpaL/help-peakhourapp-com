@@ -1,102 +1,126 @@
 ---
 title: "Configuration Assistant: Bandwidth Monitor"
-description: "Interface selection \\SNMP and Local Interface\\(#ConfigurationAssistant:BandwidthMonitor-Interfaceselection%5BSNMPandLocalInterface%5D) | Verify settings | Fina…"
+description: "A step-by-step walkthrough of adding a Bandwidth Monitor with PeakHour's Configuration Assistant — choosing a device, entering SNMP details, selecting an interface, verifying, and finishing."
 sidebar:
   order: 8
 status: needs-review
 ---
 
+A Bandwidth Monitor measures the upload and download throughput of a device on your network. The Configuration Assistant walks you through adding one step by step.
 
+PeakHour can measure bandwidth in three ways:
 
-[Interface selection \[SNMP and Local Interface\]](#ConfigurationAssistant:BandwidthMonitor-Interfaceselection%5BSNMPandLocalInterface%5D) | [Verify settings](#ConfigurationAssistant:BandwidthMonitor-Verifysettings) | [Finalise](#ConfigurationAssistant:BandwidthMonitor-Finalise) | [Didn't find any UPnP or SNMP-compatible devices?](#ConfigurationAssistant:BandwidthMonitor-Didn'tfindanyUPnPorSNMP-compatibledevices?) | [What next?](#ConfigurationAssistant:BandwidthMonitor-Whatnext?) | [Still need help?](#ConfigurationAssistant:BandwidthMonitor-Stillneedhelp?)
+- **UPnP** (Universal Plug and Play) — for routers that report throughput over UPnP. These devices are discovered automatically.
+- **SNMP** (Simple Network Management Protocol) — for routers, switches, and other devices that support SNMP. See [Adding an SNMP Device](/user-guide/configuration-assistant/configuration-assistant-bandwidth-monitor/adding-an-snmp-device/) for the SNMP-specific details.
+- **Local Interface** — an interface on your Mac itself, such as Wi-Fi or Ethernet.
 
-![CleanShot 2023 12 16 at 15.56.57@2x 20231216 205737](./images/cleanshot-2023-12-16-at-15-56-57-2x-20231216-205737.png)
+## 1. Choose the monitor type
 
-When configuring a Bandwidth Monitor, you have three different ways in which bandwidth can be measured:
+The first screen asks what kind of monitor you want to add. Choose **Bandwidth** and click **Next**.
 
-  - UPnP (Universal Plug and Play)
+<div class="img-lg">
 
-  - SNMP (Simple Network Management Protocol)
+![Choose Monitor Type screen with Bandwidth and Latency options; Bandwidth is selected](./adding-an-snmp-device-images/adding-an-snmp-device-1-intro.png)
 
-  - Local Interface on your Mac
+</div>
 
-When configuring or editing a Bandwidth Monitor, the first page shows a list of available options:
+To monitor latency instead, choose **Latency** — see [Configuration Assistant: Latency](/user-guide/configuration-assistant/configuration-assistant-latency/).
 
-  - **Add Network Device**  
-    This option lets you manually add and configure an SNMP device to be monitored. For detailed instructions on how to add an SNMP device, see: [Adding an SNMP Device](/user-guide/configuration-assistant/configuration-assistant-bandwidth-monitor/adding-an-snmp-device/).
+## 2. Choose a device
 
-  - **Add Local Interface**  
-    This option lets you choose an interface on your Mac to monitor. See below for more details.
+PeakHour scans your network for compatible devices and lists what it finds. You have three choices:
 
-  - **Discovered devices**  
-    Below the two options above is a list of discovered devices. This will contain devices that have been auto-discovered via [UPnP](https://peakhoursupport.atlassian.net/wiki/spaces/P5W/pages/9503464/UPnP) , as well as other Macs that are running SNMP via PeakHour Enabler. If you have UPnP devices on your network, but do not see them here, see our [UPnP Troubleshooting](https://peakhoursupport.atlassian.net/wiki/spaces/P5W/pages/9503200/UPnP+Troubleshooting) guide.
+<div class="img-lg">
 
-## Interface selection \[SNMP and Local Interface\]
+![Add Bandwidth Monitor screen showing Add SNMP Device and Local Interface buttons above a list of discovered devices](./adding-an-snmp-device-images/adding-an-snmp-device-2-choose-device.png)
 
-This screen lets you choose the interface to monitor.
+</div>
 
-If you’re adding/editing an SNMP monitor, you’ll see a list of interfaces on the device.
+- **Add SNMP Device** — enter an SNMP device's details manually. Use this when the device you want isn't discovered automatically.
+- **Local Interface** — monitor an interface on this Mac.
+- **Discovered devices** — the list below the two buttons. It includes devices found via UPnP, along with other Macs running SNMP via [PeakHour Enabler](/user-guide/monitor-another-mac-peakhour-enabler/). Each entry shows a status dot, the device's address, and a badge indicating how it was found (**UPnP** or **SNMP**).
 
-If you’re adding/editing a Local Interface monitor, you’ll see a list of interfaces on your Mac.
+Select a device or button and click **Next**.
 
-![CleanShot 2023 12 16 at 15.56.12@2x 20231216 205626](./images/cleanshot-2023-12-16-at-15-56-12-2x-20231216-205626.png)
+## 3. Enter SNMP details
 
-Choose the interface to monitor and click **Next**.
+If you chose **Add SNMP Device**, enter the device's connection and authentication details:
 
-## Verify settings
+<div class="img-lg">
 
-The Validation screen analyses the configuration and attempts to show a real-time view of bandwidth throughput.
+![SNMP Device Details screen with Hostname / IP, SNMP Version, Community and SNMP Timeout fields](./adding-an-snmp-device-images/adding-an-snmp-device-3-snmp-details.png)
 
-![CleanShot 2023 12 16 at 15.58.27@2x 20231216 205830](./images/cleanshot-2023-12-16-at-15-58-27-2x-20231216-205830.png)
+</div>
 
-The following describes the what the analysis means:
+| Field | Description |
+|-------|-------------|
+| **Hostname / IP** | The hostname, FQDN, or IP address of the device you want to monitor. |
+| **SNMP Version** | The SNMP version the device uses — **v1**, **v2c**, or **v3**. If you're unsure, try v1/v2c first. |
+| **Community** | The SNMP community string (essentially a password) the device responds to. A read-only community is sufficient. Shown for v1 and v2c. |
+| **SNMP Timeout** | How long PeakHour waits for a response before giving up. The default of 2 seconds suits most networks. |
 
-|                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Responding to queries**              | Whether or not the device is responding to (SNMP or UPnP) queries and returning meaningful responses.                                                                                                                                                                                                                                                                                                                                                                   |
-| **Reporting bandwidth**                | Whether or not the device appears to be reporting bandwidth correctly. This will be Yes if PeakHour can see that the device / interface is reporting traffic moving through the device. Note that this can be Yes but the device or interface may not report bandwidth correctly. In order to ensure whats being reported matches up with what you expect, we recommend a test by either downloading a file of a known size or using a site like [speedtest.net](http://speedtest.net) |
-| **High Capacity Counters (SNMP only)** | If this is Yes, the interface supports High Capacity (64-bit) counters. See [High Capacity Counters](https://peakhoursupport.atlassian.net/wiki/spaces/WIKI3/pages/458852/High+Capacity+Counters) for more information.                                                                                                                                                                                                                                                 |
+Click **Check** to test the settings. For the full details on SNMP versions, SNMPv3 security, and choosing interfaces, see [Adding an SNMP Device](/user-guide/configuration-assistant/configuration-assistant-bandwidth-monitor/adding-an-snmp-device/).
 
-If the graph appears to be showing throughput as you'd expect, click **Next**.
+:::note
+This step only appears for SNMP devices. If you chose a discovered UPnP device or a local interface, the assistant skips straight to the next step.
+:::
 
-## Finalise
+## 4. Select an interface
 
-The last screen in the Configuration Assistant lets you set a few important parameters:
+SNMP and local-interface devices can have several network interfaces. Choose the one you want to monitor and click **Next**.
 
-![CleanShot 2024 05 19 at 22.56.56@2x 20240520 025659](./images/cleanshot-2024-05-19-at-22-56-56-2x-20240520-025659.png)
+<div class="img-lg">
 
-**Symbol & Description**
+![Interface selection screen listing the device's interfaces, each with live throughput readings](./adding-an-snmp-device-images/adding-an-snmp-device-4-snmp-choose-interface.png)
 
-The symbol and description (or name) for this Monitor. Click either to change them.
+</div>
 
-**Visibility**
+Each interface shows its current download (↓) and upload (↑) throughput, which makes it easier to spot the right one. Most of the time you'll want the Internet (WAN) interface — on many routers this is named `wan0`, `pppoe0`, `internet`, or similar.
 
-- **Hide If Unreachable:** Hide this Monitor if it can’t be reached or is otherwise offline.
-- **Always Visible:** Always show this Monitor.
-- **Always Hide:** Always hide this Monitor.
+:::tip
+If you're not sure which interface carries your internet traffic, run a speed test at [speedtest.net](https://www.speedtest.net) while this list is visible, and watch which interface's throughput tracks the test.
+:::
 
-**Graph View / Summary View**
+To monitor more than one interface (say, both Internet and Wi-Fi), add the device again and choose a different interface each time.
 
-- **Graph View:** Shows this Monitor with graph (expanded) in the main view.
-- **Summary View:** Shows this Monitor without the graph (collapsed) in the main view.
+## 5. Verify settings
 
-Once you're done, click Finish. The new monitor should appear in the Main Window and, if configured, the menu bar.
+The Verify Settings screen checks the configuration and shows a live view of throughput so you can confirm everything is working before finishing.
 
-### Didn't find any UPnP or SNMP-compatible devices?
+<div class="img-lg">
 
-Check out our [Bandwidth Monitoring FAQ](https://peakhoursupport.atlassian.net/wiki/spaces/P5W/pages/9502997/Bandwidth+Monitoring+FAQ) for help and troubleshooting tips.
+![Verify Settings screen showing the interface checks and a live traffic readout for download and upload](./adding-an-snmp-device-images/adding-an-snmp-device-5-verify.png)
+
+</div>
+
+| Check | What it means |
+|-------|---------------|
+| **Responding to queries** | Whether the device responds to SNMP or UPnP queries and returns meaningful data. |
+| **Reporting bandwidth** | Whether the device appears to report traffic correctly. This can read **Yes** even if the figures don't match your expectations, so confirm with a real test — download a file of known size or run a speed test and watch the **Live Traffic** readout. |
+| **64-bit counters** *(SNMP only)* | Whether the interface supports high-capacity (64-bit) counters, which are needed to measure high-speed links accurately. |
+
+If the **Live Traffic** readout reflects throughput as you'd expect, click **Next**.
+
+## 6. Finalize setup
+
+The last screen sets a few key parameters. You can adjust all of these (and many more) later in [Settings → Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/).
+
+<div class="img-lg">
+
+![Finalize Setup screen with Symbol & Name, Visibility, and View Mode options](./adding-an-snmp-device-images/adding-an-snmp-device-6-finish.png)
+
+</div>
+
+| Setting | Description |
+|---------|-------------|
+| **Symbol & Name** | The icon and name for the monitor. Click either to change it. |
+| **Visibility** | Whether the monitor appears in the main window. **Automatic** hides it when it can't be reached; you can also force it to always show or always hide. A hidden monitor still runs and gathers data — it just may not be visible. |
+| **View Mode** | **Graph View** shows the monitor with its graph; **Summary View** shows summary data only (collapsed). |
+
+Click **Finish**. The new monitor appears in the main window and, if configured, the menu bar.
 
 ## What next?
 
-There are lots more ways to customize Bandwidth Monitors. For all the details, check the [Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/) tab in Settings.
+There are many more ways to customise a Bandwidth Monitor — see the [Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/) settings.
 
-# Still need help?
-
-  - [Bandwidth Monitoring FAQ](https://peakhoursupport.atlassian.net/wiki/spaces/P5W/pages/9502997/Bandwidth+Monitoring+FAQ)
-
-  - [Can PeakHour monitor the usage of individual computers / devices?](https://peakhoursupport.atlassian.net/wiki/spaces/P5W/pages/9503017/Can+PeakHour+monitor+the+usage+of+individual+computers+devices)
-
-  - [I'd like to monitor my Mac/PC/Linux devices. How can I enable them?](https://peakhoursupport.atlassian.net/wiki/spaces/P5W/pages/9503037/I+d+like+to+monitor+my+Mac+PC+Linux+devices.+How+can+I+enable+them)
-
-  - [Can PeakHour monitor the usage of individual computers / devices?](https://peakhoursupport.atlassian.net/wiki/spaces/P5W/pages/9503017/Can+PeakHour+monitor+the+usage+of+individual+computers+devices)
-
+If PeakHour didn't find your device, double-check that UPnP or SNMP is enabled on it, then use **Add SNMP Device** to add it by hostname or IP.

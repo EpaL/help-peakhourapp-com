@@ -6,23 +6,24 @@ sidebar:
 status: needs-review
 ---
 
+The Configuration Assistant walks you through adding a new Monitor or editing an existing one, step by step. It opens whenever you add a monitor or edit an existing one's connection settings.
 
+## What is a Monitor?
 
-The Configuration Assistant walks you through adding a new Monitor or editing an existing one.
+A Monitor tracks one aspect of your network. PeakHour has two types:
 
-**Having trouble monitoring your device(s)?**
+- **[Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/)** — measures the upload and download throughput of a device, such as your router or your Mac.
+- **[Latency Monitor](/user-guide/settings/monitors-settings/latency-monitor/)** — measures the latency to a hop or host on the internet, letting you see the latency between you and that endpoint, or between two endpoints (differential latency).
 
-If you're having trouble, have a look at the [Monitoring & Compatibility](https://peakhoursupport.atlassian.net/wiki/spaces/P5W/pages/9502987/Monitoring+Compatibility) FAQs.
+You can configure as many monitors as you wish (or as your Mac can handle!).
 
-# What is a Monitor?
+## Choosing the monitor type
 
-![CleanShot 2023 12 04 at 16.40.29@2x](./images/cleanshot-2023-12-04-at-16-40-29-2x.png)
+The first screen of the assistant asks which kind of monitor to add. Pick the type, then follow the matching walkthrough:
 
-  - A Monitor is either a [Bandwidth options](/user-guide/settings/monitors-settings/bandwidth-monitor/bandwidth-options/) or a [Connection Quality Monitor](/user-guide/settings/monitors-settings/connection-quality-monitor/).
-    
-      - [Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/) monitor the network through (upload and download) of a device.
-    
-      - [Connection Quality Monitor](/user-guide/settings/monitors-settings/connection-quality-monitor/) monitors the latency to a hop or specific host on the Internet, allowing you to see the latency between you and that endpoint, or between two different endpoints (differential latency).
+- [Adding a Bandwidth Monitor](/user-guide/configuration-assistant/configuration-assistant-bandwidth-monitor/) — choose a device, select an interface, verify, and finish.
+- [Adding a Latency Monitor](/user-guide/configuration-assistant/configuration-assistant-latency/) — set the host or hops to measure.
 
-  - You can configure and monitor as many Monitors as you wish (or your Mac can handle\!).
-
+:::tip
+If you're unsure how to set up your monitors, choose **File → First Time Setup** to run the guided setup assistant, which configures sensible defaults for you. See [First Time Setup](/user-guide/first-time-setup/).
+:::

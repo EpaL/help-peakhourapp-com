@@ -48,11 +48,23 @@
   color: #ffaa33;
 }
 
+/* Keep the first column of reference tables (control / setting names) on one
+   line so it isn't squeezed to a few characters wide by a long description
+   column. The label column stays as narrow as its content needs and the rest
+   of the width goes to the description. Starlight already makes wide tables
+   scroll horizontally, so this can't break narrow layouts. */
+.sl-markdown-content :is(th:first-child, td:first-child):not(:where(.not-content *)) {
+  white-space: nowrap;
+}
+
 /* Screenshot sizing helpers — wrap a Markdown image in <div class="img-*"> to constrain */
 .img-narrow img { max-width: min(200px, 100%); height: auto; display: block; }
 .img-sm img     { max-width: min(300px, 100%); height: auto; display: block; }
 .img-md img     { max-width: min(500px, 100%); height: auto; display: block; }
 .img-lg img     { max-width: min(800px, 100%); height: auto; display: block; }
+
+/* Inline icon — wrap a Markdown image in <span class="inline-icon"> to size it to the text */
+.inline-icon img { display: inline; height: 1.2em; width: auto; vertical-align: text-bottom; margin: 0; }
 
 /* Wrap a Starlight <Card> in <a class="card-link"> to make the whole card clickable */
 .card-link {

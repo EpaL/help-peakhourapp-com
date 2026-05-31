@@ -1,0 +1,116 @@
+---
+title: "Configuration Assistant: Latency"
+description: "A step-by-step walkthrough of adding a Latency Monitor with PeakHour's Configuration Assistant — single-host and multi-host modes, choosing hops, and finishing."
+sidebar:
+  order: 10
+status: needs-review
+---
+
+A Latency Monitor pings a host or hop and measures the round-trip time for a reply to come back, letting you track the latency and responsiveness of a point on your network path. The Configuration Assistant walks you through adding one step by step.
+
+:::note
+When the [Internet Dashboard](/user-guide/main-view/internet-dashboard/) is enabled, PeakHour automatically creates a series of Latency Monitors for your router, ISP, and several hosts on the internet. You can add your own monitors here, or customise the ones created automatically.
+:::
+
+## 1. Choose the monitor type
+
+The first screen asks what kind of monitor to add. Choose **Latency** and click **Next**.
+
+<div class="img-lg">
+
+![Choose Monitor Type screen with Bandwidth and Latency options; Latency is selected](./configuration-assistant-latency-images/configuration-assistant-latency-1-choose-monitor-type.png)
+
+</div>
+
+To monitor throughput instead, choose **Bandwidth** — see [Configuration Assistant: Bandwidth Monitor](/user-guide/configuration-assistant/configuration-assistant-bandwidth-monitor/).
+
+## 2. Choose what to measure
+
+The Latency screen lets you pick what to measure using the **Single Host** / **Multi-Host** toggle at the top:
+
+- **Single Host** — measures the latency from your Mac to one point on the path.
+- **Multi-Host** — measures the latency *between* two points, isolating a specific segment of the path.
+
+### Single Host
+
+In Single Host mode, pick the endpoint to measure the latency to. The path runs **This Mac → Local Network → ISP → Internet**; select the point you want.
+
+#### Local Network
+
+Measures the latency from your Mac to your local internet gateway (router) — typically the first hop. PeakHour discovers the router automatically using traceroute.
+
+<div class="img-lg">
+
+![Latency screen in Single Host mode with Local Network selected](./configuration-assistant-latency-images/configuration-assistant-latency-2-single-localnetwork.png)
+
+</div>
+
+#### ISP
+
+Measures the latency from your Mac to your ISP — typically the second hop. The **Monitored Hop** dropdown defaults to **Auto**, which discovers the right hop for you; set a specific hop only if the auto-discovered one doesn't respond to ping.
+
+<div class="img-lg">
+
+![Latency screen in Single Host mode with ISP selected and the Monitored Hop dropdown set to Auto](./configuration-assistant-latency-images/configuration-assistant-latency-3-single-isp.png)
+
+</div>
+
+#### Internet
+
+Measures the latency from your Mac to any host you choose. Enter a hostname or IP address (for example, `8.8.8.8` or `google.com`) in the **Address** field.
+
+<div class="img-lg">
+
+![Latency screen in Single Host mode with Internet selected and an Address field](./configuration-assistant-latency-images/configuration-assistant-latency-4-single-internet.png)
+
+</div>
+
+### Multi-Host
+
+Multi-Host mode measures the latency between two points on the path — a **Near** endpoint and a **Far** endpoint — so you can isolate where high or inconsistent latency is coming from. This is how the Internet Dashboard measures hops like **Router → ISP**.
+
+Choose the **Near** and **Far** endpoints from their dropdowns. Each can be **Local Network**, **ISP**, or **Internet**.
+
+<div class="img-lg">
+
+![Latency screen in Multi-Host mode with the Near endpoint dropdown open](./configuration-assistant-latency-images/configuration-assistant-latency-5-multi-near.png)
+
+</div>
+
+<div class="img-lg">
+
+![Latency screen in Multi-Host mode with the Far endpoint dropdown open](./configuration-assistant-latency-images/configuration-assistant-latency-6-multi-far.png)
+
+</div>
+
+When an endpoint is set to **ISP**, a **Hop** dropdown appears. Leave it on **Auto** to let PeakHour discover the best hop for your ISP, or pick a specific hop (Hop 2–Hop 10) if needed.
+
+<div class="img-lg">
+
+![Multi-Host mode with the Far endpoint set to ISP and the Hop dropdown showing Auto and Hop 2 to Hop 10](./configuration-assistant-latency-images/configuration-assistant-latency-7-multi-far-isp.png)
+
+</div>
+
+When you've chosen what to measure, click **Next**.
+
+## 3. Finalize setup
+
+The last screen sets a few key parameters. PeakHour suggests a name based on the endpoints you chose. You can adjust all of these (and many more) later in [Settings → Latency Monitor](/user-guide/settings/monitors-settings/latency-monitor/).
+
+<div class="img-lg">
+
+![Finalize Setup screen with Symbol & Name, Visibility, and View Mode options](./configuration-assistant-latency-images/configuration-assistant-latency-8-finalize.png)
+
+</div>
+
+| Setting | Description |
+|---------|-------------|
+| **Symbol & Name** | The icon and name for the monitor. Click either to change it. |
+| **Visibility** | Whether the monitor appears in the main window. **Automatic** hides it when it can't be reached; you can also force it to always show or always hide. A hidden monitor still runs and gathers data — it just may not be visible. |
+| **View Mode** | **Graph View** shows the monitor with its graph; **Summary View** shows summary data only (collapsed). |
+
+Click **Finish**. The new monitor appears in the main window and, if configured, the menu bar.
+
+## What next?
+
+There are many more ways to customise a Latency Monitor — see the [Latency Monitor](/user-guide/settings/monitors-settings/latency-monitor/) settings, where you can adjust polling intervals, latency thresholds, packet count, and colors.

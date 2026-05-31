@@ -59,6 +59,25 @@ Expanding the Internet Dashboard reveals the full path your traffic takes to rea
 
 Each segment shows the same set of elements: a status indicator, a latency graph, the latency to the next hop, and (where applicable) a device selector and throughput dials. The sections below cover each segment in turn.
 
+### Reading the latency timeline
+
+Every segment shares the same latency timeline. Once you can read it in one segment, you can read it in all of them:
+
+<div class="img-md">
+
+![Annotated latency timeline showing the status indicator, timeline, latency figure, packet loss and jitter warnings, and particle effects](./internet-dashboard-images/internet-dashboard-detailed-latency-timeline.png)
+
+</div>
+
+| Element | Description |
+|---------|-------------|
+| **Status** | A coloured dot and label (**OK**, **Light congestion**, **Heavy congestion** or **Error**) summarising the latency status of this hop. |
+| **Timeline** | A bar graph of recent latency readings, newest on the right. Each bar is colour-coded from green (Good) to red (Error) so you can spot recent trends and spikes at a glance. |
+| **Latency** | The current latency to the next hop (e.g. 17.5 ms). |
+| **Packet Loss Warning** | A drop icon that appears beside the latency figure when packet loss exceeds 1% on this hop. Mouse over the hop to see more detail. |
+| **Jitter Warning** | A waveform icon that appears when latency is varying significantly — high jitter, which can disrupt video calls and gaming. Mouse over the hop to see more detail. |
+| **Particle effects** | An animated flow beneath the timeline that visualises live traffic across the hop — color indicates congestion, follow the same scheme as the graph. |
+
 ### This Mac
 
 The **This Mac** segment represents your Mac's connection to the local network. It's the first segment in the path to the internet.
@@ -111,19 +130,19 @@ The **Router** segment represents your internet router or gateway — the device
 
 <div class="img-narrow">
 
-![Router segment showing status, latency graphs, device selector and throughput dials](./internet-dashboard-images/internet-dashboard-detailed-router.png)
+![Router segment showing status, latency graphs, gateway label and throughput dials](./internet-dashboard-images/internet-dashboard-detailed-router.png)
 
 </div>
 
 Because the router sits in the middle of the path, it shows a latency graph on each side — one for the hop from **This Mac** to the router, and one for the hop from the router to your **ISP**.
 
-PeakHour displays the detected Internet Gateway in this slot, recognising many router brands and showing the manufacturer's badge (for example, the UniFi logo) on the device icon. If no gateway is configured (via either UPnP or SNMP), it shows the default gateway with placeholder information instead. Throughput dials are only available when a gateway is actively being monitored. For more on configuring a gateway, see [First Time Setup](/user-guide/first-time-setup/) and [Settings → Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/).
+PeakHour displays the detected Internet Gateway in this slot, recognising many router brands and showing the manufacturer's badge (for example, the UniFi logo) on the device icon. For more on configuring a gateway, see [First Time Setup](/user-guide/first-time-setup/) and [Settings → Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/).
 
 | Element | Description |
 |---------|-------------|
 | **Status** | The status dot and bar graphs indicate the latency status of the hops on either side of the router. |
 | **Latency** | The figures beside each graph are the latency to the router (left) and from the router to your ISP (right). |
-| **Device selector** | The dropdown (e.g. **UniFi Dream Machine**) lets you choose which monitored device represents your router. |
+| **Gateway label** | The name (e.g. **UniFi Dream Machine**) of the [Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/) representing your Internet Gateway. It's normally detected automatically, but you can designate it manually in Settings. If no Bandwidth Monitor is detected or designated, the pill shows the default gateway's IP address instead, and the throughput dials stay empty. Click it to open the router information popover. |
 | **Throughput** | The two dials show real-time download (↓) and upload (↑) throughput reported by the router. Each dial fills relative to the gateway's configured [Bandwidth settings](/user-guide/settings/monitors-settings/bandwidth-monitor/bandwidth-options/). |
 
 Click the segment to open a popover with full details about your router:
@@ -228,6 +247,16 @@ The **Internet** segment represents the final hop — from your ISP out to the w
 | **Status** | The status dot and bar graph indicate the latency status of the hop from your ISP to the internet. |
 | **Latency** | The figure beside the graph is the latency from your ISP out to the internet. |
 | **Rating** | The overall connection quality grade, described in [AI Advisor Rating](#ai-advisor-rating) below. |
+
+Click the segment to open a popover listing the **Internet Hosts** — the endpoints PeakHour uses for connectivity checks:
+
+<div class="img-sm">
+
+![Internet Hosts popover listing the monitored endpoints — Google, Zoom and Cloudflare — each with a status dot](./internet-dashboard-images/internet-dashboard-internet-popover.png)
+
+</div>
+
+PeakHour measures the final hop by reaching out to several well-known endpoints (for example, **Google**, **Zoom**, and **Cloudflare**) and combining the results. Each host shows a status dot indicating whether it's currently reachable, along with the hostname used for the check. You can change which hosts are monitored in [Settings → Dashboard](/user-guide/settings/dashboard/).
 
 ### AI Advisor Rating
 

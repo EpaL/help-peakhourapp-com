@@ -33,16 +33,23 @@ export default defineConfig({
           label: 'User Guide',
           items: [
             { label: 'Overview', slug: 'user-guide' },
+            { slug: 'user-guide/requirements' },
+            { slug: 'user-guide/first-time-setup' },
             {
               label: 'Main View',
               items: [{ autogenerate: { directory: 'user-guide/main-view' } }],
             },
-            { slug: 'user-guide/requirements' },
-            { slug: 'user-guide/first-time-setup' },
             { slug: 'user-guide/history-view' },
             {
               label: 'Configuration Assistant',
-              items: [{ autogenerate: { directory: 'user-guide/configuration-assistant' } }],
+              items: [
+                { slug: 'user-guide/configuration-assistant' },
+                {
+                  label: 'Bandwidth Monitor',
+                  items: [{ autogenerate: { directory: 'user-guide/configuration-assistant/configuration-assistant-bandwidth-monitor' } }],
+                },
+                { slug: 'user-guide/configuration-assistant/configuration-assistant-latency' },
+              ],
             },
             { slug: 'user-guide/monitor-another-mac-peakhour-enabler' },
             {

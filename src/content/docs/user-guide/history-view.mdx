@@ -1,58 +1,76 @@
 ---
 title: "History view"
-description: "The History view offers a more comprehensive perspective of your monitor's data, enabling you to visualize the bandwidth activity or connection quality of your…"
+description: "The History view shows a monitor's bandwidth or connection-quality data over periods extending from hours to years, with controls for time range, level of detail, and how the data is displayed."
 sidebar:
   order: 6
-status: needs-review
+status: reviewed
 ---
 
+The History view gives a more comprehensive perspective on a monitor's data, letting you visualize bandwidth activity or connection quality for periods extending from the last few hours to years in the past.
 
+Both Bandwidth Monitors and Latency Monitors have a History view:
 
-The History view offers a more comprehensive perspective of your monitor's data, enabling you to visualize the bandwidth activity or connection quality of your targets for periods extending up to years in the past.
+<div class="img-lg">
 
-![CleanShot 2024 05 19 at 22.36.50@2x](./history-view-images/cleanshot-2024-05-19-at-22-36-50-2x.png)
+![The History view showing a bandwidth monitor over the last 24 hours](./history-view-images/history-view-bandwidth.png)
 
-Bring up the History view for any monitor by either clicking the ![Screen Shot 2015 02 09 at 9.19.46 pm](./history-view-images/screen-shot-2015-02-09-at-9-19-46-pm.png) button in the toolbar above the graph, or (if the graph is not visible), right-clicking the Monitor and choosing **History…** from the menu.
+</div>
 
-![CleanShot 2023 12 10 at 14.14.29@2x](./history-view-images/cleanshot-2023-12-10-at-14-14-29-2x.png)
+<div class="img-lg">
 
-## Viewing data points / details
+![The History view showing a latency monitor](./history-view-images/history-view-latency.png)
 
-The History graph supports mousing over individual points to see the actual values. You can also drag-select a range of values to see either a total or aggregate (average) for that period.
+</div>
 
-## The Toolbar
+## Opening the History view
 
-The toolbar along the top of the History window controls the period of time being shown in the graph, as well as what sort of information is shown (usage or speed), how it is displays (combined or split) and the level-of-detail.
+There are two ways to open the History view for a monitor:
 
-From left to right, the controls are:
+- Click the **History** button (<span class="inline-icon">![History toolbar button](./history-view-images/history-button.png)</span>) in the [graph toolbar](/user-guide/main-view/bandwidth-monitors/) above the monitor's graph.
+- If the graph isn't visible, right-click the monitor and choose **History…** from the menu.
 
-**Period**
+You can also open History for a whole section at once using the **Open History** button in the [Bandwidth Monitors](/user-guide/main-view/bandwidth-monitors/) or [Latency Monitors](/user-guide/main-view/latency-monitors/) section header. Once the window is open, use its sidebar to switch between monitors without reopening it.
 
-This dropdown controls the period for which to display data. There are a number of preset periods, or you can select **Choose Dates...** and choose a start and end date.
+## Reading the graph
 
-**Level-of-detail**
+Hover over any point on the graph to see the actual value at that moment. To inspect a span of time, drag-select a range — PeakHour shows the total (for usage) or the average (for speed) across the selected period.
 
-This controls how much time each point on the graph represents. For example, if you're viewing 12 hours of data you're likely going to want to see the data in 5 minute intervals. If however you're viewing several months of data, you're likely going to want to see the data in one-day intervals. Note that viewing higher levels of detail for longer periods may require a few seconds to calculate.
+<div class="img-md">
 
-**Combined / Split**
+![History graph with a hover-detail tooltip showing time, latency and packet loss, and a hatched region marking a gap with no data](./history-view-images/history-view-reading.png)
 
-Determines whether to show inbound and outbound graphs on the same axis or split them onto separate axes.
+</div>
 
-**Usage / Speed**
+- **Hover detail** — a tooltip showing the values at the point under the pointer. For a latency monitor this is the time, latency, and packet loss; for a bandwidth monitor it's the time and the usage or speed.
+- **No data** — a hatched region marks periods where no data was recorded, for example while PeakHour wasn't running.
+- **Estimated** — for bandwidth monitors, an **Estimated** tag indicates usage that PeakHour calculated by averaging the total data used between the time it stopped running and the time it started again, rather than measuring it directly.
 
-This toggles whether each point on the graph shows the total amount of data used (usage) or the average speed for that period (speed). Usage is always shown as a bar chart whilst speed is always shown as an area chart.
+## The toolbar
 
-**Share**
+The toolbar along the top of the window controls the period being shown, the level of detail, and how the data is displayed.
 
-Brings up the Sharing menu allows you to export a picture of the graph via Email, iMessage, Airdrop etc.
+<div class="img-lg">
 
-**Export to CSV**
+![The History view toolbar with its controls labelled](./history-view-images/history-view-toolbar.png)
 
-Exports the data currently being shown to a CSV file.
+</div>
 
-**Refresh**
+From left to right:
 
-Forces a refresh of the graph.
+| Control | Description |
+|---------|-------------|
+| **Show / Hide Sidebar** | Shows or hides the sidebar, which lists the monitors available to view in the History window. |
+| **Graph period** | Sets the time range to display. Choose one of the presets, or select **Choose Dates…** to pick a custom start and end date. |
+| **Level of detail** | Sets how much time each point on the graph represents — for example, 5-minute intervals for 12 hours of data, or one-day intervals for several months. Higher detail over long periods can take a few seconds to calculate. |
+| **Usage / Speed** | Toggles between the total amount of data used (**Usage**) and the average speed for each point (**Speed**). Bandwidth monitors only. |
+| **Stacked / Split** | Shows inbound and outbound on the same axis (**Stacked**) or on separate axes (**Split**). |
+| **Refresh** | Forces the graph to refresh. |
+| **Share** | Shares a picture of the graph via Mail, Messages, AirDrop, etc. |
+| **Export** | Exports the data currently shown to a CSV file. |
+| **Edit monitor** | Opens settings for the monitor being shown. |
 
-Note: the view will auto-refresh every minute or so. There are some circumstances where this will not happen however: if the graph takes a long time to render, auto-refresh will be automatically disabled to prevent excessive CPU utilisation. If you're finding the graph isn't automatically refreshing, try dropping the level of detail or the time period to speed up rendering and re-enable auto-refresh.
+The latency History view has the same toolbar without the **Usage / Speed** toggle, since latency monitors only show a single measurement type.
 
+:::note
+The view auto-refreshes about once a minute. If the graph takes a long time to render, auto-refresh is disabled automatically to avoid excessive CPU use. If the graph isn't refreshing on its own, lower the level of detail or shorten the time period to speed up rendering and re-enable auto-refresh.
+:::
