@@ -51,11 +51,11 @@ export default defineConfig({
                 { slug: 'user-guide/configuration-assistant/configuration-assistant-latency' },
               ],
             },
-            { slug: 'user-guide/monitor-another-mac-peakhour-enabler' },
             {
               label: 'Settings',
               items: [{ autogenerate: { directory: 'user-guide/settings' } }],
             },
+            { slug: 'user-guide/monitor-another-mac-peakhour-enabler' },
           ],
         },
         {

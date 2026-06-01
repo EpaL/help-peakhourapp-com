@@ -1,91 +1,24 @@
 ---
 title: "Monitor Another Mac (PeakHour Enabler)"
-description: "This page steps you through enabling other Macs so that they can be monitored by PeakHour. We've made this process super-easy by creating PeakHour Enabler. Thi…"
+description: "PeakHour Enabler is a free, open-source tool that configures another Mac so PeakHour can monitor its bandwidth over SNMP."
 sidebar:
   order: 30
 status: needs-review
 ---
 
+PeakHour can monitor the bandwidth of other Macs on your network. To do that, the Mac you want to monitor needs SNMP enabled — and **PeakHour Enabler** sets that up for you automatically.
 
+PeakHour Enabler is free and open source. The tool, its downloads, and the full step-by-step setup instructions now live on GitHub:
 
-# Steps
+<p>
+  <a href="https://github.com/EpaL/PeakHour-Enabler" target="_blank" rel="noopener noreferrer"><strong>PeakHour Enabler on GitHub →</strong></a>
+</p>
 
-This page steps you through enabling other Macs so that they can be monitored by PeakHour. We've made this process super-easy by creating **PeakHour Enabler**. This tool, which you can download for free below, will automatically set up your Mac(s) so that they can be monitored by PeakHour.
+## How it works
 
-Here's what you need to do:
+1. Run **PeakHour Enabler** on the Mac you want to monitor — it configures and starts SNMP for you. Full instructions are in the [repository's README](https://github.com/EpaL/PeakHour-Enabler#readme).
+2. On the Mac running PeakHour, open the [Bandwidth Configuration Assistant](/user-guide/configuration-assistant/configuration-assistant-bandwidth/) and add the enabled Mac.
 
-### 1. Get PeakHour Enabler
+When both Macs share the same iCloud account, PeakHour Enabler shares the connection details via iCloud, so the enabled Mac appears automatically in the list of discovered devices.
 
-On the Mac you want to monitor with PeakHour, download the latest version of PeakHour Enabler:
-
-  - ![(blue star)](./monitor-another-mac-peakhour-enabler-images/2b07.png) [**Download PeakHour Enabler**](https://updates.peakhourapp.com/releases/PeakHour%20Enabler.zip)
-
-### 2\. Run PeakHour Enabler
-
-1.  On the Mac you wish to monitor in PeakHour, launch PeakHour Enabler:
-    
-    ![Screen Shot 2017 07 02 at 11.55.29 PM](./monitor-another-mac-peakhour-enabler-images/screen-shot-2017-07-02-at-11-55-29-pm.png)
-
-2.  Click **Apply & Enable** to start and configure SNMP.
-    
-    Note: in **macOS Ventura** (macOS 13) and above, Apple has disabled the ability for Terminal to run scripts. To work around this, do the following:
-    
-    1.  Clicking Apply & Enable will display the following error:  
-          
-        ![CleanShot 2022 11 26 at 17.32.04@2x](./monitor-another-mac-peakhour-enabler-images/cleanshot-2022-11-26-at-17-32-04-2x.png)  
-          
-    2.  Click the *i* icon to reveal the path of the script.
-    3.  Double-click **PeakHourEnabler-Control.command** to open the script in **Finder**.
-    4.  Go back to **Terminal** and click **OK** to dismiss the error.
-    5.  Choose **Terminal \> Quit Terminal** from the menu.
-    6.  Go back to **Finder** and double-click the script to execute it.
-    7.  Follow the instructions below as normal.
-
-3.  Enter your macOS password when prompted:
-    
-    ![Screen Shot 2017 07 02 at 11.56.05 PM](./monitor-another-mac-peakhour-enabler-images/screen-shot-2017-07-02-at-11-56-05-pm.png)
-
-4.  Press **Command-Q** to Quit Terminal or choose **Terminal** \> **Quit** from the menu.
-    
-    ![Screen Shot 2017 07 02 at 11.57.40 PM](./monitor-another-mac-peakhour-enabler-images/screen-shot-2017-07-02-at-11-57-40-pm.png)
-
-5.  Status should now be Configured & Started.
-    
-    ![Screen Shot 2017 07 02 at 11.57.49 PM](./monitor-another-mac-peakhour-enabler-images/screen-shot-2017-07-02-at-11-57-49-pm.png)
-
-6.  Click **Exit**.
-
-### 3\. Add the Mac to PeakHour
-
-Switch to the Mac running PeakHour.
-
-1.  Go to **Settings** \> **+** \> **Bandwidth Monitor**. You should see enabled Mac in the list of available devices. Click on the Mac and click **Next** to configure it.
-    
-    ![CleanShot 2023 12 16 at 13.13.05@2x 20231216 181333](./monitor-another-mac-peakhour-enabler-images/cleanshot-2023-12-16-at-13-13-05-2x-20231216-181333.png)
-
-2.  Confirm the SNMP details (the IP address and SNMP community will be automatically populated.
-
-3.  Choose the interface you wish to monitor.
-    
-    ![CleanShot 2023 12 16 at 13.16.00@2x 20231216 181607](./monitor-another-mac-peakhour-enabler-images/cleanshot-2023-12-16-at-13-16-00-2x-20231216-181607.png)
-
-4.  Click **Finish**.
-
-5.  The Mac will be added as a new Bandwidth Monitor.
-
-PeakHour Enabler uses iCloud to share configuration details. The Mac will only auto-populate in the Configuration Assistant if both Macs are sharing the same iCloud account.
-
-#### If they're not sharing the same iCloud accout
-
-1.  In PeakHour, open [Settings](/user-guide/settings/).
-
-2.  Click + to add a new Target.
-
-3.  Choose **Bandwidth**.
-
-4.  Click **Add SNMP Device...**
-
-5.  Specify the IP address and SNMP community you noted down in step 6b. above.
-
-6.  Click **Next** and **Finish**.
-
+If the two Macs aren't on the same iCloud account, add it manually instead: in the Bandwidth Configuration Assistant choose **Add SNMP Device** and enter the Mac's IP address and SNMP community (both shown by PeakHour Enabler).
