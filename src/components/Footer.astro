@@ -1,0 +1,96 @@
+---
+// Override of Starlight's Footer. Adds a "Was this page helpful?" feedback
+// block above the default footer (pagination, edit link, last updated) on
+// every page, then renders the default footer below it.
+//
+// The feedback links are pre-filled with the current page's title and URL:
+//  - "Suggest an improvement" opens a new GitHub issue
+//  - "Email feedback" opens the reader's mail app to support@peakhourapp.com
+import Default from '@astrojs/starlight/components/Footer.astro';
+
+const { entry } = Astro.locals.starlightRoute;
+const title = entry.data.title;
+const pageUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
+
+const repo = 'https://github.com/EpaL/help-peakhourapp-com';
+const issueTitle = `Docs feedback: ${title}`;
+const issueBody = `Page: ${pageUrl}\n\n<!-- Describe what's wrong, unclear, or could be improved. -->\n`;
+const githubHref = `${repo}/issues/new?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}`;
+
+const mailSubject = `Docs feedback: ${title}`;
+const mailBody = `Page: ${pageUrl}\n\nWhat could be improved on this page?\n`;
+const mailHref = `mailto:support@peakhourapp.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+---
+
+<div class="docs-feedback" data-pagefind-ignore>
+  <p class="docs-feedback__title">Was this page helpful?</p>
+  <p class="docs-feedback__text">
+    Found something wrong, unclear, or out of date? Let us know and we'll fix it.
+  </p>
+  <div class="docs-feedback__actions">
+    <a
+      class="docs-feedback__btn"
+      href={githubHref}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Suggest an improvement&nbsp;↗
+    </a>
+    <a class="docs-feedback__btn docs-feedback__btn--secondary" href={mailHref}>
+      Email feedback
+    </a>
+  </div>
+</div>
+
+<Default><slot /></Default>
+
+<style>
+  .docs-feedback {
+    margin-block: 2rem 1.5rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    background: var(--sl-color-gray-6, var(--sl-color-gray-7));
+  }
+  .docs-feedback__title {
+    margin: 0;
+    font-size: var(--sl-text-lg);
+    font-weight: 600;
+    color: var(--sl-color-white);
+  }
+  .docs-feedback__text {
+    margin: 0.25rem 0 0.75rem;
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-2);
+  }
+  .docs-feedback__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .docs-feedback__btn {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.4rem;
+    font-size: var(--sl-text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    line-height: 1.3;
+    background: var(--sl-color-accent);
+    color: var(--sl-color-white);
+    border: 1px solid var(--sl-color-accent);
+  }
+  .docs-feedback__btn:hover {
+    background: var(--sl-color-accent-high);
+    border-color: var(--sl-color-accent-high);
+  }
+  .docs-feedback__btn--secondary {
+    background: transparent;
+    color: var(--sl-color-text-accent);
+    border-color: var(--sl-color-gray-4);
+  }
+  .docs-feedback__btn--secondary:hover {
+    background: var(--sl-color-gray-5);
+    color: var(--sl-color-white);
+  }
+</style>

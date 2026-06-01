@@ -27,6 +27,9 @@ export default defineConfig({
         // Inject the "needs review" banner automatically when an article's
         // frontmatter has `status: needs-review`.
         MarkdownContent: './src/components/MarkdownContent.astro',
+        // Add a "Was this page helpful?" feedback block (GitHub issue + email)
+        // above the default footer on every page.
+        Footer: './src/components/Footer.astro',
       },
       sidebar: [
         {
@@ -44,10 +47,7 @@ export default defineConfig({
               label: 'Configuration Assistant',
               items: [
                 { slug: 'user-guide/configuration-assistant' },
-                {
-                  label: 'Bandwidth Monitor',
-                  items: [{ autogenerate: { directory: 'user-guide/configuration-assistant/configuration-assistant-bandwidth-monitor' } }],
-                },
+                { slug: 'user-guide/configuration-assistant/configuration-assistant-bandwidth-monitor' },
                 { slug: 'user-guide/configuration-assistant/configuration-assistant-latency' },
               ],
             },

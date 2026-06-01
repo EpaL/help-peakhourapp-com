@@ -11,7 +11,7 @@ A Bandwidth Monitor measures the upload and download throughput of a device on y
 PeakHour can measure bandwidth in three ways:
 
 - **UPnP** (Universal Plug and Play) — for routers that report throughput over UPnP. These devices are discovered automatically.
-- **SNMP** (Simple Network Management Protocol) — for routers, switches, and other devices that support SNMP. See [Adding an SNMP Device](/user-guide/configuration-assistant/configuration-assistant-bandwidth-monitor/adding-an-snmp-device/) for the SNMP-specific details.
+- **SNMP** (Simple Network Management Protocol) — for routers, switches, and other devices that support SNMP. PeakHour supports SNMPv1, v2c, and v3, with both 32-bit and 64-bit counters.
 - **Local Interface** — an interface on your Mac itself, such as Wi-Fi or Ethernet.
 
 ## 1. Choose the monitor type
@@ -20,7 +20,7 @@ The first screen asks what kind of monitor you want to add. Choose **Bandwidth**
 
 <div class="img-lg">
 
-![Choose Monitor Type screen with Bandwidth and Latency options; Bandwidth is selected](./adding-an-snmp-device-images/adding-an-snmp-device-1-intro.png)
+![Choose Monitor Type screen with Bandwidth and Latency options; Bandwidth is selected](./configuration-assistant-bandwidth-images/configuration-assistant-bandwidth-1-intro.png)
 
 </div>
 
@@ -32,7 +32,7 @@ PeakHour scans your network for compatible devices and lists what it finds. You 
 
 <div class="img-lg">
 
-![Add Bandwidth Monitor screen showing Add SNMP Device and Local Interface buttons above a list of discovered devices](./adding-an-snmp-device-images/adding-an-snmp-device-2-choose-device.png)
+![Add Bandwidth Monitor screen showing Add SNMP Device and Local Interface buttons above a list of discovered devices](./configuration-assistant-bandwidth-images/configuration-assistant-bandwidth-2-choose-device.png)
 
 </div>
 
@@ -44,11 +44,11 @@ Select a device or button and click **Next**.
 
 ## 3. Enter SNMP details
 
-If you chose **Add SNMP Device**, enter the device's connection and authentication details:
+If you chose **Add SNMP Device**, enter the device's connection and authentication details. Before you start, make sure you have the device's hostname or IP address and its SNMP credentials — the **community string** for SNMP v1/v2c, or the **Security Name**, **Auth Key**, and optional **Privacy Key** for SNMPv3.
 
 <div class="img-lg">
 
-![SNMP Device Details screen with Hostname / IP, SNMP Version, Community and SNMP Timeout fields](./adding-an-snmp-device-images/adding-an-snmp-device-3-snmp-details.png)
+![SNMP Device Details screen with Hostname / IP, SNMP Version, Community and SNMP Timeout fields](./configuration-assistant-bandwidth-images/configuration-assistant-bandwidth-3-snmp-details.png)
 
 </div>
 
@@ -59,7 +59,19 @@ If you chose **Add SNMP Device**, enter the device's connection and authenticati
 | **Community** | The SNMP community string (essentially a password) the device responds to. A read-only community is sufficient. Shown for v1 and v2c. |
 | **SNMP Timeout** | How long PeakHour waits for a response before giving up. The default of 2 seconds suits most networks. |
 
-Click **Check** to test the settings. For the full details on SNMP versions, SNMPv3 security, and choosing interfaces, see [Adding an SNMP Device](/user-guide/configuration-assistant/configuration-assistant-bandwidth-monitor/adding-an-snmp-device/).
+When you select **v3**, additional authentication fields replace **Community**:
+
+| Field | Description |
+|-------|-------------|
+| **Security Name** | The SNMPv3 username the device authenticates against. |
+| **Security Mode** | The level of security to use — authentication and/or privacy (encryption). |
+| **Auth Key** | The authentication passphrase for the security name. |
+| **Privacy Key** | The optional passphrase used to encrypt the data. |
+| **Protocol** | The authentication and privacy algorithms the device expects. |
+
+SNMPv3 adds stronger authentication and encryption, but it's newer and generally only supported by more capable devices. For background on SNMPv3 security, see [snmp.com's SNMPv3 introduction](http://www.snmp.com/snmpv3/snmpv3_intro.shtml).
+
+Click **Check** to test the settings.
 
 :::note
 This step only appears for SNMP devices. If you chose a discovered UPnP device or a local interface, the assistant skips straight to the next step.
@@ -71,11 +83,11 @@ SNMP and local-interface devices can have several network interfaces. Choose the
 
 <div class="img-lg">
 
-![Interface selection screen listing the device's interfaces, each with live throughput readings](./adding-an-snmp-device-images/adding-an-snmp-device-4-snmp-choose-interface.png)
+![Interface selection screen listing the device's interfaces, each with live throughput readings](./configuration-assistant-bandwidth-images/configuration-assistant-bandwidth-4-snmp-choose-interface.png)
 
 </div>
 
-Each interface shows its current download (↓) and upload (↑) throughput, which makes it easier to spot the right one. Most of the time you'll want the Internet (WAN) interface — on many routers this is named `wan0`, `pppoe0`, `internet`, or similar.
+Each interface shows its current download (↓) and upload (↑) throughput, which makes it easier to spot the right one. Most of the time you'll want the Internet (WAN) interface — on many routers this is named `wan0`, `pppoe0`, `internet`, or similar. Interface names vary between manufacturers and devices, so you may need to do a little detective work if you're not sure which one to pick.
 
 :::tip
 If you're not sure which interface carries your internet traffic, run a speed test at [speedtest.net](https://www.speedtest.net) while this list is visible, and watch which interface's throughput tracks the test.
@@ -89,7 +101,7 @@ The Verify Settings screen checks the configuration and shows a live view of thr
 
 <div class="img-lg">
 
-![Verify Settings screen showing the interface checks and a live traffic readout for download and upload](./adding-an-snmp-device-images/adding-an-snmp-device-5-verify.png)
+![Verify Settings screen showing the interface checks and a live traffic readout for download and upload](./configuration-assistant-bandwidth-images/configuration-assistant-bandwidth-5-verify.png)
 
 </div>
 
@@ -107,7 +119,7 @@ The last screen sets a few key parameters. You can adjust all of these (and many
 
 <div class="img-lg">
 
-![Finalize Setup screen with Symbol & Name, Visibility, and View Mode options](./adding-an-snmp-device-images/adding-an-snmp-device-6-finish.png)
+![Finalize Setup screen with Symbol & Name, Visibility, and View Mode options](./configuration-assistant-bandwidth-images/configuration-assistant-bandwidth-6-finish.png)
 
 </div>
 
