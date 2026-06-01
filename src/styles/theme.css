@@ -66,6 +66,25 @@
 /* Inline icon — wrap a Markdown image in <span class="inline-icon"> to size it to the text */
 .inline-icon img { display: inline; height: 1.2em; width: auto; vertical-align: text-bottom; margin: 0; }
 
+/* Prominent call-to-action button — <a class="cta-button"> in article content */
+.cta-button {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.5rem;
+  font-size: var(--sl-text-base);
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1.3;
+  background: var(--sl-color-accent);
+  color: var(--sl-color-white);
+  border: 1px solid var(--sl-color-accent);
+}
+.cta-button:hover {
+  background: var(--sl-color-accent-high);
+  border-color: var(--sl-color-accent-high);
+  color: var(--sl-color-white);
+}
+
 /* Wrap a Starlight <Card> in <a class="card-link"> to make the whole card clickable */
 .card-link {
   text-decoration: none;
