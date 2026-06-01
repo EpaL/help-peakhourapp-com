@@ -47,7 +47,7 @@ export default defineConfig({
               label: 'Configuration Assistant',
               items: [
                 { slug: 'user-guide/configuration-assistant' },
-                { slug: 'user-guide/configuration-assistant/configuration-assistant-bandwidth-monitor' },
+                { slug: 'user-guide/configuration-assistant/configuration-assistant-bandwidth' },
                 { slug: 'user-guide/configuration-assistant/configuration-assistant-latency' },
               ],
             },
