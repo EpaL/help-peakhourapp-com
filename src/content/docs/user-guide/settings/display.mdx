@@ -1,114 +1,86 @@
 ---
 title: "Display"
-description: "Display settings — refresh interval, bandwidth units, and appearance options for PeakHour."
+description: "Display settings — refresh interval, bandwidth units, monitor layout, colors, congestion thresholds, and appearance."
 sidebar:
   order: 24
-status: needs-review
+status: reviewed
 ---
 
-![CleanShot 2024 05 25 at 13.58.53@2x 20240525 175853](./display-images/cleanshot-2024-05-25-at-13-58-53-2x-20240525-175853.png)
+The **Display** settings control how PeakHour looks and how often it updates.
+
+<div class="img-sm">
+
+![The Display settings page](./display-images/settings-display.png)
+
+</div>
 
 ## Refresh & Units
 
-**Refresh**
-
-Controls how often PeakHour updates. This means polling each monitor for new data.
-
-**Note:** The more often you poll, the more resources PeakHour will use and more load you'll place on each device.
-
-**Bandwidth Units**
-
-Controls the display of bandwidth throughout PeakHour:
-
-- **KBytes/s, MBytes/s, GBytes/s,** ...
-  Display as *x bytes per second*.
-- **Kbits/s, Mbits/s, Gbits/s**
-  Display as *x bits per second*.
-- **MBytes/s, GBytes/s,...**
-  Display as *x bytes per second* (&lt;1 MByte/s is rounded up)
-- **MBits/s, GBits/s,...**
-  Display as *x bits per second* (&lt;1 Mbit/s is rounded up)
-
-**Bandwidth Display**
-
-**Bandwidth Fuel gauges:** display a fuel guage behind bandwidth text. The gauge is scaled to the maximum bandwidth of the device.
-
-![CleanShot 2023 12 15 at 20.17.34@2x 20231216 011738](./display-images/cleanshot-2023-12-15-at-20-17-34-2x-20231216-011738.png)
+| Setting | Description |
+|---------|-------------|
+| **Refresh Interval** | How often PeakHour polls each monitor for new data. More frequent polling uses more resources on your Mac and on the monitored devices. |
+| **Bandwidth Units** | The units used to display throughput throughout PeakHour — bits per second (Kbit/s, Mbit/s, Gbit/s) or bytes per second (KByte/s, MByte/s, GByte/s). |
 
 ## Monitors
 
-**Layout - Single Column**
+| Setting | Description |
+|---------|-------------|
+| **Summary Bar** | Whether the summary (current readings) appears above or below the graph. |
+| **Graph Smoothing** | Applies a rolling average to smooth out irregularities. Higher settings make the graph smoother but slower to reflect changes; lower settings make it more responsive but more jagged. |
+| **Fuel Gauges** | Displays a bar behind the bandwidth numbers showing the current speed relative to the device's maximum bandwidth, when that's known. |
 
-All monitors are in a single column, filling the full width of the view. The window can be resized to any width.
+## Monitor Layout
 
-![CleanShot 2024 05 25 at 14.02.58@2x 20240525 180305](./display-images/cleanshot-2024-05-25-at-14-02-58-2x-20240525-180305.png)
+Choose how monitors are arranged in the main window.
 
-**Layout - Multi Column**
+- **Single Column** — all monitors in one full-width column; the window can be resized to any width.
+- **Multi Column** — monitors laid out in a grid at a fixed width, so you can fit several per row. The window snaps to multiples of that width.
 
-This enables Multi-Column mode, where you can layout monitors in a grid. Each monitor is a customizable, fixed width (adjustable via the **Width** slider, see below). The window can be resized in increments of that fixed width, allowing you to fit multiple monitors per row. The window sizes are snapped to the width of the graph. Graphs are all the same width, but you can adjust that width with the **Graph Width** slider.
+| Setting | Description |
+|---------|-------------|
+| **Column Width** *(Multi Column)* | The fixed width of each monitor card. |
+| **Graph Height** | The height of monitors that show a graph. Summary-only monitors aren't affected. |
 
-![CleanShot 2024 05 26 at 13.53.55@2x 20240526 175402](./display-images/cleanshot-2024-05-26-at-13-53-55-2x-20240526-175402.png)
+:::tip
+You can also resize a monitor card directly — drag its **right** edge to change the width, or its **bottom** edge to change the height.
+:::
 
-**Width (Multi Column mode only)**
+## Bandwidth Colors
 
-In Multi Column mode, the monitors are a fixed width that is controlled by this slider. The window can be resized in increments of this width, allowing multiple monitors per row. This can be used to create a compact, space-efficient layout.
+The colors used for **Download** and **Upload** traffic on Bandwidth Monitor graphs.
 
-**Height**
+## Latency Colors
 
-This controls the height of monitors with graph enabled. The slide controls the total height of the monitor, including the graph. Monitors in Summary mode (no graph showing) are not affected by this setting.
+The colors used to indicate latency on Latency Monitor graphs, blended as a gradient between them:
 
-**Summary Bar**
+| Color | Meaning |
+|-------|---------|
+| **Normal** | Good latency — at or near a monitor's measured minimum. |
+| **Slight Congestion** | Mild congestion. |
+| **Heavy Congestion** | Significant congestion. |
+| **Packet Loss** | The color of the packet-loss line in the [History view](/user-guide/history-view/), which shows the percentage of packets lost in each period. It isn't shown on the live monitor graph. |
 
-This determines if the summary is above or below the graph.
+Click **Reset Colors…** to restore the defaults.
 
-![CleanShot 2024 05 26 at 13.58.59@2x 20240526 175903](./display-images/cleanshot-2024-05-26-at-13-58-59-2x-20240526-175903.png)
+## Congestion Thresholds
 
-![CleanShot 2024 05 26 at 14.03.39@2x 20240526 180344](./display-images/cleanshot-2024-05-26-at-14-03-39-2x-20240526-180344.png)
+How much latency above a monitor's measured minimum counts as congestion:
 
-**Graph Smoothing**
+| Setting | Description |
+|---------|-------------|
+| **Slight Congestion** | Additional latency above the minimum before the connection is considered slightly congested (default 75 ms). |
+| **Heavy Congestion** | Additional latency before it's considered heavily congested (default 125 ms). |
 
-Enables smoothing of the data. This implements a rolling average where new values are average with the previous x values in an attempt to smooth out irregularities. For example:
+Click **Reset Thresholds…** to restore the defaults. Each monitor's minimum-latency baseline is set on its own [Latency Monitor](/user-guide/settings/monitors-settings/latency-monitor/#latency) settings.
 
-![Screen Shot 2013 10 26 at 4.33.33 pm](./display-images/screen-shot-2013-10-26-at-4-33-33-pm.png) *Smoothing turned off*
+## Interface
 
-![Screen Shot 2013 10 26 at 4.38.20 pm](./display-images/screen-shot-2013-10-26-at-4-38-20-pm.png) *Smoothing set to **Strong***
+| Setting | Description |
+|---------|-------------|
+| **Appearance** | **System** follows the macOS appearance (System Settings → Appearance), or force **Light** or **Dark**. |
+| **Smooth Scrolling** | Slides the graph sideways smoothly using Core Animation. Uses more of your Mac's resources. |
+| **Enable Vibrancy** | The 'frosted glass' effect that lets colors behind the window bleed through — affects monitors and History windows. |
 
-Essentially: The higher this value is set, the longer changes in throughput will take to become evident. The lower the setting, the more 'jagged' the graph will tend to be.
-
-**Smooth Scrolling**
-
-This option enables smooth sideways scrolling of the graph. This uses Core Animation to constantly slide the graph sideways at a constant speed, giving a much more fluid look.
-
-**Note:** this option requires more of your Mac’s resources.
-
-**Interface Mode (Auto/Dark/Light)**
-
-Choose between **Light** and **Dark** interface modes. **System** will track the macOS setting (System Settings > Appearance).
-
-**Enable Vibrancy**
-
-Vibrancy is the 'frosted glass'-like effect which allows some of the colors behind the window to bleed through.
-
-Vibrancy affects the following elements:
-
-- Monitors (Graph+Detail and Detail Only) in the main dropdown.
-- History windows
-
-<div class="confluence-information-macro confluence-information-macro-information">
-<span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-<div class="confluence-information-macro-body">
-<p>PeakHour needs to restart for changes to this option to take effect.</p>
-</div>
-</div>
-
-![vibrancy disabled](./display-images/vibrancy-disabled.png)
-
-![vibrancy enabled](./display-images/vibrancy-enabled.png)
-
-<div class="confluence-information-macro confluence-information-macro-note">
-<span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
-<div class="confluence-information-macro-body">
-<p>Vibrancy requires more resources to render, especially when many graphs are enabled. Switch it off you're aiming to optimize battery and/or performance.</p>
-</div>
-</div>
-
+:::note
+Changing **Appearance** or **Enable Vibrancy** requires restarting PeakHour. Vibrancy uses more resources to render, so turn it off to optimise battery or performance.
+:::

@@ -47,22 +47,11 @@ Controls how the monitor appears in the main window.
 
 **Graph Timespan** — how many minutes of data the main graph retains. You can scroll the graph vertically to see up to 12 hours back; larger values can affect performance. For older data, use the [History view](/user-guide/history-view/).
 
-**Colors** — PeakHour uses color to indicate latency, blending from Normal (minimum latency) through Light Congestion to Heavy Congestion as a gradient. Optionally, the monitor's background changes to match.
-
-| Color | Meaning |
-|-------|---------|
-| **Normal** | The base color for 'good' or optimum latency. The baseline minimum is set under [Latency](#latency). |
-| **Light Congestion** | The color for slight congestion. |
-| **Light Congestion Latency** | What counts as slight congestion. Default = Normal latency + 75 ms. |
-| **Heavy Congestion** | The color for significant congestion. |
-| **Heavy Congestion Latency** | What counts as significant congestion. Default = minimum + light-congestion latency + 125 ms. |
-| **Packet Loss** | The color marking packet loss, shown as a grey mark rather than plotted as a series. |
-
-**Background color indicates congestion** — when enabled, the details view's background blends with the current latency color.
+Latency colors and the congestion thresholds that drive them are set globally for all monitors — see [Display → Latency Colors](/user-guide/settings/display/#latency-colors) and [Congestion Thresholds](/user-guide/settings/display/#congestion-thresholds). Each monitor's own minimum-latency baseline, set under [Latency](#latency) below, determines where those thresholds apply.
 
 ## Latency
 
-Adjusts what PeakHour treats as 'normal' (minimum) latency — the baseline for the Normal, Light Congestion, and Heavy Congestion colors.
+Adjusts what PeakHour treats as 'normal' (minimum) latency — the baseline for the Normal, Slight Congestion, and Heavy Congestion colors.
 
 | Field | Description |
 |-------|-------------|
