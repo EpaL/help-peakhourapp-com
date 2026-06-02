@@ -31,16 +31,30 @@ Shows whether the device is currently responding to queries.
 
 ## Device
 
-Connection details for the monitored device. The exact fields depend on whether it's monitored over SNMP or UPnP.
+Connection details for the monitored device. The fields shown depend on whether the device is monitored over **SNMP** or **UPnP**.
+
+For an **SNMP** device:
 
 | Field | Description |
 |-------|-------------|
-| **Host** | The hostname or IP address (SNMP), or the root UPnP URL (UPnP). |
-| **Description** | The system description — `sysDescr` for SNMP, or the friendly name for UPnP. |
-| **Interface** | The name of the interface being monitored (SNMP). |
+| **Host** | The hostname or IP address of the device. |
+| **Description** | The system description (`sysDescr`). |
+| **Interface** | The name of the interface being monitored. |
 | **Interface Speed** | The reported link speed of the interface. |
-| **64-bit Counters** | Whether the interface supports high-capacity (64-bit) counters, needed to measure high-speed links accurately. |
-| **SNMP Version** | The SNMP version in use — v1, v2c, or v3 (SNMP devices). |
+| **64-bit Counters** | Whether the interface supports high-capacity (64-bit) counters. These are needed to measure high-speed links accurately, and for accurate usage tracking — especially when PeakHour isn't always running, since 32-bit counters can roll over while it's stopped. See [Usage Monitoring](/troubleshooting/wiki/usage-monitoring/). |
+| **SNMP Version** | The SNMP version in use — v1, v2c, or v3. |
+
+For a **UPnP** device:
+
+| Field | Description |
+|-------|-------------|
+| **Name** | The device's friendly name (e.g. UniFi Dream Machine). |
+| **Manufacturer** | The device's manufacturer (e.g. Ubiquiti Networks). |
+| **Model** | The device's model and identifier (e.g. UDM-Pro). |
+| **Serial Number** | The device's serial number. |
+| **Endpoint** | The UPnP root description URL (e.g. `http://192.168.1.1:42111/rootDesc.xml`). |
+| **WAN Access Type** | The connection technology the device reports (e.g. Cable, Fiber, DSL). |
+| **Max Downstream** / **Max Upstream** | The maximum downstream and upstream link rates the device reports. |
 
 ## Settings
 
