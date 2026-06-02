@@ -1,80 +1,70 @@
 ---
 title: "Dashboard"
-description: "The Dashboard tab is where you enable and configure the Internet Dashboard. The Internet Dashboard shows a real-time view of your Internet latency and throughp…"
+description: "The Dashboard settings enable and configure the Internet Dashboard — the hosts it pings, network quality testing, ISP lookup, the AI Advisor, notifications, and visual effects."
 sidebar:
   order: 23
 status: needs-review
 ---
 
+The **Dashboard** settings are where you enable and configure the [Internet Dashboard](/user-guide/main-view/internet-dashboard/) — a real-time view of your internet latency, throughput, and connection health.
 
+<div class="img-sm">
 
-The Dashboard tab is where you enable and configure the Internet Dashboard. The Internet Dashboard shows a real-time view of your Internet latency and throughput, along with other metrics that indicate the health of your Mac’s connectivity.
+![The Internet Dashboard settings page](./dashboard-images/settings-internet-dashboard.png)
 
-![CleanShot 2024 05 25 at 13.55.59@2x 20240525 175559](./dashboard-images/cleanshot-2024-05-25-at-13-55-59-2x-20240525-175559.png)
+</div>
 
-**Enable Internet Dashboard**
+**Enable Internet Dashboard** — turns the Internet Dashboard on and shows it on the main display, displaying latency to your router, ISP, and endpoints on the internet. For what it shows, see [Internet Dashboard](/user-guide/main-view/internet-dashboard/).
 
-Enables the Internet Dashboard and shows it on the main display.
+## Internet Hosts
 
-For more information on the Internet Dashboard and the information it presents, see [Internet Dashboard](/user-guide/main-view/internet-dashboard/).
+PeakHour continually pings three hosts and aggregates the round-trip times into a combined view of internet latency. Choose services you use often.
 
-## Internet Monitoring
+**Host 1, 2, 3** — the service to ping for each slot. Each dropdown offers a large list of popular services and DNS providers: Akamai, Amazon, Amazon AWS, Apple, Apple TV+, Cloudflare, Disney+, Fastly, GitHub, Google, Google Cloud, Meta (Facebook), Microsoft 365, Microsoft Azure, Netflix, OpenDNS, PlayStation Network, Quad9, Reddit, Slack, Spotify, Steam, Twitch, X (Twitter), Xbox Live, YouTube, and Zoom. Choose **None** to leave a slot empty, or **Custom…** to enter your own hostname or IP address.
 
-This section lets you define three hosts that PeakHour will continually ping. These hosts should ideally represent services that you use often.
+These hosts appear in the **Internet** segment's popover on the dashboard.
 
-**1st, 2nd, 3rd Monitor Host**
+## Network Quality
 
-The service / hostname / IP address to ping. The dropdown contains a handful of pre-configured destinations:
+PeakHour can periodically measure your connection's upload speed, download speed, and responsiveness using the macOS **networkQuality** tool, and show the results on the Internet Dashboard.
 
-- Microsoft 365 (office.com)
-- Google (dns.google)
-- Zoom (zoom.us)
-- CloudFlare (1dot1dot1dot1.cloudflare-dns.com)
-- NetFlix (fast.com)
+| Setting | Description |
+|---------|-------------|
+| **Measure Network Quality** | Enables periodic measurement. Results appear under **ISP** on the dashboard and in the [Network Quality Report](/user-guide/main-view/internet-dashboard/#network-quality-report). Running a test also calibrates your Internet Gateway's maximum available upload and download bandwidth. |
+| **Frequency** | How often the test runs — every hour, 6 hours, 12 hours, day, or week. |
+| **Re-run when network change is detected** | Also runs a test automatically whenever PeakHour detects a network change, such as switching Wi-Fi networks. |
+| **Network Quality Test → Run Now** | Runs a test immediately. You can also right-click the Internet Dashboard and run it from there. |
 
-You can also enter your own hostname or IP address.
+## ISP Information
 
-PeakHour will measure latency to all three hosts and display both the individual host latency, as well as an average, on the Internet Dashboard.
+**Lookup ISP Details** — identifies your internet provider (name, ASN, connection type, and approximate location) from your public IP address, shown in the **ISP** segment's popover on the dashboard.
 
-## Speed Test
+## AI Advisor
 
-PeakHour can periodically measure your Internet’s maximum upload and download speed and display that on the Internet Dashboard.
+**AI Advisor** — uses on-device AI to analyse your network conditions and produce a plain-language summary and an overall grade. See [AI Advisor](/user-guide/main-view/internet-dashboard/#ai-advisor).
 
-**Periodically measure Internet Speed**
+:::note
+The AI Advisor runs entirely on your Mac using Apple Intelligence — your network data never leaves your device.
+:::
 
-If enabled, PeakHour will run a periodic test of your Internet’s maximum upload and download speed. The result will be displayed on the Internet Dashboard under ISP. Running a Speed Test will also calibrate your Internet Gateway’s maximum available upload and download bandwidth.
+## Notifications
 
-You can set a schedule of how often the test runs using the drop down:
+Send a macOS notification when connectivity changes — both when a connection drops and when it comes back:
 
-- Every hour
-- Every 6 hours
-- Every 12 hours
-- Every day
-- Every week
-
-You can also manually trigger a speed test on demand by clicking **Run Now** or right-clicking the Internet Dashboard itself and choosing **Run Speed Test**.
+- **Router becomes unreachable** — notifies you when your router stops responding, and again when it recovers.
+- **Internet becomes unreachable** — notifies you when the wider internet stops responding, and again when it recovers.
 
 ## Visual Effects
 
-**Connection line ‘Shimmer’ effect**
+**Connection particle effects** — animated particles flow along the connection lines between hops on the dashboard, visualising live traffic. Disable to turn the animation off.
 
-This option enables or disables the ‘shimmer’ of the lines between Mac to Router, Router to ISP and ISP to Internet.
+## Recreating Internet Dashboard monitors
 
-When enabled, the line will shimmer each time a ping is sent. The speed of the shimmer is relative to the response time. The higher the ping response time, the slower the shimmer effect.
+If you delete one or more of the monitors that power the Internet Dashboard, the only way to restore them is to recreate them all:
 
-### Recreating Internet Dashboard monitors
+1. Open **Dashboard** settings.
+2. Disable the Internet Dashboard.
+3. When prompted whether to delete all monitors associated with the Internet Dashboard, choose **Yes, remove all Dashboard monitors**.
+4. Re-enable the Internet Dashboard.
 
-If you accidentally (or intentionally) delete or more of the Monitors that power the Internet Dashboard, the only way to restore them is to recreate them all.
-
-You can do this by following these steps:
-
-1.  Open [Dashboard](/user-guide/settings/dashboard/) settings.
-
-2.  Disable the Internet Dashboard.
-
-3.  You will be prompted whether or not to delete all Monitors associated with the Internet Dashboard. Choose Yes, remove all Dashboard monitors.
-
-4.  Re-enable the Internet Dashboard.
-
-This will recreate all Internet Dashboard monitors with their default settings.
-
+This recreates all Internet Dashboard monitors with their default settings.
