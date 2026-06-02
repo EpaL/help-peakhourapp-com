@@ -19,3 +19,49 @@ const { status } = Astro.locals.starlightRoute.entry.data as { status?: 'needs-r
   )}
   <slot />
 </div>
+
+<script>
+  // Click-to-zoom lightbox for content images (excludes inline icons).
+  function initLightbox() {
+    const content = document.querySelector('.sl-markdown-content');
+    if (!content) return;
+
+    let overlay = document.querySelector('.lightbox-overlay') as HTMLElement | null;
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-modal', 'true');
+      overlay.setAttribute('aria-label', 'Expanded image');
+      const big = document.createElement('img');
+      big.alt = '';
+      overlay.appendChild(big);
+      document.body.appendChild(overlay);
+      const close = () => overlay!.classList.remove('open');
+      overlay.addEventListener('click', close);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close();
+      });
+    }
+    const big = overlay.querySelector('img') as HTMLImageElement;
+
+    content.querySelectorAll('img').forEach((img) => {
+      if (img.closest('.inline-icon')) return;
+      if (img.dataset.zoomable) return;
+      img.dataset.zoomable = 'true';
+      img.classList.add('zoomable');
+      img.addEventListener('click', () => {
+        big.src = img.currentSrc || img.src;
+        big.alt = img.alt || '';
+        overlay!.classList.add('open');
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initLightbox);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLightbox);
+  } else {
+    initLightbox();
+  }
+</script>

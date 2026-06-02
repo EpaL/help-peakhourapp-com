@@ -53,7 +53,24 @@ export default defineConfig({
             },
             {
               label: 'Settings',
-              items: [{ autogenerate: { directory: 'user-guide/settings' } }],
+              items: [
+                { label: 'Overview', slug: 'user-guide/settings' },
+                {
+                  label: 'Monitors',
+                  items: [
+                    { label: 'Overview', slug: 'user-guide/settings/monitors-settings' },
+                    { slug: 'user-guide/settings/monitors-settings/bandwidth-monitor' },
+                    { slug: 'user-guide/settings/monitors-settings/latency-monitor' },
+                  ],
+                },
+                { slug: 'user-guide/settings/dashboard' },
+                { slug: 'user-guide/settings/display' },
+                { slug: 'user-guide/settings/menu-bar' },
+                { slug: 'user-guide/settings/usage' },
+                { slug: 'user-guide/settings/remote' },
+                { slug: 'user-guide/settings/icloud' },
+                { slug: 'user-guide/settings/general' },
+              ],
             },
             { slug: 'user-guide/monitor-another-mac-peakhour-enabler' },
           ],

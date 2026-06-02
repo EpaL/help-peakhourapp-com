@@ -1,6 +1,6 @@
 ---
 title: "Monitors [Settings]"
-description: "The Monitors lets you manage your list of Monitors."
+description: "The Monitors settings let you add, edit, duplicate, and remove the monitors PeakHour tracks."
 sidebar:
   order: 12
 status: needs-review
@@ -8,25 +8,20 @@ status: needs-review
 
 
 
-The Monitors lets you manage your list of Monitors.
+The **Monitors** settings let you manage your list of monitors — add new ones, and edit, duplicate, or remove existing ones.
 
 ## Adding a new Monitor
 
-To create a new monitor, click the **+** button in the bottom left-hand corner. This will display a sub-menu:
+To create a new monitor, click the <span class="inline-icon">![Add monitor button](./images/add-monitor-button.png)</span> button in the bottom-left corner.
 
-![CleanShot 2023 12 10 at 17.55.05@2x](./images/cleanshot-2023-12-10-at-17-55-05-2x.png)
+This opens the [Configuration Assistant](/user-guide/configuration-assistant/). Its first page asks which type of monitor to create:
 
-  - **Add Bandwidth Monitor**  
-    Add a new Bandwidth Monitor to monitor the amount of data uploaded and download through your Mac, a network device, server or PC.  
-    For more information on Bandwidth Monitors, see here: [Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/).  
-    For more information on what Bandwidth Monitors can track, see here: [Bandwidth Monitoring FAQ](https://peakhoursupport.atlassian.net/wiki/spaces/P4W/pages/327709/Bandwidth+Monitoring+FAQ).  
-
-  - **Add Latency Monitor**  
-    Add a new Latency monitor to measure and monitor latency. For more information on Latency monitors, see here: [Latency Monitor](/user-guide/settings/monitors-settings/latency-monitor/).
+- **Bandwidth** — measures the data uploaded and downloaded through your Mac, a network device, server, or PC. See the [Bandwidth Configuration Assistant](/user-guide/configuration-assistant/configuration-assistant-bandwidth/) and [Bandwidth Monitor settings](/user-guide/settings/monitors-settings/bandwidth-monitor/).
+- **Latency** — measures the latency and connection quality to a host or hop on your network path. See the [Latency Configuration Assistant](/user-guide/configuration-assistant/configuration-assistant-latency/) and [Latency Monitor settings](/user-guide/settings/monitors-settings/latency-monitor/).
 
 ## Deleting a Monitor
 
-To remove a Monitor, select it in the list and click the **-** button. You can also right-click a target in the main window and choose **Delete...**.
+To remove a Monitor, select it in the list and click the **-** button. You can also right-click a monitor in the main window and choose **Delete...**.
 
 You will be asked to confirm your action.
 
@@ -34,17 +29,46 @@ You will be asked to confirm your action.
 
 To edit a Monitor, click the Edit… button or right-click and choose Edit. This will open the Monitor in the Configuration Assistant and allow you to make changes.
 
-## Duplicating a Target
+## Duplicating a Monitor
 
-If you wish to duplicate an existing target, right-click on an existing target and choose **Duplicate**.
+To duplicate an existing monitor, right-click it and choose **Duplicate**.
 
-![CleanShot 2023 12 10 at 19.23.12@2x](./images/cleanshot-2023-12-10-at-19-23-12-2x.png)
+## Designating a Monitor for the Internet Dashboard
 
-## Tabs
+The [Internet Dashboard](/user-guide/main-view/internet-dashboard/) is built from specific monitors — the bandwidth of your Internet Gateway and the latency of each hop along the path to the internet. Right-click a monitor and choose **Designate as** to assign it to one of these roles, controlling which monitors feed the dashboard. The available roles depend on the monitor type.
 
-Click the sections below for info on each monitor type and tab:
+A **Bandwidth Monitor** can be designated as the **Internet Gateway** — the router whose throughput the dashboard shows:
 
-### Bandwidth Monitor
+<div class="img-md">
 
-### Latency Monitor
+![Right-click menu on a bandwidth monitor showing Designate as → Internet Gateway](./images/right-click-designate-as-bandwidth.png)
+
+</div>
+
+:::note
+By default, PeakHour automatically chooses the most appropriate monitor to act as the Internet Gateway. You can tell which one is selected by the **Internet Gateway** pill in the monitor's settings and the Internet Gateway icon next to it in the list. Use **Designate as → Internet Gateway** to override this automatic choice.
+:::
+
+A **Latency Monitor** can be designated as any of the dashboard's latency hops:
+
+<div class="img-md">
+
+![Right-click menu on a latency monitor showing Designate as with This Mac to Router, Router to ISP, and Internet 1 to 3](./images/right-click-designate-as-latency.png)
+
+</div>
+
+| Role | What it measures |
+|------|------------------|
+| **This Mac to Router** | Latency from your Mac to your local gateway. |
+| **Router to ISP** | Latency from your router out to your ISP. |
+| **Internet 1**, **2**, **3** | Latency to each of the three internet hosts the dashboard tracks. |
+
+A checkmark marks the monitor currently designated for each role.
+
+## Monitor types
+
+For details on each monitor type and its settings tabs, see:
+
+- [Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/)
+- [Latency Monitor](/user-guide/settings/monitors-settings/latency-monitor/)
 

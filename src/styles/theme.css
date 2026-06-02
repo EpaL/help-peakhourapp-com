@@ -66,6 +66,29 @@
 /* Inline icon — wrap a Markdown image in <span class="inline-icon"> to size it to the text */
 .inline-icon img { display: inline; height: 1.2em; width: auto; vertical-align: text-bottom; margin: 0; }
 
+/* Click-to-zoom lightbox for content images (see MarkdownContent.astro) */
+.sl-markdown-content img.zoomable { cursor: zoom-in; }
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+}
+.lightbox-overlay.open { display: flex; }
+.lightbox-overlay img {
+  max-width: 95%;
+  max-height: 95%;
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+}
+
 /* Prominent call-to-action button — <a class="cta-button"> in article content */
 .cta-button {
   display: inline-block;

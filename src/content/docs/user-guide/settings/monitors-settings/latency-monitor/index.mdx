@@ -1,48 +1,110 @@
 ---
 title: "Latency Monitor"
-description: "Latency monitors ping a target or host (or set of targets/hosts) to determine the latency to that host."
+description: "Settings for a Latency Monitor — status, display, latency baseline and colors, notifications, and CSV logging."
 sidebar:
   order: 19
 status: needs-review
 ---
 
+A Latency Monitor pings a host or hop and measures the round-trip time. Its settings are shown on a single scrolling page, organised into the sections below. To open them, select the monitor in the [Monitors](/user-guide/settings/monitors-settings/) list — or right-click it and choose **Edit…**.
 
+<div class="img-sm">
 
-Latency monitors ping a target or host (or set of targets/hosts) to determine the latency to that host. For more information on Latency Monitors, see [Configuration Assistant: Latency](/user-guide/configuration-assistant/configuration-assistant-latency/) .
+![The Latency Monitor settings page](./images/latency-monitor-settings.png)
 
-The Target tab provides a summary of the Latency target, and lets you control its visibility.
+</div>
 
-![CleanShot 2024 05 25 at 11.22.16@2x 20240525 152236](./images/cleanshot-2024-05-25-at-11-22-16-2x-20240525-152236.png)
+## Monitor
 
-**Symbol**
+The identity of the monitor.
 
-Choose a different symbol for this monitor by clicking the image. A symbol picker will open letting you search for and choose a different symbol. This symbol will be reflected in the main view, history view and (optionally) the menu bar, if this monitor is shown.
+| Field | Description |
+|-------|-------------|
+| **Symbol** | The icon for the monitor. Click it to choose a different one from the symbol picker; it appears in the main view, History view, and (optionally) the menu bar. |
+| **Name** | The description PeakHour uses to refer to this monitor throughout the app. Set something meaningful. |
+| **Dashboard role** | A pill showing which [Internet Dashboard](/user-guide/main-view/internet-dashboard/) hop this monitor is designated as (for example, **This Mac to Router**), if any. See [Designating a Monitor](/user-guide/settings/monitors-settings/#designating-a-monitor-for-the-internet-dashboard). |
+| **Edit…** | Opens the [Configuration Assistant](/user-guide/configuration-assistant/configuration-assistant-latency/) to change what's measured. |
 
-**Description**
+## Status
 
-This field lets you configure a description or name for this monitor. The description is used throughout PeakHour to refer to the target, so it's recommended that you set something that is meaningful to you.
+Shows the monitor's current status and what it's monitoring. For a multi-host monitor, an error is labelled **(Near)** or **(Far)** to show which end it relates to.
 
-**Enabled**
+## Settings
 
-Determines if this Target is enabled or disabled.
+| Field | Description |
+|-------|-------------|
+| **Enabled** | Turns monitoring on or off. |
+| **Visibility** | Whether the monitor appears in the main window. **Automatic** hides it when it can't be reached; **Always Visible** always shows it; **Always Hide** always hides it. A hidden monitor still runs and gathers data. |
 
-**Visibility**
+## Display
 
-**Hide If Unreachable:** Hide this Monitor if it can’t be reached or is otherwise offline.
+Controls how the monitor appears in the main window.
 
-**Always Visible:** Always show this Monitor.
+**View mode**
 
-**Always Hide:** Always hide this Monitor.
+- **Graph View** — shows the monitor with its graph as well as the details. You can also toggle the graph with the disclosure triangle.
+- **Summary View** — shows the details only, hiding the graph.
 
-**Status**
+**Graph Timespan** — how many minutes of data the main graph retains. You can scroll the graph vertically to see up to 12 hours back; larger values can affect performance. For older data, use the [History view](/user-guide/history-view/).
 
-The status of this Target. If this is a Multi-Host and it has an error, the target (Near) or (Far) will indicate if the error is associated with the near or the far host.
+**Colors** — PeakHour uses color to indicate latency, blending from Normal (minimum latency) through Light Congestion to Heavy Congestion as a gradient. Optionally, the monitor's background changes to match.
 
-**Monitoring**
+| Color | Meaning |
+|-------|---------|
+| **Normal** | The base color for 'good' or optimum latency. The baseline minimum is set under [Latency](#latency). |
+| **Light Congestion** | The color for slight congestion. |
+| **Light Congestion Latency** | What counts as slight congestion. Default = Normal latency + 75 ms. |
+| **Heavy Congestion** | The color for significant congestion. |
+| **Heavy Congestion Latency** | What counts as significant congestion. Default = minimum + light-congestion latency + 125 ms. |
+| **Packet Loss** | The color marking packet loss, shown as a grey mark rather than plotted as a series. |
 
-A description of what this Target is monitoring.
+**Background color indicates congestion** — when enabled, the details view's background blends with the current latency color.
 
-**Modify**
+## Latency
 
-Click this button to edit the Target's configuration. See [Configuration Assistant](/user-guide/configuration-assistant/) for more information.
+Adjusts what PeakHour treats as 'normal' (minimum) latency — the baseline for the Normal, Light Congestion, and Heavy Congestion colors.
 
+| Field | Description |
+|-------|-------------|
+| **Connection Latency** | The minimum-latency baseline. **Automatic** detects and measures it for you; or drag the slider to set it manually. |
+| **Measured Minimum** | The currently measured minimum latency. Click **Reset** to re-measure. |
+| **Reset on Startup** *(Automatic only)* | Resets the minimum each time PeakHour starts or monitors are reset. On by default. |
+| **Show on Graph** | Draws the minimum-latency line on the graph. |
+| **Show Label** | Adds the minimum value to that line. |
+
+## Notifications
+
+**Notify on Reachability Change** — posts a notification when this monitor becomes reachable or unreachable.
+
+## CSV Logging
+
+Logs average latency to a CSV file you can open in Numbers, Excel, or similar.
+
+**Log to file** — enable logging and choose the **Log Directory**. Because of app sandboxing, you must click **Choose…** to grant PeakHour permission to write there. **Reveal** opens that folder in Finder.
+
+**Frequency**
+
+| Setting | Description |
+|---------|-------------|
+| **Write Every** | How often a new record (line) is written. |
+| **Rotate Every** | How often a new log file is started. |
+
+**Log filename** — files are stored in the **Log Directory** with a name based on the rotation frequency:
+
+| Rotation | Filename |
+|----------|----------|
+| Hourly | `<Description> YY-MM-DD HH:MM.csv` |
+| Daily | `<Description> YY-MM-DD.csv` |
+| Weekly | `<Description> YY-MM-DD w.csv` (`w` = week number) |
+| Monthly | `<Description> YY-MM.csv` |
+| Yearly | `<Description> YYYY.csv` |
+
+where `<Description>` is the monitor's name.
+
+**Log format** — each row contains:
+
+| Field | Description |
+|-------|-------------|
+| **Date/Time** | The entry's date and time in your local format. |
+| **Target** | The monitor's description. |
+| **Average Response Time (ms)** | The average latency over the period. |
