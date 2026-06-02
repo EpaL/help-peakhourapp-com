@@ -1,58 +1,54 @@
 ---
 title: "Remote"
-description: "Settings | Using PeakHour Remote | Adding PeakHour Remote to your phone or tablet's Home Screen."
+description: "PeakHour Remote lets you view your monitors from a web browser on another device. Configure the server, port, and authentication here."
 sidebar:
   order: 27
-status: needs-review
+status: reviewed
 ---
 
+**PeakHour Remote** lets you view your monitors from a web browser on another device — handy for checking usage and performance from your phone, tablet, or another computer.
 
+Enable it here, then open the **Address** shown in the settings from any device on your network.
 
-[Settings](#Remote-Settings) | [Using PeakHour Remote](#Remote-UsingPeakHourRemote) | [Adding PeakHour Remote to your phone or tablet's Home Screen.](#Remote-AddingPeakHourRemotetoyourphoneortablet'sHomeScreen.)
+<div class="img-lg">
 
-PeakHour Remote allows you to monitor your PeakHour Monitors from your web browser. This allows you to view usage and performance from a different device than the one PeakHour is running on.
+![PeakHour Remote settings showing Enable, the Server section (Status, Address, Port, Restart Server) and Authentication](./remote-images/settings-remote.png)
 
-To access PeakHour Remote, ensure **Enable PeakHour Remote** is checked and then visit the URL at the bottom of the pane in Preferences.
+</div>
 
-![CleanShot 2024 05 27 at 21.54.46@2x 20240528 015448](./remote-images/cleanshot-2024-05-27-at-21-54-46-2x-20240528-015448.png)
+**Enable PeakHour Remote** — starts the PeakHour Remote web server, allowing other devices on your network to view PeakHour's status in a browser.
 
-# Settings
+## Server
 
-**Enable PeakHour Remote**
+| Field | Description |
+|-------|-------------|
+| **Status** | Whether the server is **Running**. If it can't start — for example, the port is already in use — the error is shown here. |
+| **Address** | The URL for opening PeakHour Remote in a browser (e.g. `http://192.168.1.13:8000/`). Open it from any device on your network. |
+| **Port** | The port the server listens on (default 8000). If another app is using it, change to a free port and restart the server. |
+| **Restart Server** | Restarts the PeakHour Remote server — use this after changing the port. |
 
-Starts the PeakHour Remote web application on the specified port.
+## Authentication
 
-**Port**
+| Field | Description |
+|-------|-------------|
+| **Require Authentication** | When enabled, viewers must enter the username and password below to access PeakHour Remote. |
+| **Username** | The username required when authentication is enabled. |
+| **Password** | The password required when authentication is enabled. |
 
-The port that PeakHour Remote listens on. Defaults to port 8000.
+:::caution
+Connections to PeakHour Remote are **not encrypted**, so credentials are sent over the network in the clear. Don't expose PeakHour Remote directly to the internet — if you need access from outside your network, reach it through a VPN. [Tailscale](https://tailscale.com) is a simple option: it creates a private, encrypted network between your devices, so you can open the **Address** from anywhere without opening any ports on your router.
+:::
 
-**Note:** If another application is using the port, PeakHour Remote will fail to start and an error will be shown in **Status**. To fix this, change to a different port and restart PeakHour Remote.
+## Using PeakHour Remote
 
-**Require Authentication**
+<div class="img-sm">
 
-If this option is enabled, you will be prompted to enter the username and password you specify below it in order to access PeakHour Remote.
+![The PeakHour Remote web app showing the usage summary and a list of monitors](./remote-images/peakhour-remote-screenshot.png)
 
-**Username**
+</div>
 
-If **Require Authentication** is enabled, you will be required to enter this username.
+PeakHour Remote is a web app that works in most modern browsers. Its layout is responsive, sizing itself from a phone up to a desktop. Open the **Address** from the settings, and your monitors appear with a summary of each — tap one to expand its graph. When Usage Monitoring is enabled, your usage is shown at the top.
 
-**Password**
+### Add to your Home Screen
 
-If **Require Authentication** is enabled, you will be required to enter this password.
-
-Important: Connections to PeakHour Remote are **not encrypted**. That means that if you enable authentication, your credentials will not be encrypted when they are sent over the network. For this reason we **do not recommend** exposing PeakHour Remote directly to the Internet unless you add additional security such as a VPN.
-
-# Using PeakHour Remote
-
-![image peakhourremote](./remote-images/image-peakhourremote.png)
-
-PeakHour Remote is a React-based web application that works in most modern web browsers. The UI is 'responsive' and will automatically size to your screen, from a phone up to a desktop/laptop.
-
-To access PeakHour Remote, visit the link at the bottom of the **Remote** Preferences pane.
-
-In PeakHour Remote, your Targets will be shown a long with a summary of each. To view the graph, tap the section to expand it. If Usage Monitoring is enabled, details of your usage will be displayed at the top.
-
-### Adding PeakHour Remote to your phone or tablet's Home Screen.
-
-One of the most convenient uses of PeakHour Remote is to add it to your phone's home screen. For instructions on how to do this, tap the ... button in the top-right corner of PeakHour Remote and tap **Add to Home** Screen. This will add an icon to your iOS or Android phone or tablet's Home Screen. Tapping this icon will launch PeakHour Remote as a full-screen application.
-
+A convenient way to use PeakHour Remote is to add it to your phone or tablet's Home Screen: in PeakHour Remote, tap the **…** button in the top-right and choose **Add to Home Screen**. Tapping the new icon launches PeakHour Remote as a full-screen app.
