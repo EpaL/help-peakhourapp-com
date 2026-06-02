@@ -1,112 +1,123 @@
 ---
 title: "Menu Bar"
-description: "Menu Bar settings allow you to add monitors to the menu bar, and configure their appearance."
+description: "Menu Bar settings let you add monitors and a dashboard summary to the macOS menu bar and configure how each one appears."
 sidebar:
   order: 25
 status: needs-review
 ---
 
+The **Menu Bar** settings let you choose which monitors appear in the macOS menu bar and configure how each one looks.
 
+<div class="img-lg">
 
-- [Configuring Monitors](#MenuBar-ConfiguringMonitors)
-      - [Bandwidth Menu Bar Item](#MenuBar-BandwidthMenuBarItem)
-      - [Latency Menu Bar Item](#MenuBar-ConnectionQualityMenuBarItem)
-      - [Dashboard Summary (Internet Status)](#MenuBar-DashboardSummary\(InternetStatus\))
-      - [Usage Monitor](#MenuBar-UsageMonitor)
+![The Menu Bar settings page, showing the Appearance options and the Active Items list](./menu-bar-images/settings-menu-bar.png)
 
-Menu Bar settings allow you to add monitors to the menu bar, and configure their appearance.
+</div>
 
-![CleanShot 2024 05 27 at 11.41.01@2x 20240527 154102](./menu-bar-images/cleanshot-2024-05-27-at-11-41-01-2x-20240527-154102.png)
+## Appearance
 
-## Configuring Monitors
+Controls how PeakHour's menu bar items are presented as a group.
 
-Menu Bar settings are broken into two sections. The bottom section shows available items that can be added to the menu bar.
+| Setting | Description |
+|---------|-------------|
+| **Combine into Single Item** | Groups all of PeakHour's menu bar items into one combined item. When combined, macOS may hide all of them at once if the menu bar runs out of room. |
+| **Show Dividers Between Items** | Draws a divider between adjacent items. |
+| **Item Spacing** | The gap between items — **Tight**, **Normal**, or **Relaxed**. |
 
-  - To add a monitor to the menu bar, drag it from the **Available Items** section to the **Active Items** section.
+## Active Items
 
-  - You can rearrange the menu bar by clicking and dragging to reorder them.
+The **Active Items** list shows what's currently in your menu bar.
 
-  - To remove a monitor from the menu bar, drag it from **Active Items** back to **Available Items**.
+- **Reorder** an item by dragging the handle on its left.
+- **Remove** an item by clicking the red **−**.
+- **Configure** an item by clicking its disclosure chevron to expand its options.
 
-Most menu bar items can also be configured and customized. To configure a menu bar item, click to open its settings. Different monitor types have different settings.
+Below it, the **Available Items** list shows the monitors and summaries that aren't in the menu bar yet. Click the <span class="inline-icon">![Add](./menu-bar-images/settings-menu-bar-add-button.png)</span> button beside one to add it to the menu bar.
+
+<div class="img-lg">
+
+![The Available Items list — monitors not yet in the menu bar, each with an add button](./menu-bar-images/settings-menu-bar-available-items.png)
+
+</div>
+
+Active items can be configured by type. Different item types have different options, described below.
 
 ### Bandwidth Menu Bar Item
 
-A Bandwidth Menu Bar item shows the throughput (upload and download speed) of the monitor in the menu bar. You can customize the default monitor to also include additional information. When finished, click the 'x' or anywhere outside the settings popover to close and update the settings.
+Shows a Bandwidth Monitor's upload and download throughput in the menu bar.
 
-![CleanShot 2024 05 27 at 17.07.15@2x 20240527 210721](./menu-bar-images/cleanshot-2024-05-27-at-17-07-15-2x-20240527-210721.png)
+<div class="img-lg">
 
-From left to right, the numbers displayed are:
+![Bandwidth menu bar item options — Show Symbol, Show Graph with Graph Width, and Show Totals](./menu-bar-images/settings-menu-bar-bandwidth-options.png)
 
-  - **Top left:** Current upload speed
+</div>
 
-  - **Bottom left:** Current download speed
+The numbers are arranged:
 
-  - **Top right:** Total uploaded data
+- **Top left:** current upload speed
+- **Bottom left:** current download speed
+- **Top right:** total uploaded (when **Show Totals** is on)
+- **Bottom right:** total downloaded (when **Show Totals** is on)
 
-  - **Bottom right:** Total downloaded data
-
-![CleanShot 2024 05 27 at 11.44.04@2x 20240527 154409](./menu-bar-images/cleanshot-2024-05-27-at-11-44-04-2x-20240527-154409.png)
-
-| **Setting**     | **Description**                                                                                                                                                                          |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Show Symbol** | If enabled, the monitor’s symbol will be displayed in the menu bar. This can help to distinguish similarly-looking monitors from each other, but obviously takes up more menu bar space. |
-| **Show Graph**  | This enables or disables a small graph to be displayed to the right of the numerical throughput numbers.                                                                                 |
-| **Width**       | This controls the width of the graph.                                                                                                                                                    |
-| **Show Totals** | If enabled, the Totals for this monitor will be displayed as well. For more information, see [Totals](/user-guide/settings/monitors-settings/bandwidth-monitor/#totals). |
+| Setting | Description |
+|---------|-------------|
+| **Show Symbol** | Shows the monitor's symbol, which helps tell similar monitors apart at the cost of a little menu bar space. |
+| **Show Graph** | Shows a small graph beside the numbers. |
+| **Graph Width** | The width of that graph. |
+| **Show Totals** | Also shows the monitor's totals. See [Totals](/user-guide/settings/monitors-settings/bandwidth-monitor/#totals). |
 
 ### Latency Menu Bar Item
 
-A Latency Menu Bar item shows the latency of the host being monitored, in the menu bar. You can customize the default monitor to also include additional information. When finished, click the 'x' or anywhere outside the settings popover to close and update the settings.
+Shows a Latency Monitor's latency, and optionally packet loss, in the menu bar.
 
-![CleanShot 2024 05 27 at 17.31.26@2x 20240527 213132](./menu-bar-images/cleanshot-2024-05-27-at-17-31-26-2x-20240527-213132.png)
+<div class="img-lg">
 
-The numbers displayed are:
+![Latency menu bar item options — Show Symbol, Show Packet Loss with Hide When None, and Show Graph with Graph Width](./menu-bar-images/settings-menu-bar-latency-options.png)
 
-  - **Top:** Current latency in milliseconds (ms).
+</div>
 
-  - **Bottom:** Percent packets lost (packet loss) in the past 5 minutes.
+The numbers are:
 
-![CleanShot 2024 05 27 at 17.09.29@2x 20240527 210933](./menu-bar-images/cleanshot-2024-05-27-at-17-09-29-2x-20240527-210933.png)
+- **Top:** current latency, in milliseconds.
+- **Bottom:** packet loss (%) over the past 5 minutes.
 
-| **Setting**          | **Description**                                                                                                                                                                          |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Show Symbol**      | If enabled, the monitor’s symbol will be displayed in the menu bar. This can help to distinguish similarly-looking monitors from each other, but obviously takes up more menu bar space. |
-| **Show Packet Loss** | If enabled, the monitor will show packet loss (%) below the latency value.                                                                                                               |
-| **Hide When None**   | If enabled, packet loss will only be shown if some has been detected in the past 5 minutes. If no packet loss is detected, only the latency will be displayed.                           |
-| **Show Graph**       | This enables or disables a small graph to be displayed to the right of the numerical latency number.                                                                                     |
-| **Width**            | This controls the width of the graph.                                                                                                                                                    |
+| Setting | Description |
+|---------|-------------|
+| **Show Symbol** | Shows the monitor's symbol. |
+| **Show Packet Loss** | Shows packet loss (%) below the latency value. |
+| **Hide When None** | Only shows packet loss when some has occurred in the past 5 minutes; otherwise just the latency is shown. |
+| **Show Graph** | Shows a small graph beside the latency value. |
+| **Graph Width** | The width of that graph. |
 
 ### Dashboard Summary (Internet Status)
 
-This is a special Menu Bar item that shows a summary of your Internet status from the Internet Dashboard. Note this is only available if the Internet Dashboard is enabled.
+A special item that summarises your internet status from the [Internet Dashboard](/user-guide/main-view/internet-dashboard/) — a row of hop icons running from your Mac (left) to the internet (right), each coloured by status. It's only available when the Internet Dashboard is enabled.
 
-This menu bar item shows a summary of the status of your Internet. The icons move from left (your Mac) to right (the Internet), with a status for each hop in between.
+<div class="img-lg">
 
-![CleanShot 2024 05 27 at 17.14.43@2x 20240527 211447](./menu-bar-images/cleanshot-2024-05-27-at-17-14-43-2x-20240527-211447.png)
+![Dashboard Summary options — Display Size (Router, ISP and Internet / Internet Only), Show Speed Test Results, Show AI Grade](./menu-bar-images/settings-menu-bar-dashboard-options.png)
 
-| **Symbol**                                                                                                                        | **Meaning**                                                           |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| ![CleanShot 2024 05 27 at 17.17.30@2x 20240527 211736](./menu-bar-images/cleanshot-2024-05-27-at-17-17-30-2x-20240527-211736.png) | The latency for this hop is currently OK / normal.                    |
-| ![CleanShot 2024 05 27 at 17.19.30@2x 20240527 211938](./menu-bar-images/cleanshot-2024-05-27-at-17-19-30-2x-20240527-211938.png) | This hop is experiencing some latency.                                |
-| ![CleanShot 2024 05 27 at 17.18.29@2x 20240527 211837](./menu-bar-images/cleanshot-2024-05-27-at-17-18-29-2x-20240527-211837.png) | Some packet loss has been observed on this hop in the past 5 minutes. |
+</div>
 
-![CleanShot 2024 05 27 at 17.15.20@2x 20240527 211525](./menu-bar-images/cleanshot-2024-05-27-at-17-15-20-2x-20240527-211525.png)
+Each hop icon is coloured by its current status — green for OK, yellow for congestion, with a packet-loss indicator when loss has occurred in the past 5 minutes.
 
-**Detail**
-
-**Router, ISP and Internet:** Shows all hops from your Mac to the Internet.
-
-**Internet Only:** Only shows the Internet hop. Use this for a more compact view.
+| Setting | Description |
+|---------|-------------|
+| **Display Size** | **Router, ISP and Internet** shows every hop; **Internet Only** shows just the final hop for a more compact item. |
+| **Show Speed Test Results** | Includes the latest [Network Quality](/user-guide/settings/dashboard/#network-quality) (speed test) results. |
+| **Show AI Grade** | Includes the [AI Advisor](/user-guide/main-view/internet-dashboard/#ai-advisor) letter grade. |
 
 ### Usage Monitor
 
-This is a special Menu Bar item that shows your current Internet Usage, as measured by the Usage Monitor. For more information, see [Usage Monitoring](https://peakhoursupport.atlassian.net/wiki/spaces/P5W/pages/9503476/Usage+Monitoring).
+A special item that shows your current internet usage, as measured by the Usage Monitor. See [Usage Monitoring](/troubleshooting/wiki/usage-monitoring/).
 
-![CleanShot 2024 05 27 at 17.25.09@2x 20240527 212519](./menu-bar-images/cleanshot-2024-05-27-at-17-25-09-2x-20240527-212519.png)![CleanShot 2024 05 27 at 17.25.54@2x 20240527 212558](./menu-bar-images/cleanshot-2024-05-27-at-17-25-54-2x-20240527-212558.png)
+<div class="img-lg">
 
-| **Setting**                | **Description**                                                                       |
-| -------------------------- | ------------------------------------------------------------------------------------- |
-| **Show Symbol**            | Whether to display the Usage Monitor symbol in the menu bar item.                     |
-| **Highlight Excess USage** | If enabled, usage will be displayed in red when usage/day exceeds the remaining time. |
+![Usage Monitor menu bar item options — Show Symbol and Highlight Excess Usage](./menu-bar-images/settings-menu-bar-usage-options.png)
 
+</div>
+
+| Setting | Description |
+|---------|-------------|
+| **Show Symbol** | Shows the Usage Monitor symbol in the item. |
+| **Highlight Excess Usage** | Shows usage in red when your usage per day exceeds what's left for the period. |
