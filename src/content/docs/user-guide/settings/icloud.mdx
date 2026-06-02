@@ -1,32 +1,46 @@
 ---
 title: "iCloud"
-description: "iCloud Sync allows you to keep settings in sync across multiple Macs, and back up your settings in case of an issue. iCloud Sync will save all your configurati…"
+description: "iCloud Sync keeps your PeakHour settings and monitors in sync across your Macs and backs them up to iCloud."
 sidebar:
   order: 28
 status: needs-review
 ---
 
+**iCloud Sync** keeps your settings in sync across your Macs and backs them up to iCloud. It saves all your configuration — including your monitors and their settings — so that any Mac signed in to the same iCloud account can restore them with a single click.
 
+<div class="img-lg">
 
-iCloud Sync allows you to keep settings in sync across multiple Macs, and back up your settings in case of an issue. iCloud Sync will save all your configuration, including your Monitors and their configuration, in iCloud. As long as other Macs are logged into the same iCloud account, you can restore those settings on a different Mac with a single click.
+![The iCloud settings page showing Enable iCloud Sync, the last-synced status, and Manual Sync buttons](./icloud-images/settings-icloud.png)
 
-![CleanShot 2024 05 27 at 21.56.01@2x 20240528 015602](./icloud-images/cleanshot-2024-05-27-at-21-56-01-2x-20240528-015602.png)
+</div>
 
-|                        |                                                                                                                                                                                                                                                                              |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Enable iCloud Sync** | If enabled, PeakHour will automatically keep your settings stored in iCloud. If a change to PeakHour is made on another Mac, you will be notified of the change. You can then choose whether to import those changes on the current Mac, or overwrite the changes in iCloud. |
-| **Save**               | This will store the settings from your Mac to iCloud. Note this also happens automatically, any time a change to the settings are made.                                                                                                                                      |
-| **Restore**            | This will overwrite your settings with those currently stored in iCloud.                                                                                                                                                                                                     |
+**Enable iCloud Sync** — when on, PeakHour automatically keeps your monitor configurations and settings stored in iCloud and synced across your devices. When a change is made on another Mac, you're notified and can choose whether to import it here or overwrite the version in iCloud.
 
-## Handling Settings Changes
+## Status
 
-With iCloud Sync enabled, PeakHour will always save changes to iCloud automatically. If PeakHour is running on a different Mac, and also has iCloud Sync enabled, it will get notified of the change.
+**Last Synced** — when PeakHour last synced your settings with iCloud.
 
-When new settings are detected, an icon will appear in the PeakHour control bar:
+## Manual Sync
 
-![CleanShot 2024 01 26 at 16.54.11@2x](./icloud-images/cleanshot-2024-01-26-at-16-54-11-2x.png)
+| Button | Description |
+|--------|-------------|
+| **Save to iCloud** | Stores your Mac's current settings to iCloud. This also happens automatically whenever you change a setting. |
+| **Restore from iCloud** | Overwrites your Mac's settings with the version currently stored in iCloud. |
 
-Click this icon to resolve the inconsistency.
+## Handling settings changes
 
-![CleanShot 2024 01 26 at 16.56.01@2x](./icloud-images/cleanshot-2024-01-26-at-16-56-01-2x.png)
+With iCloud Sync enabled, PeakHour always saves changes to iCloud automatically. If another Mac that also has iCloud Sync enabled detects new settings, an icon appears in the PeakHour control bar:
 
+<div class="img-md">
+
+![The control-bar icon indicating new iCloud settings are available](./icloud-images/cleanshot-2024-01-26-at-16-54-11-2x.png)
+
+</div>
+
+Click it to resolve the difference — choosing whether to apply the incoming settings or keep your own.
+
+<div class="img-sm">
+
+![Resolving an iCloud settings change](./icloud-images/cleanshot-2024-01-26-at-16-56-01-2x.png)
+
+</div>
