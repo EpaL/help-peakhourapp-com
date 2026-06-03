@@ -16,7 +16,13 @@ Enable it here, then open the **Address** shown in the settings from any device 
 
 </div>
 
-**Enable PeakHour Remote** — starts the PeakHour Remote web server, allowing other devices on your network to view PeakHour's status in a browser.
+**Enable PeakHour Remote** — starts the PeakHour Remote web server so you can view PeakHour's status in a browser.
+
+**Restrict to this Mac only** — when on, PeakHour Remote is reachable only from this Mac (`localhost`). Turn it off to let other devices on your network connect.
+
+:::note
+Allowing other devices to connect (**Restrict to this Mac only** turned off) requires authentication: PeakHour Remote will only start in this mode if **Require Authentication** is also enabled. With it off, anyone on your network who has the address and credentials can view your monitoring data.
+:::
 
 ## Server
 
@@ -36,7 +42,7 @@ Enable it here, then open the **Address** shown in the settings from any device 
 | **Password** | The password required when authentication is enabled. |
 
 :::caution
-Connections to PeakHour Remote are **not encrypted**, so credentials are sent over the network in the clear. Don't expose PeakHour Remote directly to the internet — if you need access from outside your network, reach it through a VPN. [Tailscale](https://tailscale.com) is a simple option: it creates a private, encrypted network between your devices, so you can open the **Address** from anywhere without opening any ports on your router.
+PeakHour Remote uses HTTP **Digest authentication**, so your password is *not* sent over the network in the clear. However, the connection itself is **not encrypted** (plain HTTP), so your monitoring data — and the rest of the traffic — is visible to anyone who can see it. Don't expose PeakHour Remote directly to the internet; if you need access from outside your network, reach it through a VPN. [Tailscale](https://tailscale.com) is a simple option: it creates a private, encrypted network between your devices, so you can open the **Address** from anywhere without opening any ports on your router.
 :::
 
 ## Using PeakHour Remote
