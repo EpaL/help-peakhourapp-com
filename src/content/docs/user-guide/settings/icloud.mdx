@@ -3,7 +3,7 @@ title: "iCloud"
 description: "iCloud Sync keeps your PeakHour settings and monitors in sync across your Macs and backs them up to iCloud."
 sidebar:
   order: 28
-status: needs-review
+status: reviewed
 ---
 
 **iCloud Sync** keeps your settings in sync across your Macs and backs them up to iCloud. It saves all your configuration — including your monitors and their settings — so that any Mac signed in to the same iCloud account can restore them with a single click.
@@ -29,18 +29,24 @@ status: needs-review
 
 ## Handling settings changes
 
-With iCloud Sync enabled, PeakHour always saves changes to iCloud automatically. If another Mac that also has iCloud Sync enabled detects new settings, an icon appears in the PeakHour control bar:
+With iCloud Sync enabled, PeakHour always saves changes to iCloud automatically. If another Mac that also has iCloud Sync enabled detects new settings, a cloud icon appears in the footer of the PeakHour window:
 
 <div class="img-md">
 
-![The control-bar icon indicating new iCloud settings are available](./icloud-images/cleanshot-2024-01-26-at-16-54-11-2x.png)
+![The footer cloud icon indicating new iCloud settings are available](./icloud-images/mainwindow-footer-icloud-settings-changed.png)
 
 </div>
 
-Click it to resolve the difference — choosing whether to apply the incoming settings or keep your own.
+Click it to resolve the difference. PeakHour shows when each version was last updated and lets you choose how to proceed:
 
 <div class="img-sm">
 
-![Resolving an iCloud settings change](./icloud-images/cleanshot-2024-01-26-at-16-56-01-2x.png)
+![The iCloud Sync: Settings Changed dialog asking whether to replace this Mac's configuration with the version in iCloud](./icloud-images/settings-icloud-sync-overwrite.png)
 
 </div>
+
+| Option | What it does |
+|--------|--------------|
+| **Yes – Apply iCloud settings to this Mac** | Replaces this Mac's configuration with the version stored in iCloud. |
+| **No – Upload settings from this Mac to iCloud** | Keeps this Mac's settings and overwrites the version in iCloud. |
+| **Ignore** | Dismisses the prompt for now and leaves both versions unchanged. |
