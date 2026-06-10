@@ -5,7 +5,7 @@ import remarkGfm from 'remark-gfm';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://help.peakhourapp.com',
+  site: 'https://help.peakhour.app',
   markdown: {
     // Astro 6 / @astrojs/mdx 5 stopped applying GFM to .mdx tables by
     // default; add it explicitly so Markdown tables render.
