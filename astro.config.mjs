@@ -78,65 +78,78 @@ export default defineConfig({
         {
           label: 'Troubleshooting & FAQ',
           items: [
+            { label: 'Overview', slug: 'troubleshooting' },
             {
               label: 'Frequently Asked Questions',
               items: [
-                { label: 'Overview', slug: 'troubleshooting/frequently-asked-questions-faq' },
-                { slug: 'troubleshooting/frequently-asked-questions-faq/what-is-peakhour' },
-                { slug: 'troubleshooting/frequently-asked-questions-faq/how-do-i-beta-test-early-release-versions-of-peakhour' },
+                { label: 'Overview', slug: 'troubleshooting/faq' },
+                { slug: 'troubleshooting/faq/what-is-peakhour' },
+                { slug: 'troubleshooting/faq/beta-testing' },
                 {
                   label: 'Configuration',
-                  items: [{ autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/configuration' } }],
+                  items: [
+                    { slug: 'troubleshooting/faq/configuration/stop-launching-at-startup' },
+                    { slug: 'troubleshooting/faq/configuration/reset-configuration' },
+                    { slug: 'troubleshooting/faq/configuration/copy-configuration-to-another-mac' },
+                  ],
                 },
                 {
                   label: 'Monitoring & Compatibility',
-                  items: [{ autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/monitoring-compatibility' } }],
+                  items: [
+                    { slug: 'troubleshooting/faq/monitoring-compatibility/what-devices-can-peakhour-monitor' },
+                    { slug: 'troubleshooting/faq/monitoring-compatibility/bandwidth-monitoring-faq' },
+                    { slug: 'troubleshooting/faq/monitoring-compatibility/apple-airport-time-capsule' },
+                    { slug: 'troubleshooting/faq/monitoring-compatibility/monitor-individual-devices' },
+                    { slug: 'troubleshooting/faq/monitoring-compatibility/enable-snmp-on-mac-pc-linux' },
+                  ],
                 },
                 {
                   label: 'Purchasing & Licensing',
-                  items: [{ autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/purchasing-licensing' } }],
-                },
-                {
-                  label: 'Known Issues',
                   items: [
-                    { label: 'Overview', slug: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues' },
-                    { slug: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/adjust-scaling-factor' },
-                    { slug: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/error-initializing-appstore-offerings' },
-                    { slug: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/how-do-i-check-if-peakhour-is-reporting-data-accurately' },
-                    { slug: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/my-graph-isn-t-smooth-or-network-traffic-appears-in-bursts-instead-of-a-smooth-line' },
-                    {
-                      label: 'Common Troubleshooting',
-                      items: [{ autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/common-troubleshooting' } }],
-                    },
-                    {
-                      label: 'SNMP Troubleshooting',
-                      items: [{ autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/snmp-troubleshooting' } }],
-                    },
-                    {
-                      label: 'UPnP Troubleshooting',
-                      items: [{ autogenerate: { directory: 'troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/upnp-troubleshooting' } }],
-                    },
+                    { slug: 'troubleshooting/faq/purchasing-licensing/upgrade-from-peakhour-4' },
+                    { slug: 'troubleshooting/faq/purchasing-licensing/download-older-versions' },
+                    { slug: 'troubleshooting/faq/purchasing-licensing/upgrade-subscription-to-lifetime' },
                   ],
                 },
               ],
             },
             {
-              label: 'Wiki',
+              label: 'Common Issues',
               items: [
-                { label: 'Overview', slug: 'troubleshooting/wiki' },
-                { slug: 'troubleshooting/wiki/peakhour' },
-                { slug: 'troubleshooting/wiki/usage-monitoring' },
-                {
-                  label: 'Terminology',
-                  items: [
-                    { label: 'Overview', slug: 'troubleshooting/wiki/terminology' },
-                    { slug: 'troubleshooting/wiki/terminology/upnp' },
-                    {
-                      label: 'SNMP',
-                      items: [{ autogenerate: { directory: 'troubleshooting/wiki/terminology/snmp' } }],
-                    },
-                  ],
-                },
+                { label: 'Overview', slug: 'troubleshooting/common-issues' },
+                { slug: 'troubleshooting/common-issues/graph-isnt-smooth' },
+                { slug: 'troubleshooting/common-issues/adjust-scaling-factor' },
+                { slug: 'troubleshooting/common-issues/check-reporting-accuracy' },
+                { slug: 'troubleshooting/common-issues/gathering-diagnostic-logs' },
+                { slug: 'troubleshooting/common-issues/archive-and-send-configuration' },
+              ],
+            },
+            {
+              label: 'SNMP Troubleshooting',
+              items: [
+                { label: 'Overview', slug: 'troubleshooting/snmp' },
+                { slug: 'troubleshooting/snmp/no-interfaces-found' },
+                { slug: 'troubleshooting/snmp/device-responds-but-no-data' },
+              ],
+            },
+            {
+              label: 'UPnP Troubleshooting',
+              items: [
+                { label: 'Overview', slug: 'troubleshooting/upnp' },
+                { slug: 'troubleshooting/upnp/router-not-detected-or-data-wrong' },
+                { slug: 'troubleshooting/upnp/upnp-cant-be-initialised' },
+                { slug: 'troubleshooting/upnp/test-router-with-miniupnp' },
+              ],
+            },
+            {
+              label: 'Reference',
+              items: [
+                { label: 'Overview', slug: 'troubleshooting/reference' },
+                { slug: 'troubleshooting/reference/snmp' },
+                { slug: 'troubleshooting/reference/snmp-community' },
+                { slug: 'troubleshooting/reference/high-capacity-counters' },
+                { slug: 'troubleshooting/reference/upnp' },
+                { slug: 'troubleshooting/reference/usage-monitoring' },
               ],
             },
           ],

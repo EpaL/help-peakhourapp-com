@@ -1,0 +1,68 @@
+---
+title: "Bandwidth Monitoring FAQ"
+description: "What devices PeakHour can monitor for bandwidth throughput, and what to expect from UPnP and SNMP monitoring."
+status: reviewed
+---
+
+## What devices can I monitor?
+
+PeakHour can monitor the bandwidth throughput of devices that we would consider 'active'; that is, they can respond to queries such as [SNMP](/troubleshooting/reference/snmp/) or [UPnP](/troubleshooting/reference/upnp/).
+
+Typically, devices such as internet routers, wireless access points, servers, switches and network attached storage (NAS) support monitoring by one or both of these protocols.
+
+As a general rule of thumb, here is a list of devices that can and can't have their bandwidth throughput monitored by PeakHour. Note this list is not exhaustive and there may be exceptions. In particular, most residential internet routers only implement UPnP and many of them do it **badly**. For this reason, if you wish to monitor internet throughput via one of these routers, we always recommend you test PeakHour first *before* buying a license.
+
+| **Can be monitored**                           | **Can't be monitored**          |
+| ---------------------------------------------- | ------------------------------- |
+| Internet routers\*\*                           | Smartphones (iOS or Android)    |
+| Wi-Fi access points\*\*                        | Tablets (iOS or Android)        |
+| Macs                                           | Xbox                            |
+| Windows PCs and servers                        | PlayStation                     |
+| Linux PCs and servers                          | Nintendo Switch                 |
+| Network Attached Storage (NAS)                 | Apple TV                        |
+| Firewalls (e.g. pfSense)                       | Android TV (e.g. NVIDIA Shield) |
+| Devices that support SNMP (e.g. some printers) | Roku                            |
+
+*\*\* Must support UPnP and / or SNMP*
+
+## Monitoring internet throughput
+
+In order to monitor your internet throughput, first you will need a router that supports either UPnP or SNMP.
+
+For more information, check your router's manual, web UI or mobile app to see if it has one or both of these options available.
+
+### My router supports UPnP — what can I monitor?
+
+If your router supports UPnP, it will report the upload and download activity of the internet-facing (sometimes referred to as 'WAN') interface to PeakHour. PeakHour will then use this to measure and graph internet throughput and usage. Note that UPnP doesn't provide information on individual device usage, so it is not possible to break down traffic by device or application.
+
+#### Troubleshooting tips
+
+If your router is not showing up in PeakHour, or the numbers being reported don't look accurate, here are some tips:
+
+1.  Check your router's administration screen and look for 'UPnP' or 'Universal Plug and Play'. Ensure this setting is enabled.
+
+2.  In PeakHour, open **Settings → Monitors**, click the **+** button and choose **Bandwidth Monitor**. Look for your router in the detected devices list.
+
+3.  If your router is not displayed, try restarting it. Note that not all routers properly implement the UPnP specification. In such cases, even if UPnP is enabled, it may not show up in PeakHour.
+
+4.  Be sure to perform a 'sanity check' of what PeakHour is reporting vs. what you expect to see. Some router manufacturers have been known to not accurately report throughput, so it makes sense to double-check.
+
+If you suspect the throughput PeakHour displays is not accurate, check this article for further troubleshooting tips: [Testing your router's UPnP with MiniUPnP](/troubleshooting/upnp/test-router-with-miniupnp/).
+
+### My router supports SNMP — what can I monitor?
+
+SNMP is a more capable monitoring protocol than UPnP, as it allows you to specify which interface's throughput you'd like to monitor. This gives you more control and provides better visibility of what is going on on your router. Most routers support monitoring of the WAN or internet interface, and may also support monitoring of the Wi-Fi interface and ethernet ports (either as a group or individually).
+
+All routers are different, however, so it's not possible to provide a simple guide on which interface to use. If you're unsure, try generating some traffic of a known speed ([speedtest.net](https://www.speedtest.net) is excellent for this) and comparing it to what you see in PeakHour.
+
+## Monitoring the throughput of my Mac / PC / Linux workstation / server
+
+These types of devices are relatively easy to monitor as they either support SNMP or can have SNMP enabled.
+
+Check out our guide: [How do I enable SNMP on my Mac, PC, or Linux machine?](/troubleshooting/faq/monitoring-compatibility/enable-snmp-on-mac-pc-linux/) for more information.
+
+## Monitoring the throughput of my iPhone / iPad / Android phone / PlayStation / Xbox etc.
+
+'Passive' devices that don't support running SNMP or UPnP generally can't be monitored, as there is no way to query them.
+
+However, you can monitor their usage indirectly by monitoring the internet router they are connected to, and you can monitor other devices in order to build up an overall picture of usage on your network.

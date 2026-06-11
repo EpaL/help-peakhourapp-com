@@ -1,0 +1,29 @@
+---
+title: "Can PeakHour monitor my router / Wi-Fi access point / server / NAS?"
+description: "To find out if your device is compatible, the easiest way is to download PeakHour from the App Store and try it."
+sidebar:
+  label: Which devices are compatible?
+status: reviewed
+---
+
+To find out if your device is compatible, the easiest way is to download PeakHour from the [Mac App Store](https://apps.apple.com/us/app/peakhour/id1560576252?mt=12) and follow the [First Time Setup](/user-guide/first-time-setup/) guide.
+
+Key points regarding compatibility:
+
+  - PeakHour can monitor the throughput of a wide variety of capable devices: routers, wireless access points, servers, printers, PCs, Macs and more.
+
+  - The key to being able to monitor them is that they support either the [SNMP](/troubleshooting/reference/snmp/) or [UPnP](/troubleshooting/reference/upnp/) protocol.
+
+      - Most internet routers support UPnP.
+
+      - Some internet routers support SNMP as well.
+
+  - Mac, Windows and Linux PCs support SNMP, allowing them to be monitored directly.
+
+      - See [How do I enable SNMP on my Mac, PC, or Linux machine?](/troubleshooting/faq/monitoring-compatibility/enable-snmp-on-mac-pc-linux/) for instructions.
+
+  - For servers, NAS devices and printers, see the documentation for those devices.
+
+### Expert Tip
+
+If your router isn't compatible with PeakHour and you're not afraid of a little tinkering, open-source replacement firmwares such as [DD-WRT](https://dd-wrt.com), [OpenWrt](https://openwrt.org) or [FreshTomato](https://freshtomato.org) may provide an alternative option. We've tested DD-WRT ourselves in-house and find it offers excellent SNMP support which works well with PeakHour.

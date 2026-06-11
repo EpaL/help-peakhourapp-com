@@ -1,0 +1,31 @@
+---
+title: "How do I reset my configuration?"
+description: "How to completely remove your PeakHour settings, including your history data."
+sidebar:
+  label: Reset your configuration
+status: reviewed
+---
+
+This will completely remove your PeakHour settings, **including your history data**.
+
+If you wish to retain your settings, make a backup of the configuration directory before you delete it (see [How do I copy my configuration to a different Mac?](/troubleshooting/faq/configuration/copy-configuration-to-another-mac/)). Alternatively, enable [iCloud Sync](/user-guide/settings/icloud/) before running the commands below, then restore the configuration later once you have confirmed it is safe to do so.
+
+To reset your configuration, follow these steps:
+
+1.  Make sure PeakHour is not running.
+
+2.  Open **Terminal** (the easiest way is to click the Spotlight magnifying glass in the menu bar, type 'Terminal' and hit Enter).
+
+3.  Copy and paste the following and hit Enter:
+
+    ```sh
+    rm -r ~/Library/Containers/com.digitician.peakhour5
+    ```
+
+4.  Reboot your Mac. This ensures any cached preferences are cleared.
+
+The next time you launch PeakHour, it will start fresh with the [First Time Setup](/user-guide/first-time-setup/) assistant.
+
+:::note
+The container directory is named `com.digitician.peakhour5` — this is correct for PeakHour 6 as well, since PeakHour 6 is delivered as an update to the same Mac App Store app.
+:::

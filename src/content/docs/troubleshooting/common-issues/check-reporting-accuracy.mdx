@@ -1,0 +1,17 @@
+---
+title: "How do I check if PeakHour is reporting data accurately?"
+description: "Use a Network Quality test to sanity-check the throughput PeakHour reports for your Internet Gateway."
+sidebar:
+  label: Check reporting accuracy
+status: reviewed
+---
+
+The simplest way to check whether PeakHour is measuring your Internet Gateway's traffic accurately is to run a Network Quality test and compare the results against what PeakHour's monitor shows.
+
+Open [Settings → Dashboard](/user-guide/settings/dashboard/), enable **Measure Network Quality**, then click **Run Now** under **Network Quality Test**. While the test runs, watch the monitor for your Internet Gateway: the upload and download throughput it shows should roughly match the speeds reported under **ISP** on the [Internet Dashboard](/user-guide/main-view/internet-dashboard/) when the test completes.
+
+![The Dashboard settings page showing the Network Quality options](./check-reporting-accuracy-images/settings-internet-dashboard.png)
+
+You can also right-click the Internet Dashboard and run a Network Quality test from there.
+
+If the numbers don't match, see [Adjust Scaling Factor](/troubleshooting/common-issues/adjust-scaling-factor/) and, for UPnP routers, [Testing your router's UPnP with MiniUPnP](/troubleshooting/upnp/test-router-with-miniupnp/). Check out the [Usage Monitoring](/troubleshooting/reference/usage-monitoring/) page for more information on accuracy.

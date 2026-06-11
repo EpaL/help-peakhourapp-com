@@ -18,7 +18,7 @@ The site will be available at `http://localhost:4321`.
 - `src/components/NeedsReview.astro` — banner shown on articles carried over from PeakHour 5 that still need a v6 revision
 - `src/styles/theme.css` — brand palette (edit `--peakhour-green` to match the marketing site exactly)
 - `public/_redirects` — Cloudflare Pages redirect map, including legacy URLs from the old Confluence site
-- `scripts/migrate.py` — one-shot migration script (safe to re-run)
+- The original Confluence migration script (`scripts/migrate.py`) has been removed — both sections are hand-maintained now (the troubleshooting tree was reorganised in June 2026 into `faq/`, `common-issues/`, `snmp/`, `upnp/`, `reference/`). It's in git history if ever needed
 
 ## Marking articles reviewed
 

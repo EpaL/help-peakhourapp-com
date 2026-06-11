@@ -1,0 +1,19 @@
+---
+title: "\"My graph isn't smooth\" or \"Network traffic appears in 'bursts' instead of a smooth line\""
+description: "Jagged, on/off graphs are usually caused by routers that update their traffic counters less often than PeakHour polls them."
+sidebar:
+  label: Graph isn't smooth / bursty
+status: reviewed
+---
+
+This can be caused by routers that don't update their traffic counters as often as PeakHour is set to query them. It results in a kind of "on" / "off" pattern in the graph — bursts of traffic separated by flat gaps, instead of a smooth line.
+
+There are two ways to fix it:
+
+1.  Reduce the frequency at which PeakHour polls. This is controlled in [Settings → Display](/user-guide/settings/display/) via the **Refresh Interval** dropdown.
+
+2.  For SNMP monitors, try enabling **Ask device to smooth data** in the monitor's [Advanced settings](/user-guide/settings/monitors-settings/bandwidth-monitor/#advanced) (**Settings → Monitors**, select the monitor, then **Advanced**). This asks the device to refresh its counters every second instead of its default, producing smoother graphs.
+
+    Support for this is device-dependent.
+
+If neither option helps, we recommend you contact the device manufacturer and ask them to update their SNMP implementation to allow for more frequent counter updates.

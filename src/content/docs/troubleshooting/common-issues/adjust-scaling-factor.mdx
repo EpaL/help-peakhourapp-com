@@ -1,0 +1,13 @@
+---
+title: "Adjust Scaling Factor"
+description: "Some routers report double or half the traffic actually being passed. Use the monitor's scale factor to compensate."
+status: reviewed
+---
+
+Some routers (in particular, Apple's AirPort Extremes) can report double or half the traffic actually being passed.
+
+If this happens, open the monitor's [Advanced settings](/user-guide/settings/monitors-settings/bandwidth-monitor/#advanced) (**Settings → Monitors**, select the monitor, then **Advanced**), turn off **Automatic Scale Factor**, and set the **Adjust** scale factor to compensate. The scale factor affects throughput, graphs, bandwidth, totals, and usage.
+
+:::tip
+**Automatic Scale Factor** is on by default and already compensates for certain Apple AirPort interfaces known to report incorrect data. Only set a manual factor if the numbers are still wrong — see [How do I check if PeakHour is reporting data accurately?](/troubleshooting/common-issues/check-reporting-accuracy/)
+:::

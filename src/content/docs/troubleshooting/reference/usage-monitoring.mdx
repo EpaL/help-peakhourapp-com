@@ -1,0 +1,51 @@
+---
+title: "Usage Monitoring"
+description: "How PeakHour measures usage from device counters, what happens when counters roll over, and how to keep usage accurate."
+status: reviewed
+---
+
+## How it works
+
+Every router that is capable of being monitored by PeakHour keeps a running count of the total number of bytes uploaded and downloaded. PeakHour queries these counters regularly and uses them to calculate how much data is currently being transferred (the transfer rate) as well as the total data transferred (usage).
+
+On most SNMP routers and all UPnP routers, these counters are only 32 bits long. In practice, this means each counter can only go up to 4,294,967,295 bytes (~4GB) before it resets — or 'rolls over' — to zero and starts again.
+
+The question is: how does this affect usage monitoring?
+
+While PeakHour is running, it does not matter if the counter rolls over; PeakHour is only concerned with the change in the counter's value, not the absolute value.
+
+If PeakHour is stopped for a period of time and data is still being transferred, things can happen that are beyond your and our control:
+
+  - If the counters DON'T roll over while PeakHour is stopped, there is no problem. Usage will be calculated accurately, as if PeakHour had been running the entire time.
+
+  - If the counters DO roll over while PeakHour is stopped, it becomes impossible for PeakHour to know how much data was transferred during that time; the counters could have rolled over multiple times, but there is no way of knowing how many times exactly.
+
+If the counters do roll over, the next time PeakHour is started it will estimate the missed usage.
+
+### Usage estimation
+
+When estimating, PeakHour will attempt to work out the usage while it was stopped by using other counters available to it. This is not as accurate as measuring directly, but it gets close in many instances.
+
+If you wish, you can disable this behaviour with the **Estimate missed usage on restart** option in the monitor's [Advanced settings](/user-guide/settings/monitors-settings/bandwidth-monitor/#advanced).
+
+## High Capacity Counters
+
+The solution to counters rolling over is [High Capacity Counters](/troubleshooting/reference/high-capacity-counters/).
+
+High Capacity Counters increase the counter size from 32-bit (4,294,967,295 bytes) to 64-bit (9,223,372,036,854,775,807 bytes). Due to their increased size, High Capacity Counters roll over *a lot* less frequently. PeakHour can be stopped for a very long time before any usage inaccuracy would be noticed.
+
+### Support for High Capacity Counters
+
+![The 64-bit Counters row of a monitor's Device section showing Supported](./usage-monitoring-images/snmp-high-capacity-counters.png)
+
+High Capacity Counters are supported by some (usually higher-end) SNMP devices: most enterprise-grade routers, servers running `net-snmpd`, and open-source firewalls (such as pfSense). If a device supports High Capacity Counters, PeakHour will detect and use them automatically.
+
+## Tips for accurate usage
+
+Simply put: the best way to ensure accurate usage is to choose a router that supports [High Capacity Counters](/troubleshooting/reference/high-capacity-counters/).
+
+In case that is not possible:
+
+  - Install PeakHour on a machine that is always on.
+
+  - If that is not possible, you will get the most accurate results if there aren't a lot of devices using your internet connection whilst PeakHour isn't running. PeakHour will remain accurate as long as large amounts of data aren't transferred while it is stopped.

@@ -1,0 +1,22 @@
+---
+title: "My router says it supports UPnP / UPnP is enabled, but PeakHour can't see it or the data being reported doesn't seem right"
+description: "Not all routers implement the aspects of the UPnP specification that allow telemetry to be retrieved."
+sidebar:
+  label: Router not detected / data wrong
+status: reviewed
+---
+
+Most consumer-grade internet routers support UPnP. Unfortunately, not all of them implement the necessary aspects of the UPnP specification that allow telemetry to be retrieved.
+
+If this is the case, PeakHour may say it has found your router, but the monitor's status light may be yellow or red and / or no bandwidth may be reported even though devices are accessing the internet through it.
+
+  - If the data doesn't look correct, or the status light is yellow or red, it is most likely that your router isn't reporting all of the information required for it to be monitored.
+    In this case, PeakHour cannot monitor your internet router directly. There are a few things you can do:
+
+      - Use [PeakHour Enabler](/user-guide/monitor-another-mac-peakhour-enabler/) to monitor your Mac(s) directly instead.
+
+      - Enable SNMP on other devices on your network and monitor those; have a look at [How do I enable SNMP on my Mac, PC, or Linux machine?](/troubleshooting/faq/monitoring-compatibility/enable-snmp-on-mac-pc-linux/) for information on how to set that up.
+
+      - Contact your router manufacturer and check for updated firmware for your router. If that doesn't work, request that they fix or properly implement the [Internet Gateway Device 2](http://upnp.org/specs/gw/igd2/) (IGD2) UPnP specification.
+
+  - If you think it might be an issue with PeakHour, see [Testing your router's UPnP with MiniUPnP](/troubleshooting/upnp/test-router-with-miniupnp/) to check what your router is actually reporting.

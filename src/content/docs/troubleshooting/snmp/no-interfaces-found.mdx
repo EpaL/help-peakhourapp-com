@@ -1,0 +1,33 @@
+---
+title: "\"No Interfaces Found\" when choosing an interface"
+description: "When attempting to add a target using SNMP, you get a 'No Interfaces Found' error on the interface selection screen."
+sidebar:
+  label: '"No Interfaces Found"'
+status: needs-review
+---
+
+{/* TODO(manual-review): The "From other computers" checkbox and 'localhost' workaround describe the old built-in Enabler (screenshot from 2016). Verify the current open-source PeakHour Enabler (github.com/EpaL/PeakHour-Enabler) exposes an equivalent option, update the steps to match its UI, and retake the screenshot. */}
+
+When attempting to add a target using SNMP, you get a **No Interfaces Found** error on the **Interface selection** screen.
+
+## What does this error mean?
+
+The most common reason for this error is inadequate permissions with the SNMP device you're talking to.
+
+Some reasons for this include:
+
+  - You enabled SNMP on your Mac using [PeakHour Enabler](/user-guide/monitor-another-mac-peakhour-enabler/) but didn't enable the **From other computers** checkbox.
+
+  - You're using an incorrect [SNMP community](/troubleshooting/reference/snmp-community/).
+
+## How can I fix it?
+
+Some steps you can take to try to fix it:
+
+1.  Make sure you are entering the correct SNMP community / password.
+
+2.  If you used [PeakHour Enabler](/user-guide/monitor-another-mac-peakhour-enabler/) and didn't check the **From other computers** checkbox, make sure you are clicking **Add SNMP Device…** and are specifying `localhost` as the hostname.
+
+    If this doesn't work, run PeakHour Enabler again, enable the **From other computers** checkbox and try again.
+
+    ![PeakHour Enabler with the From other computers checkbox](./no-interfaces-found-images/screen-shot-2016-05-30-at-8-52-56-pm.png)

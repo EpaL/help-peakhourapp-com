@@ -11,7 +11,7 @@ status: reviewed
 Before you set up PeakHour on your Mac:
 
 - Check that your system meets the [Requirements](/user-guide/requirements/).
-- **Enable UPnP on your Internet router.** PeakHour uses UPnP to discover your router automatically during setup. Most routers ship with UPnP on by default — if yours doesn't, look for an option labelled **UPnP** or **Universal Plug & Play** in your router's admin interface and turn it on before launching PeakHour. See [UPnP Troubleshooting](/troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/upnp-troubleshooting/) if your router still isn't discovered.
+- **Enable UPnP on your Internet router.** PeakHour uses UPnP to discover your router automatically during setup. Most routers ship with UPnP on by default — if yours doesn't, look for an option labelled **UPnP** or **Universal Plug & Play** in your router's admin interface and turn it on before launching PeakHour. See [UPnP Troubleshooting](/troubleshooting/upnp/) if your router still isn't discovered.
 
 # Getting Started
 
@@ -60,7 +60,7 @@ If the **Devices Found** list is empty or your router isn't appearing:
 - Make sure UPnP is enabled on your router — see [Prerequisites](#prerequisites). Look for an option labelled **UPnP** or **Universal Plug & Play** in your router's admin interface.
 - Restart both your router and PeakHour after enabling UPnP so PeakHour re-runs discovery.
 - Some routers don't fully implement the UPnP spec, or implement it poorly. PeakHour validates what your router reports and marks it as **Reporting** when the data looks valid.
-- For deeper diagnostics, see [UPnP Troubleshooting](/troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/upnp-troubleshooting/).
+- For deeper diagnostics, see [UPnP Troubleshooting](/troubleshooting/upnp/).
 
 **Using SNMP instead?** PeakHour can monitor SNMP-enabled routers and other devices, but SNMP doesn't support auto-discovery — SNMP devices won't appear in First Time Setup. Skip the Discover step and add them after setup from [Settings](/user-guide/settings/).
 

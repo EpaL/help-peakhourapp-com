@@ -1,0 +1,21 @@
+---
+title: "High Capacity Counters"
+description: "High Capacity Counters increase SNMP traffic counters from 32-bit to 64-bit, keeping measurement accurate on fast interfaces."
+status: reviewed
+---
+
+## What are High Capacity Counters?
+
+Since the advent of faster and faster network interfaces, SNMP's original use of 32 bits for counters has become somewhat outdated. As a counter of network throughput in bytes, a 32-bit counter can only count up to approximately **4GB** before rolling back to zero. On a very fast interface, the counter may reset before it can even be read again.
+
+High Capacity Counters solve this issue by increasing counters from 32-bit (maximum of 4,294,967,295 bytes) to 64-bit (maximum of 9,223,372,036,854,775,807 bytes).
+
+## How does PeakHour use them?
+
+If PeakHour detects that your device supports High Capacity (64-bit) counters, it will automatically use them to measure throughput. This results in more accurate usage tracking, especially while your Mac is asleep or switched off.
+
+PeakHour indicates whether it has detected 64-bit counters in the monitor's settings (**Settings → Monitors**, select the monitor) under [**Device → 64-bit Counters**](/user-guide/settings/monitors-settings/bandwidth-monitor/#device):
+
+![The 64-bit Counters row of a monitor's Device section showing Supported](./high-capacity-counters-images/snmp-high-capacity-counters.png)
+
+For more information on why High Capacity Counters matter for usage accuracy, see [Usage Monitoring](/troubleshooting/reference/usage-monitoring/). The counter objects themselves are defined in [RFC 2863 — The Interfaces Group MIB](https://datatracker.ietf.org/doc/html/rfc2863).

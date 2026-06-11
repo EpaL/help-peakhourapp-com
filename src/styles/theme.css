@@ -57,6 +57,13 @@
   white-space: nowrap;
 }
 
+/* Tighter line spacing inside bullet / numbered list items. Starlight's
+   default line-height (1.75) reads too airy when a bullet wraps onto
+   multiple lines. */
+.sl-markdown-content li:not(:where(.not-content *)) {
+  line-height: 1.5;
+}
+
 /* Screenshot sizing helpers — wrap a Markdown image in <div class="img-*"> to constrain */
 .img-narrow img { max-width: min(200px, 100%); height: auto; display: block; }
 .img-sm img     { max-width: min(300px, 100%); height: auto; display: block; }
