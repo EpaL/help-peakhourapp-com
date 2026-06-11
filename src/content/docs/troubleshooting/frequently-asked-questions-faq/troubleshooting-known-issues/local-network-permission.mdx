@@ -1,0 +1,42 @@
+---
+title: "PeakHour can't discover your router (Local Network access blocked)"
+description: "If PeakHour can't find your router or other devices, macOS may have blocked its Local Network access. Here's how to re-enable it."
+sidebar:
+  order: 19
+status: needs-review
+---
+
+PeakHour discovers your router and other devices by communicating on your local network. On macOS, apps need **Local Network** permission to do this. If that permission is turned off, PeakHour can't see your router, and you may see a **"Local Network Access Required"** alert:
+
+> PeakHour can't discover your router because macOS has blocked Local Network access.
+
+This most commonly happens **after reinstalling or updating PeakHour**, or if the permission was declined the first time PeakHour asked for it.
+
+## Symptoms
+
+- The **Router** segment of the [Internet Dashboard](/user-guide/main-view/internet-dashboard/) stays blank or can't be detected.
+- Auto-discovery doesn't find your router, access point, or other devices.
+- You see the **"Local Network Access Required"** alert when PeakHour launches.
+
+## How to fix it
+
+1.  Open **System Settings**.
+
+2.  Go to **Privacy & Security → Local Network**.
+
+3.  Find **PeakHour** in the list and turn its switch **on**.
+
+4.  **Quit and relaunch PeakHour** — the change only takes effect on a fresh launch.
+
+:::tip
+In PeakHour's alert you can click **Open System Settings** to jump straight to the Local Network settings.
+:::
+
+If **PeakHour doesn't appear** in the Local Network list, launch it and let it attempt a discovery (for example, open the Internet Dashboard or run through setup). macOS adds an app to the list the first time it requests local-network access. Then return to **Privacy & Security → Local Network** and enable it.
+
+## Still not working?
+
+- Double-check that you **relaunched** PeakHour after enabling the permission.
+- Make sure no firewall, VPN, or content filter is blocking traffic on your local network.
+
+If the issue persists, reach out to us at [support@peakhourapp.com](mailto:support@peakhourapp.com) and we'll be happy to help.
