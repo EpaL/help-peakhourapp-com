@@ -117,6 +117,7 @@ export default defineConfig({
               label: 'Common Issues',
               items: [
                 { label: 'Overview', slug: 'troubleshooting/common-issues' },
+                { slug: 'troubleshooting/common-issues/local-network-permission' },
                 { slug: 'troubleshooting/common-issues/graph-isnt-smooth' },
                 { slug: 'troubleshooting/common-issues/adjust-scaling-factor' },
                 { slug: 'troubleshooting/common-issues/check-reporting-accuracy' },

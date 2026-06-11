@@ -85,6 +85,8 @@
 /wiki/spaces/P5W/pages/9503037/9503037  /troubleshooting/faq/monitoring-compatibility/enable-snmp-on-mac-pc-linux/  301
 
 # --- TROUBLESHOOTING RESTRUCTURE (2026-06) — old on-site URLs ---
+# In-app help link (HelpLinks.swift .localNetworkPermission) — keep until app ships new URL
+/troubleshooting/frequently-asked-questions-faq/troubleshooting-known-issues/local-network-permission/  /troubleshooting/common-issues/local-network-permission/  301
 # Article removed 2026-06; send its URL to the Common Issues overview
 /troubleshooting/common-issues/error-initializing-appstore-offerings/  /troubleshooting/common-issues/  301
 /troubleshooting/frequently-asked-questions-faq/  /troubleshooting/faq/  301
