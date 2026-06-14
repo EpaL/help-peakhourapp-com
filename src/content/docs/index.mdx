@@ -4,6 +4,10 @@ description: Documentation, guides and troubleshooting for PeakHour 6 — profes
 template: splash
 hero:
   tagline: Get the most out of PeakHour 6 — from first launch to advanced configuration.
+  image:
+    # Raw <img> rather than `file:` so the wide 2:1 dashboard keeps its aspect
+    # ratio — Starlight's hero pipeline hard-crops `file:` images to a square.
+    html: '<img src="/hero-dashboard.webp" width="954" height="484" loading="eager" decoding="async" alt="PeakHour''s Internet Dashboard showing live health for This Mac, Router, ISP and the wider Internet." />'
   actions:
     - text: Read the User Guide
       link: /user-guide/
@@ -11,14 +15,16 @@ hero:
       variant: primary
     - text: Troubleshooting & FAQ
       link: /troubleshooting/
-      icon: external
+      variant: secondary
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
 ## Quick links
 
-<CardGrid stagger>
+Jump straight to the part of the documentation you need.
+
+<CardGrid>
   <a class="card-link" href="/user-guide/first-time-setup/">
     <Card title="First-time setup" icon="rocket">
       New to PeakHour? Start here to get the app configured for your network.

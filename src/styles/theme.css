@@ -121,6 +121,91 @@
   color: inherit;
   display: block;
 }
+.card-link .card {
+  height: 100%;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
 .card-link:hover .card {
   border-color: var(--sl-color-accent);
+  box-shadow: 0 12px 30px -14px rgba(0, 0, 0, 0.55);
+  transform: translateY(-3px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-link .card {
+    transition: border-color 0.2s ease;
+  }
+  .card-link:hover .card {
+    transform: none;
+  }
+}
+
+/* ===========================================================================
+   Landing page (splash)
+
+   Everything below is scoped to the home page via the `data-has-hero`
+   attribute Starlight sets on <html> for splash pages with a hero, so none of
+   it leaks into the regular documentation pages.
+   =========================================================================== */
+
+/* Soft brand-green glow behind the hero. Painted on <body> (always full-width)
+   rather than an absolutely-positioned element, so it can never introduce a
+   horizontal scrollbar. */
+:root[data-has-hero][data-theme='dark'] body {
+  background-image: radial-gradient(
+    55rem 38rem at 78% -4rem,
+    color-mix(in srgb, var(--peakhour-green) 16%, transparent),
+    transparent 70%
+  );
+  background-repeat: no-repeat;
+}
+:root[data-has-hero][data-theme='light'] body {
+  background-image: radial-gradient(
+    55rem 38rem at 78% -4rem,
+    color-mix(in srgb, var(--peakhour-green) 12%, transparent),
+    transparent 70%
+  );
+  background-repeat: no-repeat;
+}
+
+/* Frame the product screenshot like a real app window. The image is supplied
+   as raw HTML (see index.mdx) so Starlight wraps it in `.hero-html`. */
+:root[data-has-hero] .hero .hero-html {
+  max-width: 100%;
+}
+:root[data-has-hero] .hero .hero-html img {
+  display: block;
+  width: 100%;
+  /* Without max-width the raw 954px-wide <img> keeps the grid column from
+     shrinking on narrow screens, overflowing the viewport. */
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  border: 1px solid var(--sl-color-gray-5);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 20px 50px -16px rgba(0, 0, 0, 0.6);
+}
+
+/* The dashboard screenshot is wide and short — give it a little more of the
+   hero's width so it reads clearly on larger screens. */
+@media (min-width: 50rem) {
+  :root[data-has-hero] .hero {
+    grid-template-columns: 6fr 5fr;
+  }
+  :root[data-has-hero] .hero .hero-html {
+    width: min(100%, 30rem);
+  }
+}
+
+/* Unify the quick-link cards on the PeakHour green accent (Starlight otherwise
+   cycles each card through orange / purple / green / red). */
+:root[data-has-hero] .card {
+  --sl-card-border: color-mix(in srgb, var(--peakhour-green) 40%, transparent);
+  --sl-card-bg: color-mix(in srgb, var(--peakhour-green) 12%, transparent);
+}
+:root[data-has-hero] .card .icon {
+  color: var(--sl-color-text-accent);
 }

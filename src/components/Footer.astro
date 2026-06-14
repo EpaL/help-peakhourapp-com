@@ -10,6 +10,9 @@ import Default from '@astrojs/starlight/components/Footer.astro';
 
 const { entry } = Astro.locals.starlightRoute;
 const title = entry.data.title;
+// The feedback prompt is for documentation articles. Skip it on the splash
+// landing page, where it reads as out of place.
+const isSplash = entry.data.template === 'splash';
 const pageUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 
 const repo = 'https://github.com/EpaL/help-peakhourapp-com';
@@ -22,25 +25,27 @@ const mailBody = `Page: ${pageUrl}\n\nWhat could be improved on this page?\n`;
 const mailHref = `mailto:support@peakhourapp.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
 ---
 
-<div class="docs-feedback" data-pagefind-ignore>
-  <p class="docs-feedback__title">Was this page helpful?</p>
-  <p class="docs-feedback__text">
-    Found something wrong, unclear, or out of date? Let us know and we'll fix it.
-  </p>
-  <div class="docs-feedback__actions">
-    <a
-      class="docs-feedback__btn"
-      href={githubHref}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Suggest an improvement&nbsp;↗
-    </a>
-    <a class="docs-feedback__btn docs-feedback__btn--secondary" href={mailHref}>
-      Email feedback
-    </a>
+{!isSplash && (
+  <div class="docs-feedback" data-pagefind-ignore>
+    <p class="docs-feedback__title">Was this page helpful?</p>
+    <p class="docs-feedback__text">
+      Found something wrong, unclear, or out of date? Let us know and we'll fix it.
+    </p>
+    <div class="docs-feedback__actions">
+      <a
+        class="docs-feedback__btn"
+        href={githubHref}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Suggest an improvement&nbsp;↗
+      </a>
+      <a class="docs-feedback__btn docs-feedback__btn--secondary" href={mailHref}>
+        Email feedback
+      </a>
+    </div>
   </div>
-</div>
+)}
 
 <Default><slot /></Default>
 
