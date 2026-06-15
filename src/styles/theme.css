@@ -189,23 +189,150 @@
     0 20px 50px -16px rgba(0, 0, 0, 0.6);
 }
 
-/* The dashboard screenshot is wide and short — give it a little more of the
-   hero's width so it reads clearly on larger screens. */
+/* The dashboard screenshot is wide and short — give it an equal share of the
+   hero (Starlight defaults to a narrow 7fr/4fr image column) and a generous
+   width cap so it reads clearly on larger screens. */
 @media (min-width: 50rem) {
   :root[data-has-hero] .hero {
-    grid-template-columns: 6fr 5fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 4%;
   }
   :root[data-has-hero] .hero .hero-html {
-    width: min(100%, 30rem);
+    width: min(100%, 34rem);
   }
 }
 
 /* Unify the quick-link cards on the PeakHour green accent (Starlight otherwise
-   cycles each card through orange / purple / green / red). */
+   cycles each card through orange / purple / green / red) and lift them onto a
+   subtly elevated surface so they read as cards against the page, not just on
+   hover. */
 :root[data-has-hero] .card {
   --sl-card-border: color-mix(in srgb, var(--peakhour-green) 40%, transparent);
   --sl-card-bg: color-mix(in srgb, var(--peakhour-green) 12%, transparent);
+  background-color: var(--sl-color-gray-6);
+  border-radius: 0.75rem;
 }
 :root[data-has-hero] .card .icon {
+  color: var(--sl-color-text-accent);
+}
+
+/* "Go here" affordance: a faint arrow at the end of each card title that
+   brightens to the accent colour and slides forward on hover / keyboard focus,
+   signalling the whole card is a link. */
+:root[data-has-hero] .card .title::after {
+  content: "→";
+  margin-inline-start: auto;
+  padding-inline-start: 0.5rem;
+  color: var(--sl-color-gray-3);
+  font-weight: 400;
+  opacity: 0.5;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+:root[data-has-hero] .card-link:hover .title::after,
+:root[data-has-hero] .card-link:focus-visible .title::after {
+  color: var(--sl-color-text-accent);
+  opacity: 1;
+  transform: translateX(0.25rem);
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-has-hero] .card .title::after {
+    transition: opacity 0.2s ease, color 0.2s ease;
+  }
+  :root[data-has-hero] .card-link:hover .title::after,
+  :root[data-has-hero] .card-link:focus-visible .title::after {
+    transform: none;
+  }
+}
+
+/* The landing page is a curated entry point, not a documentation article —
+   drop the auto-generated heading anchor link so headings read cleanly. */
+:root[data-has-hero] .sl-markdown-content .sl-anchor-link {
+  display: none;
+}
+
+/* Tighten the gap between the hero and the quick links: the splash hero's
+   default bottom padding leaves an oversized void before the cards. */
+@media (min-width: 50rem) {
+  :root[data-has-hero] .hero {
+    padding-block-end: clamp(1.5rem, 4vmin, 3.5rem);
+  }
+}
+
+/* "Still need help?" contact panel — the fallback when the quick links above
+   don't cover the reader's problem. Marked `.not-content` in the MDX so
+   Starlight leaves the prose styling to us. */
+:root[data-has-hero] .contact-card {
+  margin-top: 3.5rem;
+  padding: clamp(1.75rem, 1rem + 3vw, 3rem);
+  text-align: center;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.75rem;
+  background:
+    radial-gradient(
+      120% 130% at 50% 0%,
+      color-mix(in srgb, var(--peakhour-green) 9%, transparent),
+      transparent 55%
+    ),
+    var(--sl-color-gray-6);
+}
+:root[data-has-hero] .contact-card h2 {
+  margin: 0;
+  /* Match the "Quick links" section heading so the two read as peers. */
+  font-size: var(--sl-text-h2);
+  font-weight: 600;
+  line-height: var(--sl-line-height-headings);
+  color: var(--sl-color-white);
+}
+/* Intro paragraph only — `:not(.contact-card__hint)` keeps this element-level
+   rule from out-specifying the hint's own margin/colour below. */
+:root[data-has-hero] .contact-card p:not(.contact-card__hint) {
+  margin: 0.6rem auto 0;
+  max-width: 50ch;
+  color: var(--sl-color-gray-2);
+}
+:root[data-has-hero] .contact-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+:root[data-has-hero] .contact-card__btn {
+  display: inline-block;
+  /* Equal padding all round. A title-case label otherwise reads as sitting
+     high because the line box includes the ascent-above-caps and the mostly
+     empty descender band; `text-box: trim-both cap alphabetic` trims the line
+     box to the cap-height/baseline so it's the visible glyphs — not the font's
+     leading — that get centred. Browsers without text-box support fall back to
+     ordinary (geometrically centred) text. */
+  /* Trimming removes the line-box leading, so pad a little more to keep the
+     original button height. Padding stays equal top/bottom. */
+  padding: 0.9375rem 1.5rem;
+  text-box: trim-both cap alphabetic;
+  border-radius: 999rem;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1.2;
+  /* Matches the hero's primary action so the two CTAs feel related. */
+  background: var(--sl-color-text-accent);
+  color: var(--sl-color-black);
+  border: 1px solid var(--sl-color-text-accent);
+  transition: filter 0.2s ease;
+}
+:root[data-has-hero] .contact-card__btn:hover {
+  filter: brightness(1.08);
+  color: var(--sl-color-black);
+}
+:root[data-has-hero] .contact-card__hint {
+  /* Match the space above the button (.contact-card__actions margin-top) so the
+     button sits equidistant between the paragraph above and this hint below. */
+  margin-top: 1.5rem;
+  font-size: var(--sl-text-sm);
+  color: var(--sl-color-gray-3);
+}
+:root[data-has-hero] .contact-card__hint a {
   color: var(--sl-color-text-accent);
 }

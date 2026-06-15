@@ -10,8 +10,9 @@ import Default from '@astrojs/starlight/components/Footer.astro';
 
 const { entry } = Astro.locals.starlightRoute;
 const title = entry.data.title;
-// The feedback prompt is for documentation articles. Skip it on the splash
-// landing page, where it reads as out of place.
+// The feedback prompt and Starlight's default footer (edit link + last
+// updated) are documentation chrome. Skip them on the splash landing page,
+// where they read as out of place.
 const isSplash = entry.data.template === 'splash';
 const pageUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 
@@ -47,7 +48,7 @@ const mailHref = `mailto:support@peakhourapp.com?subject=${encodeURIComponent(ma
   </div>
 )}
 
-<Default><slot /></Default>
+{!isSplash && <Default><slot /></Default>}
 
 <style>
   .docs-feedback {
