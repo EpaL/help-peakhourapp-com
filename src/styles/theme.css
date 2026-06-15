@@ -119,15 +119,6 @@
    Article content polish
    =========================================================================== */
 
-/* Frame content screenshots so app UI shots read as distinct objects instead
-   of bleeding into the dark page. Inline icons (wrapped in .inline-icon) keep
-   their bare look. */
-.sl-markdown-content :not(.inline-icon) > img {
-  border-radius: 0.5rem;
-  border: 1px solid var(--sl-color-gray-5);
-  box-shadow: 0 2px 12px -6px rgba(0, 0, 0, 0.5);
-}
-
 /* Row hover makes the long reference / settings tables easier to scan. A
    neutral highlight (not the green accent) keeps it from implying the rows are
    clickable. */
