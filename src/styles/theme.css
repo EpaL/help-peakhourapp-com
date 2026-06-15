@@ -136,6 +136,65 @@
   background-color: var(--sl-color-accent-low);
 }
 
+/* Previous / Next pagination footer — bring it in line with the card treatment
+   used elsewhere: an elevated surface, an accent hover with a subtle lift, a
+   refined eyebrow label, and an arrow that slides outward on hover. */
+.pagination-links a {
+  background: var(--sl-color-gray-6);
+  border-radius: 0.75rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+.pagination-links a:hover {
+  border-color: var(--sl-color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -14px rgba(0, 0, 0, 0.55);
+}
+/* "Previous" / "Next" eyebrow label (the bare text before the title). */
+.pagination-links a > span {
+  font-size: var(--sl-text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sl-color-gray-3);
+}
+.pagination-links .link-title {
+  display: inline-block;
+  margin-top: 0.2rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+}
+/* Arrow: slide outward and pick up the accent colour on hover. */
+.pagination-links a svg {
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+.pagination-links a:hover svg {
+  color: var(--sl-color-text-accent);
+}
+.pagination-links a[rel='prev']:hover svg {
+  transform: translateX(-0.2rem);
+}
+.pagination-links a[rel='next']:hover svg {
+  transform: translateX(0.2rem);
+}
+@media (prefers-reduced-motion: reduce) {
+  .pagination-links a,
+  .pagination-links a svg {
+    transition:
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+  .pagination-links a:hover,
+  .pagination-links a:hover svg {
+    transform: none;
+  }
+}
+
 /* Wrap a Starlight <Card> in <a class="card-link"> to make the whole card clickable */
 .card-link {
   text-decoration: none;
