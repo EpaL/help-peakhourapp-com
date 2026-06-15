@@ -115,6 +115,36 @@
   color: var(--sl-color-white);
 }
 
+/* ===========================================================================
+   Article content polish
+   =========================================================================== */
+
+/* Frame content screenshots so app UI shots read as distinct objects instead
+   of bleeding into the dark page. Inline icons (wrapped in .inline-icon) keep
+   their bare look. */
+.sl-markdown-content :not(.inline-icon) > img {
+  border-radius: 0.5rem;
+  border: 1px solid var(--sl-color-gray-5);
+  box-shadow: 0 2px 12px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* Row hover makes the long reference / settings tables easier to scan. A
+   neutral highlight (not the green accent) keeps it from implying the rows are
+   clickable. */
+.sl-markdown-content tbody tr:not(:where(.not-content *)):hover {
+  background: var(--sl-color-gray-5);
+}
+
+/* Brand the "tip" aside green — Starlight defaults tips to purple, which
+   clashes with the PeakHour palette. Notes stay blue (informational) and
+   caution/danger keep their semantic colours. Theme-aware accent keeps the
+   title and links legible in both light and dark. */
+.starlight-aside--tip {
+  --sl-color-asides-text-accent: var(--sl-color-text-accent);
+  --sl-color-asides-border: var(--sl-color-accent);
+  background-color: var(--sl-color-accent-low);
+}
+
 /* Wrap a Starlight <Card> in <a class="card-link"> to make the whole card clickable */
 .card-link {
   text-decoration: none;
