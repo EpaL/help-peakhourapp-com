@@ -142,12 +142,16 @@
 .pagination-links a {
   background: var(--sl-color-gray-6);
   border-radius: 0.75rem;
+  /* Align the arrow with the destination title (the prominent line) rather
+     than the centre of the label + title block, so it reads as pointing at it. */
+  align-items: flex-end;
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease,
     transform 0.2s ease;
 }
-.pagination-links a:hover {
+.pagination-links a:hover,
+.pagination-links a:focus-visible {
   border-color: var(--sl-color-accent);
   transform: translateY(-2px);
   box-shadow: 0 12px 30px -14px rgba(0, 0, 0, 0.55);
@@ -167,19 +171,24 @@
   text-transform: none;
   letter-spacing: normal;
 }
-/* Arrow: slide outward and pick up the accent colour on hover. */
+/* Arrow: muted at rest so it doesn't compete with the title, then picks up the
+   accent colour and slides outward on hover / keyboard focus. */
 .pagination-links a svg {
+  color: var(--sl-color-gray-3);
   transition:
     transform 0.2s ease,
     color 0.2s ease;
 }
-.pagination-links a:hover svg {
+.pagination-links a:hover svg,
+.pagination-links a:focus-visible svg {
   color: var(--sl-color-text-accent);
 }
-.pagination-links a[rel='prev']:hover svg {
+.pagination-links a[rel='prev']:hover svg,
+.pagination-links a[rel='prev']:focus-visible svg {
   transform: translateX(-0.2rem);
 }
-.pagination-links a[rel='next']:hover svg {
+.pagination-links a[rel='next']:hover svg,
+.pagination-links a[rel='next']:focus-visible svg {
   transform: translateX(0.2rem);
 }
 @media (prefers-reduced-motion: reduce) {
@@ -190,7 +199,9 @@
       color 0.2s ease;
   }
   .pagination-links a:hover,
-  .pagination-links a:hover svg {
+  .pagination-links a:focus-visible,
+  .pagination-links a:hover svg,
+  .pagination-links a:focus-visible svg {
     transform: none;
   }
 }
