@@ -29,7 +29,7 @@ There are two ways to open the History view for a monitor:
 - Click the **History** button (<span class="inline-icon">![History toolbar button](./history-view-images/history-button.png)</span>) in the [graph toolbar](/user-guide/main-view/bandwidth-monitors/) above the monitor's graph.
 - If the graph isn't visible, right-click the monitor and choose **History…** from the menu.
 
-You can also open History for a whole section at once using the **Open History** button in the [Bandwidth Monitors](/user-guide/main-view/bandwidth-monitors/) or [Latency Monitors](/user-guide/main-view/latency-monitors/) section header. Once the window is open, use its sidebar to switch between monitors without reopening it.
+You can also click the **Open History** button in the [Bandwidth Monitors](/user-guide/main-view/bandwidth-monitors/) or [Latency Monitors](/user-guide/main-view/latency-monitors/) section header to get a menu of that section's monitors — choose one to open its History view. Once the window is open, use its sidebar to switch between monitors without reopening it.
 
 ## Reading the graph
 
@@ -42,8 +42,29 @@ Hover over any point on the graph to see the actual value at that moment. To ins
 </div>
 
 - **Hover detail** — a tooltip showing the values at the point under the pointer. For a latency monitor this is the time, latency, and packet loss; for a bandwidth monitor it's the time and the usage or speed.
-- **No data** — a hatched region marks periods where no data was recorded, for example while PeakHour wasn't running.
+- **No data** — a hatched region marks periods where no data was recorded, for example while PeakHour wasn't running. For latency monitors, see [Outages and downtime](#outages-and-downtime) for how PeakHour tells these gaps apart from a genuine outage.
 - **Estimated** — for bandwidth monitors, an **Estimated** tag indicates usage that PeakHour calculated by averaging the total data used between the time it stopped running and the time it started again, rather than measuring it directly.
+
+## Outages and downtime
+
+When there's a gap in a latency monitor's history, PeakHour tries to tell the difference between a real outage — your connection was actually down — and simply not monitoring, such as when your Mac was asleep, the app was closed, or monitoring was paused. It only counts time as downtime when it has evidence the connection genuinely failed.
+
+<div class="img-lg">
+
+![The latency History view with a red Offline band marking a detected outage and the total downtime for the period shown at the top of the window](./history-view-images/history-view-outage.png)
+
+</div>
+
+- **Offline** — a red band marks time PeakHour is confident the connection was down. The **Offline 5h 30m** total at the top of the window adds up every detected outage across the period you're viewing.
+- **No data** — a hatched band marks a gap where PeakHour can't prove there was an outage, most often because your Mac was asleep or PeakHour wasn't running. Rather than overstate things, PeakHour shows these as **No data** instead of downtime.
+- Hover any band to see how long it lasted.
+
+PeakHour counts a silent gap as a genuine outage when either of these is true:
+
+- **The connection was visibly failing** — the checks taken just before or after the gap were almost entirely failing, with near-total packet loss as the link dropped and then went silent.
+- **Your Mac was clearly still online** — another monitored target kept reporting normally during the same gap. If one target goes silent while others are still being checked, your Mac was awake and connected, so that target was genuinely unreachable.
+
+If neither is true, the gap is shown as **No data** rather than downtime. A gap also has to last at least a couple of monitoring intervals before it's labelled, so momentary blips don't clutter the graph.
 
 ## The toolbar
 
