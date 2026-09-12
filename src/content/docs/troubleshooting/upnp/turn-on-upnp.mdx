@@ -1,0 +1,68 @@
+---
+title: "How do I turn on UPnP on my router?"
+description: "UPnP is usually a single checkbox in your router's admin page. Here's where to find it for the most common routers."
+sidebar:
+  label: Turn on UPnP
+---
+
+PeakHour uses UPnP to automatically discover your router and monitor your internet bandwidth, without you having to type in an IP address or set up SNMP. If the Monitors list shows nothing under **Detected on This Network**, the most common reason is that UPnP is switched off at your router.
+
+## What is UPnP, and what does turning it on mean?
+
+UPnP (Universal Plug and Play) is a protocol that lets devices on your network discover and talk to each other automatically — see [UPnP](/troubleshooting/reference/upnp/) for the full explanation. PeakHour only uses it to *read* traffic counters from your router: it never opens a port and never changes your router's configuration.
+
+The switch at the router is network-wide, though, so it's worth understanding the tradeoff before you flip it. With UPnP on, any device on your network can also ask the router to open ports on its own — that's how game consoles and some apps get incoming connections working without manual port forwarding. The same convenience is the risk: a compromised or badly behaved device can use it to expose a service through your firewall without telling you. PeakHour's own use of UPnP adds nothing to that exposure, but switching UPnP on for PeakHour switches it on for everything else on the network too. Whether that's an acceptable trade depends on how much you trust the devices on your network.
+
+If you'd rather leave UPnP off, PeakHour can monitor your router over [SNMP](/troubleshooting/reference/snmp/) instead, or monitor your Mac directly with [PeakHour Enabler](/user-guide/monitor-another-mac-peakhour-enabler/).
+
+## Where to find the setting
+
+On almost every router, UPnP lives behind a single checkbox, usually under a heading like **Advanced**, **NAT**, or **Forwarding**. Log in to your router's admin page (typically by typing its address — often `192.168.1.1` or `192.168.0.1` — into a browser), then follow the steps below for your router.
+
+### eero
+
+1. Open the **eero** app.
+2. Tap **eero Network** at the top, then **Network Settings**.
+3. Tap **UPnP** and turn it **on**.
+
+### Ubiquiti UniFi
+
+1. Log in to the **UniFi Network** application (or UniFi OS console).
+2. Go to **Settings → Internet**, or **Settings → Routing → NAT** on some versions.
+3. Find **UPnP** and switch it **on**. On some UniFi versions this setting lives under the WAN interface's own settings instead.
+
+### Netgear
+
+1. Log in at `routerlogin.net` (or your router's IP address).
+2. Go to **Advanced → Advanced Setup → UPnP**.
+3. Check **Turn UPnP On**, then click **Apply**.
+
+### ASUS
+
+1. Log in to the router's web interface (often `router.asus.com`).
+2. Go to **WAN → General** (**Advanced Settings → WAN** on older firmware).
+3. Set **Enable UPnP** to **Yes**.
+
+### BT (Smart Hub / Smart Hub 2)
+
+1. Log in to the Smart Hub manager, usually at `192.168.1.254`.
+2. Go to **Advanced Settings → Home Network**.
+3. Under **UPnP**, tick **Enable UPnP**.
+
+### Sky (Sky Broadband Hub)
+
+1. Log in to the hub manager at `192.168.1.254` (the default password is on a sticker on the hub).
+2. Go to **Advanced Settings → UPnP** (**NAT** on some hub versions).
+3. Turn **UPnP** **on**.
+
+### Xfinity (Comcast) gateway
+
+1. Log in to the Xfinity admin tool at `10.0.0.1`.
+2. Go to **Gateway → Connection → Advanced Settings** (or **At a Glance → Advanced**).
+3. Find **UPnP** and set it to **Enabled**.
+
+## After you turn it on
+
+Give your router a minute, then reopen the Monitors list in PeakHour and check **Detected on This Network** again. If your router still doesn't show up, see [My router says it supports UPnP, but PeakHour can't see it or the data being reported doesn't seem right](/troubleshooting/upnp/router-not-detected-or-data-wrong/).
+
+Can't find a UPnP setting at all? Some ISP-locked routers hide it or don't support it. In that case, you can monitor your Mac directly with [PeakHour Enabler](/user-guide/monitor-another-mac-peakhour-enabler/), or [enable SNMP on another device](/troubleshooting/faq/monitoring-compatibility/enable-snmp-on-mac-pc-linux/) on your network instead.
