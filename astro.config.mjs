@@ -137,6 +137,7 @@ export default defineConfig({
               label: 'UPnP Troubleshooting',
               items: [
                 { label: 'Overview', slug: 'troubleshooting/upnp' },
+                { slug: 'troubleshooting/upnp/turn-on-upnp' },
                 { slug: 'troubleshooting/upnp/router-not-detected-or-data-wrong' },
                 { slug: 'troubleshooting/upnp/upnp-cant-be-initialised' },
                 { slug: 'troubleshooting/upnp/test-router-with-miniupnp' },
