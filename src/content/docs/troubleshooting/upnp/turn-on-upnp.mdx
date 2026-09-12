@@ -7,9 +7,13 @@ sidebar:
 
 PeakHour uses UPnP to automatically discover your router and monitor your internet bandwidth, without you having to type in an IP address or set up SNMP. If the Monitors list shows nothing under **Detected on This Network**, the most common reason is that UPnP is switched off at your router.
 
-## What is UPnP, and is it safe to turn on?
+## What is UPnP, and what does turning it on mean?
 
-UPnP (Universal Plug and Play) is a protocol that lets devices on your network discover and talk to each other automatically — see [UPnP](/troubleshooting/reference/upnp/) for the full explanation. PeakHour only uses it to *read* traffic counters from your router; it doesn't open any ports or change your router's configuration. Turning UPnP on for PeakHour is the same setting used by many game consoles, smart TVs, and other home apps, and is safe to leave on for normal home use.
+UPnP (Universal Plug and Play) is a protocol that lets devices on your network discover and talk to each other automatically — see [UPnP](/troubleshooting/reference/upnp/) for the full explanation. PeakHour only uses it to *read* traffic counters from your router: it never opens a port and never changes your router's configuration.
+
+The switch at the router is network-wide, though, so it's worth understanding the tradeoff before you flip it. With UPnP on, any device on your network can also ask the router to open ports on its own — that's how game consoles and some apps get incoming connections working without manual port forwarding. The same convenience is the risk: a compromised or badly behaved device can use it to expose a service through your firewall without telling you. PeakHour's own use of UPnP adds nothing to that exposure, but switching UPnP on for PeakHour switches it on for everything else on the network too. Whether that's an acceptable trade depends on how much you trust the devices on your network.
+
+If you'd rather leave UPnP off, PeakHour can monitor your router over [SNMP](/troubleshooting/reference/snmp/) instead, or monitor your Mac directly with [PeakHour Enabler](/user-guide/monitor-another-mac-peakhour-enabler/).
 
 ## Where to find the setting
 
