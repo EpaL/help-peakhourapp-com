@@ -25,11 +25,23 @@ When you join a network, PeakHour looks for its router. If the router supports U
 
 A detected router is easy to spot: its row is tinted yellow, it carries a ✨ sparkles badge, and its subtitle reads **Auto-detected router**. When you select it, its header shows an **Auto-detected** pill.
 
+<div class="img-sm">
+
+![A detected router in the Bandwidth section: a yellow-tinted row named UniFi Dream Machine, with the subtitle Auto-detected router and a sparkles badge](./images/detected-router-row.png)
+
+</div>
+
 Router detection is on by default. If you see a monitor you don't remember adding, this is almost certainly where it came from.
 
 ### A detected router isn't saved
 
 The one thing to understand about a detected router is that it's a live view of the network you're on — **not part of your configuration**. Nothing is saved until you click **Adopt**. That explains how it behaves:
+
+<div class="img-lg">
+
+![Monitors settings with a detected router selected. The header shows the Auto-detected pill and the Adopt button, above the note Click Adopt to save this monitor and allow configuration](./images/detected-router-selected.png)
+
+</div>
 
 - **Its settings are locked.** You can watch its graph and status, but you can't rename it or change its settings until you adopt it. The header reminds you: *Click Adopt to save this monitor and allow configuration.*
 - **It can't be deleted or duplicated.** There's nothing saved to delete, so the **-** button is unavailable while it's selected. If you don't want detected routers at all, [turn detection off](#turning-router-detection-off).
@@ -52,6 +64,12 @@ PeakHour saves it to your configuration and it becomes an ordinary bandwidth mon
 ### When nothing is detected
 
 If no router has been found, a **Detected on This Network** section appears at the bottom of the Monitors list. It reads **Discovering routers…** while PeakHour is looking, and **No routers found on this network** once it has finished.
+
+<div class="img-sm">
+
+![The Detected on This Network section showing No routers found on this network, with a How to turn on UPnP link](./images/detected-on-this-network-empty.png)
+
+</div>
 
 The most common reason is that UPnP is switched off at the router — many routers ship with it off. The **How to turn on UPnP** link in that section takes you to [How do I turn on UPnP on my router?](/troubleshooting/upnp/turn-on-upnp/), which also explains what switching it on means for your network.
 
