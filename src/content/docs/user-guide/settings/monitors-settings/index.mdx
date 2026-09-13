@@ -1,6 +1,6 @@
 ---
 title: "Monitors [Settings]"
-description: "The Monitors settings let you add, edit, duplicate, and remove the monitors PeakHour tracks."
+description: "The Monitors settings let you add, adopt, edit, duplicate, and remove the monitors PeakHour tracks, including routers it detects automatically."
 sidebar:
   order: 12
 status: reviewed
@@ -8,7 +8,7 @@ status: reviewed
 
 
 
-The **Monitors** settings let you manage your list of monitors — add new ones, and edit, duplicate, or remove existing ones.
+The **Monitors** settings let you manage your list of monitors — add new ones, adopt routers PeakHour has detected on your network, and edit, duplicate, or remove existing ones.
 
 ## Adding a new Monitor
 
@@ -19,11 +19,62 @@ This opens the [Configuration Assistant](/user-guide/configuration-assistant/). 
 - **Bandwidth** — measures the data uploaded and downloaded through your Mac, a network device, server, or PC. See the [Bandwidth Configuration Assistant](/user-guide/configuration-assistant/configuration-assistant-bandwidth/) and [Bandwidth Monitor settings](/user-guide/settings/monitors-settings/bandwidth-monitor/).
 - **Latency** — measures the latency and connection quality to a host or hop on your network path. See the [Latency Configuration Assistant](/user-guide/configuration-assistant/configuration-assistant-latency/) and [Latency Monitor settings](/user-guide/settings/monitors-settings/latency-monitor/).
 
+## Routers detected automatically
+
+When you join a network, PeakHour looks for its router. If the router supports UPnP, it appears at the top of the **Bandwidth** section with no setup at all — no IP address, no credentials. It starts graphing straight away, and the [Internet Dashboard](/user-guide/main-view/internet-dashboard/) can use it as your Internet Gateway.
+
+A detected router is easy to spot: its row is tinted yellow, it carries a ✨ sparkles badge, and its subtitle reads **Auto-detected router**. When you select it, its header shows an **Auto-detected** pill.
+
+Router detection is on by default. If you see a monitor you don't remember adding, this is almost certainly where it came from.
+
+### A detected router isn't saved
+
+The one thing to understand about a detected router is that it's a live view of the network you're on — **not part of your configuration**. Nothing is saved until you click **Adopt**. That explains how it behaves:
+
+- **Its settings are locked.** You can watch its graph and status, but you can't rename it or change its settings until you adopt it. The header reminds you: *Click Adopt to save this monitor and allow configuration.*
+- **It can't be deleted or duplicated.** There's nothing saved to delete, so the **-** button is unavailable while it's selected. If you don't want detected routers at all, [turn detection off](#turning-router-detection-off).
+- **Usage isn't counted against it.** When Usage is set to Automatic, PeakHour won't count data against a router you haven't adopted, so passing through a café or a hotel never adds to your usage totals.
+- **It comes and goes with the network.** Leave the network and the detected router disappears from the list. Come back and it returns, with the history it had already collected. The monitors you've added yourself are always listed, wherever you are.
+
+### Adopting a detected router
+
+To keep a detected router, click **Adopt** in its header, or right-click it in the list and choose **Adopt**.
+
+PeakHour saves it to your configuration and it becomes an ordinary bandwidth monitor. The yellow tint and the sparkles badge go away, it keeps its history, and you can rename it, change its settings, edit it in the Configuration Assistant, or delete it like any other monitor. It stays in your list when you leave the network.
+
+### Which routers appear
+
+- **UPnP routers only.** Monitoring over SNMP needs credentials, so it can never be set up without you. A router or managed switch that only supports SNMP won't appear here — add it with the <span class="inline-icon">![Add monitor button](./images/add-monitor-button.png)</span> button instead.
+- **One router per network.** PeakHour shows at most one detected router at a time, and prefers the router your Mac uses to reach the internet. On a mesh Wi-Fi system, that means you'll see the main router rather than every node.
+- **Not routers you already monitor.** If you already have a monitor for the router, PeakHour doesn't add a second copy.
+- **Only routers that report traffic.** A device that answers UPnP but doesn't report how much data it's passing isn't shown, because it could never draw a graph. On a very quiet connection, PeakHour may need to see the router twice before it appears.
+
+### When nothing is detected
+
+If no router has been found, a **Detected on This Network** section appears at the bottom of the Monitors list. It reads **Discovering routers…** while PeakHour is looking, and **No routers found on this network** once it has finished.
+
+The most common reason is that UPnP is switched off at the router — many routers ship with it off. The **How to turn on UPnP** link in that section takes you to [How do I turn on UPnP on my router?](/troubleshooting/upnp/turn-on-upnp/), which also explains what switching it on means for your network.
+
+### The one-time notice
+
+The first time you open the Monitors settings with detection on, a notice at the top of the pane explains the feature: *PeakHour now shows routers it finds on the networks you join. Click Adopt on one to save it permanently.*
+
+- Click **Turn Off** to switch router detection off and close the notice.
+- Click **×** to close the notice and leave detection on.
+
+Either way, the notice doesn't come back. You can change the setting at any time from the ⋯ menu.
+
+### Turning router detection off
+
+Click the **⋯** button at the bottom-right of the Monitors list and uncheck **Detect Routers Automatically**. Any detected routers are removed from the list straight away. Routers you've already adopted are yours and stay where they are.
+
+To turn detection back on, check **Detect Routers Automatically** in the same menu.
+
 ## Deleting a Monitor
 
 To remove a Monitor, select it in the list and click the **-** button. You can also right-click a monitor in the main window and choose **Delete...**.
 
-You will be asked to confirm your action.
+You will be asked to confirm your action. A [detected router](#routers-detected-automatically) can't be deleted until you adopt it.
 
 ## Editing a Monitor
 
