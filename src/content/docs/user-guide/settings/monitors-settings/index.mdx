@@ -33,7 +33,7 @@ The one thing to understand about a detected router is that it's a live view of 
 
 - **Its settings are locked.** You can watch its graph and status, but you can't rename it or change its settings until you adopt it. The header reminds you: *Click Adopt to save this monitor and allow configuration.*
 - **It can't be deleted or duplicated.** There's nothing saved to delete, so the **-** button is unavailable while it's selected. If you don't want detected routers at all, [turn detection off](#turning-router-detection-off).
-- **Usage isn't counted against it.** When Usage is set to Automatic, PeakHour won't count data against a router you haven't adopted, so passing through a café or a hotel never adds to your usage totals.
+- **Usage isn't counted against it.** When **Track Usage For** is set to **Automatic** in the [Usage settings](/user-guide/settings/usage/#track-usage-for), usage follows your Internet Gateway — but never a router you haven't adopted. Even if a detected router becomes the Internet Gateway, PeakHour pauses usage counting rather than adding a café or hotel network to your totals.
 - **It comes and goes with the network.** Leave the network and the detected router disappears from the list. Come back and it returns, with the history it had already collected. The monitors you've added yourself are always listed, wherever you are.
 
 ### Adopting a detected router
@@ -45,7 +45,7 @@ PeakHour saves it to your configuration and it becomes an ordinary bandwidth mon
 ### Which routers appear
 
 - **UPnP routers only.** Monitoring over SNMP needs credentials, so it can never be set up without you. A router or managed switch that only supports SNMP won't appear here — add it with the <span class="inline-icon">![Add monitor button](./images/add-monitor-button.png)</span> button instead.
-- **One router per network.** PeakHour shows at most one detected router at a time, and prefers the router your Mac uses to reach the internet. On a mesh Wi-Fi system, that means you'll see the main router rather than every node.
+- **One router at a time.** PeakHour shows at most one detected router, even if your Mac is connected to more than one network (for example, Wi-Fi and Ethernet at once). It prefers the router your Mac uses to reach the internet, so on a mesh Wi-Fi system you'll see the main router rather than every node.
 - **Not routers you already monitor.** If you already have a monitor for the router, PeakHour doesn't add a second copy.
 - **Only routers that report traffic.** A device that answers UPnP but doesn't report how much data it's passing isn't shown, because it could never draw a graph. On a very quiet connection, PeakHour may need to see the router twice before it appears.
 

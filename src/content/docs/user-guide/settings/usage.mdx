@@ -26,7 +26,7 @@ The Usage Monitor view shows, at a glance:
 
 # Usage settings
 
-Configure Usage Monitoring under **Settings → Usage**. PeakHour tracks usage of the monitor designated as your Internet Gateway (set this with the **Internet Gateway** switch on the [Monitors](/user-guide/settings/monitors-settings/) tab).
+Configure Usage Monitoring under **Settings → Usage**. By default, PeakHour tracks usage of the monitor designated as your Internet Gateway. Use [Track Usage For](#track-usage-for) to choose a specific monitor instead.
 
 <div class="img-md">
 
@@ -37,6 +37,13 @@ Configure Usage Monitoring under **Settings → Usage**. PeakHour tracks usage o
 ## Enable Usage Monitoring
 
 Turns Usage Monitoring on or off. When enabled, PeakHour tracks your data usage against a monthly quota to help you manage your internet plan.
+
+## Track Usage For
+
+Chooses which bandwidth monitor your usage is counted against.
+
+- **Automatic** (the default) — follows your Internet Gateway. PeakHour chooses the gateway automatically, or you can pick one with **Designate as → Internet Gateway** on the [Monitors](/user-guide/settings/monitors-settings/#designating-a-monitor-for-the-internet-dashboard) tab. **Currently Tracking** shows which monitor that is right now. A router PeakHour has [detected but you haven't adopted](/user-guide/settings/monitors-settings/#a-detected-router-isnt-saved) is never counted: while one is your Internet Gateway, usage counting pauses and **Currently Tracking** reads **No Internet Gateway detected**.
+- **A specific monitor** — counts only that monitor, wherever you are. Choose this if you use more than one router, or take your Mac between networks, and don't want other connections mixed into your quota. If you later delete that monitor, usage counting stops until you choose another.
 
 ## Billing Cycle
 
