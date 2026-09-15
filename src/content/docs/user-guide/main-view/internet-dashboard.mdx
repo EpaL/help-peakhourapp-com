@@ -3,7 +3,7 @@ title: "Internet Dashboard"
 description: "How to read PeakHour's Internet Dashboard — segments, status colors, latency indicators, packet loss, and jitter."
 sidebar:
   order: 2
-status: reviewed
+status: needs-review
 ---
 
 The Internet Dashboard is specifically crafted to offer you a quick and comprehensive overview of your internet connection's latency and quality. Once activated, monitors are established to track each step of your internet connection, evaluating latency and jitter at crucial points including your router, ISP, and three distinct websites on the internet.
@@ -84,7 +84,7 @@ The **This Mac** segment represents your Mac's connection to the local network. 
 
 <div class="img-narrow">
 
-![This Mac segment showing status, latency graph, connection selector and throughput dials](./internet-dashboard-images/internet-dashboard-detailed-this-mac-section.png)
+![This Mac segment showing status, latency graph, the connected access point name (TV Room 6G) above the Mac icon, connection selector, and throughput dials](./internet-dashboard-images/internet-dashboard-detailed-this-mac-section.png)
 
 </div>
 
@@ -94,6 +94,7 @@ The segment shows, from top to bottom:
 |---------|-------------|
 | **Status** | The green dot and bar graph indicate the latency status of this hop (**OK**, **Light congestion**, or **Heavy congestion**). |
 | **Latency** | The figure beside the graph (e.g. 4.7 ms) is the latency from your Mac to the next hop. |
+| **Access Point** | Above the Mac icon, the name of the access point you're connected to (e.g. **TV Room 6G**), shown when one has been configured. See [Access Point names](#access-point-names). |
 | **Connection selector** | The dropdown (e.g. **Whole Home WiFi**) lets you choose which interface this segment tracks when your Mac has more than one. |
 | **Throughput** | The two dials show real-time download (↓) and upload (↑) speeds for your Mac. |
 
@@ -103,7 +104,7 @@ Click the segment to open a popover with full details about your Mac's connectio
 
 <div class="img-sm">
 
-![This Mac popover showing Tx rate, signal, channel, security and network identifiers for a Wi-Fi connection](./internet-dashboard-images/internet-dashboard-detailed-this-mac-popover.png)
+![This Mac popover showing Tx rate, signal, channel, security, the named access point, and network identifiers for a Wi-Fi connection](./internet-dashboard-images/internet-dashboard-detailed-this-mac-popover.png)
 
 </div>
 
@@ -115,14 +116,23 @@ The header shows your Mac's name, the active connection, and its type (for examp
 | **Signal** | Wi-Fi signal strength in dBm. Values closer to 0 are stronger (e.g. −32 dBm is excellent; −70 dBm or lower is weak). |
 | **Channel** | The Wi-Fi channel, band, and channel width in use (e.g. 85, 6 GHz, 160 MHz). |
 | **Security** | The Wi-Fi security protocol (e.g. WPA3 Personal). |
+| **Access Point** | The access point your Mac is connected to, shown by name with its manufacturer's icon. Click the pencil to rename it — see [Access Point names](#access-point-names). |
 | **IP Address** | The local IP address assigned to your Mac. |
 | **Interface** | The macOS network interface name (e.g. `en0`). |
 | **MAC Address** | The hardware address of your Mac's network interface. |
 | **BSSID** | The hardware address of the access point your Mac is connected to. |
 
 :::note
-The fields shown depend on your connection type. Wi-Fi connections show signal, channel, security, and BSSID; a wired Ethernet connection shows the relevant subset.
+The fields shown depend on your connection type. Wi-Fi connections show signal, channel, security, access point, and BSSID; a wired Ethernet connection shows the relevant subset.
 :::
+
+#### Access Point names
+
+The **Access Point** field names the specific access point your Mac is associated with, instead of leaving you to read a raw hardware address. PeakHour resolves it from the connection's **BSSID** (the access point's MAC address) and shows the access point manufacturer's icon when it can identify the hardware.
+
+To give an access point a friendlier label, click the pencil beside its name and type your own (for example, *TV Room 6G*). PeakHour remembers the name against that BSSID and reuses it wherever that access point is shown — including the [Wi-Fi menu bar item](/user-guide/settings/menu-bar/#wi-fi-menu-bar-item).
+
+This is most useful on mesh or multi-access-point networks: as your Mac roams between access points, the **Access Point** field updates to whichever one is currently serving it — so you can tell at a glance which node you're on, and notice when you've roamed onto a weaker or more distant one.
 
 ### Router
 
