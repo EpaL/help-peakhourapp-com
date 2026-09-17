@@ -1,0 +1,43 @@
+---
+title: "Does PeakHour need Local Network access?"
+description: "macOS asks whether PeakHour may find devices on your local network. Here's what PeakHour uses it for, and what stops working if you decline."
+sidebar:
+  label: Local Network access prompt
+status: needs-review
+---
+
+The first time you run PeakHour, macOS asks:
+
+> Allow "PeakHour" to find devices on local networks?
+
+**Allow it.** PeakHour needs this to watch the part of your connection that lives inside your home.
+
+## What PeakHour uses it for
+
+- **Finding your router.** PeakHour discovers routers and gateways over UPnP, which is how the **Router** segment of the [Internet Dashboard](/user-guide/main-view/internet-dashboard/) fills in without you typing an address.
+- **Measuring the hop to your router.** The latency between your Mac and your router is what separates "my Wi-Fi is struggling" from "my ISP is struggling".
+- **Reading bandwidth from your router.** Router traffic counters come over UPnP or [SNMP](/user-guide/settings/monitors-settings/), both of which are conversations with a device on your own network.
+
+## What still works if you decline
+
+- Latency and connection quality out to the internet, and the grade the AI Network Advisor gives it.
+- Speed tests.
+- Bandwidth for **This Mac**, which comes from your Mac's own interface counters.
+- The menu bar graphs and all of your history.
+
+## What stops working
+
+- Router discovery during [First Time Setup](/user-guide/first-time-setup/) and afterwards.
+- Any monitor that talks to your router or another device on your network.
+- The router section of the dashboard, which is the piece that tells you which side of your front door a problem is on.
+
+## Your data stays on your Mac
+
+PeakHour uses local network access only to reach devices on your own network. It has no account, no telemetry, and no analytics SDKs, and nothing about your network is uploaded.
+
+## Changing your mind later
+
+Open **System Settings → Privacy & Security → Local Network**, turn **PeakHour** on or off, then quit and relaunch PeakHour.
+
+If you declined the prompt and the router section stays empty, see
+[PeakHour can't discover your router](/troubleshooting/common-issues/local-network-permission/).

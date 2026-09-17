@@ -88,6 +88,7 @@ export default defineConfig({
                 {
                   label: 'Configuration',
                   items: [
+                    { slug: 'troubleshooting/faq/configuration/local-network-prompt' },
                     { slug: 'troubleshooting/faq/configuration/stop-launching-at-startup' },
                     { slug: 'troubleshooting/faq/configuration/reset-configuration' },
                     { slug: 'troubleshooting/faq/configuration/copy-configuration-to-another-mac' },
