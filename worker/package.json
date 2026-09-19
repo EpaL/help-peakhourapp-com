@@ -1,0 +1,13 @@
+{
+  "name": "help-peakhourapp-com-redirect",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:redirects": "node scripts/build-redirects.mjs",
+    "test": "npm run build:redirects && node --test test/",
+    "deploy": "npm run build:redirects && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.100.0"
+  }
+}
