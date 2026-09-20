@@ -109,8 +109,8 @@ test('every generated rule resolves to the new host', () => {
     assert.ok(url.startsWith(`${NEW}/`), `${key} -> ${url}`);
     assert.equal(status, 301);
   }
-  assert.equal(Object.keys(EXACT).length, 118);
-  assert.equal(PREFIX.length, 8);
+  assert.equal(Object.keys(EXACT).length, 162);
+  assert.equal(PREFIX.length, 50);
 });
 
 test('no rule redirects to itself on the old host', () => {
@@ -170,5 +170,39 @@ test('PeakHour 3 and 4 spaces go to the earlier-versions page', async (t) => {
     // P5 mapping is still outstanding, so these fall back to home for now —
     // but they must not be captured by the P4/P3 rules.
     assert.notEqual(target(`${OLD}/space/P5W/28901383/Something`).url, LEGACY);
+  });
+});
+
+test('PeakHour 5 live-format URLs map to their counterparts', async (t) => {
+  const cases = [
+    ['/space/P5W/9502784/What+is+PeakHour%3F', '/troubleshooting/faq/what-is-peakhour/'],
+    ['/space/P5W/9503401/SNMP', '/troubleshooting/reference/snmp/'],
+    ['/space/P5W/9503464/UPnP', '/troubleshooting/reference/upnp/'],
+    ['/space/P5W/9503476/Usage+Monitoring', '/troubleshooting/reference/usage-monitoring/'],
+    ['/space/P5W/9503262/Adjust+Scaling+Factor', '/troubleshooting/common-issues/adjust-scaling-factor/'],
+  ];
+  for (const [path, want] of cases) {
+    await t.test(path, () =>
+      assert.deepEqual(target(OLD + path), { url: NEW + want, status: 301 }),
+    );
+  }
+
+  await t.test('the title slug is irrelevant — matching is on the page id', () => {
+    const want = `${NEW}/troubleshooting/faq/what-is-peakhour/`;
+    assert.equal(target(`${OLD}/space/P5W/9502784/What+is+PeakHour%3F`).url, want);
+    assert.equal(target(`${OLD}/space/P5W/9502784/anything-at-all`).url, want);
+    assert.equal(target(`${OLD}/space/P5W/9502784`).url, want);
+  });
+
+  await t.test('space roots', () => {
+    assert.equal(target(`${OLD}/space/P5W`).url, `${NEW}/troubleshooting/`);
+    assert.equal(target(`${OLD}/space/P5D`).url, `${NEW}/user-guide/`);
+  });
+
+  await t.test('a P5 id is not captured by the P3/P4 legacy rules', () => {
+    assert.notEqual(
+      target(`${OLD}/space/P5W/9503401/SNMP`).url,
+      `${NEW}/earlier-versions/`,
+    );
   });
 });
