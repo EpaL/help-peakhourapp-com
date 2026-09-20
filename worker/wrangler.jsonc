@@ -1,0 +1,22 @@
+{
+	"$schema": "https://unpkg.com/wrangler/config-schema.json",
+	"name": "help-peakhourapp-com-redirect",
+	"main": "src/index.js",
+	"compatibility_date": "2026-09-01",
+	"workers_dev": false,
+	"observability": {
+		"enabled": true
+	},
+	// help.peakhourapp.com only.
+	//
+	// Do not add peakhourapp.com or www.peakhourapp.com — those belong to the
+	// peakhourapp-com-redirect Worker, which sends them to the marketing site.
+	// Do not add updates.peakhourapp.com — it serves the PeakHour 3 and 4
+	// Sparkle appcasts from its own Worker, and shipped binaries poll it.
+	//
+	// DEPLOYING THIS TAKES THE OLD ATLASSIAN HELP CENTRE OFFLINE. Read
+	// README.md first; the cutover is deliberately a separate, manual step.
+	"routes": [
+		{ "pattern": "help.peakhourapp.com/*", "zone_name": "peakhourapp.com" }
+	]
+}
