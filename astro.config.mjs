@@ -1,7 +1,53 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import sitemap from '@astrojs/sitemap';
+import { execFileSync } from 'node:child_process';
 import remarkGfm from 'remark-gfm';
+
+// Last commit date per doc, for the sitemap's <lastmod> (sc-2164). Starlight
+// reads the same data for its "Last updated" line, so the two agree.
+//
+// This needs full git history. The deploy workflow now checks out with
+// fetch-depth: 0 — with the default shallow clone every file reports the date
+// of the single fetched commit, which is why every page used to claim it was
+// updated at the instant of the last deploy.
+function lastCommitDates() {
+  const dates = new Map();
+  try {
+    const log = execFileSync(
+      'git',
+      ['log', '--name-only', '--format=%cI', '--', 'src/content/docs'],
+      { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 },
+    );
+    let current = null;
+    for (const line of log.split('\n')) {
+      if (!line.trim()) continue;
+      if (/^\d{4}-\d{2}-\d{2}T/.test(line)) {
+        current = line.trim();
+        continue;
+      }
+      // git log lists newest first, so the first sighting of a file wins.
+      if (current && !dates.has(line)) dates.set(line, current);
+    }
+  } catch {
+    // No git available (a tarball build, say). Ship without lastmod rather
+    // than with a build timestamp pretending to be a content date.
+  }
+  return dates;
+}
+
+const commitDates = lastCommitDates();
+
+/** "/user-guide/requirements/" -> the doc file that produced it. */
+function docPathFor(pathname) {
+  const slug = pathname.replace(/^\/|\/$/g, '');
+  const base = slug ? `src/content/docs/${slug}` : 'src/content/docs/index';
+  for (const candidate of [`${base}.mdx`, `${base}.md`, `${base}/index.mdx`, `${base}/index.md`]) {
+    if (commitDates.has(candidate)) return candidate;
+  }
+  return null;
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,6 +58,12 @@ export default defineConfig({
     remarkPlugins: [remarkGfm],
   },
   integrations: [
+    sitemap({
+      serialize: (item) => {
+        const doc = docPathFor(new URL(item.url).pathname);
+        return doc ? { ...item, lastmod: commitDates.get(doc) } : item;
+      },
+    }),
     starlight({
       title: 'PeakHour Help',
       description: 'Documentation, guides and troubleshooting for PeakHour 6 — professional network monitoring for macOS.',
