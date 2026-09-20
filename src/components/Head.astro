@@ -1,0 +1,113 @@
+---
+// Head.astro — Starlight's Head with structured data appended (sc-2153).
+//
+// Starlight already emits og:title, og:type, og:url, og:locale, og:description,
+// og:site_name and twitter:card. It emits no og:image and no JSON-LD, so every
+// one of the 64 pages shared a bare card and carried no structured data at all.
+//
+// og:image comes from the `head` array in astro.config.mjs, because it is the
+// same on every page. Everything that varies per page is built here.
+import Default from '@astrojs/starlight/components/Head.astro';
+
+const SITE = 'https://help.peakhour.app';
+const MARKETING_SITE = 'https://peakhour.app';
+
+const { entry, lastUpdated } = Astro.locals.starlightRoute;
+
+const pageUrl = new URL(Astro.url.pathname, SITE).href;
+const isHome = Astro.url.pathname === '/';
+
+// The organisation that publishes both this site and peakhour.app. Matching
+// the marketing site's Organization ties the two together as one entity.
+const publisher = {
+  '@type': 'Organization',
+  name: 'Digitician Inc.',
+  url: MARKETING_SITE,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${MARKETING_SITE}/assets/peakhour-icon-dark.png`,
+  },
+};
+
+/** "monitors-settings" -> "Monitors Settings" */
+function humanise(segment: string) {
+  return segment
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+// Breadcrumbs from the URL path. Deriving them from the path rather than the
+// sidebar keeps this independent of Starlight's internals, and the path is the
+// hierarchy a crawler sees anyway. The last crumb uses the real page title.
+const segments = Astro.url.pathname.split('/').filter(Boolean);
+const SECTION_LABELS: Record<string, string> = {
+  'user-guide': 'User Guide',
+  troubleshooting: 'Troubleshooting & FAQ',
+  faq: 'Frequently Asked Questions',
+  snmp: 'SNMP',
+  upnp: 'UPnP',
+};
+
+const crumbs = [{ name: 'Help', item: `${SITE}/` }];
+segments.forEach((segment, index) => {
+  const isLast = index === segments.length - 1;
+  crumbs.push({
+    name: isLast ? entry.data.title : (SECTION_LABELS[segment] ?? humanise(segment)),
+    item: new URL(`/${segments.slice(0, index + 1).join('/')}/`, SITE).href,
+  });
+});
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: crumbs.map((crumb, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: crumb.name,
+    item: crumb.item,
+  })),
+};
+
+// TechArticle is the right type for product documentation. The home page is an
+// index rather than an article, so it gets a WebSite instead.
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: entry.data.title,
+  description: entry.data.description,
+  url: pageUrl,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+  inLanguage: 'en',
+  // Starlight already tracks this for the "Last updated" line on the page, so
+  // dateModified says the same thing the reader sees.
+  ...(lastUpdated ? { dateModified: new Date(lastUpdated).toISOString() } : {}),
+  author: publisher,
+  publisher,
+  about: {
+    '@type': 'SoftwareApplication',
+    name: 'PeakHour',
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'macOS',
+    url: MARKETING_SITE,
+  },
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'PeakHour Help',
+  url: `${SITE}/`,
+  publisher,
+};
+
+const schemas = isHome
+  ? [websiteSchema, breadcrumbSchema]
+  : [articleSchema, breadcrumbSchema];
+---
+
+<Default><slot /></Default>
+
+{schemas.map((schema) => (
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}

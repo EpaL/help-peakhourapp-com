@@ -23,10 +23,25 @@ export default defineConfig({
       customCss: [
         './src/styles/theme.css',
       ],
+      // Starlight emits og:title/type/url/locale/description/site_name and
+      // twitter:card on its own, but no og:image — so twitter:card was
+      // promising a large image card with no image to show, and every shared
+      // help link rendered bare. These are the same on every page; anything
+      // that varies per page is built in src/components/Head.astro (sc-2153).
+      head: [
+        { tag: 'meta', attrs: { property: 'og:image', content: 'https://help.peakhour.app/og-image.jpg' } },
+        { tag: 'meta', attrs: { property: 'og:image:width', content: '1200' } },
+        { tag: 'meta', attrs: { property: 'og:image:height', content: '630' } },
+        { tag: 'meta', attrs: { property: 'og:image:alt', content: 'PeakHour — network monitoring for macOS' } },
+        { tag: 'meta', attrs: { name: 'twitter:image', content: 'https://help.peakhour.app/og-image.jpg' } },
+      ],
       components: {
         // Inject the "needs review" banner automatically when an article's
         // frontmatter has `status: needs-review`.
         MarkdownContent: './src/components/MarkdownContent.astro',
+        // Appends JSON-LD (TechArticle/WebSite + BreadcrumbList) to the
+        // default head — Starlight emits none. See src/components/Head.astro.
+        Head: './src/components/Head.astro',
         // Add a "Was this page helpful?" feedback block (GitHub issue + email)
         // above the default footer on every page.
         Footer: './src/components/Footer.astro',
