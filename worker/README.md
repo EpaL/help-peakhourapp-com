@@ -65,41 +65,41 @@ PeakHour 2/3/4 spaces landing on /earlier-versions/, the PeakHour 5 live-format
 URLs mapping by page id, and a sweep asserting that all 162 generated rules
 resolve to the new host without looping.
 
-## Deploying (the cutover)
+## The cutover (done)
 
-**The Worker is deployed and its route is claimed, but it is inert.** A DNS
-change is the actual switch, and it has not been made.
+Cut over on **2026-09-20**. `help.peakhourapp.com` is now proxied through the
+`peakhourapp.com` zone, so the Worker route fires and every legacy URL 301s to
+`help.peakhour.app`. The Refined / Atlassian help centre no longer serves that
+hostname.
 
-`help.peakhourapp.com` is a **CNAME to `custom.domain.refined.site`** — Refined's
-custom-domain service for the Atlassian KB — and that record is DNS-only, not
-proxied. Traffic never enters the `peakhourapp.com` zone, so a Worker route on
-that hostname never fires. Deploying the Worker changed nothing, which was
-confirmed against a before/after baseline.
+Verified in production against the old KB's own sitemap — all 189 URLs:
 
-(An earlier note here claimed the hostname was already proxied, on the strength
-of `server: cloudflare` and `cf-cache-status` in its responses. That was wrong:
-those headers come from *Refined's* Cloudflare in front of their origin, not
-from this zone.)
+```
+189 tested
+ 44 -> a specific page
+144 -> /earlier-versions/
+  1 -> home   ("/", which is correct)
+  0 not a 301
+  0 still pointing at the old site
+```
 
-To cut over, in the Cloudflare dashboard for `peakhourapp.com`:
+Every redirect resolves in a single hop to a live page. The appcasts on
+`updates.peakhourapp.com`, and the apex and www redirects, were checked against
+a pre-cutover baseline and are unchanged.
 
-1. Confirm nothing else needs the Atlassian site. It goes dark the moment DNS
-   changes, including any assets the old KB served.
-2. Replace the `help` record with a **proxied** (orange-cloud) record — an
-   `AAAA` to `100::` is the usual placeholder when a Worker owns the hostname.
-   Removing the Refined CNAME is what takes the Atlassian site offline.
-3. The Worker route then applies with no redeploy. If it has drifted, run:
+Getting here needed a DNS change, not a deploy. The hostname had been a
+DNS-only CNAME to `custom.domain.refined.site`, so traffic never entered the
+zone and the Worker route could not fire no matter how often it was deployed.
+(An earlier note here claimed it was already proxied, on the strength of
+`server: cloudflare` and `cf-cache-status` in its responses. Those headers came
+from *Refined's* Cloudflare in front of their origin, not from this zone.)
 
-   ```bash
-   npm run deploy
-   ```
+**Still to do:** retire the Refined / Atlassian subscription. It is no longer
+serving anything.
 
-4. Verify the two URLs from the table above now 301 on the old host.
-5. Retire the Refined / Atlassian subscription once traffic has drained.
-
-**Rollback:** restore the CNAME to `custom.domain.refined.site` and the old site
-answers again. Removing the Worker route alone will not help, because the route
-is not what is serving traffic.
+**Rollback:** point the `help` record back at `custom.domain.refined.site`,
+unproxied, and the old site answers again. Removing the Worker route will not
+do it — the route is not what makes traffic arrive here.
 
 **Keep this deployed for as long as the domain is registered.** Shipped
 PeakHour binaries link to `help.peakhourapp.com`.
