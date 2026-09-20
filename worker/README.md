@@ -59,9 +59,11 @@ cannot ship.
 npm test
 ```
 
-26 tests, including the two URLs measured as broken above, the prefix and
-`:splat` cases, case and slash insensitivity, query preservation, and a sweep
-asserting that all 114 generated rules resolve to the new host without looping.
+44 tests, including the two URLs measured as broken above, the prefix and
+`:splat` cases, case and slash insensitivity, query preservation, the
+PeakHour 2/3/4 spaces landing on /earlier-versions/, the PeakHour 5 live-format
+URLs mapping by page id, and a sweep asserting that all 162 generated rules
+resolve to the new host without looping.
 
 ## Deploying (the cutover)
 
@@ -98,9 +100,6 @@ To cut over, in the Cloudflare dashboard for `peakhourapp.com`:
 **Rollback:** restore the CNAME to `custom.domain.refined.site` and the old site
 answers again. Removing the Worker route alone will not help, because the route
 is not what is serving traffic.
-
-To roll back, remove the route from the Worker in the Cloudflare dashboard (or
-`wrangler delete`) and the old host returns to whatever DNS points at.
 
 **Keep this deployed for as long as the domain is registered.** Shipped
 PeakHour binaries link to `help.peakhourapp.com`.
