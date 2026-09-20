@@ -13,6 +13,25 @@
 /space/P5W/9503210  /troubleshooting/upnp/upnp-cant-be-initialised/  301
 /space/P5W/9503210/*  /troubleshooting/upnp/upnp-cant-be-initialised/  301
 
+# PeakHour 3 and 4 documentation spaces (sc-2148).
+#
+# The retired KB served four spaces with no counterpart here: P4D and P4W
+# (PeakHour 4) and DOC3 and WIKI3 (PeakHour 3) — 142 URLs. This site documents
+# PeakHour 6, so there is nothing to map them to page by page.
+#
+# They go to /earlier-versions/, which explains where the documentation went
+# and points at the upgrade path and the older-version downloads. A named
+# destination beats the home page: 142 URLs redirected to a site root reads as
+# a soft 404, and helps nobody who followed a real link.
+/space/P4D  /earlier-versions/  301
+/space/P4D/*  /earlier-versions/  301
+/space/P4W  /earlier-versions/  301
+/space/P4W/*  /earlier-versions/  301
+/space/DOC3  /earlier-versions/  301
+/space/DOC3/*  /earlier-versions/  301
+/space/WIKI3  /earlier-versions/  301
+/space/WIKI3/*  /earlier-versions/  301
+
 # --- AUTO-GENERATED REDIRECTS BELOW ---
 /wiki/spaces/P5D/pages/7143462/Requirements_7143462  /user-guide/requirements/  301
 /wiki/spaces/P5D/pages/9863169/First-Time-Setup_9863169  /user-guide/first-time-setup/  301
