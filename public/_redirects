@@ -13,10 +13,113 @@
 /space/P5W/9503210  /troubleshooting/upnp/upnp-cant-be-initialised/  301
 /space/P5W/9503210/*  /troubleshooting/upnp/upnp-cant-be-initialised/  301
 
+# PeakHour 5 spaces, live URL format (sc-2213).
+#
+# The rules further down were written for the historical Confluence Cloud
+# format, /wiki/spaces/P5W/pages/<id>/<Title>. After the move to Refined the
+# site serves /space/<CODE>/<id>/<Title> instead, so those rules matched almost
+# nothing it actually publishes. Both formats are kept: the /wiki/ URLs are
+# what Google indexed and what inbound links point at.
+#
+# Keyed on the page id with a splat, so the title slug is irrelevant — the live
+# titles carry %3F, %26 and apostrophes, and matching them exactly would be
+# brittle for no gain. The ids survived the migration: 36 of 42 appear in both
+# formats, and the six that do not are index pages plus questions about the
+# Mac App Store versus direct distribution, which PeakHour 6 does not have.
+#
+# Every target verified 200 before these were written.
+/space/P5W/9371724  /troubleshooting/  301
+/space/P5W/9371724/*  /troubleshooting/  301
+/space/P5W/9502721  /troubleshooting/  301
+/space/P5W/9502721/*  /troubleshooting/  301
+/space/P5W/9502732  /troubleshooting/faq/  301
+/space/P5W/9502732/*  /troubleshooting/faq/  301
+/space/P5W/9502774  /troubleshooting/faq/  301
+/space/P5W/9502774/*  /troubleshooting/faq/  301
+/space/P5W/9502784  /troubleshooting/faq/what-is-peakhour/  301
+/space/P5W/9502784/*  /troubleshooting/faq/what-is-peakhour/  301
+/space/P5W/9502796  /troubleshooting/faq/purchasing-licensing/  301
+/space/P5W/9502796/*  /troubleshooting/faq/purchasing-licensing/  301
+/space/P5W/9502835  /troubleshooting/faq/purchasing-licensing/  301
+/space/P5W/9502835/*  /troubleshooting/faq/purchasing-licensing/  301
+/space/P5W/9502847  /troubleshooting/faq/purchasing-licensing/upgrade-from-peakhour-4/  301
+/space/P5W/9502847/*  /troubleshooting/faq/purchasing-licensing/upgrade-from-peakhour-4/  301
+/space/P5W/9502891  /troubleshooting/faq/purchasing-licensing/  301
+/space/P5W/9502891/*  /troubleshooting/faq/purchasing-licensing/  301
+/space/P5W/9502903  /troubleshooting/faq/purchasing-licensing/  301
+/space/P5W/9502903/*  /troubleshooting/faq/purchasing-licensing/  301
+/space/P5W/9502915  /troubleshooting/faq/purchasing-licensing/download-older-versions/  301
+/space/P5W/9502915/*  /troubleshooting/faq/purchasing-licensing/download-older-versions/  301
+/space/P5W/9502927  /troubleshooting/faq/configuration/  301
+/space/P5W/9502927/*  /troubleshooting/faq/configuration/  301
+/space/P5W/9502937  /troubleshooting/faq/configuration/copy-configuration-to-another-mac/  301
+/space/P5W/9502937/*  /troubleshooting/faq/configuration/copy-configuration-to-another-mac/  301
+/space/P5W/9502963  /troubleshooting/faq/configuration/reset-configuration/  301
+/space/P5W/9502963/*  /troubleshooting/faq/configuration/reset-configuration/  301
+/space/P5W/9502975  /troubleshooting/faq/configuration/stop-launching-at-startup/  301
+/space/P5W/9502975/*  /troubleshooting/faq/configuration/stop-launching-at-startup/  301
+/space/P5W/9502987  /troubleshooting/faq/monitoring-compatibility/  301
+/space/P5W/9502987/*  /troubleshooting/faq/monitoring-compatibility/  301
+/space/P5W/9502997  /troubleshooting/faq/monitoring-compatibility/bandwidth-monitoring-faq/  301
+/space/P5W/9502997/*  /troubleshooting/faq/monitoring-compatibility/bandwidth-monitoring-faq/  301
+/space/P5W/9503017  /troubleshooting/faq/monitoring-compatibility/monitor-individual-devices/  301
+/space/P5W/9503017/*  /troubleshooting/faq/monitoring-compatibility/monitor-individual-devices/  301
+/space/P5W/9503037  /troubleshooting/faq/monitoring-compatibility/enable-snmp-on-mac-pc-linux/  301
+/space/P5W/9503037/*  /troubleshooting/faq/monitoring-compatibility/enable-snmp-on-mac-pc-linux/  301
+/space/P5W/9503063  /troubleshooting/faq/monitoring-compatibility/what-devices-can-peakhour-monitor/  301
+/space/P5W/9503063/*  /troubleshooting/faq/monitoring-compatibility/what-devices-can-peakhour-monitor/  301
+/space/P5W/9503083  /troubleshooting/faq/monitoring-compatibility/apple-airport-time-capsule/  301
+/space/P5W/9503083/*  /troubleshooting/faq/monitoring-compatibility/apple-airport-time-capsule/  301
+/space/P5W/9503101  /troubleshooting/common-issues/  301
+/space/P5W/9503101/*  /troubleshooting/common-issues/  301
+/space/P5W/9503133  /troubleshooting/common-issues/check-reporting-accuracy/  301
+/space/P5W/9503133/*  /troubleshooting/common-issues/check-reporting-accuracy/  301
+/space/P5W/9503149  /troubleshooting/snmp/  301
+/space/P5W/9503149/*  /troubleshooting/snmp/  301
+/space/P5W/9503159  /troubleshooting/snmp/no-interfaces-found/  301
+/space/P5W/9503159/*  /troubleshooting/snmp/no-interfaces-found/  301
+/space/P5W/9503188  /troubleshooting/snmp/device-responds-but-no-data/  301
+/space/P5W/9503188/*  /troubleshooting/snmp/device-responds-but-no-data/  301
+/space/P5W/9503200  /troubleshooting/upnp/  301
+/space/P5W/9503200/*  /troubleshooting/upnp/  301
+/space/P5W/9503220  /troubleshooting/upnp/router-not-detected-or-data-wrong/  301
+/space/P5W/9503220/*  /troubleshooting/upnp/router-not-detected-or-data-wrong/  301
+/space/P5W/9503238  /troubleshooting/upnp/test-router-with-miniupnp/  301
+/space/P5W/9503238/*  /troubleshooting/upnp/test-router-with-miniupnp/  301
+/space/P5W/9503252  /troubleshooting/common-issues/  301
+/space/P5W/9503252/*  /troubleshooting/common-issues/  301
+/space/P5W/9503262  /troubleshooting/common-issues/adjust-scaling-factor/  301
+/space/P5W/9503262/*  /troubleshooting/common-issues/adjust-scaling-factor/  301
+/space/P5W/9503274  /troubleshooting/common-issues/gathering-diagnostic-logs/  301
+/space/P5W/9503274/*  /troubleshooting/common-issues/gathering-diagnostic-logs/  301
+/space/P5W/9503318  /troubleshooting/common-issues/graph-isnt-smooth/  301
+/space/P5W/9503318/*  /troubleshooting/common-issues/graph-isnt-smooth/  301
+/space/P5W/9503334  /troubleshooting/reference/  301
+/space/P5W/9503334/*  /troubleshooting/reference/  301
+/space/P5W/9503344  /troubleshooting/faq/what-is-peakhour/  301
+/space/P5W/9503344/*  /troubleshooting/faq/what-is-peakhour/  301
+/space/P5W/9503381  /troubleshooting/reference/  301
+/space/P5W/9503381/*  /troubleshooting/reference/  301
+/space/P5W/9503401  /troubleshooting/reference/snmp/  301
+/space/P5W/9503401/*  /troubleshooting/reference/snmp/  301
+/space/P5W/9503413  /troubleshooting/reference/high-capacity-counters/  301
+/space/P5W/9503413/*  /troubleshooting/reference/high-capacity-counters/  301
+/space/P5W/9503447  /troubleshooting/reference/snmp-community/  301
+/space/P5W/9503447/*  /troubleshooting/reference/snmp-community/  301
+/space/P5W/9503464  /troubleshooting/reference/upnp/  301
+/space/P5W/9503464/*  /troubleshooting/reference/upnp/  301
+/space/P5W/9503476  /troubleshooting/reference/usage-monitoring/  301
+/space/P5W/9503476/*  /troubleshooting/reference/usage-monitoring/  301
+
+# The space roots.
+/space/P5W  /troubleshooting/  301
+/space/P5D  /user-guide/  301
+
 # PeakHour 3 and 4 documentation spaces (sc-2148).
 #
-# The retired KB served four spaces with no counterpart here: P4D and P4W
-# (PeakHour 4) and DOC3 and WIKI3 (PeakHour 3) — 142 URLs. This site documents
+# The retired KB served five spaces with no counterpart here: P4D and P4W
+# (PeakHour 4), DOC3 and WIKI3 (PeakHour 3), and `peakhour` (PeakHour 2).
+# This site documents
 # PeakHour 6, so there is nothing to map them to page by page.
 #
 # They go to /earlier-versions/, which explains where the documentation went
@@ -31,6 +134,8 @@
 /space/DOC3/*  /earlier-versions/  301
 /space/WIKI3  /earlier-versions/  301
 /space/WIKI3/*  /earlier-versions/  301
+/space/peakhour  /earlier-versions/  301
+/space/peakhour/*  /earlier-versions/  301
 
 # --- AUTO-GENERATED REDIRECTS BELOW ---
 /wiki/spaces/P5D/pages/7143462/Requirements_7143462  /user-guide/requirements/  301
