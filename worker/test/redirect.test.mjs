@@ -109,8 +109,8 @@ test('every generated rule resolves to the new host', () => {
     assert.ok(url.startsWith(`${NEW}/`), `${key} -> ${url}`);
     assert.equal(status, 301);
   }
-  assert.equal(Object.keys(EXACT).length, 114);
-  assert.equal(PREFIX.length, 4);
+  assert.equal(Object.keys(EXACT).length, 118);
+  assert.equal(PREFIX.length, 8);
 });
 
 test('no rule redirects to itself on the old host', () => {
@@ -143,5 +143,32 @@ test('splat targets keep the trailing slash the new site needs', async (t) => {
       target(`${OLD}/docs/images/diagram.png`).url,
       `${NEW}/user-guide/images/diagram.png`,
     );
+  });
+});
+
+test('PeakHour 3 and 4 spaces go to the earlier-versions page', async (t) => {
+  const LEGACY = `${NEW}/earlier-versions/`;
+
+  for (const path of [
+    '/space/P4D',
+    '/space/P4D/655545/First+Time+Setup',
+    '/space/P4W/12345/Some+Wiki+Page',
+    '/space/DOC3',
+    '/space/DOC3/655539/default+home+page',
+    '/space/WIKI3/999/Anything',
+  ]) {
+    await t.test(path, () => {
+      assert.deepEqual(target(OLD + path), { url: LEGACY, status: 301 });
+    });
+  }
+
+  await t.test('and not to the bare home page', () => {
+    assert.notEqual(target(`${OLD}/space/P4D/655545/First+Time+Setup`).url, `${NEW}/`);
+  });
+
+  await t.test('a P5 space is not swallowed by the legacy rules', () => {
+    // P5 mapping is still outstanding, so these fall back to home for now —
+    // but they must not be captured by the P4/P3 rules.
+    assert.notEqual(target(`${OLD}/space/P5W/28901383/Something`).url, LEGACY);
   });
 });

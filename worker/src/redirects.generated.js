@@ -3,12 +3,16 @@
 // Built from public/_redirects by worker/scripts/build-redirects.mjs.
 // Edit that file and run `npm run build:redirects` from worker/.
 //
-// 114 exact rules, 4 prefix rules.
+// 118 exact rules, 8 prefix rules.
 
 export const EXACT = {
   "/space/p5d/7144061": ["/user-guide/monitor-another-mac-peakhour-enabler/", 301],
   "/space/p5w/28901383": ["/troubleshooting/common-issues/", 301],
   "/space/p5w/9503210": ["/troubleshooting/upnp/upnp-cant-be-initialised/", 301],
+  "/space/p4d": ["/earlier-versions/", 301],
+  "/space/p4w": ["/earlier-versions/", 301],
+  "/space/doc3": ["/earlier-versions/", 301],
+  "/space/wiki3": ["/earlier-versions/", 301],
   "/wiki/spaces/p5d/pages/7143462/requirements_7143462": ["/user-guide/requirements/", 301],
   "/wiki/spaces/p5d/pages/9863169/first-time-setup_9863169": ["/user-guide/first-time-setup/", 301],
   "/wiki/spaces/p5d/pages/7145111/main-view_7145111": ["/user-guide/main-view/", 301],
@@ -126,5 +130,9 @@ export const PREFIX = [
   ["/space/p5w/28901383", "/troubleshooting/common-issues/", 301],
   ["/space/p5d/7144061", "/user-guide/monitor-another-mac-peakhour-enabler/", 301],
   ["/space/p5w/9503210", "/troubleshooting/upnp/upnp-cant-be-initialised/", 301],
+  ["/space/wiki3", "/earlier-versions/", 301],
+  ["/space/doc3", "/earlier-versions/", 301],
+  ["/space/p4d", "/earlier-versions/", 301],
+  ["/space/p4w", "/earlier-versions/", 301],
   ["/docs", "/user-guide/:splat", 301],
 ];
