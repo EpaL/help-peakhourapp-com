@@ -1,0 +1,14 @@
+# Cloudflare Pages headers. Each block: a URL pattern followed by indented
+# header lines applied to matching responses.
+#
+# The same build is served on the production domain and on these mirrors.
+# The rules are scoped by host, so help.peakhour.app never gets noindex.
+
+https://peakhour-help.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:sub.peakhour-help.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://help-dev.peakhour.app/*
+  X-Robots-Tag: noindex, nofollow
