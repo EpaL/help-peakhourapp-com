@@ -28,5 +28,16 @@ the orange banner will disappear.
 
 ## Deployment
 
-Deploy via Cloudflare Pages, connecting this directory (or the repo root, if
-moved) as a Pages project. Build command: `npm run build`. Output directory: `dist`.
+Two Cloudflare Pages projects, neither connected to git:
+
+| Site | Pages project | Deploys |
+|------|---------------|---------|
+| `help.peakhour.app` (production) | `peakhour-help` | Automatically on every push to `main` (`.github/workflows/deploy.yml`). |
+| `help-dev.peakhour.app` (dev) | `peakhour-help-dev` | By hand: `npm run deploy:dev` from the branch you want to show. |
+
+Pages for a release that has not shipped live on a `release/<version>` branch
+(for example `release/6.1`). Show them on dev with `npm run deploy:dev`, and
+merge the branch into `main` only when the release ships: the merge publishes
+them. `public/_headers` marks every host except `help.peakhour.app` noindex.
+
+Build command: `npm run build`. Output directory: `dist`.

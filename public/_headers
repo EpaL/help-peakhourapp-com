@@ -3,6 +3,10 @@
 #
 # The same build is served on the production domain and on these mirrors.
 # The rules are scoped by host, so help.peakhour.app never gets noindex.
+#
+# help-dev.peakhour.app is its own Pages project, peakhour-help-dev. It shows
+# the next release before it ships (`npm run deploy:dev`), so it must never
+# be indexed either.
 
 https://peakhour-help.pages.dev/*
   X-Robots-Tag: noindex, nofollow
@@ -11,4 +15,10 @@ https://:sub.peakhour-help.pages.dev/*
   X-Robots-Tag: noindex, nofollow
 
 https://help-dev.peakhour.app/*
+  X-Robots-Tag: noindex, nofollow
+
+https://peakhour-help-dev.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:sub.peakhour-help-dev.pages.dev/*
   X-Robots-Tag: noindex, nofollow

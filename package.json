@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy:dev": "rm -rf dist && astro build && npx --yes wrangler@4 pages deploy dist --project-name peakhour-help-dev --branch main --commit-hash $(git rev-parse HEAD) --commit-dirty=true"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
