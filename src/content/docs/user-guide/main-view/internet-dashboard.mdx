@@ -41,7 +41,7 @@ The Simple View distils your connection's health into three panels you can read 
 |-------|---------------|
 | **Link** | Your active network connection — its type (e.g. Wi-Fi 6E), name, and current link speed.|
 | **Throughput** | Real-time upload (↑) and download (↓) speeds, with a ring showing usage relative to your [connection's capacity](/user-guide/settings/monitors-settings/bandwidth-monitor/#bandwidth). |
-| **Health** | Overall connection quality — current latency, a recent latency graph, and a letter **Rating** (A+ down to F) summarising stability. The rating is produced by the [AI Advisor](#ai-advisor). |
+| **Health** | Overall connection quality — current latency, a recent latency graph, and a letter **grade** (A+ down to F) for your whole connection. Click it to open the [PeakHour Advisor](/user-guide/advisor/). See [Grade](#grade). |
 
 :::note
 The **Link** speed is the speed of your Mac's connection to the local network (for example, the Wi-Fi or Ethernet link rate) — not the speed of your internet connection. Your internet speed is shown under **Throughput** and, when speed tests are enabled, in the **ISP** segment of the [Detailed View](#detailed-view).
@@ -246,7 +246,7 @@ The **Internet** segment represents the final hop — from your ISP out to the w
 |---------|-------------|
 | **Status** | The status dot and bar graph indicate the latency status of the hop from your ISP to the internet. |
 | **Latency** | The figure beside the graph is the latency from your ISP out to the internet. |
-| **Rating** | The overall connection quality grade, described in [AI Advisor Rating](#ai-advisor-rating) below. |
+| **Grade** | The overall connection quality grade, described in [Grade](#grade) below. |
 
 Click the segment to open a popover listing the **Internet Hosts** — the endpoints PeakHour uses for connectivity checks:
 
@@ -258,51 +258,15 @@ Click the segment to open a popover listing the **Internet Hosts** — the endpo
 
 PeakHour measures the final hop by reaching out to several well-known endpoints (for example, **Google**, **Zoom**, and **Cloudflare**) and combining the results. Each host shows a status dot indicating whether it's currently reachable, along with the hostname used for the check. You can change which hosts are monitored in [Settings → Dashboard](/user-guide/settings/dashboard/).
 
-### AI Advisor Rating
+### Grade
 
-The large badge at the end of the dashboard is your overall **AI Advisor Rating** — a single letter grade (A+ down to F) summarising the health of your whole connection, based on latency, jitter, packet loss, and responsiveness.
+The large badge at the end of the dashboard is your connection's **grade** — a single letter from **A+** down to **F** for your whole connection, based on latency, jitter, packet loss, speed, and responsiveness under load. See [How the grade works](/user-guide/advisor/grade/).
 
-Click the rating to open the [AI Advisor](#ai-advisor) for a plain-language explanation of what the grade means for you.
+- **Click the grade** to open the [PeakHour Advisor](/user-guide/advisor/), which explains the grade, shows where any problem starts, and suggests what to try.
+- **A number on its rim** shows how many issues hold the grade back, in the color of the worst one.
+- **The ring around it** counts down to the next update. PeakHour grades your connection every 30 seconds.
 
-## AI Advisor
-
-The **AI Advisor** translates PeakHour's raw measurements into plain-language insight about your connection. Click the [AI Advisor Rating](#ai-advisor-rating) badge to open it.
-
-The AI Advisor re-evaluates your connection every 30–60 seconds rather than continuously, so its grade and analysis reflect the most recent assessment rather than a live, real-time value. The ring around the [AI Advisor Rating](#ai-advisor-rating) badge counts down the time until the next re-evaluation.
-
-:::note
-The AI Advisor uses **Apple Intelligence** with on-device models. Your network data is analysed entirely on your Mac — nothing leaves your device.
-:::
-
-<div class="img-sm">
-
-![AI Advisor Network Insights popover with a plain-language summary, activity suitability icons and Internet Health stats](./internet-dashboard-images/internet-dashboard-detailed-internet-aiadvisor.png)
-
-</div>
-
-The **Network Insights** popover shows:
-
-| Element | Description |
-|---------|-------------|
-| **Summary** | A plain-language assessment of how your connection is performing and what it's well suited for. |
-| **Activity suitability** | Icons for common activities — **Video Calls**, **Gaming**, **Streaming** — each marked with a check when your connection comfortably supports it. |
-| **Internet Health** | The key metrics behind the rating: **Total Latency**, **Avg Jitter**, **Avg Packet Loss**, and **Load RPM** (responsiveness under load). |
-
-### Detailed Network Analysis
-
-Click **Explain** in the top-right of the Network Insights popover for a deeper, AI-powered diagnostic breakdown:
-
-<div class="img-sm">
-
-![Detailed Network Analysis breaking down summary, latency, packet loss, stability, throughput and connection](./internet-dashboard-images/internet-dashboard-detailed-internet-aiadvisor-explain.png)
-
-</div>
-
-The **Detailed Network Analysis** expands on each dimension of your connection in turn — **Summary**, **Latency**, **Packet Loss**, **Stability** (jitter), **Throughput**, and **Connection** — explaining what each measurement means and how it affects real-world use, followed by specific **Diagnostic Findings**.
-
-:::note
-Click the **Export** button at the top of the analysis to generate a detailed Markdown file of the full report — handy for saving a record or sharing with your ISP or IT support.
-:::
+The grade needs **AI Advisor** turned on in [Settings → Dashboard](/user-guide/settings/dashboard/#ai-advisor), and macOS 26 or later.
 
 ## Tips
 

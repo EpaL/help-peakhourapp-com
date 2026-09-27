@@ -1,0 +1,58 @@
+---
+title: "How the grade works"
+description: "How PeakHour works out your connection's grade, from A+ to F, and the bands it uses for latency, jitter, packet loss, speed and responsiveness."
+sidebar:
+  order: 1
+---
+
+PeakHour works out the grade with fixed rules. The same measurements always give the same grade, whether or not Apple Intelligence is available. The AI only writes the explanation; it never sets the grade.
+
+## What the grade counts
+
+The grade counts five measurements:
+
+- **Latency** — the round trip from this Mac to the internet.
+- **Jitter** — how much the latency varies.
+- **Packet Loss** — the share of data that doesn't arrive.
+- **Max Measured Speed** — the download speed from the last speed test.
+- **Responsiveness Under Load** — round trips per minute (RPM) while the link is busy.
+
+Each one lands in a band:
+
+| | Excellent | Good | Fair | Poor |
+|-|-----------|------|------|------|
+| **Latency** | < 30 ms | 30–60 ms | 60–100 ms | ≥ 100 ms |
+| **Jitter** | < 10 ms | 10–30 ms | 30–50 ms | ≥ 50 ms |
+| **Packet Loss** | < 0.5% | — | 0.5–2% | ≥ 2% |
+| **Speed** | ≥ 500 Mb/s | 50–500 Mb/s | 25–50 Mb/s | < 25 Mb/s |
+| **Responsiveness** | ≥ 1,000 RPM | 500–1,000 RPM | 200–500 RPM | < 200 RPM |
+
+No packet loss at all shows as **Perfect**.
+
+Speed and responsiveness come from the [network quality test](/user-guide/settings/dashboard/#network-quality). Until a test has run, the grade leaves responsiveness out and treats speed as Good.
+
+The grade also watches for:
+
+- **A weak Wi-Fi signal** — −75 dBm or weaker.
+- **A busy link** — traffic above 90% of the speed that the last test measured, in either direction.
+- **Monitors that do not answer** — some of the sites or your ISP's gateway stop answering while others still do.
+
+## From bands to a grade
+
+| Grade | When |
+|-------|------|
+| **A+** | Every measurement is Excellent, and nothing else holds the grade back. |
+| **A** | Every measurement is Good or better, and nothing else holds the grade back. |
+| **B+** | Every measurement is Good or better, with one concern such as a weak Wi-Fi signal or a busy link. |
+| **B** | A measurement is Fair, or some monitors do not answer. |
+| **C** | A measurement is Poor, or there are two or more concerns at once. |
+| **D** | Your ISP's gateway does not answer, or a Poor measurement comes with two or more concerns. |
+| **F** | No internet site answers. |
+
+The concerns are: a weak Wi-Fi signal, a busy link, monitors that do not answer, packet loss of 0.5% or more, latency over 100 ms, and jitter over 50 ms.
+
+Every grade below an A has at least one reason under **Issues identified** on the [Your Network](/user-guide/advisor/your-network/) page. An A or A+ has none.
+
+## What the grade leaves out
+
+A problem with a single site — for example one slow or unsteady service while the others are fine — does not lower your grade. It is a problem on the route to that site, not on your connection, and you can't fix it from home. The Advisor lists it under **Issues outside your network** on [The Internet](/user-guide/advisor/the-internet/) page instead.

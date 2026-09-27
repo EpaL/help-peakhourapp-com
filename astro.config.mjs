@@ -109,6 +109,18 @@ export default defineConfig({
               label: 'Main View',
               items: [{ autogenerate: { directory: 'user-guide/main-view' } }],
             },
+            {
+              label: 'PeakHour Advisor',
+              items: [
+                { label: 'Overview', slug: 'user-guide/advisor' },
+                { slug: 'user-guide/advisor/grade' },
+                { slug: 'user-guide/advisor/your-network' },
+                { slug: 'user-guide/advisor/the-internet' },
+                { slug: 'user-guide/advisor/history' },
+                { slug: 'user-guide/advisor/report' },
+                { slug: 'user-guide/advisor/ask' },
+              ],
+            },
             { slug: 'user-guide/history-view' },
             {
               label: 'Configuration Assistant',
@@ -131,6 +143,7 @@ export default defineConfig({
                   ],
                 },
                 { slug: 'user-guide/settings/dashboard' },
+                { slug: 'user-guide/settings/isp-information' },
                 { slug: 'user-guide/settings/display' },
                 { slug: 'user-guide/settings/menu-bar' },
                 { slug: 'user-guide/settings/usage' },
