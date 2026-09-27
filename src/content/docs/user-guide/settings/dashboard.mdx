@@ -1,6 +1,6 @@
 ---
 title: "Dashboard"
-description: "The Dashboard settings enable and configure the Internet Dashboard — the hosts it pings, network quality testing, ISP lookup, the AI Advisor, notifications, and visual effects."
+description: "The Dashboard settings enable and configure the Internet Dashboard — the hosts it pings, network quality testing, ISP lookup, the PeakHour Advisor and Private Cloud Compute, notifications, and visual effects."
 sidebar:
   order: 23
 ---
@@ -21,7 +21,7 @@ PeakHour continually pings three hosts and aggregates the round-trip times into 
 
 **Host 1, 2, 3** — the service to ping for each slot. Each dropdown offers a large list of popular services and DNS providers: Akamai, Amazon, Amazon AWS, Apple, Apple TV+, Cloudflare, Disney+, Fastly, GitHub, Google, Google Cloud, Meta (Facebook), Microsoft 365, Microsoft Azure, Netflix, OpenDNS, PlayStation Network, Quad9, Reddit, Slack, Spotify, Steam, Twitch, X (Twitter), Xbox Live, YouTube, and Zoom. Choose **None** to leave a slot empty, or **Custom…** to enter your own hostname or IP address.
 
-These hosts appear in the **Internet** segment's popover on the dashboard.
+These hosts appear in the **Internet** segment's popover on the dashboard, and on [The Internet](/user-guide/advisor/the-internet/) page of the PeakHour Advisor.
 
 ## Network Quality
 
@@ -29,21 +29,27 @@ PeakHour can periodically measure your connection's upload speed, download speed
 
 | Setting | Description |
 |---------|-------------|
-| **Measure Network Quality** | Enables periodic measurement. Results appear under **ISP** on the dashboard and in the [Network Quality Report](/user-guide/main-view/internet-dashboard/#network-quality-report). Running a test also calibrates your Internet Gateway's maximum available upload and download bandwidth. |
-| **Frequency** | How often the test runs — every hour, 6 hours, 12 hours, day, or week. |
+| **Measure Network Quality** | Enables periodic measurement. Results appear under **ISP** on the dashboard, in the [Network Quality Report](/user-guide/main-view/internet-dashboard/#network-quality-report), and in the Advisor's [speed test history](/user-guide/advisor/history/#speed-tests). Running a test also calibrates your Internet Gateway's maximum available upload and download bandwidth. |
+| **Frequency** | How often the test runs — every hour, 3 hours, 6 hours, 12 hours, day, or week. |
 | **Re-run when network change is detected** | Also runs a test automatically whenever PeakHour detects a network change, such as switching Wi-Fi networks. |
 | **Network Quality Test → Run Now** | Runs a test immediately. You can also right-click the Internet Dashboard and run it from there. |
 
 ## ISP Information
 
-**Lookup ISP Details** — identifies your internet provider (name, ASN, connection type, and approximate location) from your public IP address, shown in the **ISP** segment's popover on the dashboard.
+**Lookup ISP Details** — identifies your internet provider (name, ASN, connection type, and approximate location) from your public IP address, shown in the **ISP** segment's popover on the dashboard. It also lets the PeakHour Advisor show the route to each site and a map of where each site answers from. It is off by default.
+
+**Clear Cached Data** — removes the lookups that PeakHour has cached on this Mac.
+
+For every service that ISP Information contacts, what each one receives, and what stays on your Mac, see [ISP Information](/user-guide/settings/isp-information/).
 
 ## AI Advisor
 
-**AI Advisor** — uses on-device AI to analyse your network conditions and produce a plain-language summary and an overall grade. See [AI Advisor](/user-guide/main-view/internet-dashboard/#ai-advisor).
+**AI Advisor** — grades your connection and explains what holds it back, in the [PeakHour Advisor](/user-guide/advisor/) window and on the dashboard. It is on by default, and needs macOS 26 or later.
+
+**Private Cloud Compute** — lets a larger Apple model write the Advisor's explanations, and lets you [ask questions about your connection](/user-guide/advisor/ask/). It is off by default, and needs macOS 27 or later with Apple Intelligence. The line under the switch shows whether it is ready, and how much of today's limit is left.
 
 :::note
-The AI Advisor runs entirely on your Mac using Apple Intelligence — your network data never leaves your device.
+Without Private Cloud Compute, the AI Advisor runs entirely on your Mac. With it, your measurements go to Apple's servers, which don't keep them. Your Wi-Fi name, your Mac's name and the monitors you added stay on your Mac. See [What leaves your Mac](/user-guide/advisor/ask/#what-leaves-your-mac).
 :::
 
 ## Notifications
