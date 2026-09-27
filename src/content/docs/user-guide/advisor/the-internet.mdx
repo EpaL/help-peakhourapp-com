@@ -9,6 +9,12 @@ sidebar:
 
 ## Issues outside your network
 
+<div class="img-lg">
+
+![The Issues outside your network card, with a problem on the route to one site](./the-internet-images/issues-outside.png)
+
+</div>
+
 This card appears when one site has a problem that the others don't — for example *The route to GitHub is unsteady (jitter)*, or *AU VPN does not answer*.
 
 These issues **don't lower your grade**. When the other sites are fine, your connection is fine, and the problem is on the route to that one site or at the site itself. There is usually nothing to change at home.
@@ -16,6 +22,12 @@ These issues **don't lower your grade**. When the other sites are fine, your con
 A site far away is judged against its own normal latency. A server in another continent is slow on every sample because of the distance, so PeakHour only reports it when it gets slower than it usually is.
 
 ## The map
+
+<div class="img-lg">
+
+![The map with the pin for this Mac and your router, and the pins of the sites](./the-internet-images/map.png)
+
+</div>
 
 The **How your traffic travels** card starts with a map:
 
@@ -29,6 +41,12 @@ Hover over a route below the map, and the map zooms to show that route from end 
 
 ## The routes
 
+<div class="img-lg">
+
+![The routes to three sites, each a row of network boxes with the delay of each handoff](./the-internet-images/routes.png)
+
+</div>
+
 Each site has one row. The row shows the networks your traffic crosses on the way, from **Your network** on the left to the site on the right.
 
 - **A box** is one network — for example your ISP or a carrier such as Arelion or Cogent — with its logo, the delay inside it and the number of routers it has.
@@ -38,7 +56,19 @@ Each site has one row. The row shows the networks your traffic crosses on the wa
 
 The routes appear one by one while PeakHour traces them. A site that doesn't answer shows **Not traced**.
 
+<div class="img-sm">
+
+![The popover of a site box, with its latency, jitter, packet loss and where it answers from](./the-internet-images/site-popover.png)
+
+</div>
+
 ### The hop table
+
+<div class="img-lg">
+
+![The route to GitHub with its hop table open: each router, its place, its network, the round trip and the delay it adds](./the-internet-images/hop-table.png)
+
+</div>
 
 Click the name of a site to open its **hop table**, with one line for each router on the route:
 
@@ -57,6 +87,12 @@ Click **Copy** to copy the table as plain text, with padded columns — ready to
 
 ### Reading the route
 
+<div class="img-sm">
+
+![The How to read the route explanation](./the-internet-images/read-the-route.png)
+
+</div>
+
 Click **How to read the route** under the rows for a short summary. In more detail:
 
 - **Routers answer at low priority.** A router forwards traffic quickly, but it answers PeakHour's probes when it has time. So a router can show a high round trip while the routers after it are fast. PeakHour only counts a delay when the later routers carry it too, and marks the rest grey.
@@ -70,6 +106,12 @@ Your grade measures your own connection, averaged over several sites. A single s
 When **every** site is slow, the problem is on your connection, and it shows under **Issues identified** on the [Your Network](/user-guide/advisor/your-network/) page instead.
 
 ## Your own monitors
+
+<div class="img-sm">
+
+![A monitor at a private address with its Private network box, and the city search under Where is this monitor?](./the-internet-images/monitor-location.png)
+
+</div>
 
 A latency monitor that you added — for example a game server or a work VPN — appears here with **Your monitor** under its name.
 
