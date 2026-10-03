@@ -207,6 +207,15 @@ export default defineConfig({
               ],
             },
             {
+              label: 'Fix a Grade',
+              items: [
+                { label: 'Overview', slug: 'troubleshooting/fix-a-grade' },
+                { slug: 'troubleshooting/fix-a-grade/responsiveness-under-load' },
+                { slug: 'troubleshooting/fix-a-grade/weak-wifi-signal' },
+                { slug: 'troubleshooting/fix-a-grade/connection-near-capacity' },
+              ],
+            },
+            {
               label: 'SNMP Troubleshooting',
               items: [
                 { label: 'Overview', slug: 'troubleshooting/snmp' },

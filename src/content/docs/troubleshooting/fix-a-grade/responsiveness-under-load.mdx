@@ -1,0 +1,70 @@
+---
+title: "Turn on Smart Queue Management (SQM)"
+description: "Why your connection slows down while it's busy, and how Smart Queue Management on your router fixes it."
+sidebar:
+  label: Responsiveness under load
+---
+
+The Advisor shows this step when your **responsiveness under load** (Load RPM) is low: your connection is fast when it's quiet, but slows down a lot while something else uploads or downloads. You notice it as a video call that freezes while a backup runs, or a game that lags while someone streams.
+
+## Why it happens
+
+When a large transfer fills your connection, your router (or your ISP's equipment) holds the extra data in a queue. Every other packet — the next frame of your call, a click in a game, a web page — waits in that same queue behind it. The queue is often much larger than it needs to be, so the wait grows to hundreds of milliseconds. This is called **bufferbloat**.
+
+PeakHour measures this with Apple's network quality test. The test fills your connection and counts how many round trips complete in a minute while it's full. That count is the **RPM** (round trips per minute). A high RPM means the connection stays responsive under load; a low RPM means the queue grows.
+
+## The fix: Smart Queue Management
+
+**Smart Queue Management** (SQM) keeps the queue short. The router sends data a little below your connection's top speed, so the queue stays in the router, where the router can manage it. It then lets short, interactive traffic go ahead of large transfers. Routers call this **SQM**, **Smart Queues**, **Adaptive QoS**, **Dynamic QoS** or **fq_codel / CAKE**.
+
+SQM usually costs a little top speed (often 5–10%) in exchange for a big gain in responsiveness.
+
+### Before you start
+
+- Run a speed test without SQM, and note your **download** and **upload** speeds. Most routers ask for these numbers.
+- Turn on SQM on the router that connects to your ISP. If your ISP's modem is also a router, use the setting on whichever device does the routing.
+
+### Router steps
+
+Menu names change between models and firmware versions. Look for the names above if the steps don't match your screen exactly.
+
+#### Ubiquiti UniFi
+
+1. Open **UniFi Network**, then go to **Settings → Internet**.
+2. Select your WAN connection.
+3. Turn on **Smart Queues**, and enter your download and upload speeds.
+
+#### eero
+
+1. Open the **eero** app, then tap **Settings → Network settings**.
+2. Turn on **Optimize for Conferencing and Gaming**. (eero calls its SQM by this name.)
+
+#### ASUS
+
+1. Log in to the router (often at `router.asus.com`).
+2. Go to **Adaptive QoS → QoS**, and turn on **Enable QoS**.
+3. If your firmware offers a **QoS type**, choose **Adaptive QoS** or (on Asuswrt-Merlin) **fq_codel / CAKE**, and enter your speeds.
+
+#### Netgear Nighthawk
+
+1. Log in at `routerlogin.net`.
+2. Go to **Advanced → Setup → QoS Setup**.
+3. Turn on **Dynamic QoS**, and run its speed test when it asks.
+
+#### OpenWrt
+
+1. Install the **luci-app-sqm** package (**System → Software**).
+2. Go to **Network → SQM QoS**, choose your WAN interface, and enter about 90% of your measured speeds.
+3. Under **Queue Discipline**, choose **cake** with **piece_of_cake.qos**.
+
+#### pfSense and OPNsense
+
+Set up **Limiters** with the **FQ_CoDel** queue for download and upload, at about 90% of your measured speeds, and apply them to your WAN traffic. The documentation for your firewall has the full steps.
+
+### If your router has no SQM
+
+Many ISP-supplied routers don't offer SQM. You can put your own router behind the ISP's equipment and turn on SQM there, or ask your ISP whether they offer a router with it.
+
+## Check the result
+
+In PeakHour, run a new speed test (**Settings → Dashboard → Network Quality Test → Run Now**). Your Load RPM should rise, and the Advisor stops showing this step once your responsiveness is good. If the RPM didn't change, check that SQM is on for both directions, and try lower speed values.
