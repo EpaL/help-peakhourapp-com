@@ -1,6 +1,6 @@
 ---
 title: "Your Network"
-description: "The Your Network page of the PeakHour Advisor: your grade, the issues that hold it back, where each one starts, and the path from this Mac to the internet."
+description: "The Your Network page of the PeakHour Advisor: your grade, the issues that hold it back, where each one starts, what your speeds make possible, and the path from this Mac to the internet."
 sidebar:
   order: 2
 ---
@@ -21,7 +21,14 @@ Under the summary:
 
 - **Video Calls**, **Gaming**, **Streaming** and **Remote Desktop** — a symbol for each activity. It's green when your connection handles the activity comfortably, red when it doesn't, and grey when PeakHour needs a speed test to judge it. Hover over a symbol to see why. **Remote Desktop** also covers SSH: both need little speed, but jitter and packet loss make them stutter.
 - **Grade A for 2 h 14 min** (for example) — how long the current grade has held. It appears after 10 minutes. Restarting PeakHour or putting the Mac to sleep starts the count again.
-- **Needs a speed test · Run Now** — shown while an activity is grey. Click **Run Now** to start a test straight away.
+- **No speed test yet** — shown while an activity is grey. Click **Run Speed Test** to start a test straight away.
+
+### What your speeds make possible
+
+After a speed test, two more lines show what your measured speeds let you do:
+
+- **Video quality** — a mark for each streaming resolution: 720p, 1080p, 4K and 8K. Hover over the line to see why.
+- **1 GB file** and **10 GB file** — how long each file takes to download (↓) and to upload (↑) at your measured speeds.
 
 ### Issues identified
 
@@ -36,7 +43,7 @@ When the grade is below an A, the card lists each reason under **Issues identifi
   - **Past your ISP** — further out on the internet
   - **In your VPN** or **Past your VPN server**, when a VPN carries all your traffic
 - **An explanation** of what the measurement means for you, with the measurement and its band.
-- **A step to try**, where one helps — for example *Turn on Smart Queue Management (also called SQM or QoS) on your router*.
+- **A step to try**, where one helps — for example *Turn on Smart Queue Management (also called SQM or QoS) on your router*. When a help article explains the step in more detail, the step links to it. See [Fix a Grade](/troubleshooting/fix-a-grade/).
 
 When a trend is clear, the explanation also says whether the problem has grown or eased over the last 5 to 15 minutes.
 
@@ -48,7 +55,12 @@ When a trend is clear, the explanation also says whether the problem has grown o
 
 </div>
 
-The second card shows the path your traffic takes, from **This Mac** to your **Router**, your **ISP**, and the **Internet**, with the latency of each link. A link changes color when one of the issues points at it, and shows the name of that problem under its latency.
+The second card shows the path your traffic takes, from **This Mac** to your **Router**, your **ISP**, and the **Internet**, with the latency of each link. A link changes color when one of the issues points at it. It then shows the symbol of that problem — for example a waveform for jitter — and the name of the problem under its latency.
+
+A link can also read:
+
+- **No answer** — the link stopped answering.
+- **Not measured** — a grey link that works, but that PeakHour has no measurement for. This happens when your ISP blocks traceroute: the sites answer, but PeakHour can't find your ISP's router to measure it.
 
 Under the path are your **Latency**, **Jitter**, **Packet Loss** and **Load RPM** (responsiveness under load), each with its band.
 
@@ -60,6 +72,10 @@ Under the path are your **Latency**, **Jitter**, **Packet Loss** and **Load RPM*
 ![The explanation that opens when you click the Jitter figure](./your-network-images/figure-explanation.png)
 
 </div>
+
+## With the AI Advisor off
+
+While **AI Advisor** is turned off in [Settings → Dashboard](/user-guide/settings/dashboard/#ai-advisor), a note — **The AI Advisor is off** — takes the place of the grade card. Click **Open Settings…** to turn it on. The **Your connection** card, with the path and its four figures, still works. See [With the AI Advisor off](/user-guide/advisor/#with-the-ai-advisor-off).
 
 ## When a VPN is on
 

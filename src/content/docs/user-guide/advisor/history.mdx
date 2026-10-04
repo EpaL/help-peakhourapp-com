@@ -2,7 +2,7 @@
 title: "History"
 description: "The History page of the PeakHour Advisor: your grade over the last hour to 90 days, when and why it dropped, and every speed test from the last year, with CSV export."
 sidebar:
-  order: 4
+  order: 6
 ---
 
 The **History** page shows how your connection has done over time. Use it to find out when the grade dropped, and why.
@@ -18,7 +18,7 @@ It doesn't record:
 - while the Mac is asleep, including the short wake-ups that macOS makes while the lid is closed;
 - for about 90 seconds after PeakHour starts or the Mac wakes, while the monitors settle;
 - while a speed test runs, because the test itself loads the connection;
-- while **AI Advisor** is turned off in [Settings → Dashboard](/user-guide/settings/dashboard/#ai-advisor).
+- while **AI Advisor** is turned off in [Settings → Dashboard](/user-guide/settings/dashboard/#ai-advisor). PeakHour still records your speed tests then.
 
 A time without a network is recorded as **No network**, so it doesn't look like a gap.
 
@@ -63,6 +63,8 @@ With [Private Cloud Compute](/user-guide/advisor/ask/#private-cloud-compute) tur
 
 The table lists the records of the period, newest first. **Grade changes only** is on at first, so the table shows only the moments when the grade changed. Turn it off to see every record.
 
+Turn on **Relative time** to see how long each grade held, for example **+14m 54s**, in the **Time** column.
+
 Measurements are colored by their band — green for good, through yellow and orange, to red for poor.
 
 Choose **Columns** to show or hide columns, or **Reset Columns** to go back to the defaults. You can sort by any column, and drag a column to move it.
@@ -76,6 +78,7 @@ Choose **Columns** to show or hide columns, or **Reset Columns** to go back to t
 | **Issues identified** | ✓ | The reasons that held the grade back. |
 | **Wi-Fi Signal**, **Wi-Fi Version** | ✓ | For example −52 dBm and Wi-Fi 6E. |
 | **Connection** | ✓ | The network, with an icon for Wi-Fi, Ethernet or a Personal Hotspot, and a shield when a VPN was on. |
+| **AP Name** | | The Wi-Fi access point. Use it on a mesh network, where every access point has the same Wi-Fi name. To give an access point a name, click the pencil on the dashboard's [This Mac card](/user-guide/main-view/internet-dashboard/#this-mac). |
 | **Mac to Router**, **Router to ISP** | | The first two parts of the latency. |
 | **Wi-Fi Noise**, **Signal-to-Noise**, **Channel** | | More detail on the Wi-Fi link. |
 | **Link Speed** | | The Wi-Fi transmit rate, or the speed of the Ethernet cable. |
@@ -112,12 +115,20 @@ Press **Esc** or click the close button to hide the details.
 
 The **Speed Tests** tab lists every [network quality test](/user-guide/settings/dashboard/#network-quality) from the last **year**, including the ones that ran on a schedule.
 
-The **Speed over time** chart shows download in blue and upload in teal. Hover over a point for its result, or click it to select it in the list. Under the chart are the **Median download**, the **Median upload**, the **Lowest responsiveness**, and the number of tests. PeakHour uses the median so that one test run during a large download doesn't drag the figure down.
+The **Speed over time** chart shows download in blue and upload in teal. Hover over a point for its result and the Wi-Fi network or the cable it ran on, or click it to select it in the list. Under the chart are the **Median download**, the **Median upload**, the **Lowest responsiveness**, and the number of tests. PeakHour uses the median so that one test run during a large download doesn't drag the figure down.
 
-The list shows **Time**, **Download**, **Upload**, **Responsiveness**, **Idle Latency** and **Connection**. **Columns** also offers **Download RPM**, **Upload RPM**, **Interface** and the Apple test **Server**.
+The list shows **Time**, **Download**, **Upload**, **Responsiveness**, **Idle Latency** and **Connection**. **Columns** also offers:
+
+- **Of Plan** — the download speed as a share of your [Internet plan](/user-guide/settings/dashboard/#internet-plan). Hover over it to see the plan speed of that test.
+- **AP Name** — the Wi-Fi access point, as in the Grades table.
+- **Download RPM**, **Upload RPM**, **Interface** and the Apple test **Server**.
+
+To see the tests of one network, use the filter menu above the list. Choose **All Networks**, a kind of link such as **Wi-Fi** or **Ethernet**, or one network. Each item shows how many tests it holds.
+
+For the full results of your last test, see the [Speed Test](/user-guide/advisor/speed-test/) page.
 
 ## Export
 
 Click **Export CSV…** above either table, or use **Export** in the window's toolbar. The file covers the period you chose.
 
-The CSV uses English column names and a full stop for decimals, whatever the language of your Mac, so any spreadsheet or script can read it. In the grade history, each row also carries the result of the speed test in force at that moment.
+The CSV uses English column names and a full stop for decimals, whatever the language of your Mac, so any spreadsheet or script can read it. In the grade history, each row also carries the result of the speed test in force at that moment. The speed test file also holds your Internet plan at the time of each test, the share of the plan that the test reached, and the link rate of this Mac.
