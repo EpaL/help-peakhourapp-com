@@ -99,6 +99,7 @@ export default defineConfig({
         Footer: './src/components/Footer.astro',
       },
       sidebar: [
+        { slug: 'whats-new-6-1' },
         {
           label: 'User Guide',
           items: [

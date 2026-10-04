@@ -1,0 +1,47 @@
+---
+title: "What's new in PeakHour 6.1"
+description: "The changes in PeakHour 6.1: the Speed Test page and your Internet plan, new dashboard cards, Wi-Fi notifications, the Advisor with the AI Advisor off, and the Lifetime License in the app."
+sidebar:
+  label: What's new in 6.1
+---
+
+PeakHour 6.1 runs on macOS 14.6 and later. The [PeakHour Advisor](/user-guide/advisor/) needs macOS 26 or later.
+
+## Speed tests and your Internet plan
+
+- **Speed Test page.** The Network Quality Report is now a page of the Advisor, with your speeds, responsiveness, idle latency, latency under load and how the test ran. See [Speed Test](/user-guide/advisor/speed-test/).
+- **Internet plan.** Enter the speeds that your plan promises, in Mb/s or Gb/s. Speed tests show the share of your plan, and the Speed Test page says whether your connection delivers it, or whether this Mac's Wi-Fi or cable connection limits it. See [Internet Plan](/user-guide/settings/dashboard/#internet-plan).
+
+## Internet Dashboard
+
+- **Column cards.** Click the This Mac, Router or ISP column to open its card. The three cards have one layout, with live figures and grouped details. The ISP card shows your last speed test, with **Open Full Report ›**. See [Columns and cards](/user-guide/main-view/internet-dashboard/#columns-and-cards).
+- **Readouts.** The speed readouts show large numbers, and the arcs on hover. Both numbers of a pair use the same unit. See [Reading the speed readouts](/user-guide/main-view/internet-dashboard/#reading-the-speed-readouts).
+- **Explanations open on a click.** Hover to see an **i**, then click it.
+- **Latency between hops.** A latency under 2 ms reads **\<2 ms**, and the hops past your router never read 0.0 ms. See [Router to ISP and ISP to Internet](/user-guide/main-view/internet-dashboard/#router-to-isp-and-isp-to-internet).
+- **Connection line.** Connection particle effects are off by default for new installs. Without them, a plain line in the colour of the link's health joins the hops.
+- **Turning off the dashboard** asks whether to delete its monitors or keep them. See [Turning off the dashboard](/user-guide/settings/dashboard/#turning-off-the-dashboard).
+
+## PeakHour Advisor
+
+- **Two sidebar sections:** Advisor and Measurements. See [PeakHour Advisor](/user-guide/advisor/).
+- **With the AI Advisor off,** the window still opens for speed tests, history and routes. See [With the AI Advisor off](/user-guide/advisor/#with-the-ai-advisor-off).
+- **Your Network** shows what your measured speeds make possible, such as video quality and download times. A marked link shows the symbol of its problem. See [Your Network](/user-guide/advisor/your-network/).
+- **Help articles.** Some steps to try link to a [Fix a Grade](/troubleshooting/fix-a-grade/) article.
+- **History** has a **Relative time** option, an optional **AP Name** column, an optional **Of Plan** column for speed tests, and a filter of speed tests by network. See [History](/user-guide/advisor/history/).
+- **Report** has a **Routes** section with the route to each site. See [Report](/user-guide/advisor/report/).
+- **Ask** knows your whole speed test and your plan. See [Ask about your connection](/user-guide/advisor/ask/).
+
+## Notifications
+
+- **Wi-Fi issues.** Get a notification when your Wi-Fi has a weak signal, interference or a slow link for 2 minutes. See [Notifications](/user-guide/settings/dashboard/#notifications).
+
+## Lifetime License
+
+- **Buy it in the app.** With an Annual Pass or a free trial, buy the Lifetime License from **Settings → About**. See [Can I upgrade from a subscription to a Lifetime license?](/troubleshooting/faq/purchasing-licensing/upgrade-subscription-to-lifetime/)
+
+## Fixes
+
+- When your ISP blocks traceroute, the Advisor shows the ISP link as **Not measured**, and PeakHour sends no false *Internet appears to be down* notification.
+- Monitors that get no result show an error instead of **Starting…**.
+- Jitter is the jitter of the worst hop on the path, not an average. See [How the grade works](/user-guide/advisor/grade/).
+- With a full-tunnel VPN and both Wi-Fi and Ethernet connected, PeakHour checks a device on your local network over the right connection.
