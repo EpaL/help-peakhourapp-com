@@ -28,3 +28,9 @@ Both protocols are optional — PeakHour will still run without them, but you wo
 ## Latency and latency monitoring
 
 To measure latency, jitter, and traceroute paths to the internet, your Mac must be able to send and receive **ICMP** packets (used by `ping` and `traceroute`). Some restrictive networks or VPNs block ICMP — if PeakHour can't reach internet hosts, check your firewall or VPN configuration.
+
+Some ISPs block traceroute. PeakHour then can't find your ISP's router, but the sites on the internet still answer. The [PeakHour Advisor](/user-guide/advisor/your-network/#your-connection) shows the ISP link as **Not measured**, and PeakHour sends no false *Internet appears to be down* notification.
+
+## PeakHour Advisor
+
+The [PeakHour Advisor](/user-guide/advisor/) window needs **macOS 26 (Tahoe)** or later. To [ask questions about your connection](/user-guide/advisor/ask/) with Private Cloud Compute, you need **macOS 27** or later with Apple Intelligence.
