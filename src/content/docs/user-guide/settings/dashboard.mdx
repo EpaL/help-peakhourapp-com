@@ -1,6 +1,6 @@
 ---
 title: "Dashboard"
-description: "The Dashboard settings enable and configure the Internet Dashboard — the hosts it pings, network quality testing, ISP lookup, your Internet plan, the PeakHour Advisor and Private Cloud Compute, notifications, and visual effects."
+description: "The Dashboard settings enable and configure the Internet Dashboard — the hosts it pings, speed tests, ISP lookup, your Internet plan, the PeakHour Advisor and Private Cloud Compute, notifications, and visual effects."
 sidebar:
   order: 23
 ---
@@ -23,16 +23,21 @@ PeakHour continually pings three hosts and aggregates the round-trip times into 
 
 These hosts appear in the **Internet** column of the dashboard, and on [The Internet](/user-guide/advisor/the-internet/) page of the PeakHour Advisor.
 
-## Network Quality
+## Speed Test
 
-PeakHour can periodically measure your connection's upload speed, download speed, and responsiveness using the macOS **networkQuality** tool, and show the results on the Internet Dashboard.
+PeakHour can run a speed test on a schedule. The test measures your upload speed, your download speed and your responsiveness. It uses the macOS **networkQuality** tool.
 
 | Setting | Description |
 |---------|-------------|
-| **Measure Network Quality** | Enables periodic measurement. Results appear under **ISP** on the dashboard and in its card, on the Advisor's [Speed Test](/user-guide/advisor/speed-test/) page, and in the Advisor's [speed test history](/user-guide/advisor/history/#speed-tests). Running a test also calibrates your Internet Gateway's maximum available upload and download bandwidth. |
+| **Run Speed Tests** | Runs a speed test on a schedule. The results show under **ISP** on the dashboard and in its card, on the Advisor's [Speed Test](/user-guide/advisor/speed-test/) page, and in the Advisor's [speed test history](/user-guide/advisor/history/#speed-tests). Each test also calibrates the maximum upload and download bandwidth of your Internet Gateway. |
 | **Frequency** | How often the test runs — every hour, 3 hours, 6 hours, 12 hours, day, or week. |
-| **Re-run when network change is detected** | Also runs a test automatically whenever PeakHour detects a network change, such as switching Wi-Fi networks. |
-| **Network Quality Test → Run Now** | Runs a test immediately. You can also right-click the Internet Dashboard and run it from there, or click **Run Speed Test** on the Advisor's [Speed Test](/user-guide/advisor/speed-test/) page. |
+| **Re-run when network change is detected** | Also runs a test when PeakHour detects a network change, for example a change to another Wi-Fi network. |
+| **Speed Test → Run Now** | Runs a test immediately. |
+
+**Frequency**, **Re-run when network change is detected** and **Run Now** show only while **Run Speed Tests** is on. You can also run a test at any time:
+
+- right-click the Internet Dashboard, then choose **Run Speed Test**;
+- click **Run Speed Test** on the Advisor's [Speed Test](/user-guide/advisor/speed-test/) page.
 
 ## ISP Information
 

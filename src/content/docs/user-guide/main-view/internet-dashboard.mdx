@@ -216,10 +216,10 @@ Like the Router, the ISP column sits mid-path and shows a latency graph on each 
 |---------|-------------|
 | **Latency** | The figures beside each graph are the latency from your router to the ISP (left) and from the ISP to the internet (right). |
 | **Name** | The detected ISP (e.g. **Comcast**). |
-| **Speed test** | The pair shows the download (↓) and upload (↑) speeds of your last [speed test](/user-guide/settings/dashboard/#network-quality) — not real-time throughput. |
+| **Speed test** | The pair shows the download (↓) and upload (↑) speeds of your last [speed test](/user-guide/settings/dashboard/#speed-test) — not real-time throughput. |
 
 :::note
-The **Speed test** readouts fill in after a speed test. To run tests on a schedule, turn on [Measure Network Quality](/user-guide/settings/dashboard/#network-quality).
+The **Speed test** readouts fill in after a speed test. Until then, the column reads **Speed Test not run yet**. To run tests on a schedule, turn on [Run Speed Tests](/user-guide/settings/dashboard/#speed-test).
 :::
 
 Click the column to open its card, with your last speed test and details about your ISP:
@@ -236,8 +236,8 @@ The **Speed Test** section shows the time of your last test, its **Download** an
 
 Click **Open Full Report ›** under the figures to see the whole test:
 
-- on macOS 26 and later, it opens the [Speed Test](/user-guide/advisor/speed-test/) page of the PeakHour Advisor;
-- on macOS 14 and 15, it opens the [Network Quality Report](#network-quality-report).
+- on macOS 26 and later, the card closes, and the PeakHour Advisor opens on its [Speed Test](/user-guide/advisor/speed-test/) page;
+- on macOS 14 and 15, the card closes, and the full test opens in a popover on the dashboard. See [Speed Test on macOS 14 and 15](#speed-test-on-macos-14-and-15).
 
 Under the speed test:
 
@@ -251,27 +251,27 @@ Under the speed test:
 
 When [ISP Information](/user-guide/settings/isp-information/) is off, the card still opens with your last speed test. Its title is then **ISP**.
 
-#### Network Quality Report
+#### Speed Test on macOS 14 and 15
 
-On macOS 14 and 15, **Open Full Report ›** on the ISP card opens the **Network Quality Report** — the full results of your last speed test. It measures not just raw speed but how *responsive* your connection stays under load — a better indicator of real-world experience for video calls, gaming, and browsing. On macOS 26 and later, the same results are on the Advisor's [Speed Test](/user-guide/advisor/speed-test/) page.
+The PeakHour Advisor needs macOS 26 or later. On macOS 14 and 15, **Open Full Report ›** on the ISP card opens the full test in a popover, with the title **Speed Test**. The test measures more than raw speed. It also measures how *responsive* your connection stays under load. This value shows better how video calls, games and web pages feel.
 
 <div class="img-md">
 
-![Network Quality Report showing the Download, Upload and Responsiveness figures, and Show Details](./internet-dashboard-images/internet-dashboard-detailed-isp-networkquality.png)
+![The Speed Test popover showing the Download, Upload and Responsiveness figures, and Show Details](./internet-dashboard-images/internet-dashboard-detailed-isp-networkquality.png)
 
 </div>
 
-The report has the layout of the column cards. The header shows the time of the test and the interface it used. Under it are four figures: **Download**, **Upload**, and the download and upload **Responsiveness**, in Round-trips Per Minute (RPM).
+The popover has the layout of the column cards. The header shows the time of the test and the interface that it used. Under it are four figures: **Download**, **Upload**, and the download and upload **Responsiveness**, in Round-trips Per Minute (RPM).
 
 Click **Show Details** to see three more sections:
 
 | Section | What it measures |
 |---------|------------------|
-| **Idle Latency** | Time spent establishing a connection while the network is unloaded (Base RTT, TCP, TLS, H2). Lower is better — this is the baseline for how quickly new connections start. |
-| **Latency Under Load** | Latency measured while the connection is saturated, for download and for upload. Spikes here indicate **bufferbloat** — congestion that delays interactive traffic like video calls and games. |
+| **Idle Latency** | The time to start a connection while nothing else uses the network (Base RTT, TCP, TLS, H2). Lower is better. This is the baseline for how quickly new connections start. |
+| **Latency Under Load** | The latency while the test fills the connection, for download and for upload. Spikes here show **bufferbloat**: congestion that delays interactive traffic, such as video calls and games. |
 | **Test** | How the test ran: the interface, the server, the protocol, the number of flows, the data transferred, and the duration. |
 
-For what each value means, see [Speed Test](/user-guide/advisor/speed-test/). The report displays the latest test results rather than running a new test — to re-run the test on demand, click the refresh button at the top of the report.
+For what each value means, see [Speed Test](/user-guide/advisor/speed-test/). The popover shows the results of the last test. It doesn't run a new test. To run a new test, click the refresh button (**Run Speed Test**) at the top of the popover.
 
 ### Internet
 

@@ -11,7 +11,7 @@ The Advisor shows this step when your **responsiveness under load** (Load RPM) i
 
 When a large transfer fills your connection, your router (or your ISP's equipment) holds the extra data in a queue. Every other packet — the next frame of your call, a click in a game, a web page — waits in that same queue behind it. The queue is often much larger than it needs to be, so the wait grows to hundreds of milliseconds. This is called **bufferbloat**.
 
-PeakHour measures this with Apple's network quality test. The test fills your connection and counts how many round trips complete in a minute while it's full. That count is the **RPM** (round trips per minute). A high RPM means the connection stays responsive under load; a low RPM means the queue grows.
+PeakHour measures this with its speed test, which uses Apple's **networkQuality** tool. The test fills your connection and counts how many round trips complete in a minute while it's full. That count is the **RPM** (round trips per minute). A high RPM means the connection stays responsive under load; a low RPM means the queue grows.
 
 ## The fix: Smart Queue Management
 
@@ -67,4 +67,4 @@ Many ISP-supplied routers don't offer SQM. You can put your own router behind th
 
 ## Check the result
 
-In PeakHour, run a new speed test (**Run Speed Test** on the Advisor's [Speed Test](/user-guide/advisor/speed-test/) page, or **Settings → Dashboard → Network Quality Test → Run Now**). Your Load RPM should rise, and the Advisor stops showing this step once your responsiveness is good. If the RPM didn't change, check that SQM is on for both directions, and try lower speed values.
+In PeakHour, run a new speed test (**Run Speed Test** on the Advisor's [Speed Test](/user-guide/advisor/speed-test/) page, or **Settings → Dashboard → Speed Test → Run Now**). Your Load RPM should rise, and the Advisor stops showing this step once your responsiveness is good. If the RPM didn't change, check that SQM is on for both directions, and try lower speed values.
