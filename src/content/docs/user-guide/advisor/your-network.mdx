@@ -19,9 +19,15 @@ The large card at the top shows your grade, from **A+** to **F**, with a one-sen
 
 Under the summary:
 
-- **Video Calls**, **Gaming**, **Streaming** and **Remote Desktop** — a symbol for each activity. It's green when your connection handles the activity comfortably, red when it doesn't, and grey when PeakHour needs a speed test to judge it. Hover over a symbol to see why. **Remote Desktop** also covers SSH: both need little speed, but jitter and packet loss make them stutter.
+- **Video Calls**, **Gaming**, **Streaming** and **Remote Desktop** — a symbol for each activity. It's green when your connection handles the activity comfortably, red when it doesn't, and grey when PeakHour needs a speed test to judge it. A badge in its corner gives the same verdict as a tick, a cross or a question mark. Hover over a symbol to see why. **Remote Desktop** also covers SSH: both need little speed, but jitter and packet loss make them stutter. See [Responsiveness and the activities](#responsiveness-and-the-activities).
 - **Grade A for 2 h 14 min** (for example) — how long the current grade has held. It appears after 10 minutes. Restarting PeakHour or putting the Mac to sleep starts the count again.
 - **No speed test yet** — shown while an activity is grey. Click **Run Speed Test** to start a test straight away.
+
+### Responsiveness and the activities
+
+**Gaming**, **Video Calls** and **Remote Desktop** show a cross when your responsiveness under load is **Poor**: below 200 RPM. PeakHour uses the lower of the download and upload values. Each game packet, call frame or key press then waits behind the data in the queue. The reason reads, for example, *Responsiveness under load is 108 RPM. Gaming can lag while the connection is busy.*
+
+**Streaming** keeps its verdict, because a buffer hides a slow response. The responsiveness comes from your last speed test. Before the first test, the responsiveness changes no activity.
 
 ### What your speeds make possible
 
@@ -46,6 +52,8 @@ When the grade is below an A, the card lists each reason under **Issues identifi
 - **A step to try**, where one helps — for example *Turn on Smart Queue Management (also called SQM or QoS) on your router*. When a help article explains the step in more detail, the step links to it. See [Fix a Grade](/troubleshooting/fix-a-grade/).
 
 When a trend is clear, the explanation also says whether the problem has grown or eased over the last 5 to 15 minutes.
+
+On Wi-Fi, a low responsiveness under load has two numbered steps. Step 1 is a speed test over a cable at the router. Step 2 is Smart Queue Management (SQM) on your router. On a cable, the Advisor gives only the SQM step. See [Improve responsiveness under load](/troubleshooting/fix-a-grade/responsiveness-under-load/).
 
 ## Your connection
 
