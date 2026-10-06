@@ -83,11 +83,11 @@ Hover over the column to see more:
 
 ### Reading the latency timeline
 
-Every column shares the same latency timeline. Once you can read it in one column, you can read it in all of them:
+Every column shares the same latency timeline. Once you can read it in one column, you can read it in all of them. A healthy hop shows only the timeline, the latency and the connection line. The status and the warnings appear only when the hop has a problem.
 
-<div class="img-md">
+<div class="img-sm">
 
-![Annotated latency timeline showing the timeline, the latency figure, the packet loss and jitter warnings, and the connection line](./internet-dashboard-images/internet-dashboard-detailed-latency-timeline.png)
+![Annotated latency timeline of a healthy hop, showing the timeline, the latency figure and the connection line](./internet-dashboard-images/internet-dashboard-detailed-latency-timeline.png)
 
 </div>
 
@@ -95,7 +95,7 @@ Every column shares the same latency timeline. Once you can read it in one colum
 |---------|-------------|
 | **Status** | A coloured dot and label (**Light congestion**, **Heavy congestion** or **Error**) for the latency of this hop. It shows only when the hop has a problem. |
 | **Timeline** | A bar graph of recent latency readings, newest on the right. Each bar is colour-coded from green (Good) to red (Error) so you can spot recent trends and spikes at a glance. |
-| **Latency** | The current latency to the next hop (e.g. 17.5 ms), as a large number with a small grey unit. The number takes a colour only when there is a problem. A latency under 2 ms reads **\<2 ms**. |
+| **Latency** | The current latency to the next hop (e.g. 10.6 ms), as a large number with a small grey unit. The number takes a colour only when there is a problem. A latency under 2 ms reads **\<2 ms**. |
 | **Packet Loss Warning** | A drop icon that appears beside the latency figure when packet loss exceeds 1% on this hop. Click the latency to see more detail. |
 | **Jitter Warning** | A waveform icon that appears when latency is varying significantly — high jitter, which can disrupt video calls and gaming. Click the latency to see more detail. |
 | **Connection line** | A plain line in the colour of the hop's health joins the hops. With [Connection particle effects](/user-guide/settings/dashboard/#visual-effects) turned on, animated particles flow along it to show live traffic. The effect is off by default. |
@@ -117,7 +117,7 @@ The **This Mac** column represents your Mac's connection to the local network. I
 
 <div class="img-narrow">
 
-![This Mac column showing its name, the latency graph and the throughput readouts](./internet-dashboard-images/internet-dashboard-detailed-this-mac-section.png)
+![This Mac column showing the access point name above the Mac icon, the latency graph, the connection name and the throughput readouts](./internet-dashboard-images/internet-dashboard-detailed-this-mac-section.png)
 
 </div>
 
@@ -125,11 +125,10 @@ The column shows, from top to bottom:
 
 | Element | Description |
 |---------|-------------|
-| **Name** | Your active connection — for example, the name of your Wi-Fi network. |
+| **Access point** | On Wi-Fi, the name of the access point that your Mac is connected to shows above the Mac icon, for example **Living Room**. A name in grey italics is a guess from the maker of the access point. To give the access point a name, click the pencil beside **Access Point** in the This Mac card, described below. On a Personal Hotspot, the name of the hotspot shows. When the access point has no name, nothing shows above the icon. |
 | **Latency** | The figure beside the graph (e.g. 4.7 ms) is the latency from your Mac to the next hop. |
-| **Throughput** | The pair shows real-time download (↓) and upload (↑) speeds for your Mac. |
-
-When the column has more than one pair, swipe left or right on the trackpad, or click the page dots, to see the others — for example **Signal** and **Tx Rate** on Wi-Fi.
+| **Name** | Your active connection — for example, the name of your Wi-Fi network. |
+| **Throughput** | The pair shows real-time download (↓) and upload (↑) speeds for your Mac. On Wi-Fi, a second pair shows the **Tx Rate** and the **Signal** of the Wi-Fi link. To see it, swipe left or right on the trackpad, or click the page dots under the pair. The page dots show when you hover over the column. |
 
 Click the column to open its card, with full details about your Mac's connection to the local network:
 
