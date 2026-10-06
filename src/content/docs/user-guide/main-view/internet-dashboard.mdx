@@ -288,15 +288,15 @@ The **Internet** column represents the final hop — from your ISP out to the wi
 | **Latency** | The figure beside the graph is the latency from your ISP out to the internet. |
 | **Grade** | The overall connection quality grade, described in [Grade](#grade) below. |
 
-Click the column to open the list of **Internet Hosts** — the endpoints PeakHour uses for connectivity checks:
+Click **Internet** at the top of the column to open the list of **Internet Hosts** — the endpoints PeakHour uses for connectivity checks:
 
 <div class="img-sm">
 
-![Internet Hosts list showing the monitored endpoints — Google, Zoom and Cloudflare — each with a status dot](./internet-dashboard-images/internet-dashboard-internet-popover.png)
+![Internet Hosts list showing the monitored endpoints — GitHub, Zoom and Cloudflare — each with a status dot and its latency](./internet-dashboard-images/internet-dashboard-internet-popover.png)
 
 </div>
 
-PeakHour measures the final hop by reaching out to several well-known endpoints (for example, **Google**, **Zoom**, and **Cloudflare**) and combining the results. Each host shows a status dot indicating whether it's currently reachable, along with the hostname used for the check. You can change which hosts are monitored in [Settings → Dashboard](/user-guide/settings/dashboard/).
+PeakHour measures the final hop with three well-known sites and combines the results. By default, the sites are **Google**, **Cloudflare** and **Netflix**. Each host shows a status dot that tells if it is reachable now, the host name of the check, and its latency. You can change which hosts are monitored in [Settings → Dashboard](/user-guide/settings/dashboard/).
 
 ### Grade
 

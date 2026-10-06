@@ -18,7 +18,7 @@ The first screen asks what kind of monitor to add. Choose **Latency** and click 
 
 <div class="img-lg">
 
-![Choose Monitor Type screen with Bandwidth and Latency options; Latency is selected](./configuration-assistant-latency-images/configuration-assistant-latency-1-choose-monitor-type.png)
+![Choose Monitor Type screen with the Bandwidth and Latency options](./configuration-assistant-latency-images/configuration-assistant-latency-1-choose-monitor-type.png)
 
 </div>
 
@@ -37,6 +37,12 @@ A new latency monitor starts on the **What to Measure** page: *Choose the part o
 - **ISP to Internet** is the default, and has the label **Recommended**. Your home network isn't part of the result. The Internet Dashboard makes the same type of monitor for its sites, for example **ISP to Cloudflare**.
 - **One Host** measures the whole path from this Mac. The result includes your home network: the link from this Mac to the router, and the router.
 - **Custom** gives you all the settings. The green part of its picture moves along the path, because you choose the two points.
+
+<div class="img-lg">
+
+![The What to Measure page with the ISP to Internet, One Host and Custom cards; ISP to Internet is selected](./configuration-assistant-latency-images/configuration-assistant-latency-2a-what-to-measure.png)
+
+</div>
 
 Click a card, then click **Next**. You can also double-click a card.
 
@@ -58,6 +64,12 @@ Choose the site from the **Site** menu:
 - Choose **Custom…** to type a host name or an IP address. To go back to the list, click the list button beside the field.
 
 **Next** is available after you choose a site. The line under the path names the site, for example *Monitor the latency between your ISP and Cloudflare. Your home network is not part of the result.* PeakHour finds the hop of your ISP automatically. To measure from a specific ISP hop, use **Custom**.
+
+<div class="img-lg">
+
+![The ISP to Internet settings page with Cloudflare in the Site menu; only the part from the ISP to Cloudflare is green](./configuration-assistant-latency-images/configuration-assistant-latency-2b-isp-to-internet.png)
+
+</div>
 
 ### One Host
 
@@ -99,6 +111,12 @@ Measures the latency from your Mac to a site on the internet. Choose the site fr
 
 - **Single Host** — the same settings as [One Host](#one-host).
 - **Multi-Host** — measures the latency *between* two points, to isolate a specific segment of the path.
+
+<div class="img-lg">
+
+![The Custom settings page in Single Host mode, with Cloudflare selected](./configuration-assistant-latency-images/configuration-assistant-latency-4b-custom-single-host.png)
+
+</div>
 
 Multi-Host mode has a **Near** endpoint and a **Far** endpoint, so you can find where high or inconsistent latency comes from. This is how the Internet Dashboard measures hops like **Router → ISP**. Choose each endpoint from its menu: **Local Network**, **ISP** or **Internet**. The line between the two endpoints is green. PeakHour measures only the part of the path between **Near** and **Far**.
 
