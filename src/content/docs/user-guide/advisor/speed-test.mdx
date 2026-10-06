@@ -32,7 +32,7 @@ The top of the page shows the time of the test and the interface it used, for ex
 | **Upload** | The highest upload speed that the test reached. |
 | **Responsiveness** (↓ and ↑) | Round-trips Per Minute (RPM) while the test fills the connection, for download and for upload. Higher is better. A pill gives the band — see [How the grade works](/user-guide/advisor/grade/). |
 
-With an [Internet plan](/user-guide/settings/dashboard/#internet-plan) set, each speed has a bar such as **82% of plan**. The bar is green from 85% of your plan, yellow from 70%, and red below that. Hover over the bar to see your plan speed.
+With an [Internet plan](/user-guide/settings/dashboard/#internet-plan) for this network, each speed has a bar such as **82% of plan**. The bar is green from 85% of your plan, yellow from 70%, and red below that. Hover over the bar to see your plan speed. A plan with only one speed gives a bar for that speed only.
 
 Click the **i** beside a figure or a section heading to read what the measurement means.
 
@@ -48,13 +48,30 @@ With a plan set, a verdict under the speeds says where your speed stops. It read
 | **This Mac's Wi-Fi may limit the speed.** (on a cable: **This Mac's connection may limit the speed.**) | The last test is below your plan. A speed test also measures this Mac's own link, so that link can be the limit. | Run a speed test over a cable at the router. |
 | **Your connection is below your plan speed.** | Your last 3 tests in 7 days, over a link faster than your plan and without a VPN, have a middle result under 70% of your plan. | Run a speed test over a cable at the router. If the result stays low, contact your ISP with the results. |
 
-A test through a VPN gives no verdict below your plan, because the VPN adds its own limit. Tests from before you set the plan don't count.
+Tests from before you set the plan don't count.
+
+### Edit your plan
+
+Under the verdict, the page shows an **Edit Internet Plan…** link. A wrong plan gives wrong bars and a wrong verdict. When the bars or the verdict look wrong, change your plan. For example, change it after you move to a faster plan or to a new ISP.
+
+**Edit Internet Plan…** opens [Settings → Dashboard → Internet Plan](/user-guide/settings/dashboard/#internet-plan), with the cursor in the **Download Speed** field. Each change saves at once, and the page updates.
+
+### When the page shows no verdict
+
+A saved plan gives no verdict in these cases:
+
+- **The plan applies on another ISP.** While **Lookup ISP Details** is on, PeakHour ties the plan to the ISP where you saved it. See [Your Internet plan](/user-guide/settings/isp-information/#your-internet-plan).
+- **PeakHour doesn't know the ISP yet.** After a change of network, PeakHour looks up the ISP again. Until then, a plan tied to an ISP doesn't apply.
+- **The last test ran through a VPN** and reached less than 85% of your plan. The VPN adds its own limit, so the test says nothing about your plan.
+- **The plan has no download speed.** The verdict reads the download speed only.
+
+In these cases, the page shows the **Edit Internet Plan…** link alone. In the first two cases, the speeds have no bars either.
 
 ### Add your plan
 
 If you haven't set a plan, the page asks once, after a speed test: **Compare with your plan** — *Enter the speeds that your internet plan promises.* It fills in the lowest common plan speed at or above each speed that the test measured. Change the speeds to match your plan, then click **Save**. **Not Now** hides the question for good.
 
-You can set or change the plan at any time in [Settings → Dashboard → Internet Plan](/user-guide/settings/dashboard/#internet-plan). Without a plan, the page shows an **Add Your Internet Plan…** link that opens it.
+After **Not Now**, a page without a plan shows an **Add Your Internet Plan…** link. Like **Edit Internet Plan…**, it opens [Settings → Dashboard → Internet Plan](/user-guide/settings/dashboard/#internet-plan) with the cursor in the **Download Speed** field.
 
 ## Idle Latency
 
