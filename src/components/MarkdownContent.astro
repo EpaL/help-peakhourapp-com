@@ -17,7 +17,12 @@ const { status } = Astro.locals.starlightRoute.entry.data as { status?: 'needs-r
       working through updates for PeakHour 6.
     </aside>
   )}
+  <!-- Cloudflare Email Obfuscation turns addresses into links to
+       /cdn-cgi/l/email-protection, which 404s for crawlers (INF-230).
+       email_off exempts the article body so mailto: links ship as written. -->
+  <!--email_off-->
   <slot />
+  <!--/email_off-->
 </div>
 
 <script>
