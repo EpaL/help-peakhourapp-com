@@ -41,9 +41,13 @@ const mailHref = `mailto:support@peakhourapp.com?subject=${encodeURIComponent(ma
       >
         Suggest an improvement&nbsp;↗
       </a>
+      <!-- email_off keeps Cloudflare Email Obfuscation from rewriting this
+           mailto: into a /cdn-cgi/l/email-protection link that 404s (INF-230). -->
+      <!--email_off-->
       <a class="docs-feedback__btn docs-feedback__btn--secondary" href={mailHref}>
         Email feedback
       </a>
+      <!--/email_off-->
     </div>
   </div>
 )}
