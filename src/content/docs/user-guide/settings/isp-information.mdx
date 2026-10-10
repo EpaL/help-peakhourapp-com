@@ -1,6 +1,6 @@
 ---
 title: "ISP Information"
-description: "What PeakHour's ISP Information setting shows, which services it contacts and what each one receives, what stays on your Mac, and what Clear Cached Data removes."
+description: "What PeakHour's ISP Information setting shows, which services it contacts and what each one receives, what stays on your Mac, how it ties your Internet plan to your ISP, where you change the plan, and what Clear Cached Data removes."
 sidebar:
   order: 24
 ---
@@ -17,7 +17,7 @@ The setting is **off** by default. Turn it on in **Settings → Dashboard → IS
 
 ## What it shows
 
-- **On the dashboard:** your provider's name and logo on the **ISP** segment, and its details in the ISP popover.
+- **On the dashboard:** your provider's name and logo on the **ISP** column, and its details, its location and its connection type in the [ISP card](/user-guide/main-view/internet-dashboard/#isp).
 - **In the Advisor:** on [The Internet](/user-guide/advisor/the-internet/) page, the map of where each site answers from, and the route to each site with the name and logo of each network.
 
 ## What goes where
@@ -50,6 +50,23 @@ When you type a city under **Where is this monitor?** for one of your own monito
 | Address lookups (network and location) | 7 days, up to 200 addresses |
 | Logos | Until you clear them |
 
+## Your Internet plan
+
+Enter your plan in the [Internet Plan](/user-guide/settings/dashboard/#internet-plan) section of **Settings → Dashboard**. It has a **Download Speed** and an **Upload Speed**. Choose **Mb/s** or **Gb/s** for each speed. PeakHour then compares each speed test with your plan. On the Advisor's [Speed Test](/user-guide/advisor/speed-test/#your-plan) page, each speed gets a bar such as **82% of plan**, and a verdict says where your speed stops.
+
+When you save a plan while ISP Information is on, PeakHour ties the plan to your current ISP, by its network number (ASN). The plan then applies only on that ISP. When you take your Mac to another network, for example at work or on a hotspot, PeakHour doesn't compare your speed tests with a plan that isn't yours there. On that network, the Speed Test page shows no bars and no verdict.
+
+While ISP Information is off, PeakHour can't tell one ISP from another, so the plan applies on every network.
+
+You can change the plan in two places:
+
+- **Settings → Dashboard → Internet Plan**.
+- The **Edit Internet Plan…** link on the Advisor's [Speed Test](/user-guide/advisor/speed-test/#edit-your-plan) page, on macOS 26 and later. It opens the same section of Settings.
+
+While ISP Information is on, each change ties the plan again to the ISP that you use at that time. After a move to a new ISP, enter your new plan while your Mac uses the new connection.
+
+Your plan isn't sent to any of the services above.
+
 ## Clear Cached Data
 
 **Clear Cached Data**, beside **Cached Location & IP** in the settings, removes:
@@ -63,8 +80,9 @@ It doesn't turn the setting off. While the setting stays on, PeakHour looks ever
 
 ## When it's off
 
-- The **ISP** segment of the dashboard shows a grey question mark instead of your provider.
+- The **ISP** column of the dashboard shows a grey question mark instead of your provider. Its card still shows your last speed test, with the title **ISP**.
 - On The Internet page of the Advisor, the map and the routes are replaced by a note that asks you to turn ISP Information on.
+- Your [Internet plan](#your-internet-plan) applies on every network.
 - Turning the setting off doesn't delete what is already cached. Use **Clear Cached Data** first.
 
 ## With a VPN

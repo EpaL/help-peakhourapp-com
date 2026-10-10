@@ -47,8 +47,8 @@ Below the devices list, choose which features to enable:
 
 | Feature | Description |
 |---------|-------------|
-| **Internet Dashboard** | An at-a-glance view of your network's health and live diagnostics. |
-| **Network Quality Checks** | Periodic speed tests for latency under load and max throughput. |
+| **Internet Dashboard & AI Advisor** | An at-a-glance view of your network's health and live diagnostics. |
+| **Speed Tests** | Periodic speed tests for your speed and your latency under load. See [Speed Test](/user-guide/settings/dashboard/#speed-test). |
 | **Usage Monitoring** | Tracks bandwidth consumption against your data plan. |
 
 All three are enabled by default. Click **Continue** to apply them, or **Skip – Set Up Later** to configure things manually from [Settings](/user-guide/settings/) later.
@@ -70,23 +70,25 @@ If the **Devices Found** list is empty or your router isn't appearing:
 ![Identify Your Internet Provider step](./first-time-setup-images/first-time-setup-privacyconsent.png)
 </div>
 
-PeakHour can enrich your [Internet Dashboard](/user-guide/main-view/internet-dashboard/) with your provider's name, approximate location, and ISP and router brand logos. Enabling this lookup is optional.
+PeakHour can enrich your [Internet Dashboard](/user-guide/main-view/internet-dashboard/) with your provider's name, approximate location, and ISP and router brand logos. It also lets the [PeakHour Advisor](/user-guide/advisor/) show the route to each site. Enabling this lookup is optional.
 
 **Look up ISP details is off by default.** Leave the toggle off to keep PeakHour from contacting any third-party services, or turn it on to identify your provider. You can change this later under [Settings → Dashboard](/user-guide/settings/dashboard/#isp-information).
 
-When enabled, PeakHour sends your public IP address to these services to look up your provider:
+When enabled, PeakHour uses these services to look up your provider and the route to each site:
 
 | Service | What it provides |
 |---------|------------------|
 | **ipify** | Detects your public IP address. |
-| **MaxMind** | Approximate location and ISP. |
-| **Brandfetch** | ISP and router brand logos. |
+| **MaxMind**, through PeakHour's own lookup service | The network name and approximate location of your IP address, the sites you monitor, and the routers on the way. |
+| **RIPE NCC** | The network that a router belongs to, when MaxMind can't name it. |
+| **PeeringDB** | A network's web domain, to find its logo. |
+| **Brandfetch** | ISP, router and network logos. |
 
 :::note
-Only your public IP address is shared with these services. No personal or identifying information beyond that is included.
+These services receive internet addresses, network numbers and web domains — not your name, your Mac's name or your Wi-Fi name. For exactly what each one receives, see [ISP Information](/user-guide/settings/isp-information/#what-goes-where).
 :::
 
-Click **Privacy Policy** to read exactly how this information is used, then click **Continue**.
+Click **Learn More** to open the [ISP Information](/user-guide/settings/isp-information/) page, or **Privacy Policy** to read exactly how this information is used, then click **Continue**.
 
 ## 4. You're All Set
 
@@ -97,7 +99,7 @@ Click **Privacy Policy** to read exactly how this information is used, then clic
 Review the configuration PeakHour is about to apply:
 
 - **Internet Gateway** — the router PeakHour found in the previous step.
-- **Internet Dashboard**, **Network Quality**, **Usage Monitoring** — the features you enabled.
+- **Features** — the features you enabled: **Internet Dashboard**, **Speed Test**, **ISP Information** and **Usage Monitoring**.
 - **Launch at Login** — toggle on if you'd like PeakHour to start automatically when you log in to your Mac.
 
 Click **Continue** to apply your configuration.

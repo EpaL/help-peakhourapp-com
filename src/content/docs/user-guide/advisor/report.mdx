@@ -2,7 +2,7 @@
 title: "Report"
 description: "The Report page of the PeakHour Advisor: a formatted connection report to copy or export, ready to send to your ISP or to support."
 sidebar:
-  order: 5
+  order: 4
 ---
 
 The **Report** page shows a formatted **PeakHour Connection Report** — the report to send to your ISP or to support when you need help with your connection.
@@ -11,16 +11,27 @@ It holds the same facts as the other pages, in one document:
 
 - the date, your connection, and your **overall grade**;
 - **Summary** — the summary sentence, the issues that hold the grade back, and any issues outside your network;
-- **Measured Metrics** — latency, jitter, packet loss, the last speed test and responsiveness, each with its band, and your Wi-Fi signal and channel;
+- **Measured Metrics** — latency, jitter, packet loss, the last speed test and responsiveness, each with its band, and your Wi-Fi signal and channel. With an [Internet plan](/user-guide/settings/dashboard/#internet-plan) set, the speed test also gives the share of your plan;
 - **Per-Hop Latency** — the latency and loss to your router, your ISP's gateway and the internet;
+- **Routes** — the route to each site that PeakHour monitors, as one [hop table](/user-guide/advisor/the-internet/#the-hop-table) for each site, with every router on the way. It needs [ISP Information](/user-guide/settings/isp-information/); while that is off, the section asks you to turn it on;
 - **Activity Suitability** — video calls, gaming, streaming and remote desktop;
 - **Analysis** — what each measurement means, the diagnostic findings, suggestions, and what already works well.
 
 The report reflects the latest analysis, and updates with it.
 
+The report needs the **AI Advisor**. While it is off, the **Report** row in the sidebar is grey.
+
 <div class="img-lg">
 
 ![The Report page, with Copy and Export](./report-images/report.png)
+
+</div>
+
+The **Routes** section has one hop table for each site, with every router from your router to the site:
+
+<div class="img-lg">
+
+![The Routes section of the report, with the route to GitHub, Zoom and Cloudflare](./report-images/report-routes.png)
 
 </div>
 

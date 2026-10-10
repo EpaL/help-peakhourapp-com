@@ -14,6 +14,8 @@ The question is: how does this affect usage monitoring?
 
 While PeakHour is running, it does not matter if the counter rolls over; PeakHour is only concerned with the change in the counter's value, not the absolute value.
 
+A router's 32-bit counter can also step back without a rollover. PeakHour recognises this, so your usage and quota totals don't jump by about 4 GB when it happens.
+
 If PeakHour is stopped for a period of time and data is still being transferred, things can happen that are beyond your and our control:
 
   - If the counters DON'T roll over while PeakHour is stopped, there is no problem. Usage will be calculated accurately, as if PeakHour had been running the entire time.

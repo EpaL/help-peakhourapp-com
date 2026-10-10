@@ -1,19 +1,51 @@
 ---
-title: "Turn on Smart Queue Management (SQM)"
-description: "Why your connection slows down while it's busy, and how Smart Queue Management on your router fixes it."
+title: "Improve responsiveness under load"
+description: "Why your connection slows down while it's busy, and the two steps that fix it: a speed test over a cable, then Smart Queue Management (SQM) on your router."
 sidebar:
   label: Responsiveness under load
 ---
 
-The Advisor shows this step when your **responsiveness under load** (Load RPM) is low: your connection is fast when it's quiet, but slows down a lot while something else uploads or downloads. You notice it as a video call that freezes while a backup runs, or a game that lags while someone streams.
+The Advisor shows these steps when your **responsiveness under load** (Load RPM) is low: your connection is fast when it's quiet, but slows down a lot while something else uploads or downloads. You notice it as a video call that freezes while a backup runs, or a game that lags while someone streams.
 
 ## Why it happens
 
 When a large transfer fills your connection, your router (or your ISP's equipment) holds the extra data in a queue. Every other packet — the next frame of your call, a click in a game, a web page — waits in that same queue behind it. The queue is often much larger than it needs to be, so the wait grows to hundreds of milliseconds. This is called **bufferbloat**.
 
-PeakHour measures this with Apple's network quality test. The test fills your connection and counts how many round trips complete in a minute while it's full. That count is the **RPM** (round trips per minute). A high RPM means the connection stays responsive under load; a low RPM means the queue grows.
+On Wi-Fi, the Wi-Fi link can also hold data in a queue while it is busy. This occurs mostly when other networks use the same channel.
 
-## The fix: Smart Queue Management
+PeakHour measures this with its speed test, which uses Apple's **networkQuality** tool. The test fills your connection and counts how many round trips complete in a minute while it's full. That count is the **RPM** (round trips per minute). A high RPM means the connection stays responsive under load; a low RPM means the queue grows.
+
+## The two steps
+
+The Advisor gives the steps in this order:
+
+1. **Test over a cable.** *Run the Speed Test over a cable at the router to rule out the Wi-Fi.* The Advisor gives this step only when your Mac is on Wi-Fi.
+2. **Turn on SQM.** *Turn on Smart Queue Management (also called SQM or QoS) on your router.* This step links to this page.
+
+When your Mac uses a cable, the Advisor gives only the SQM step. Go straight to [Step 2](#step-2-turn-on-smart-queue-management).
+
+## Step 1: Test over a cable
+
+Do this step when your Mac is on Wi-Fi. It shows whether the Wi-Fi or the router causes the low value. You then change a router setting only when the router is the cause.
+
+1. Connect your Mac to the router with an Ethernet cable.
+2. Run the speed test again. Click **Run Speed Test** on the Advisor's [Speed Test](/user-guide/advisor/speed-test/) page, or use **Settings → Dashboard → Speed Test → Run Now**.
+3. Look at the **Responsiveness** figures of the test.
+
+Then read the result:
+
+- **The responsiveness is good over the cable** (500 RPM or more). The Wi-Fi causes the low value. See [Fix the Wi-Fi](#fix-the-wi-fi).
+- **The responsiveness stays low over the cable.** The queue at your router causes the low value. Do [Step 2](#step-2-turn-on-smart-queue-management).
+
+### Fix the Wi-Fi
+
+- **Move closer** to the router or the access point.
+- **Use the 5 GHz or 6 GHz band.** These bands are faster and less crowded than 2.4 GHz, but they reach less far through walls.
+- **Change the Wi-Fi channel** on the router. Pick a channel that other networks use less. The **This Mac** card on the [dashboard](/user-guide/main-view/internet-dashboard/#this-mac) shows the channel and the band that your Mac uses.
+
+For more steps, see [Improve a weak Wi-Fi signal](/troubleshooting/fix-a-grade/weak-wifi-signal/).
+
+## Step 2: Turn on Smart Queue Management
 
 **Smart Queue Management** (SQM) keeps the queue short. The router sends data a little below your connection's top speed, so the queue stays in the router, where the router can manage it. It then lets short, interactive traffic go ahead of large transfers. Routers call this **SQM**, **Smart Queues**, **Adaptive QoS**, **Dynamic QoS** or **fq_codel / CAKE**.
 
@@ -67,4 +99,4 @@ Many ISP-supplied routers don't offer SQM. You can put your own router behind th
 
 ## Check the result
 
-In PeakHour, run a new speed test (**Settings → Dashboard → Network Quality Test → Run Now**). Your Load RPM should rise, and the Advisor stops showing this step once your responsiveness is good. If the RPM didn't change, check that SQM is on for both directions, and try lower speed values.
+In PeakHour, run a new speed test (**Run Speed Test** on the Advisor's [Speed Test](/user-guide/advisor/speed-test/) page, or **Settings → Dashboard → Speed Test → Run Now**). Your Load RPM should rise, and the Advisor stops showing these steps once your responsiveness is good. If the RPM didn't change, check that SQM is on for both directions, and try lower speed values.
