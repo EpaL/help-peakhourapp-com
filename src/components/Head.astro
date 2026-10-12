@@ -7,12 +7,49 @@
 //
 // og:image comes from the `head` array in astro.config.mjs, because it is the
 // same on every page. Everything that varies per page is built here.
+import { execFileSync } from 'node:child_process';
 import Default from '@astrojs/starlight/components/Head.astro';
 
 const SITE = 'https://help.peakhour.app';
 const MARKETING_SITE = 'https://peakhour.app';
 
 const { entry, lastUpdated } = Astro.locals.starlightRoute;
+
+/**
+ * Whether git has the full history. In a shallow clone the boundary commit
+ * looks like a root commit, so --diff-filter=A would report every file there
+ * as added at the checkout tip and stamp it with the wrong date.
+ */
+function hasFullHistory() {
+  try {
+    return execFileSync('git', ['rev-parse', '--is-shallow-repository'], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim() === 'false';
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * When the page's source file was first committed, which is when it was
+ * published on this site. Undefined when git can't say (no history, or a
+ * shallow clone), so the schema omits datePublished rather than guessing.
+ */
+function firstCommitDate(filePath: string | undefined) {
+  if (!filePath || !hasFullHistory()) return undefined;
+  try {
+    const dates = execFileSync(
+      'git',
+      ['log', '--follow', '--diff-filter=A', '--format=%cI', '--', filePath],
+      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+    ).trim().split('\n');
+    const date = dates[dates.length - 1];
+    return date ? new Date(date).toISOString() : undefined;
+  } catch {
+    return undefined;
+  }
+}
 
 const pageUrl = new URL(Astro.url.pathname, SITE).href;
 const isHome = Astro.url.pathname === '/';
@@ -69,6 +106,8 @@ const breadcrumbSchema = {
   })),
 };
 
+const datePublished = isHome ? undefined : firstCommitDate(entry.filePath);
+
 // TechArticle is the right type for product documentation. The home page is an
 // index rather than an article, so it gets a WebSite instead.
 const articleSchema = {
@@ -79,6 +118,14 @@ const articleSchema = {
   url: pageUrl,
   mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
   inLanguage: 'en',
+  // The same 1200x630 card the og:image tag in astro.config.mjs points at.
+  image: {
+    '@type': 'ImageObject',
+    url: `${SITE}/og-image.jpg`,
+    width: 1200,
+    height: 630,
+  },
+  ...(datePublished ? { datePublished } : {}),
   // Starlight already tracks this for the "Last updated" line on the page, so
   // dateModified says the same thing the reader sees.
   ...(lastUpdated ? { dateModified: new Date(lastUpdated).toISOString() } : {}),
