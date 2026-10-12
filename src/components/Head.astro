@@ -16,12 +16,28 @@ const MARKETING_SITE = 'https://peakhour.app';
 const { entry, lastUpdated } = Astro.locals.starlightRoute;
 
 /**
+ * Whether git has the full history. In a shallow clone the boundary commit
+ * looks like a root commit, so --diff-filter=A would report every file there
+ * as added at the checkout tip and stamp it with the wrong date.
+ */
+function hasFullHistory() {
+  try {
+    return execFileSync('git', ['rev-parse', '--is-shallow-repository'], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim() === 'false';
+  } catch {
+    return false;
+  }
+}
+
+/**
  * When the page's source file was first committed, which is when it was
  * published on this site. Undefined when git can't say (no history, or a
  * shallow clone), so the schema omits datePublished rather than guessing.
  */
 function firstCommitDate(filePath: string | undefined) {
-  if (!filePath) return undefined;
+  if (!filePath || !hasFullHistory()) return undefined;
   try {
     const dates = execFileSync(
       'git',
