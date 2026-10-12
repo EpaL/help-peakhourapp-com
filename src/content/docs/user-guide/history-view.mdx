@@ -81,7 +81,7 @@ From left to right:
 | Control | Description |
 |---------|-------------|
 | **Show / Hide Sidebar** | Shows or hides the sidebar, which lists the monitors available to view in the History window. |
-| **Graph period** | Sets the time range to display. Choose one of the presets, or select **Choose Dates…** to pick a custom start and end date. |
+| **Graph period** | Sets the time range to display. Choose one of the presets, or select **Choose Dates…** to pick a custom start and end date. See [Graph periods](#graph-periods). |
 | **Level of detail** | Sets how much time each point on the graph represents — for example, 5-minute intervals for 12 hours of data, or one-day intervals for several months. Higher detail over long periods can take a few seconds to calculate. |
 | **Usage / Speed** | Toggles between the total amount of data used (**Usage**) and the average speed for each point (**Speed**). Bandwidth monitors only. |
 | **Stacked / Split** | Shows inbound and outbound on the same axis (**Stacked**) or on separate axes (**Split**). |
@@ -95,3 +95,10 @@ The latency History view has the same toolbar without the **Usage / Speed** togg
 :::note
 The view auto-refreshes about once a minute. If the graph takes a long time to render, auto-refresh is disabled automatically to avoid excessive CPU use. If the graph isn't refreshing on its own, lower the level of detail or shorten the time period to speed up rendering and re-enable auto-refresh.
 :::
+
+### Graph periods
+
+The **Graph period** menu has two groups of presets:
+
+- **Periods that end now:** **Last 6 Hours**, **Last 12 Hours**, **Last 24 Hours**, **Last 3 Days** and **Last 7 Days**. **Last 7 Days** starts 7 days ago and includes today.
+- **Calendar periods:** **Today**, **Yesterday**, **This Week**, **Last Week**, **This Month**, **Last Month**, **Last 3 Months**, **Last 6 Months**, **Year to Date** and **Last Year**. These start and end on calendar boundaries. **Last Year** is the previous calendar year.

@@ -11,8 +11,8 @@ PeakHour works out the grade with fixed rules. The same measurements always give
 
 The grade counts five measurements:
 
-- **Latency** — the round trip from this Mac to the internet.
-- **Jitter** — how much the latency varies.
+- **Latency** — the round trip from this Mac to the internet, over the whole path. The latency of each hop on the way is an estimate, and never reads 0.0 ms. See [Router to ISP and ISP to Internet](/user-guide/main-view/internet-dashboard/#router-to-isp-and-isp-to-internet).
+- **Jitter** — how much the latency varies, on the worst hop of the path. Each hop is measured from this Mac, so a spike on your Wi-Fi counts in full.
 - **Packet Loss** — the share of data that doesn't arrive.
 - **Max Measured Speed** — the download speed from the last speed test.
 - **Responsiveness Under Load** — round trips per minute (RPM) while the link is busy.
@@ -29,13 +29,15 @@ Each one lands in a band:
 
 No packet loss at all shows as **Perfect**.
 
-Speed and responsiveness come from the [network quality test](/user-guide/settings/dashboard/#network-quality). Until a test has run, the grade leaves responsiveness out and treats speed as Good.
+Speed and responsiveness come from the [speed test](/user-guide/settings/dashboard/#speed-test). Until a test has run, the grade leaves responsiveness out and treats speed as Good.
 
 The grade also watches for:
 
 - **A weak Wi-Fi signal** — −75 dBm or weaker.
 - **A busy link** — traffic above 90% of the speed that the last test measured, in either direction.
 - **Monitors that do not answer** — some of the sites or your ISP's gateway stop answering while others still do.
+
+When your ISP blocks traceroute, PeakHour can't measure your ISP's gateway, but the sites still answer. This doesn't count as a monitor that does not answer: the Advisor shows the ISP link as **Not measured**, and the grade leaves it out.
 
 ## From bands to a grade
 

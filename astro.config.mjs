@@ -99,6 +99,7 @@ export default defineConfig({
         Footer: './src/components/Footer.astro',
       },
       sidebar: [
+        { slug: 'whats-new-6-1' },
         {
           label: 'User Guide',
           items: [
@@ -116,8 +117,9 @@ export default defineConfig({
                 { slug: 'user-guide/advisor/grade' },
                 { slug: 'user-guide/advisor/your-network' },
                 { slug: 'user-guide/advisor/the-internet' },
-                { slug: 'user-guide/advisor/history' },
                 { slug: 'user-guide/advisor/report' },
+                { slug: 'user-guide/advisor/speed-test' },
+                { slug: 'user-guide/advisor/history' },
                 { slug: 'user-guide/advisor/ask' },
               ],
             },

@@ -1,0 +1,63 @@
+---
+title: "What's new in PeakHour 6.1"
+description: "The changes in PeakHour 6.1: the PeakHour Advisor window, the Speed Test and your Internet plan, new dashboard cards, Wi-Fi notifications, a choice of what a latency monitor measures, colors for each monitor, and the Lifetime License in the app."
+sidebar:
+  label: What's new in 6.1
+---
+
+PeakHour 6.1 runs on macOS 14.6 and later. The [PeakHour Advisor](/user-guide/advisor/) needs macOS 26 or later.
+
+## PeakHour Advisor
+
+- **Its own window.** The Advisor has the pages Your Network, The Internet, Report, Speed Test and History. Open it from the grade, from the context menu of the menu bar icon, or with **Window → PeakHour Advisor** (**⌥⌘A**). See [PeakHour Advisor](/user-guide/advisor/).
+- **Your Network** starts with your grade, a summary in plain language, and checks for Video Calls, Gaming, Streaming and Remote Desktop. A Poor responsiveness under load now limits Video Calls, Gaming and Remote Desktop. See [Your Network](/user-guide/advisor/your-network/).
+- **What your speeds make possible:** the video quality, and the time to download or upload a large file. See [What your speeds make possible](/user-guide/advisor/your-network/#what-your-speeds-make-possible).
+- **A test over a cable first.** On Wi-Fi, the steps for a low responsiveness under load start with a speed test over a cable. See [Improve responsiveness under load](/troubleshooting/fix-a-grade/responsiveness-under-load/).
+- **A path diagram** shows This Mac → Router → ISP → Internet, with the latency of each link and where a problem starts. See [Your connection](/user-guide/advisor/your-network/#your-connection).
+- **The Internet** shows each site on a map, and the route to it hop by hop. See [The Internet](/user-guide/advisor/the-internet/).
+- **History** keeps your grade every 30 seconds and a log of your speed tests, with filters, optional columns such as **Of Plan**, and CSV export. See [History](/user-guide/advisor/history/).
+- **Report** gives a report to send to your ISP or to support, with the route to each site. See [Report](/user-guide/advisor/report/).
+- **Ask.** With Private Cloud Compute on macOS 27, ask questions about your network. The answers know your whole speed test and your plan. See [Ask about your connection](/user-guide/advisor/ask/).
+- **Help articles.** Some steps to try link to a [Fix a Grade](/troubleshooting/fix-a-grade/) article.
+- **With the AI Advisor off,** the window still opens for speed tests, history and routes. See [With the AI Advisor off](/user-guide/advisor/#with-the-ai-advisor-off).
+
+## Speed Test and your Internet plan
+
+- **Speed Test.** The Network Quality test is now called Speed Test, in Settings and in the Advisor. Its full report is the Advisor's [Speed Test](/user-guide/advisor/speed-test/) page, with your speeds, responsiveness, idle latency, latency under load and how the test ran. On macOS 14 and 15, the report opens from the ISP card.
+- **Internet plan.** Enter the speeds that your plan promises in **Settings → Dashboard → Internet Plan**, in Mb/s or Gb/s. Speed tests show the share of your plan, and the Speed Test page says what limits the speed. See [Internet Plan](/user-guide/settings/dashboard/#internet-plan).
+
+## Internet Dashboard
+
+- **Column cards.** Hover over the This Mac, Router or ISP column, then click it to open its card. The three cards have one layout, with live figures and grouped details. The ISP card shows your last speed test, with **Open Full Report ›**. See [Columns and cards](/user-guide/main-view/internet-dashboard/#columns-and-cards).
+- **Readouts.** The speed readouts show large numbers, and the arcs on hover. Both numbers of a pair use the same unit. See [Reading the speed readouts](/user-guide/main-view/internet-dashboard/#reading-the-speed-readouts).
+- **Explanations open on a click.** Hover to see an **i**, then click it.
+- **Latency between hops.** A latency under 2 ms reads **\<2 ms**, and the hops past your router never read 0.0 ms. See [Router to ISP and ISP to Internet](/user-guide/main-view/internet-dashboard/#router-to-isp-and-isp-to-internet).
+- **Connection line.** Connection particle effects are off by default for new installs. Without them, a plain line in the colour of the link's health joins the hops.
+- **Turning off the dashboard** asks whether to delete its monitors or keep them. See [Turning off the dashboard](/user-guide/settings/dashboard/#turning-off-the-dashboard).
+
+## Notifications
+
+- **Wi-Fi issues.** Get a notification when your Wi-Fi has a weak signal, interference or a slow link for 2 minutes. Turn on **Wi-Fi issues** in [Settings → Dashboard → Notifications](/user-guide/settings/dashboard/#notifications).
+
+## Monitors and History
+
+- **What to measure.** A new latency monitor starts with a choice: **ISP to Internet**, **One Host** or **Custom**. A picture shows the part of the path that each one measures. See [Configuration Assistant: Latency](/user-guide/configuration-assistant/configuration-assistant-latency/).
+- **A list of sites.** Pick a site from a list, and the monitor takes the name of the site.
+- **Colors for each monitor.** Give a bandwidth monitor its own download and upload colors. See [Colors](/user-guide/settings/monitors-settings/bandwidth-monitor/#colors).
+- **Shared graph image.** **Share** on a monitor graph in the main window now makes an image with a title, a legend, a scale and a time axis. See [Graph toolbar](/user-guide/main-view/bandwidth-monitors/#graph-toolbar).
+- **Last 7 Days** in the History view now includes today. **Last Year** is the previous calendar year. See [The toolbar](/user-guide/history-view/#the-toolbar).
+
+## Lifetime License
+
+- **Buy it in the app.** With an Annual Pass or a free trial, buy the Lifetime License from **Settings → About**. See [Can I upgrade from a subscription to a Lifetime license?](/troubleshooting/faq/purchasing-licensing/upgrade-subscription-to-lifetime/)
+
+## PeakHour Remote
+
+- **Graphs scroll right to left,** as in the app.
+
+## Fixes
+
+- When your ISP blocks traceroute, the Advisor shows the ISP link as **Not measured**, and PeakHour sends no false *Internet appears to be down* notification.
+- Monitors that get no result show an error instead of **Starting…**.
+- Jitter is the jitter of the worst hop on the path, not an average. See [How the grade works](/user-guide/advisor/grade/).
+- With a full-tunnel VPN and both Wi-Fi and Ethernet connected, PeakHour checks a device on your local network over the right connection.
