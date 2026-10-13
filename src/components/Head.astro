@@ -131,13 +131,10 @@ const articleSchema = {
   ...(lastUpdated ? { dateModified: new Date(lastUpdated).toISOString() } : {}),
   author: publisher,
   publisher,
-  about: {
-    '@type': 'SoftwareApplication',
-    name: 'PeakHour',
-    applicationCategory: 'UtilitiesApplication',
-    operatingSystem: 'macOS',
-    url: MARKETING_SITE,
-  },
+  // A reference to the SoftwareApplication on the marketing site's home page,
+  // not a copy of it: Google validates every SoftwareApplication it finds as a
+  // rich result candidate, and one with no offers or rating fails (INF-259).
+  about: { '@id': `${MARKETING_SITE}/#software` },
 };
 
 const websiteSchema = {
