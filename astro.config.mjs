@@ -249,9 +249,6 @@ export default defineConfig({
           ],
         },
       ],
-      editLink: {
-        baseUrl: 'https://github.com/EpaL/help-peakhourapp-com/edit/main/',
-      },
       lastUpdated: true,
       favicon: '/favicon.ico',
     }),
