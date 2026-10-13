@@ -1,12 +1,12 @@
 ---
 title: "Menu Bar"
-description: "Menu Bar settings let you add monitors and a dashboard summary to the macOS menu bar and configure how each one appears."
+description: "Menu Bar settings let you add monitors, your Wi-Fi stats, and a dashboard summary to the macOS menu bar and configure how each one appears."
 sidebar:
   order: 25
 status: reviewed
 ---
 
-The **Menu Bar** settings let you choose which monitors appear in the macOS menu bar and configure how each one looks.
+The **Menu Bar** settings let you choose which monitors, Wi-Fi stats, and summaries appear in the macOS menu bar and configure how each one looks.
 
 <div class="img-lg">
 
@@ -32,11 +32,17 @@ The **Active Items** list shows what's currently in your menu bar.
 - **Remove** an item by clicking the red **−**.
 - **Configure** an item by clicking its disclosure chevron to expand its options.
 
-Below it, the **Available Items** list shows the monitors and summaries that aren't in the menu bar yet. Click the <span class="inline-icon">![Add](./menu-bar-images/settings-menu-bar-add-button.png)</span> button beside one to add it to the menu bar.
+Below it, the **Available Items** list shows the items that aren't in the menu bar yet, in three sections:
+
+- **Bandwidth:** your Bandwidth Monitors.
+- **Latency:** your Latency Monitors.
+- **Utility:** the Dashboard Summary, Wi-Fi and Usage Monitor items.
+
+Click the <span class="inline-icon">![Add](./menu-bar-images/settings-menu-bar-add-button.png)</span> button on the left of an item to add it to the menu bar. When all the items are in the menu bar, the list shows the PeakHour symbol instead.
 
 <div class="img-lg">
 
-![The Available Items list — monitors not yet in the menu bar, each with an add button](./menu-bar-images/settings-menu-bar-available-items.png)
+![The Available Items grid — Bandwidth, Latency, and Utility sections, each item with an add button on its left](./menu-bar-images/settings-menu-bar-available-items.png)
 
 </div>
 
@@ -88,6 +94,26 @@ The numbers are:
 | **Hide When None** | Only shows packet loss when some has occurred in the past 5 minutes; otherwise just the latency is shown. |
 | **Show Graph** | Shows a small graph beside the latency value. |
 | **Graph Width** | The width of that graph. |
+
+### Wi-Fi Menu Bar Item
+
+Shows the live Wi-Fi figures of your Mac in the menu bar, so you can monitor your Wi-Fi connection without opening the main window.
+
+<div class="img-lg">
+
+![Wi-Fi menu bar item options — Show Wi-Fi Glyph, Show Signal (RSSI), Show Tx Rate, Show Wi-Fi Generation, and Show Access-Point Name](./menu-bar-images/settings-menu-bar-wifi-options.png)
+
+</div>
+
+The item shows the figures in up to two rows, to keep it narrow. When your Mac isn't on Wi-Fi, each figure shows a dash (**–**).
+
+| Setting | Description |
+|---------|-------------|
+| **Show Wi-Fi Glyph** | Shows the Wi-Fi symbol in the item. |
+| **Show Signal (RSSI)** | Shows the Wi-Fi signal strength, in dBm. |
+| **Show Tx Rate** | Shows the current transmit link rate between your Mac and the access point — not your internet speed. |
+| **Show Wi-Fi Generation** | Shows the Wi-Fi standard in use, for example **Wi-Fi 6E**. |
+| **Show Access-Point Name** | Shows the name of the access point your Mac is connected to. To give the access point a name, see [This Mac](/user-guide/main-view/internet-dashboard/#this-mac) on the Internet Dashboard. |
 
 ### Dashboard Summary (Internet Status)
 
