@@ -46,12 +46,14 @@ When your ISP blocks traceroute, PeakHour can't measure your ISP's gateway, but 
 | **A+** | Every measurement is Excellent, and nothing else holds the grade back. |
 | **A** | Every measurement is Good or better, and nothing else holds the grade back. |
 | **B+** | Every measurement is Good or better, with one concern such as a weak Wi-Fi signal or a busy link. |
-| **B** | A measurement is Fair, or some monitors do not answer. |
-| **C** | A measurement is Poor, or there are two or more concerns at once. |
-| **D** | Your ISP's gateway does not answer, or a Poor measurement comes with two or more concerns. |
+| **B** | A measurement is Fair, responsiveness under load is Poor, or some monitors do not answer. |
+| **C** | Latency, jitter, packet loss or speed is Poor, or there are two or more concerns at once. |
+| **D** | Your ISP's gateway does not answer, or a Poor latency, jitter, packet loss or speed comes with two or more concerns. |
 | **F** | No internet site answers. |
 
-The concerns are: a weak Wi-Fi signal, a busy link, monitors that do not answer, packet loss of 0.5% or more, latency over 100 ms, and jitter over 50 ms.
+The concerns are: a weak Wi-Fi signal, a busy link, monitors that do not answer, packet loss of 0.5% or more, latency over 100 ms, jitter over 50 ms, a download speed under 25 Mb/s, and responsiveness under load below 500 RPM.
+
+A Poor responsiveness under load counts as Fair in the grade. It comes from the speed test, which fills your connection on purpose, so on its own it doesn't mean your connection has a problem right now. The Your Network page still shows it as Poor, with the steps to fix it.
 
 Every grade below an A has at least one reason under **Issues identified** on the [Your Network](/user-guide/advisor/your-network/) page. An A or A+ has none.
 
