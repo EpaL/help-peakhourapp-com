@@ -170,6 +170,7 @@ export default defineConfig({
                 {
                   label: 'Configuration',
                   items: [
+                    { label: 'Overview', slug: 'troubleshooting/faq/configuration' },
                     { slug: 'troubleshooting/faq/configuration/local-network-prompt' },
                     { slug: 'troubleshooting/faq/configuration/stop-launching-at-startup' },
                     { slug: 'troubleshooting/faq/configuration/reset-configuration' },
@@ -179,6 +180,7 @@ export default defineConfig({
                 {
                   label: 'Monitoring & Compatibility',
                   items: [
+                    { label: 'Overview', slug: 'troubleshooting/faq/monitoring-compatibility' },
                     { slug: 'troubleshooting/faq/monitoring-compatibility/what-devices-can-peakhour-monitor' },
                     { slug: 'troubleshooting/faq/monitoring-compatibility/bandwidth-monitoring-faq' },
                     { slug: 'troubleshooting/faq/monitoring-compatibility/apple-airport-time-capsule' },
@@ -189,6 +191,7 @@ export default defineConfig({
                 {
                   label: 'Purchasing & Licensing',
                   items: [
+                    { label: 'Overview', slug: 'troubleshooting/faq/purchasing-licensing' },
                     { slug: 'troubleshooting/faq/purchasing-licensing/upgrade-from-peakhour-4' },
                     { slug: 'troubleshooting/faq/purchasing-licensing/download-older-versions' },
                     { slug: 'troubleshooting/faq/purchasing-licensing/upgrade-subscription-to-lifetime' },
