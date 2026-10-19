@@ -1,6 +1,6 @@
 ---
 title: "Dashboard"
-description: "Configure PeakHour's Internet Dashboard: the hosts it pings, speed tests, ISP lookup, your Internet plan, the Advisor, Private Cloud Compute and notifications."
+description: "Configure PeakHour's Internet Dashboard: the Internet sites it pings, speed tests, ISP lookup, your Internet plan, the Advisor and notifications."
 sidebar:
   order: 23
 ---
@@ -15,29 +15,97 @@ The **Dashboard** settings are where you enable and configure the [Internet Dash
 
 **Enable Internet Dashboard** — turns the Internet Dashboard on and shows it on the main display, displaying latency to your router, ISP, and endpoints on the internet. For what it shows, see [Internet Dashboard](/user-guide/main-view/internet-dashboard/). To turn it off, see [Turning off the dashboard](#turning-off-the-dashboard).
 
-## Internet Hosts
+## Internet Sites
 
-PeakHour continually pings three hosts and aggregates the round-trip times into a combined view of internet latency. Choose services you use often.
+The **Internet Sites** list holds the sites that make the Internet status of the dashboard. PeakHour pings each site, and takes the median of their latencies. The Internet is unavailable when more than half of the sites fail. For the full rule, see [How the sites make the status](/user-guide/main-view/internet-sites/#how-the-sites-make-the-status).
 
-**Host 1, 2, 3** — the service to ping for each slot. Each dropdown offers a large list of popular services, AI services and DNS providers: Akamai, Amazon, Amazon AWS, Apple, Apple TV+, ChatGPT, Claude, Cloudflare, Disney+, Fastly, Gemini, GitHub, Google, Google Cloud, Grok, Meta (Facebook), Microsoft 365, Microsoft Azure, Microsoft Copilot, Mistral, Netflix, OpenDNS, Perplexity, PlayStation Network, Quad9, Reddit, Slack, Spotify, Steam, Twitch, X (Twitter), Xbox Live, YouTube, and Zoom. Choose **None** to leave a slot empty, or **Custom…** to enter your own hostname or IP address.
+<div class="img-md">
 
-These hosts appear in the **Internet** column of the dashboard, and on [The Internet](/user-guide/advisor/the-internet/) page of the PeakHour Advisor.
+![The Internet Sites list in Dashboard settings, with one row for each site, and the add, remove and Restore Defaults buttons under it](./dashboard-images/internet-sites-list.png)
+
+</div>
+
+Each row shows the symbol of the site's group, its name, its host when the host is not the name, and its latency now. A site with no result yet reads **Starting…**. A site that gives no reply reads **Not responding**, and a site whose monitor is off reads **Disabled**. The dot at the end has the colour of the site's status.
+
+| Control | Description |
+|---------|-------------|
+| **+** | Opens **Add Internet Sites**, to add one or more sites. It is grey when the list has 10 sites. |
+| **−** | Removes the selected site. |
+| **Restore Defaults** | Makes the list **Google**, **Cloudflare** and **Netflix** again. The monitors of the other sites stay in [Monitors](/user-guide/settings/monitors-settings/). |
+
+Double-click a site to open its monitor in [Settings → Monitors](/user-guide/settings/monitors-settings/). Right-click a site for **Show in Monitors** and **Remove…**.
+
+The sites appear in the [Internet Sites popover](/user-guide/main-view/internet-sites/#the-internet-sites-popover) of the dashboard, and on [The Internet](/user-guide/advisor/the-internet/) page of the PeakHour Advisor.
+
+### Add sites
+
+<div class="img-md">
+
+![The Add Internet Sites sheet, with the search field, the groups at the top, and the sites in tiles](./dashboard-images/add-internet-sites.png)
+
+</div>
+
+Click **+** to open **Add Internet Sites**:
+
+1. Click a group at the top, such as **Work & Video Calls** or **Gaming**, or type in **Search**.
+2. Click each site that you want. The counter beside **Search** shows how many sites the list will have, for example **5 of 10**.
+3. Click **Add**.
+
+A site that is already in the list reads **In use**. For the sites in each group, see [The sites to choose from](/user-guide/main-view/internet-sites/#the-sites-to-choose-from).
+
+To add a site that is not in the picker, type its host name or IP address in **Host name or address**, and click **Add Host**. When the host is one of the sites in the picker, PeakHour adds that site.
+
+Each new site gets a latency monitor that measures from your ISP to the site, named for example **ISP to Zoom**.
+
+### Remove a site
+
+When you remove a site, PeakHour asks what to do with its monitor:
+
+- **Keep Monitor** — the site leaves the list. Its monitor and its history stay in [Monitors](/user-guide/settings/monitors-settings/).
+- **Delete Monitor** — deletes the monitor and its history too.
+- **Cancel** — keeps the site.
+
+:::tip
+To make a latency monitor that you added an Internet site, for example a game server, turn on **Internet Site** in its settings. See [Use a latency monitor as a site](/user-guide/main-view/internet-sites/#use-a-latency-monitor-as-a-site).
+:::
 
 ## Speed Test
 
 PeakHour can run a speed test on a schedule. The test measures your upload speed, your download speed and your responsiveness. It uses the macOS **networkQuality** tool.
 
+<div class="img-md">
+
+![The Speed Test section of Dashboard settings, with Use results as available bandwidth turned on](./dashboard-images/speed-test-settings.png)
+
+</div>
+
 | Setting | Description |
 |---------|-------------|
-| **Run Speed Tests** | Runs a speed test on a schedule. The results show under **ISP** on the dashboard and in its card, on the Advisor's [Speed Test](/user-guide/advisor/speed-test/) page, and in the Advisor's [speed test history](/user-guide/advisor/history/#speed-tests). Each test also calibrates the maximum upload and download bandwidth of your Internet Gateway. |
+| **Run Speed Tests** | Runs a speed test on a schedule. The results show under **ISP** on the dashboard and in its card, on the Advisor's [Speed Test](/user-guide/advisor/speed-test/) page, and in the Advisor's [speed test history](/user-guide/advisor/history/#speed-tests). |
 | **Frequency** | How often the test runs — every hour, 3 hours, 6 hours, 12 hours, day, or week. |
 | **Re-run when network change is detected** | Also runs a test when PeakHour detects a network change, for example a change to another Wi-Fi network. |
+| **Use results as available bandwidth** | Sets the **Available Bandwidth** of your Internet Gateway from each test. Off by default. See [Use results as available bandwidth](#use-results-as-available-bandwidth). |
 | **Speed Test → Run Now** | Runs a test immediately. |
 
-**Frequency**, **Re-run when network change is detected** and **Run Now** show only while **Run Speed Tests** is on. You can also run a test at any time:
+**Frequency**, **Re-run when network change is detected**, **Use results as available bandwidth** and **Run Now** show only while **Run Speed Tests** is on. You can also run a test at any time:
 
+- click **Run Speed Test** or **Test Again** on the [ISP card](/user-guide/main-view/internet-dashboard/#isp) of the dashboard;
 - right-click the Internet Dashboard, then choose **Run Speed Test**;
+- click **Run Now** in the [Advisor section](/user-guide/main-view/advisor-section/) of the main window;
 - click **Run Speed Test** on the Advisor's [Speed Test](/user-guide/advisor/speed-test/) page.
+
+A test needs a working connection. While this Mac is offline, or while the dashboard monitors start, the buttons on the dashboard and in the Advisor are grey. Hover over a grey button to see the reason, for example **Offline** or **Monitors are starting**. A scheduled test waits until a test can run.
+
+### Use results as available bandwidth
+
+With this setting on, each new speed test sets the **Available Bandwidth** of your Internet Gateway to the measured speeds. The footer then reads *Each test sets the available bandwidth of the Internet Gateway.*
+
+- PeakHour sets **Upload** and **Download** to **Custom…** with the speeds of the test, in the gateway's [Bandwidth](/user-guide/settings/monitors-settings/bandwidth-monitor/#bandwidth) settings. The values go up or down with each test, and they replace a value that you typed.
+- A result less than half of the median of the last 5 results does not change the values. A test on a busy network does not make the maximum too low.
+- A router that PeakHour [detected automatically](/user-guide/settings/monitors-settings/#routers-detected-automatically) does not change. Adopt it first.
+- When you turn the setting off, the values stay **Custom…**. To go back, choose **Automatic** in the gateway's settings.
+
+With the setting off, a speed test can still raise an **Automatic** maximum, but never lowers it. While you have an [Internet plan](#internet-plan), the plan sets the maximum of an **Automatic** direction.
 
 ## ISP Information
 
@@ -91,7 +159,7 @@ Without Private Cloud Compute, the AI Advisor runs entirely on your Mac. With it
 Send a macOS notification when your connection has a problem. All three switches are off by default.
 
 - **Router becomes unreachable** — notifies you when your router stops responding, and again when it recovers.
-- **Internet becomes unreachable** — notifies you when the wider internet stops responding, and again when it recovers.
+- **Internet becomes unreachable** — notifies you when more than half of your [Internet sites](#internet-sites) stop responding, and again when they recover. One failing site of three or more never sends it.
 - **Wi-Fi issues** — *Weak signal, interference or slow link.* Notifies you when your Mac's Wi-Fi has a problem that lasts 2 minutes.
 
 **Wi-Fi issues** watches for three problems, while the Wi-Fi carries your Mac's traffic:

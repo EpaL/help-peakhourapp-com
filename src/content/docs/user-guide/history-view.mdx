@@ -8,7 +8,7 @@ status: reviewed
 
 The History view gives a more comprehensive perspective on a monitor's data, letting you visualize bandwidth activity or connection quality for periods extending from the last few hours to years in the past.
 
-Both Bandwidth Monitors and Latency Monitors have a History view:
+Bandwidth Monitors, Latency Monitors and the [Wi-Fi Signal](/user-guide/main-view/wifi-signal-monitor/) monitor have a History view:
 
 <div class="img-lg">
 
@@ -29,7 +29,7 @@ There are two ways to open the History view for a monitor:
 - Click the **History** button (<span class="inline-icon">![History toolbar button](./history-view-images/history-button.png)</span>) in the [graph toolbar](/user-guide/main-view/bandwidth-monitors/) above the monitor's graph.
 - If the graph isn't visible, right-click the monitor and choose **History…** from the menu.
 
-You can also click the **Open History** button in the [Bandwidth Monitors](/user-guide/main-view/bandwidth-monitors/) or [Latency Monitors](/user-guide/main-view/latency-monitors/) section header to get a menu of that section's monitors — choose one to open its History view. Once the window is open, use its sidebar to switch between monitors without reopening it.
+You can also click **Browse History** in the header of the [Monitors](/user-guide/main-view/monitors/#section-header) section to get a menu of your monitors — choose one to open its History view. Once the window is open, use its sidebar to switch between monitors without reopening it. The sidebar groups the monitors by type, with a **Metrics** group for the Wi-Fi Signal monitor.
 
 ## Reading the graph
 
@@ -66,6 +66,25 @@ PeakHour counts a silent gap as a genuine outage when either of these is true:
 
 If neither is true, the gap is shown as **No data** rather than downtime. A gap also has to last at least a couple of monitoring intervals before it's labelled, so momentary blips don't clutter the graph.
 
+## Wi-Fi Signal monitors
+
+The History view of a [Wi-Fi Signal](/user-guide/main-view/wifi-signal-monitor/) monitor shows its three series in one graph: **Tx Rate** on the scale at the left, and **SNR** and **Signal** on the scale at the right.
+
+<div class="img-lg">
+
+![The History view of a Wi-Fi Signal monitor, with a line and a light band for each series, and the legend capsules at the top](./history-view-images/history-view-wifi-signal.png)
+
+</div>
+
+- **The line** of each series is its average in each period. **The light band** around it goes from its lowest to its highest value in that period.
+- **The legend** has one capsule for each series, for example **Tx Rate (Mb/s)**. Click a capsule to hide the series or show it again. One series always stays visible.
+- **Hover detail** shows the time, then the average of each series, with its range, for example **433 Mb/s (390–520)**. A series with no data reads **No data**.
+- **No data** — a hatched region marks a period with no Wi-Fi value, for example while your Mac was not on Wi-Fi, or asleep.
+
+**Export** gives a CSV file with a **Date** column, then three columns for each series: its average, its minimum and its maximum, for example **Signal Avg (dBm)**, **Signal Min (dBm)** and **Signal Max (dBm)**. Each row is one period at the level of detail of the view. Dates are in UTC.
+
+PeakHour keeps the Wi-Fi Signal history as it keeps the other history: every minute for 7 days, every hour for 90 days, and every day after that.
+
 ## The toolbar
 
 The toolbar along the top of the window controls the period being shown, the level of detail, and how the data is displayed.
@@ -90,7 +109,7 @@ From left to right:
 | **Export** | Exports the data currently shown to a CSV file. |
 | **Edit monitor** | Opens settings for the monitor being shown. |
 
-The latency History view has the same toolbar without the **Usage / Speed** toggle, since latency monitors only show a single measurement type.
+The latency History view has the same toolbar without the **Usage / Speed** toggle, since latency monitors only show a single measurement type. The Wi-Fi Signal History view has neither **Usage / Speed** nor **Stacked / Split**.
 
 :::note
 The view auto-refreshes about once a minute. If the graph takes a long time to render, auto-refresh is disabled automatically to avoid excessive CPU use. If the graph isn't refreshing on its own, lower the level of detail or shorten the time period to speed up rendering and re-enable auto-refresh.

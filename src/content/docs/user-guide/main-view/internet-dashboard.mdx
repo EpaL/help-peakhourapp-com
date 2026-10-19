@@ -6,7 +6,7 @@ sidebar:
 status: reviewed
 ---
 
-The Internet Dashboard is specifically crafted to offer you a quick and comprehensive overview of your internet connection's latency and quality. Once activated, monitors are established to track each step of your internet connection, evaluating latency and jitter at crucial points including your router, ISP, and three distinct websites on the internet.
+The Internet Dashboard is specifically crafted to offer you a quick and comprehensive overview of your internet connection's latency and quality. Once activated, monitors are established to track each step of your internet connection, evaluating latency and jitter at crucial points including your router, your ISP, and up to 10 [Internet sites](/user-guide/main-view/internet-sites/).
 
 In addition, the dashboard shows the upload and download speeds of your Mac along with those of your router (if set up). If enabled, the dashboard also runs periodic speed tests of your internet connection and shows the result of the last one.
 
@@ -218,7 +218,7 @@ Like the Router, the ISP column sits mid-path and shows a latency graph on each 
 | **Speed test** | The pair shows the download (↓) and upload (↑) speeds of your last [speed test](/user-guide/settings/dashboard/#speed-test) — not real-time throughput. |
 
 :::note
-The **Speed test** readouts fill in after a speed test. Until then, the column reads **Speed Test not run yet**. To run tests on a schedule, turn on [Run Speed Tests](/user-guide/settings/dashboard/#speed-test).
+The **Speed test** readouts fill in after a speed test. Until then, the column shows empty readouts with **Run Now** under them. Click **Run Now** to run a test. While a test can't start, the line shows the reason instead, for example **Offline**. To run tests on a schedule, turn on [Run Speed Tests](/user-guide/settings/dashboard/#speed-test).
 :::
 
 Click the column to open its card, with your last speed test and details about your ISP:
@@ -232,6 +232,8 @@ Click the column to open its card, with your last speed test and details about y
 The header shows your ISP's logo and name (e.g. Comcast Cable Communications), with a link to its website.
 
 The **Speed Test** section shows the time of your last test, its **Download** and **Upload** speeds, and the download and upload **Responsiveness** in RPM, each with a pill. With an [Internet plan](/user-guide/settings/dashboard/#internet-plan) set, each speed has a bar such as **82% of plan**.
+
+Under the figures, click **Test Again** to run a new test. Before your first test, the button reads **Run Speed Test**. While the test runs, the button shows **Testing…** and **Cancel**, and the card stays open. The figures update when the test ends. While a test can't start, the button is grey: hover over it to see the reason, for example **Offline**.
 
 Click **Open Full Report ›** under the figures to see the whole test:
 
@@ -287,15 +289,19 @@ The **Internet** column represents the final hop — from your ISP out to the wi
 | **Latency** | The figure beside the graph is the latency from your ISP out to the internet. |
 | **Grade** | The overall connection quality grade, described in [Grade](#grade) below. |
 
-Click **Internet** at the top of the column to open the list of **Internet Hosts** — the endpoints PeakHour uses for connectivity checks:
+PeakHour measures the final hop with a list of up to 10 [Internet sites](/user-guide/main-view/internet-sites/), and combines them. The latency is the median of the sites. The Internet is unavailable only when more than half of the sites fail. By default, the sites are **Google**, **Cloudflare** and **Netflix**.
+
+When one site has a problem and the others don't, the status names it, for example **Netflix not responding**.
+
+Click **Internet** at the top of the column, or its graph, to open the **Internet Sites** popover, with the status and latency of each site:
 
 <div class="img-sm">
 
-![Internet Hosts list showing the monitored endpoints — GitHub, Zoom and Cloudflare — each with a status dot and its latency](./internet-dashboard-images/internet-dashboard-internet-popover.png)
+![The Internet Sites popover with the status, host and latency of each site, and Edit Sites and Path Trace at the bottom](./internet-sites-images/internet-sites-popover.png)
 
 </div>
 
-PeakHour measures the final hop with three well-known sites and combines the results. By default, the sites are **Google**, **Cloudflare** and **Netflix**. Each host shows a status dot that tells if it is reachable now, the host name of the check, and its latency. You can change which hosts are monitored in [Settings → Dashboard](/user-guide/settings/dashboard/).
+See [The Internet Sites popover](/user-guide/main-view/internet-sites/#the-internet-sites-popover). To change the sites, click **Edit Sites…** in the popover, or open [Settings → Dashboard → Internet Sites](/user-guide/settings/dashboard/#internet-sites).
 
 ### Grade
 

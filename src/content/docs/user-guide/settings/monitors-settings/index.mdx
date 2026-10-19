@@ -18,6 +18,9 @@ This opens the [Configuration Assistant](/user-guide/configuration-assistant/). 
 
 - **Bandwidth** — measures the data uploaded and downloaded through your Mac, a network device, server, or PC. See the [Bandwidth Configuration Assistant](/user-guide/configuration-assistant/configuration-assistant-bandwidth/) and [Bandwidth Monitor settings](/user-guide/settings/monitors-settings/bandwidth-monitor/).
 - **Latency** — measures the latency and connection quality to a host or hop on your network path. See the [Latency Configuration Assistant](/user-guide/configuration-assistant/configuration-assistant-latency/) and [Latency Monitor settings](/user-guide/settings/monitors-settings/latency-monitor/).
+- **Wi-Fi Signal** — graphs the Tx rate, the SNR and the signal strength of this Mac's Wi-Fi. PeakHour adds it at once, with no more steps. See [Wi-Fi Signal Monitor](/user-guide/main-view/wifi-signal-monitor/).
+
+You can also click **+** in the header of the [Monitors](/user-guide/main-view/monitors/) section of the main window.
 
 ## Routers detected automatically
 
@@ -118,11 +121,11 @@ A **Bandwidth Monitor** can be designated as the **Internet Gateway** — the ro
 By default, PeakHour automatically chooses the most appropriate monitor to act as the Internet Gateway. You can tell which one is selected by the **Internet Gateway** pill in the monitor's settings and the Internet Gateway icon next to it in the list. Use **Designate as → Internet Gateway** to override this automatic choice.
 :::
 
-A **Latency Monitor** can be designated as any of the dashboard's latency hops:
+A **Latency Monitor** can be designated as either of the dashboard's first two latency hops, or as an Internet site:
 
 <div class="img-md">
 
-![Right-click menu on a latency monitor showing Designate as with This Mac to Router, Router to ISP, and Internet 1 to 3](./images/right-click-designate-as-latency.png)
+![Right-click menu on a latency monitor showing Designate as with This Mac to Router, Router to ISP and Internet](./images/right-click-designate-as-latency.png)
 
 </div>
 
@@ -130,9 +133,11 @@ A **Latency Monitor** can be designated as any of the dashboard's latency hops:
 |------|------------------|
 | **This Mac to Router** | Latency from your Mac to your local gateway. |
 | **Router to ISP** | Latency from your router out to your ISP. |
-| **Internet 1**, **2**, **3** | Latency to each of the three internet hosts the dashboard tracks. |
+| **Internet** | Makes the monitor one of the [Internet sites](/user-guide/main-view/internet-sites/) that make the Internet status. Choose it again to remove the monitor from the sites. |
 
 A checkmark marks the monitor currently designated for each role.
+
+The settings of a latency monitor have the same choice: turn on **Internet Site**. The dashboard measures up to 10 sites. When it has 10, the switch is grey, and the footer reads *The dashboard has 10 Internet sites. Remove a site to add this one.* A monitor that is an Internet site has an **Internet Site** badge in the list. To see all the sites, open [Settings → Dashboard → Internet Sites](/user-guide/settings/dashboard/#internet-sites).
 
 ## Monitor types
 
@@ -140,4 +145,5 @@ For details on each monitor type and its settings tabs, see:
 
 - [Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/)
 - [Latency Monitor](/user-guide/settings/monitors-settings/latency-monitor/)
+- [Wi-Fi Signal Monitor](/user-guide/main-view/wifi-signal-monitor/#settings)
 

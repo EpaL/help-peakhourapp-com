@@ -1,0 +1,47 @@
+---
+title: "What's new in PeakHour 6.2"
+description: "What's new in PeakHour 6.2: a main window you arrange, the Advisor section, up to 10 Internet sites, the Wi-Fi Signal monitor and a speed test on the ISP card."
+sidebar:
+  label: What's new in 6.2
+---
+
+PeakHour 6.2 runs on macOS 14.6 and later. The Advisor section and **Path Trace…** need macOS 26 or later.
+
+## Main window
+
+- **One scroll view.** The main window grows with its sections, up to the height of your screen, then scrolls. See [Main View](/user-guide/main-view/).
+- **Arrange the sections.** Show, hide and reorder the Usage Monitor, the Internet Dashboard, the Advisor and the Monitors. Right-click a section header, or use **Settings → Display → Main Window**. Your layout syncs with iCloud. See [Customize the main window](/user-guide/main-view/#customize-the-main-window).
+- **Advisor section.** Your grade, up to three reasons, your last speed test with **Run Now**, and links to each page of the Advisor. See [Advisor Section](/user-guide/main-view/advisor-section/).
+- **One Monitors section.** Bandwidth, latency and Wi-Fi Signal monitors share one section and one header. **Shared Y-Axis Scale** has a choice for each unit: **Bandwidth** and **Latency**. See [Monitors](/user-guide/main-view/monitors/).
+- **Offline label.** When this Mac has no network, or most of your Internet sites don't respond, a red label drops down: **No Network** or **No Internet**. **Back Online** shows how long the outage lasted. See [When you are offline](/user-guide/main-view/#when-you-are-offline).
+
+## Internet sites
+
+- **Up to 10 sites.** The Internet status now comes from a list of up to 10 sites, in place of three fixed hosts. Choose sites that you use. See [Internet Sites](/user-guide/main-view/internet-sites/).
+- **One clear rule.** Each site is judged against its own normal latency. The Internet latency is the median of the sites. The Internet is unavailable only when more than half of the sites fail. See [How the sites make the status](/user-guide/main-view/internet-sites/#how-the-sites-make-the-status).
+- **See which site has a problem.** The status names a failing site, for example **Netflix not responding**. Click **Internet** on the dashboard to see each site, with **Edit Sites…** and **Path Trace…**. See [The Internet Sites popover](/user-guide/main-view/internet-sites/#the-internet-sites-popover).
+- **Internet Sites in Settings.** Add, remove and restore the sites in **Settings → Dashboard → Internet Sites**, from more than 50 sites in groups such as **Work & Video Calls**, **Gaming** and **AI Tools**, or any host. See [Internet Sites](/user-guide/settings/dashboard/#internet-sites).
+- **Any latency monitor can be a site.** Turn on **Internet Site** in its settings, for example for a game server. See [Use a latency monitor as a site](/user-guide/main-view/internet-sites/#use-a-latency-monitor-as-a-site).
+- **Setup asks about your sites.** First Time Setup asks what you use the Internet for, and suggests sites. After the upgrade, a card asks you one time to choose your sites. See [Choose your sites](/user-guide/main-view/internet-sites/#choose-your-sites).
+
+## Wi-Fi Signal monitor
+
+- **A new monitor.** Graph the Tx rate, the SNR and the signal of this Mac's Wi-Fi, second by second. Add it from **+** in the Monitors header: choose **Wi-Fi Signal**. See [Wi-Fi Signal Monitor](/user-guide/main-view/wifi-signal-monitor/).
+- **See when the Wi-Fi drops.** A red band marks the time when your Mac was not on Wi-Fi.
+- **History and CSV.** The History view keeps each series, with its average and its range, and exports them to CSV. See [Wi-Fi Signal monitors](/user-guide/history-view/#wi-fi-signal-monitors).
+
+## Speed Test
+
+- **Run a test from the ISP card.** Click **Test Again** on the ISP card of the dashboard. The card stays open, and shows the result when the test ends. See [ISP](/user-guide/main-view/internet-dashboard/#isp).
+- **Use results as available bandwidth.** Let each speed test set the available bandwidth of your Internet Gateway. Turn it on in **Settings → Dashboard → Speed Test**. See [Use results as available bandwidth](/user-guide/settings/dashboard/#use-results-as-available-bandwidth).
+- **Offline.** While this Mac is offline, the speed test buttons are grey, and their tooltip says why.
+
+## PeakHour Remote
+
+- **Each Internet site** has its own row under **Internet** on the Dashboard tab, with its status and latency.
+- **One Monitors section** on the Monitors tab, in the order of the main window, with the Wi-Fi Signal monitor. See [PeakHour Remote](/user-guide/settings/remote/#using-peakhour-remote).
+
+## Fixes
+
+- A latency history export to CSV no longer has two header lines.
+- When most of your Internet sites fail, the Advisor's path now says how many, for example **2 of 3 sites not responding**.

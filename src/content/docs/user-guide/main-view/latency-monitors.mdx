@@ -2,11 +2,11 @@
 title: "Latency Monitors"
 description: "PeakHour's Latency Monitors show round-trip latency, jitter and packet loss to hosts on the internet. Here's what each metric means and how to read them."
 sidebar:
-  order: 4
+  order: 7
 status: reviewed
 ---
 
-Latency Monitors (previously called Connection Quality Monitors) measure round-trip latency, jitter, and packet loss to hosts on the internet. They appear at the bottom of the [Main View](/user-guide/main-view/).
+Latency Monitors (previously called Connection Quality Monitors) measure round-trip latency, jitter, and packet loss to hosts on the internet. They appear in the [Monitors](/user-guide/main-view/monitors/) section of the main window.
 
 ## What they measure
 
@@ -31,23 +31,9 @@ Hover over the latency to see the caption when the row is too narrow for it.
 
 ## Section header
 
-The header bar above the monitors holds controls for the whole Latency Monitors section:
+Latency Monitors share the header of the [Monitors](/user-guide/main-view/monitors/#section-header) section with your other monitors. Its **Shared Y-Axis Scale → Latency** puts every latency monitor on one scale, so you can compare latency directly.
 
-<div class="img-lg">
-
-![The Latency Monitors section header with its controls labelled](./latency-monitors-images/latency-monitors-header.png)
-
-</div>
-
-From left to right:
-
-| Control | Description |
-|---------|-------------|
-| **Show / Hide** | Collapses or expands the entire Latency Monitors section. |
-| **New Monitor** | Adds a new Latency Monitor via the [Configuration Assistant](/user-guide/configuration-assistant/). |
-| **Counts** | Summarises monitors by status, with a colored dot for each: green for **Active**, yellow for **Warning**, red for **Error**, and grey for **Disabled**. |
-| **Shared Y Axis** | Puts every monitor's graph on the same vertical scale so latency can be compared directly. |
-| **Open History** | Shows a menu of this section's monitors; choose one to open its [History view](/user-guide/history-view/). |
+A latency monitor can also be one of the [Internet sites](/user-guide/main-view/internet-sites/) that make the Internet status of the dashboard. See [Use a latency monitor as a site](/user-guide/main-view/internet-sites/#use-a-latency-monitor-as-a-site).
 
 ## Reading the graph
 

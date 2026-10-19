@@ -1,6 +1,6 @@
 ---
 title: "Configuration Assistant"
-description: "PeakHour's Configuration Assistant walks you step by step through adding a new Bandwidth or Latency Monitor, or editing an existing monitor's settings."
+description: "PeakHour's Configuration Assistant walks you step by step through adding a Bandwidth, Latency or Wi-Fi Signal monitor, or editing a monitor's settings."
 sidebar:
   order: 7
 status: reviewed
@@ -10,10 +10,11 @@ The Configuration Assistant walks you through adding a new Monitor or editing an
 
 ## What is a Monitor?
 
-A Monitor tracks one aspect of your network. PeakHour has two types:
+A Monitor tracks one aspect of your network. PeakHour has three types:
 
 - **[Bandwidth Monitor](/user-guide/settings/monitors-settings/bandwidth-monitor/)** — measures the upload and download throughput of a device, such as your router or your Mac.
 - **[Latency Monitor](/user-guide/settings/monitors-settings/latency-monitor/)** — measures the latency to a hop or host on the internet, letting you see the latency between you and that endpoint, or between two endpoints (differential latency).
+- **[Wi-Fi Signal](/user-guide/main-view/wifi-signal-monitor/)** — graphs the Tx rate, the SNR and the signal strength of this Mac's Wi-Fi. A Mac has one.
 
 You can configure as many monitors as you wish (or as your Mac can handle!).
 
@@ -23,6 +24,7 @@ The first screen of the assistant asks which kind of monitor to add. Pick the ty
 
 - [Adding a Bandwidth Monitor](/user-guide/configuration-assistant/configuration-assistant-bandwidth/) — choose a device, select an interface, verify, and finish.
 - [Adding a Latency Monitor](/user-guide/configuration-assistant/configuration-assistant-latency/) — choose what to measure (ISP to Internet, One Host or Custom), then set the host or hops.
+- [Adding the Wi-Fi Signal monitor](/user-guide/main-view/wifi-signal-monitor/#add-the-monitor) — choose **Wi-Fi Signal**, then click **Next**. There are no more steps. The card shows only on a Mac with Wi-Fi, and reads **Already added** when the Mac has the monitor.
 
 :::tip
 If you're unsure how to set up your monitors, choose **File → First Time Setup** to run the guided setup assistant, which configures sensible defaults for you. See [First Time Setup](/user-guide/first-time-setup/).

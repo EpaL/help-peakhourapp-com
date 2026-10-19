@@ -21,13 +21,15 @@ When you launch PeakHour for the first time, the First Time Setup Assistant will
 ![First Time Setup - Introduction](./first-time-setup-images/first-time-setup-intro.png)
 </div>
 
-Setup takes five short steps:
+Setup takes a few short steps:
 
 1. **Welcome** — a quick overview of what PeakHour does.
 2. **Discover Your Network** — PeakHour finds your router and lets you pick which features to enable.
-3. **Identify Your Internet Provider** — choose whether PeakHour looks up your ISP details (off by default).
-4. **You're All Set** — confirm your configuration before finishing.
-5. **Stay in Touch** — optional: subscribe to updates or follow PeakHour on social.
+3. **Choose your sites** — tell PeakHour what you use the Internet for, and choose the sites it measures. This step shows only with the Internet Dashboard on.
+4. **Identify Your Internet Provider** — choose whether PeakHour looks up your ISP details (off by default).
+5. **Smarter AI Advisor** — choose where the AI Advisor writes its explanations. This step shows only on a Mac that can use Private Cloud Compute.
+6. **You're All Set** — confirm your configuration before finishing.
+7. **Stay in Touch** — optional: subscribe to updates or follow PeakHour on social.
 
 If you've previously used PeakHour on another Mac with iCloud sync enabled, see [Restoring from iCloud](#restoring-from-icloud) — setup can apply those settings in a single click.
 
@@ -64,7 +66,27 @@ If the **Devices Found** list is empty or your router isn't appearing:
 
 **Using SNMP instead?** PeakHour can monitor SNMP-enabled routers and other devices, but SNMP doesn't support auto-discovery — SNMP devices won't appear in First Time Setup. Skip the Discover step and add them after setup from [Settings](/user-guide/settings/).
 
-## 3. Identify Your Internet Provider
+## 3. Choose your sites
+
+PeakHour measures the Internet with a list of [Internet sites](/user-guide/main-view/internet-sites/). This step helps you choose sites that you use. It has two pages.
+
+<div class="img-md">
+![The What Do You Use the Internet For? page, with seven cards such as Work & Video Calls, Gaming and Streaming](./first-time-setup-images/first-time-setup-sites-audiences.png)
+</div>
+
+**What Do You Use the Internet For?** — click each card that fits: **Work & Video Calls**, **Gaming**, **Streaming**, **AI Tools**, **Cloud & Files**, **Social** or **General**. You can choose more than one, or none. Click **Continue**.
+
+<div class="img-md">
+![The Choose Your Sites page, with the suggested sites selected at the top, and more sites in groups under them](./first-time-setup-images/first-time-setup-sites-choose.png)
+</div>
+
+**Choose Your Sites** — PeakHour suggests five sites from your choices, with **Cloudflare** first. With no card chosen, it suggests **Cloudflare** only. The suggested sites show selected under **Your Sites**. Click a site to add it or remove it, up to 10 sites. To add a site that isn't in the list, type its host name or address in **Host name or address**, and click **Add Host**. Click **Continue**.
+
+*PeakHour pings each site directly. Your choice stays on this Mac.*
+
+Click **Skip** to keep the default sites: Google, Cloudflare and Netflix. You can change the sites at any time in [Settings → Dashboard → Internet Sites](/user-guide/settings/dashboard/#internet-sites).
+
+## 4. Identify Your Internet Provider
 
 <div class="img-md">
 ![Identify Your Internet Provider step](./first-time-setup-images/first-time-setup-privacyconsent.png)
@@ -90,7 +112,11 @@ These services receive internet addresses, network numbers and web domains — n
 
 Click **Learn More** to open the [ISP Information](/user-guide/settings/isp-information/) page, or **Privacy Policy** to read exactly how this information is used, then click **Continue**.
 
-## 4. You're All Set
+## 5. Smarter AI Advisor
+
+On a Mac with macOS 27 and Apple Intelligence, setup asks where the AI Advisor writes its explanations. Turn on **Private Cloud Compute** to let a larger Apple model write them, or leave it off to keep the AI Advisor on your Mac. You can change it later in [Settings → Dashboard → AI Advisor](/user-guide/settings/dashboard/#ai-advisor). See [Private Cloud Compute](/user-guide/advisor/ask/#private-cloud-compute).
+
+## 6. You're All Set
 
 <div class="img-md">
 ![You're All Set summary screen](./first-time-setup-images/first-time-setup-youre-all-set.png)
@@ -104,7 +130,7 @@ Review the configuration PeakHour is about to apply:
 
 Click **Continue** to apply your configuration.
 
-## 5. Stay in Touch
+## 7. Stay in Touch
 
 <div class="img-md">
 ![Stay in Touch step](./first-time-setup-images/first-time-setup-stay-in-touch.png)
@@ -139,7 +165,7 @@ If you can't see PeakHour at all, click its icon in the Dock to open the main wi
 ![iCloud restore option on the Welcome screen](./first-time-setup-images/first-time-setup-icloud-restore.png)
 </div>
 
-If you've previously set up PeakHour on another Mac signed in to the same Apple Account, the Welcome screen detects your saved settings and offers to restore them. Click **Restore & Finish** to apply your existing configuration in a single step, or **Set Up Manually** to go through the regular four-step flow.
+If you've previously set up PeakHour on another Mac signed in to the same Apple Account, the Welcome screen detects your saved settings and offers to restore them. Click **Restore & Finish** to apply your existing configuration in a single step, or **Set Up Manually** to go through the regular steps.
 
 ## Next Steps
 

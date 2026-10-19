@@ -1,6 +1,6 @@
 ---
 title: "Main View"
-description: "How to open and read PeakHour's main window: the Internet Dashboard, Bandwidth and Latency Monitors, and the toolbar that controls each graph."
+description: "How to open and read PeakHour's main window: its sections, how to show, hide and reorder them, and the label that shows when this Mac is offline."
 sidebar:
   order: 1
 status: reviewed
@@ -28,15 +28,69 @@ PeakHour's main window is your primary view into network activity. There are two
 
 ## Overview
 
-The main window stacks four sections vertically:
+The main window holds up to four sections, one under the other, in one scroll view:
 
 <div class="img-md">
 
-![PeakHour main window showing the Usage Monitor, Internet Dashboard, Bandwidth Monitors, and Latency Monitors](./images/01-hero-dashboard-original.png)
+![PeakHour main window with the Usage Monitor, the Internet Dashboard, the Advisor section and the Monitors section](./images/main-window-sections.png)
 
 </div>
 
-- **[Usage Monitor](/user-guide/settings/usage/)** — tracks data used and remaining against your billing cycle quota. Only visible when Usage Monitoring is enabled.
+- **[Usage Monitor](/user-guide/settings/usage/)** — tracks data used and remaining against your billing cycle quota. It shows only when Usage Monitoring is on.
 - **[Internet Dashboard](/user-guide/main-view/internet-dashboard/)** — a single-view summary of your connection's health from your Mac out to the internet.
-- **[Bandwidth Monitors](/user-guide/main-view/bandwidth-monitors/)** — real-time throughput graphs for each device or interface you've configured.
-- **[Latency Monitors](/user-guide/main-view/latency-monitors/)** — round-trip latency, jitter, and packet loss for hosts on the internet.
+- **[Advisor](/user-guide/main-view/advisor-section/)** — your grade, what holds it back, and your last speed test, with links to the PeakHour Advisor. It needs macOS 26 or later.
+- **[Monitors](/user-guide/main-view/monitors/)** — the graphs of all your monitors: [bandwidth](/user-guide/main-view/bandwidth-monitors/), [latency](/user-guide/main-view/latency-monitors/) and [Wi-Fi Signal](/user-guide/main-view/wifi-signal-monitor/).
+
+The window grows with its sections, up to the height of your screen. Then it scrolls. The footer stays in place while the sections scroll, and so does the title bar of a pinned window.
+
+Click the title of a section to collapse it or expand it. PeakHour keeps the state of each section.
+
+## Customize the main window
+
+You can hide any section, and put the sections in any order. There are two ways.
+
+### From a section header
+
+Right-click the header of a section:
+
+<div class="img-sm">
+
+![The context menu of a section header, with Hide Section, Move Up, Move Down, Show Section and Customize Main Window](./images/section-header-menu.png)
+
+</div>
+
+| Item | Description |
+|------|-------------|
+| **Hide Section** | Removes the section from the main window. |
+| **Move Up**, **Move Down** | Moves the section one place. They are grey for the first and the last section. |
+| **Show Section** | A list of the hidden sections. Choose one to show it under this section. |
+| **Customize Main Window…** | Opens [Settings → Display → Main Window](/user-guide/settings/display/#main-window). |
+
+### In Settings
+
+Open [Settings → Display → Main Window](/user-guide/settings/display/#main-window). Select or clear the checkbox of a section to show or hide it. Drag a section to move it. The main window changes at once.
+
+When you hide every section, the main window reads **All Sections Hidden**. Click **Customize…** to show them again.
+
+Your layout syncs to your other Macs with [iCloud](/user-guide/settings/icloud/).
+
+:::note
+A section also needs its feature. The Usage Monitor needs [Usage Monitoring](/user-guide/settings/usage/), and the Internet Dashboard and the Advisor section need the [Internet Dashboard](/user-guide/settings/dashboard/). The Advisor section needs macOS 26 or later.
+:::
+
+## When you are offline
+
+When this Mac loses its connection for more than 3 seconds, a red label drops down at the top of the main window:
+
+<div class="img-sm">
+
+![The No Internet label at the top of the main window](./images/offline-toast.png)
+
+</div>
+
+- **No Network** — this Mac has no network connection, for example when the Wi-Fi is off.
+- **No Internet** — this Mac is on a network, but more than half of your [Internet sites](/user-guide/main-view/internet-sites/) don't respond.
+
+After the first minute, the label also shows how long the outage lasts, for example **No Internet · 2m**. When the connection comes back, the label turns green and reads, for example, **Back Online · 2m 14s**, with the length of the outage. After 3 seconds it goes away.
+
+The label stays in view while you scroll. Click its **×** to hide it until the next outage.
