@@ -1,6 +1,6 @@
 ---
 title: "Configuration Assistant: Latency"
-description: "Add a Latency Monitor with PeakHour's Configuration Assistant: what to measure (ISP to Internet, One Host or Custom) and the settings of each choice."
+description: "Add a Latency Monitor with PeakHour's Configuration Assistant: what to measure (Internet Site, One Host or Custom) and the settings of each choice."
 sidebar:
   order: 10
 status: reviewed
@@ -18,7 +18,7 @@ The first screen asks what kind of monitor to add. Choose **Latency** and click 
 
 <div class="img-lg">
 
-![Choose Monitor Type screen with the Bandwidth and Latency options](./configuration-assistant-latency-images/configuration-assistant-latency-1-choose-monitor-type.png)
+![Choose Monitor Type screen with the Bandwidth, Latency and Wi-Fi Signal options](./configuration-assistant-latency-images/configuration-assistant-latency-1-choose-monitor-type.png)
 
 </div>
 
@@ -30,17 +30,17 @@ A new latency monitor starts on the **What to Measure** page: *Choose the part o
 
 | Card | What it measures | When to use it |
 |------|------------------|----------------|
-| **ISP to Internet** | From your ISP to a site, past your home network. | It shows if a delay is outside your home. |
+| **Internet Site** | From your ISP to a site, past your home network. *Joins the Internet status of the dashboard.* | For a site that you use, so that it counts toward the Internet status. |
 | **One Host** | From this Mac to one host, through your home network. | It shows the delay that your apps feel. |
 | **Custom** | Between any two points on the path. | For a specific router, ISP hop or site. |
 
-- **ISP to Internet** is the default, and has the label **Recommended**. Your home network isn't part of the result. The Internet Dashboard makes the same type of monitor for its sites, for example **ISP to Cloudflare**.
+- **Internet Site** is the default, and has the label **Recommended**. Your home network isn't part of the result. The monitor becomes one of the [Internet sites](/user-guide/main-view/internet-sites/) of the dashboard, for example **ISP to Cloudflare**.
 - **One Host** measures the whole path from this Mac. The result includes your home network: the link from this Mac to the router, and the router.
 - **Custom** gives you all the settings. The green part of its picture moves along the path, because you choose the two points.
 
 <div class="img-lg">
 
-![The What to Measure page with the ISP to Internet, One Host and Custom cards; ISP to Internet is selected](./configuration-assistant-latency-images/configuration-assistant-latency-2a-what-to-measure.png)
+![The What to Measure page with the Internet Site, One Host and Custom cards; Internet Site is selected](./configuration-assistant-latency-images/configuration-assistant-latency-2a-what-to-measure.png)
 
 </div>
 
@@ -54,20 +54,18 @@ The **?** button beside **Cancel** opens this help page.
 
 The next page has the title **Latency**. It shows only the settings of the card that you chose. To choose another card, click **Previous**. The assistant keeps each value that still applies, for example the site.
 
-### ISP to Internet
+### Internet Site
 
-*Measures only the path from your ISP to a site.* The path shows **This Mac**, **Local Network**, **ISP** and the site. Only the part from the ISP to the site is green.
+*Choose a site. PeakHour measures it from your ISP.* The page shows the site picker of the dashboard, with the sites in groups such as **DNS Providers**, **AI Services** and **Streaming & Entertainment**. Click a group at the top to see only its sites, or type in **Search**.
 
-Choose the site from the **Site** menu:
+- Click one site. A site that is already one of your Internet sites reads **In use**.
+- To measure a site that isn't in the list, type its host name or IP address in **Host name or address**, and click **Add Host**.
 
-- The menu has the same sites as the [Internet sites](/user-guide/main-view/internet-sites/#the-sites-to-choose-from) of the dashboard, in groups such as **DNS Providers**, **AI Services** and **Streaming & Entertainment**.
-- Choose **Custom…** to type a host name or an IP address. To go back to the list, click the list button beside the field.
-
-**Next** is available after you choose a site. The line under the path names the site, for example *Monitor the latency between your ISP and Cloudflare. Your home network is not part of the result.* PeakHour finds the hop of your ISP automatically. To measure from a specific ISP hop, use **Custom**.
+**Next** is available after you choose a site. PeakHour finds the hop of your ISP automatically. To measure from a specific ISP hop, use **Custom**.
 
 <div class="img-lg">
 
-![The ISP to Internet settings page with Cloudflare in the Site menu; only the part from the ISP to Cloudflare is green](./configuration-assistant-latency-images/configuration-assistant-latency-2b-isp-to-internet.png)
+![The Internet Site page with the site picker; Quad9 is selected, and the sites already in use are grey](./configuration-assistant-latency-images/configuration-assistant-latency-2b-internet-site.png)
 
 </div>
 
@@ -97,7 +95,7 @@ Measures the latency from your Mac to your ISP — typically the second hop. The
 
 #### Internet
 
-Measures the latency from your Mac to a site on the internet. Choose the site from the **Site** menu, as for [ISP to Internet](#isp-to-internet). The **Internet** point on the path then shows the name of the site. **Next** is available after you choose a site.
+Measures the latency from your Mac to a site on the internet. Choose the site from the **Site** menu. It has the same sites as the [site picker](/user-guide/main-view/internet-sites/#the-sites-to-choose-from), in the same groups. Choose **Custom…** to type a host name or an IP address. The **Internet** point on the path then shows the name of the site. **Next** is available after you choose a site.
 
 <div class="img-lg">
 
@@ -144,11 +142,11 @@ When you've set up the monitor, click **Next**.
 
 ## 4. Finalize setup
 
-The last screen sets a few key parameters. PeakHour suggests a name from the endpoints you chose. A site from the **Site** menu gives its name to the monitor, for example **Cloudflare** for One Host, or **ISP to Cloudflare** for ISP to Internet. You can adjust all of these (and many more) later in [Settings → Latency Monitor](/user-guide/settings/monitors-settings/latency-monitor/).
+The last screen sets a few key parameters. PeakHour suggests a name from the endpoints you chose. A site from the list gives its name and its symbol to the monitor, for example **Cloudflare** for One Host, or **ISP to Cloudflare** for Internet Site. You can adjust all of these (and many more) later in [Settings → Latency Monitor](/user-guide/settings/monitors-settings/latency-monitor/).
 
 <div class="img-lg">
 
-![Finalize Setup screen with Symbol & Name, Visibility, and View Mode options](./configuration-assistant-latency-images/configuration-assistant-latency-8-finalize.png)
+![Finalize Setup screen with Symbol & Name, Visibility, the Internet Site switch, and View Mode](./configuration-assistant-latency-images/configuration-assistant-latency-8-finalize.png)
 
 </div>
 
@@ -157,12 +155,13 @@ The last screen sets a few key parameters. PeakHour suggests a name from the end
 | **Symbol & Name** | The icon and name for the monitor. Click either to change it. |
 | **Visibility** | Whether the monitor appears in the main window. **Automatic** hides it when it can't be reached; you can also force it to always show or always hide. A hidden monitor still runs and gathers data — it just may not be visible. |
 | **View Mode** | **Graph View** shows the monitor with its graph; **Summary View** shows summary data only (collapsed). |
+| **Internet Site** | *Include this site in Internet measurement on the dashboard.* It shows for the Internet Site card, and when you edit a monitor that is an Internet site. It is on for a new monitor. When the dashboard has 10 sites, it is off and grey: PeakHour makes the monitor, but doesn't add it to the sites. |
 
 Click **Finish**. The new monitor appears in the main window and, if configured, the menu bar. To change a setting first, click **Previous**. The assistant goes back to the settings page of your card.
 
 ## Edit a latency monitor
 
-In [Settings → Monitors](/user-guide/settings/monitors-settings/), select the monitor and click **Edit…**. The assistant opens on the settings page, with the card that matches the monitor. For example, a monitor from the ISP (**Auto**) to a site opens as **ISP to Internet**, and a monitor from the router to the ISP opens as **Custom**. To choose another card, click **Previous**.
+In [Settings → Monitors](/user-guide/settings/monitors-settings/), select the monitor and click **Edit…**. The assistant opens on the settings page, with the card that matches the monitor. For example, a monitor from the ISP (**Auto**) to a site opens as **Internet Site**, and a monitor from the router to the ISP opens as **Custom**. To choose another card, click **Previous**.
 
 ## What next?
 
