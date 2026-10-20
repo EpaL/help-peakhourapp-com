@@ -38,24 +38,49 @@ The main window holds up to four sections, one under the other, in one scroll vi
 
 - **[Usage Monitor](/user-guide/settings/usage/)** — tracks data used and remaining against your billing cycle quota. It shows only when Usage Monitoring is on.
 - **[Internet Dashboard](/user-guide/main-view/internet-dashboard/)** — a single-view summary of your connection's health from your Mac out to the internet.
-- **[Advisor](/user-guide/main-view/advisor-section/)** — your grade, what holds it back, and your last speed test, with links to the PeakHour Advisor. It needs macOS 26 or later.
+- **[Advisor](/user-guide/main-view/advisor-section/)** — your grade, what holds it back, and your grade over the last 2 hours, with links to the PeakHour Advisor. It needs macOS 26 or later.
 - **[Monitors](/user-guide/main-view/monitors/)** — the graphs of all your monitors: [bandwidth](/user-guide/main-view/bandwidth-monitors/), [latency](/user-guide/main-view/latency-monitors/) and [Wi-Fi Signal](/user-guide/main-view/wifi-signal-monitor/).
 
-The window grows with its sections, up to the height of your screen. Then it scrolls. The footer stays in place while the sections scroll, and so does the title bar of a pinned window.
+The window grows with its sections, up to the height of your screen. Then it scrolls. The footer stays in place while the sections scroll, and so does the title bar of a pinned window. Drag the side of the window to change its width. The height follows the sections.
 
 Click the title of a section to collapse it or expand it. PeakHour keeps the state of each section.
 
+### Collapsed sections
+
+A collapsed Internet Dashboard or Advisor section still shows a one-line summary:
+
+<div class="img-md">
+
+![The collapsed Internet Dashboard and Advisor rows: Internet OK with the latency of the Router and ISP hops and a latency pill, and Good with the grade and a small grade timeline](./images/collapsed-rows.png)
+
+</div>
+
+- **Internet Dashboard** — the Internet status, for example **Internet OK** or **Netflix not responding**, then the latency of each hop, for example **Router 4.7 ms → ISP 2.1 ms**. A pill at the right shows the Internet latency.
+- **Advisor** — the status, for example **Good**, or the top issue, then your grade and a small [grade timeline](/user-guide/main-view/advisor-section/#the-grade-timeline). The grade shows here only while the dashboard is hidden or collapsed.
+
 ## Customize the main window
 
-You can hide any section, and put the sections in any order. There are two ways.
+You can hide any section, and put the sections in any order.
 
-### From a section header
+### Move a section
 
-Right-click the header of a section:
+Drag a section by its header to a new place. A line shows where the section will go. The grip (**≡**) at the start of each header shows that you can drag it.
+
+### Show or hide a section
+
+Click **Show Sections** in the footer of the main window. The menu lists the sections, with a checkmark beside each section that shows. Choose a section to show it or hide it. It keeps its place.
 
 <div class="img-sm">
 
-![The context menu of a section header, with Hide Section, Move Up, Move Down, Show Section and Customize Main Window](./images/section-header-menu.png)
+![The Show Sections menu in the footer, with a checkmark beside Usage Monitor, Internet Dashboard, Advisor and Monitors, and Customize Main Window](./images/show-sections-menu.png)
+
+</div>
+
+You can also right-click the header of a section:
+
+<div class="img-sm">
+
+![The context menu of a section header, with Hide Section, Move Up, Move Down and Customize Main Window](./images/section-header-menu.png)
 
 </div>
 
@@ -63,19 +88,19 @@ Right-click the header of a section:
 |------|-------------|
 | **Hide Section** | Removes the section from the main window. |
 | **Move Up**, **Move Down** | Moves the section one place. They are grey for the first and the last section. |
-| **Show Section** | A list of the hidden sections. Choose one to show it under this section. |
+| **Show Section** | A list of the hidden sections. Choose one to show it under this section. It appears only while a section is hidden. |
 | **Customize Main Window…** | Opens [Settings → Display → Main Window](/user-guide/settings/display/#main-window). |
 
 ### In Settings
 
 Open [Settings → Display → Main Window](/user-guide/settings/display/#main-window). Select or clear the checkbox of a section to show or hide it. Drag a section to move it. The main window changes at once.
 
-When you hide every section, the main window reads **All Sections Hidden**. Click **Customize…** to show them again.
+When you hide every section, the main window reads **All Sections Hidden**. Click **Customize…**, or use **Show Sections** in the footer, to show them again.
 
 Your layout syncs to your other Macs with [iCloud](/user-guide/settings/icloud/).
 
 :::note
-A section also needs its feature. The Usage Monitor needs [Usage Monitoring](/user-guide/settings/usage/), and the Internet Dashboard and the Advisor section need the [Internet Dashboard](/user-guide/settings/dashboard/). The Advisor section needs macOS 26 or later.
+A section also needs its feature. The Usage Monitor needs [Usage Monitoring](/user-guide/settings/usage/), and the Internet Dashboard and the Advisor section need the [Internet Dashboard](/user-guide/settings/dashboard/). The Advisor section needs macOS 26 or later. A section whose feature is off is not in the menus.
 :::
 
 ## When you are offline

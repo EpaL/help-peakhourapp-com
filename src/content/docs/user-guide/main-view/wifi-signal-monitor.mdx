@@ -40,7 +40,7 @@ A Mac has one Wi-Fi Signal monitor. When you have one already, the card reads **
 ## Reading the graph
 
 - **Tx Rate** is a blue area, on the scale at the left. The scale starts at 0 and goes to the highest rate that your Wi-Fi standard and channel width allow.
-- **SNR** (green) and **Signal** (orange) are lines, on the scale at the right, in dB.
+- **SNR** (green) and **Signal** (orange) are lines, on the scale at the right. The scale labels only its top and bottom values, in dB or dBm.
 - The graph shows the last 3 minutes by default. Use **Zoom In** and **Zoom Out** in the [graph toolbar](/user-guide/main-view/bandwidth-monitors/#graph-toolbar) to show from 30 seconds to 10 minutes. Swipe sideways on the trackpad to look back further.
 - Hover over the graph to see the time and each value at that moment.
 
@@ -51,6 +51,8 @@ PeakHour reads the values at each [Refresh Interval](/user-guide/settings/displa
 ### When the Wi-Fi drops
 
 When your Mac is not on a Wi-Fi network, the monitor reads **Not connected**, and its status light is yellow. The graph marks the time with no Wi-Fi as a red band. Hover over the band to see **Not connected**.
+
+While your Mac sleeps, PeakHour reads no values. After a wake, the time of the sleep shows as a hatched area, not as a red band. Hover over a gap to see **No data**.
 
 ## History and CSV export
 

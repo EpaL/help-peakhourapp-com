@@ -1,6 +1,6 @@
 ---
 title: "Advisor Section"
-description: "The Advisor section of PeakHour's main window shows your grade, what holds it back and your last speed test, with links to each page of the PeakHour Advisor."
+description: "The Advisor section of PeakHour's main window shows your grade, what holds it back and your grade over the last 2 hours, with links to each Advisor page."
 sidebar:
   order: 4
 ---
@@ -9,7 +9,7 @@ The **Advisor** section of the [main window](/user-guide/main-view/) is a short 
 
 <div class="img-md">
 
-![The Advisor section with the grade, a summary, two reasons, the last speed test with Run Now, and the links to the Advisor pages](./advisor-section-images/advisor-section.png)
+![The Advisor section with the grade, a summary, the grade timeline of the last 2 hours, and the links to the Advisor pages](./advisor-section-images/advisor-section.png)
 
 </div>
 
@@ -17,22 +17,40 @@ From top to bottom, the section shows:
 
 | Element | Description |
 |---------|-------------|
-| **Grade** and **summary** | Your [grade](/user-guide/advisor/grade/), from **A+** down to **F**, and a summary of your connection in one or two lines. It is the same grade as the dashboard and the Advisor window. |
-| **Reasons** | Up to three issues that hold the grade back, the worst first. A yellow dot marks a **Fair** issue, and a red dot a worse one. Each issue says where the problem is, for example on your Wi-Fi. A grade of **A** or **A+** has no reasons. |
-| **Speed test** | Your last speed test, for example **↓ 512 Mb/s ↑ 41 Mb/s · Good**, and how long ago it ran. Before your first test, it reads **No speed test yet**. |
-| **Run Now** | Runs a speed test. It is grey while a test can't start. Hover over it to see the reason, for example **Offline**. |
-| **Links** | **Your Network**, **The Internet**, **Speed Test** and **History** open the [Advisor window](/user-guide/advisor/) at that page. |
+| **Grade** | Your [grade](/user-guide/advisor/grade/), from **A+** down to **F**. A number on its rim shows how many issues hold the grade back. Click the grade to open the [Advisor window](/user-guide/advisor/). |
+| **Summary** | Your connection in one to three lines. |
+| **Grade timeline** | Your grade over the last 2 hours. See [The grade timeline](#the-grade-timeline). |
+| **Issues** | Up to three issues that hold the grade back, the worst first, each with where the problem is, for example on your Wi-Fi. A grade of **A** or **A+** has no issues. |
+| **Links** | **Your Network**, **The Internet**, **Speed Test** and **History** open the Advisor window at that page. In a narrow window they show only their symbols. |
 
-Until PeakHour has its first measurements, the section reads **Gathering data**.
+## The grade timeline
 
-When you collapse the section, its header still shows the grade.
+The timeline has 24 blocks, one for each 5 minutes of the last 2 hours, from **2 h ago** to **Now**. Each block has the colour of the worst grade in its 5 minutes, so a short problem stays visible. A grey block means no connection. A faint block means no data, for example while PeakHour was not running.
+
+The caption above it gives the most common grade, for example **Last 2 h · mostly B**. Hover over a block to see its time and grade. Click it to open the Advisor's [History](/user-guide/advisor/history/) page.
+
+The timeline shows when the window is wide enough, and after PeakHour has its first grade.
+
+## One grade on screen
+
+PeakHour shows your grade in one place at a time. While the Advisor section is expanded, the grade is in the section, and the dashboard shows no grade. When you collapse or hide the Advisor section, the grade goes back to the dashboard.
+
+When the section is collapsed, its header shows a one-line summary: the status, for example **Good**, or the top issue, and a small grade timeline. The header shows the grade too, but only while the dashboard is hidden or collapsed.
+
+## While the Advisor waits
+
+The section shows a status in place of the summary, with no issues:
+
+- **Analyzing…** — PeakHour gathers its first measurements, for example after a launch or after your Mac wakes.
+- **Waiting for speed test** — a speed test runs. The grade comes back when the test ends.
+- **Offline** — this Mac has no network connection.
 
 ## With the AI Advisor off
 
-With [AI Advisor](/user-guide/settings/dashboard/#ai-advisor) off, the section has no grade, summary or reasons. It still shows your last speed test, **Run Now** and the links to the Advisor window.
+With [AI Advisor](/user-guide/settings/dashboard/#ai-advisor) off, the section has no grade, summary, timeline or issues. It still shows the links to the Advisor window.
 
 ## Requirements
 
 The Advisor section needs macOS 26 or later, and the [Internet Dashboard](/user-guide/settings/dashboard/) turned on. On macOS 14 and 15, the section doesn't show, and it isn't in the list of sections.
 
-To hide the section or move it, right-click its header, or use [Settings → Display → Main Window](/user-guide/settings/display/#main-window). See [Customize the main window](/user-guide/main-view/#customize-the-main-window).
+To move the section, drag its header. To hide it, use **Show Sections** in the footer, or right-click its header. See [Customize the main window](/user-guide/main-view/#customize-the-main-window).

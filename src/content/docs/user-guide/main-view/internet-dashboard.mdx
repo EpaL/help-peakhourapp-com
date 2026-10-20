@@ -1,6 +1,6 @@
 ---
 title: "Internet Dashboard"
-description: "How to read PeakHour's Internet Dashboard — the columns and their cards, the readouts, status colors, latency, packet loss and jitter."
+description: "How to read PeakHour's Internet Dashboard: the columns and their cards, the readouts, the narrow layout, status colors, latency, packet loss and jitter."
 sidebar:
   order: 2
 status: reviewed
@@ -12,54 +12,29 @@ In addition, the dashboard shows the upload and download speeds of your Mac alon
 
 You can configure all of these settings in [Internet Dashboard](/user-guide/settings/dashboard/) settings.
 
-## Choosing a view
+## The path to the internet
 
-The Internet Dashboard offers two views. Use the toggle at the top of the dashboard to switch between them:
-
-<div class="img-narrow">
-
-![Simple / Detailed view toggle](./internet-dashboard-images/internet-dashboard-simple-detailed-pill.png)
-
-</div>
-
-- **Simple** — a compact, three-panel summary of your connection's health.
-- **Detailed** — the full path to the internet, in four columns with the latency between each hop and live speeds.
-
-Both are described below.
-
-## Simple View
-
-The Simple View distils your connection's health into three panels you can read at a glance:
+The Internet Dashboard shows the full path your traffic takes to reach the internet, in four columns — **This Mac**, **Router**, **ISP**, and **Internet** — with your connection's grade on the right.
 
 <div class="img-md">
 
-![Internet Dashboard simple view showing Link, Throughput and Health panels](./internet-dashboard-images/internet-dashboard-simple.png)
-
-</div>
-
-| Panel | What it shows |
-|-------|---------------|
-| **Link** | Your active network connection — its type (e.g. Wi-Fi 6E), name, and current link speed.|
-| **Throughput** | Real-time upload (↑) and download (↓) speeds, with a ring showing usage relative to your [connection's capacity](/user-guide/settings/monitors-settings/bandwidth-monitor/#bandwidth). |
-| **Health** | Overall connection quality — current latency, a recent latency graph, and a letter **grade** (A+ down to F) for your whole connection. Click it to open the [PeakHour Advisor](/user-guide/advisor/). See [Grade](#grade). |
-
-Hover over a panel to see an **i**. Click it to open an explanation of the panel. A second click, a click outside the explanation, or Escape closes it.
-
-:::note
-The **Link** speed is the speed of your Mac's connection to the local network (for example, the Wi-Fi or Ethernet link rate) — not the speed of your internet connection. Your internet speed is shown under **Throughput** and, when speed tests are enabled, in the **ISP** column of the [Detailed View](#detailed-view).
-:::
-
-## Detailed View
-
-Expanding the Internet Dashboard reveals the full path your traffic takes to reach the internet, in four columns — **This Mac**, **Router**, **ISP**, and **Internet** — with your connection's grade on the right.
-
-<div class="img-md">
-
-![Internet Dashboard detailed view showing the This Mac, Router, ISP and Internet columns with the latency between each hop and their speed readouts](./internet-dashboard-images/internet-dashboard-detailed.png)
+![The Internet Dashboard showing the This Mac, Router, ISP and Internet columns with the latency between each hop and their speed readouts](./internet-dashboard-images/internet-dashboard-detailed.png)
 
 </div>
 
 Each column shows its name, the latency to the next hop, and (where it applies) a pair of speed readouts. The sections below cover each column in turn.
+
+### In a narrow window
+
+When the main window is one column wide, the dashboard shows the path as rows, one under the other: **This Mac**, **Router**, **ISP** and **Internet**. Between two rows, a thin row shows the latency of that hop, with its timeline. The grade sits at the end of the Internet row.
+
+<div class="img-sm">
+
+![The dashboard in a one-column window, with This Mac, Router, ISP and Internet as rows, the hop latencies between them, and the grade at the end](./internet-dashboard-images/internet-dashboard-stacked.png)
+
+</div>
+
+When the dashboard is collapsed, its header shows a one-line summary. See [Collapsed sections](/user-guide/main-view/#collapsed-sections).
 
 ### Columns and cards
 
@@ -126,6 +101,7 @@ The column shows, from top to bottom:
 | Element | Description |
 |---------|-------------|
 | **Access point** | On Wi-Fi, the name of the access point that your Mac is connected to shows above the Mac icon, for example **Living Room**. A name in grey italics is a guess from the maker of the access point. To give the access point a name, click the pencil beside **Access Point** in the This Mac card, described below. On a Personal Hotspot, the name of the hotspot shows. When the access point has no name, nothing shows above the icon. |
+| **Wi-Fi standard** | On Wi-Fi, a small badge beside the Wi-Fi symbol gives the Wi-Fi standard of the link, for example **Wi-Fi 6E** or **Wi-Fi 7**. On Ethernet, there is no badge. |
 | **Latency** | The figure beside the graph (e.g. 4.7 ms) is the latency from your Mac to the next hop. |
 | **Name** | Your active connection — for example, the name of your Wi-Fi network. |
 | **Throughput** | The pair shows real-time download (↓) and upload (↑) speeds for your Mac. On Wi-Fi, a second pair shows the **Tx Rate** and the **Signal** of the Wi-Fi link. To see it, swipe left or right on the trackpad, or click the page dots under the pair. The page dots show when you hover over the column. |
@@ -310,6 +286,8 @@ The large badge at the end of the dashboard is your connection's **grade** — a
 - **Click the grade** to open the [PeakHour Advisor](/user-guide/advisor/), which explains the grade, shows where any problem starts, and suggests what to try.
 - **A number on its rim** shows how many issues hold the grade back, in the color of the worst one.
 - **The ring around it** counts down to the next update. PeakHour grades your connection every 30 seconds.
+
+While the [Advisor section](/user-guide/main-view/advisor-section/#one-grade-on-screen) of the main window is expanded, the grade moves into that section, and the dashboard shows no grade.
 
 The grade needs macOS 26 or later, and **AI Advisor** turned on in [Settings → Dashboard](/user-guide/settings/dashboard/#ai-advisor). With the AI Advisor off, the button shows a stethoscope and the word **Advisor** instead of a grade. Click it to open the Advisor window, which still shows your speed tests, your history and the routes to each site.
 
