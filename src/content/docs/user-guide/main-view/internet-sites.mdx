@@ -9,7 +9,7 @@ The **Internet** column of the [Internet Dashboard](/user-guide/main-view/intern
 
 By default, the sites are **Google**, **Cloudflare** and **Netflix**. You can measure up to 10 sites. Choose the sites that you use, so that the status tells you about the Internet that matters to you.
 
-Each site is a [latency monitor](/user-guide/main-view/latency-monitors/). A site that PeakHour adds measures from your ISP to the site, for example **ISP to Google**. You can also make any latency monitor that you added an Internet site. See [Use a latency monitor as a site](#use-a-latency-monitor-as-a-site).
+Each site is a [latency monitor](/user-guide/main-view/latency-monitors/). A site that PeakHour adds measures from your ISP to the site, for example **ISP to Google**. Another latency monitor from your ISP to a host can be a site too. See [Use a latency monitor as a site](#use-a-latency-monitor-as-a-site).
 
 ## How the sites make the status
 
@@ -22,7 +22,7 @@ PeakHour compares each site with its own normal latency: the minimum latency of 
 | **OK** | The latency is near the minimum of the site. |
 | **Slow** | The latency is more than 75 ms above the minimum (**Light congestion**). |
 | **Slow** | The latency is more than 200 ms above the minimum (**Heavy congestion**). |
-| **Not responding** | The site gives no reply. |
+| **Not responding** | The site gives no reply: 3 pings in a row get no answer, or no reply comes for 10 seconds. One or two lost pings do not count. The site stays **Not responding** until it replies again, also while its monitor starts again. |
 | **Starting…** | The site has no result yet. It does not count. |
 
 The 75 ms and the 125 ms after it are the [Congestion Thresholds](/user-guide/settings/display/#congestion-thresholds) in Display settings. The minimum of each site comes from its monitor. See [Latency](/user-guide/settings/monitors-settings/latency-monitor/#latency).
@@ -48,7 +48,7 @@ The Internet is **unavailable** when **more than half** of the sites do not resp
 
 When half of the sites or fewer do not respond, the Internet is still up. The status names the site, for example **Netflix not responding**, or gives a count, for example **2 sites not responding**. The problem is then on the route to that site, or at the site itself.
 
-When most of the sites fail but some still respond, the status reads, for example, **2 of 3 sites not responding**.
+When most of the sites fail but some still respond, the status reads, for example, **2 of 3 not responding**.
 
 When every site responds, the Internet shows **Light congestion** or **Heavy congestion** only when most of the sites are slow.
 
@@ -89,7 +89,7 @@ You choose the sites in four places:
 - **Settings.** Add, remove and restore the sites in [Settings → Dashboard → Internet Sites](/user-guide/settings/dashboard/#internet-sites).
 - **First Time Setup.** Setup asks what you use the Internet for, and suggests sites. See [Choose your sites](/user-guide/first-time-setup/#3-choose-your-sites).
 - **After an upgrade to 6.2.** A card under **Internet** asks you one time to choose your sites. See [The Choose Your Sites card](#the-choose-your-sites-card).
-- **Monitors settings.** Make a latency monitor that you added an Internet site. See [Use a latency monitor as a site](#use-a-latency-monitor-as-a-site).
+- **Monitors settings.** Make a latency monitor from your ISP to a host an Internet site. See [Use a latency monitor as a site](#use-a-latency-monitor-as-a-site).
 
 ### The sites to choose from
 
@@ -105,7 +105,7 @@ The site picker groups more than 50 sites by what you use them for. Click a grou
 | **Social** | YouTube, Reddit, X (Twitter), Meta (Facebook), Instagram, TikTok, WhatsApp, LinkedIn |
 | **General** | Google, Cloudflare, Quad9, OpenDNS, Akamai, Fastly, Amazon, Apple |
 
-To measure a site that is not in the list, type its host name or IP address in **Host name or address**, and click **Add Host**. A site that is already in your list reads **In use**.
+To measure a site that is not in the list, type its host name or IP address in **Host name or address**, and click **Add Host** or press Return. PeakHour checks the host first, which takes a few seconds (**Checking...**). When the host can't be found or doesn't reply, the picker reads **Host not found** or **No reply from this host**. Click **Add Anyway** to add it all the same. A site that is already in your list reads **In use**.
 
 :::tip
 Keep one site that is always fast and near you, such as **Cloudflare** or **Google**. It shows a problem with your connection clearly, even when a site that you use is slow on its own.
@@ -128,14 +128,14 @@ The card does not come back after you click either button. To change the sites l
 
 ### Use a latency monitor as a site
 
-Any latency monitor can be an Internet site, for example a game server or your work VPN:
+A latency monitor that measures from your ISP to a host can be an Internet site, for example a monitor of a game server:
 
 - To add a new site with its own monitor, click **+** in [Settings → Monitors](/user-guide/settings/monitors-settings/), choose **Latency**, then choose the **Internet Site** card. See [Configuration Assistant: Latency](/user-guide/configuration-assistant/configuration-assistant-latency/#internet-site).
 
-- In [Settings → Monitors](/user-guide/settings/monitors-settings/), select the latency monitor and turn on **Internet Site**.
+- In [Settings → Monitors](/user-guide/settings/monitors-settings/), select the latency monitor and turn on **Internet Site**. The switch shows only for a monitor from your ISP to a host.
 - Or right-click the monitor, then choose **Designate as → Internet**.
 
-The list holds up to 10 sites. When it is full, remove a site first. See [Designating a Monitor for the Internet Dashboard](/user-guide/settings/monitors-settings/#designating-a-monitor-for-the-internet-dashboard).
+A monitor from this Mac, or from your router, can't be a site: it would measure your home network too. The list holds up to 10 sites. When it is full, remove a site first. See [Designating a Monitor for the Internet Dashboard](/user-guide/settings/monitors-settings/#designating-a-monitor-for-the-internet-dashboard).
 
 ## Notifications
 
