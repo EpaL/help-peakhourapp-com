@@ -90,8 +90,6 @@ The caption shows in the explanation of the latency, and beside the monitor in [
 
 The **This Mac** column represents your Mac's connection to the local network. It's the first column in the path to the internet.
 
-{/* PENDING(Track A, 2026-10-21): the Icon row and "reads Ethernet" in the Name row describe a change that is not merged yet. Remove them if it does not ship in 6.2. */}
-
 <div class="img-narrow">
 
 ![This Mac column showing the access point name above the Mac icon, the latency graph, the connection name and the throughput readouts](./internet-dashboard-images/internet-dashboard-detailed-this-mac-section.png)
@@ -105,8 +103,8 @@ The column shows, from top to bottom:
 | **Access point** | On Wi-Fi, the name of the access point that your Mac is connected to shows above the Mac icon, for example **Living Room**. A name in grey italics is a guess from the maker of the access point. To give the access point a name, click the pencil beside **Access Point** in the This Mac card, described below. On a Personal Hotspot, the name of the hotspot shows. When the access point has no name, nothing shows above the icon. |
 | **Wi-Fi standard** | On Wi-Fi, a small badge beside the Wi-Fi symbol gives the Wi-Fi standard of the link, for example **Wi-Fi 6E** or **Wi-Fi 7**. On Ethernet, there is no badge. |
 | **Latency** | The figure beside the graph (e.g. 4.7 ms) is the latency from your Mac to the next hop. |
-| **Icon** | The icon matches your Mac, for example a MacBook Pro or an iMac. |
-| **Name** | Your active connection — for example, the name of your Wi-Fi network. On a wired connection, it reads **Ethernet**. |
+| **Icon** | The icon matches your Mac: a MacBook, an iMac, a Mac mini, a Mac Studio or a Mac Pro. |
+| **Name** | Your active connection — for example, the name of your Wi-Fi network. On a wired connection, it reads the name of the adapter, or **Ethernet**. |
 | **Throughput** | The pair shows real-time download (↓) and upload (↑) speeds for your Mac. On Wi-Fi, a second pair shows the **Tx Rate** and the **Signal** of the Wi-Fi link. To see it, swipe left or right on the trackpad, or click the page dots under the pair. The page dots show when you hover over the column. |
 
 Click the column to open its card, with full details about your Mac's connection to the local network:
@@ -288,7 +286,7 @@ The large badge at the end of the dashboard is your connection's **grade** — a
 
 - **Click the grade** to open the [PeakHour Advisor](/user-guide/advisor/), which explains the grade, shows where any problem starts, and suggests what to try.
 - **A number on its rim** shows how many issues hold the grade back, in the color of the worst one.
-- **The ring around it** counts down to the next update. PeakHour grades your connection every 30 seconds.
+- **The ring around it** counts down to the next update. PeakHour grades your connection every 30 seconds. When the grade changes, it pulses once.
 
 While the [Advisor section](/user-guide/main-view/advisor-section/#one-grade-on-screen) of the main window is expanded, the grade moves into that section, and the dashboard shows no grade.
 

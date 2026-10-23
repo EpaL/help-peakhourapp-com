@@ -22,7 +22,7 @@ PeakHour compares each site with its own normal latency: the minimum latency of 
 | **OK** | The latency is near the minimum of the site. |
 | **Slow** | The latency is more than 75 ms above the minimum (**Light congestion**). |
 | **Slow** | The latency is more than 200 ms above the minimum (**Heavy congestion**). |
-| **Not responding** | The site gives no reply: 3 pings in a row get no answer, or no reply comes for 10 seconds. One or two lost pings do not count. The site stays **Not responding** until it replies again, also while its monitor starts again. |
+| **Not responding** | The site gives no reply: 3 pings in a row get no answer, or no reply comes for 10 seconds. One or two lost pings do not count. The site stays **Not responding** until it replies again, also while its monitor starts again. The first reply brings its latency back at once. |
 | **Starting…** | The site has no result yet. It does not count. |
 
 The 75 ms and the 125 ms after it are the [Congestion Thresholds](/user-guide/settings/display/#congestion-thresholds) in Display settings. The minimum of each site comes from its monitor. See [Latency](/user-guide/settings/monitors-settings/latency-monitor/#latency).
@@ -51,6 +51,10 @@ When half of the sites or fewer do not respond, the Internet is still up. The st
 When most of the sites fail but some still respond, the status reads, for example, **2 of 3 not responding**.
 
 When every site responds, the Internet shows **Light congestion** or **Heavy congestion** only when most of the sites are slow.
+
+### How PeakHour reaches a site
+
+PeakHour pings each site. When a network blocks pings, the site's monitor uses another method, up to a secure HTTPS request to the site. Any reply counts. See [Probe methods](/user-guide/main-view/latency-monitors/#probe-methods).
 
 ## The Internet Sites popover
 

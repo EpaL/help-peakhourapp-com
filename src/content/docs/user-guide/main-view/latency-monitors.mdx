@@ -95,7 +95,9 @@ From left to right:
 
 ### Probe methods
 
-Latency Monitors normally measure round-trip time with standard ICMP ping. If ping is blocked or stops getting replies, PeakHour automatically falls back to another method so monitoring keeps working — stepping down through **UDP TTL**, then **TCP**, then **HTTP** until something succeeds.
+Latency Monitors normally measure round-trip time with standard ICMP ping. If ping is blocked or stops getting replies, PeakHour automatically falls back to another method so monitoring keeps working — stepping down through **UDP TTL**, then **TCP**, then **HTTP** until something succeeds. For a site on the internet, the HTTP method uses a secure HTTPS request. Any reply from the site counts, also an error page or a certificate error, so the latency is the time to that reply. A host on your local network keeps plain HTTP.
+
+When a monitor gets no reply, its status in [Settings → Monitors](/user-guide/settings/monitors-settings/) gives a short reason, for example **No response**, **Connection failed** or **Unexpected response**.
 
 Whenever a monitor is running on anything other than ping, the toolbar shows a small pill with the active method's name. PeakHour keeps retrying the better methods in the background and clears the pill automatically once ping recovers (usually within a few minutes).
 

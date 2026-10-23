@@ -11,16 +11,20 @@ PeakHour 6.2 runs on macOS 14.6 and later. The Advisor section and **Path Traceâ
 
 - **One scroll view.** The main window grows with its sections, up to the height of your screen, then scrolls. Drag its side to change the width. See [Main View](/user-guide/main-view/).
 - **Arrange the sections.** Drag a section header to move the Usage Monitor, the Internet Dashboard, the Advisor or the Monitors. Show or hide them with **Show Sections** in the footer, the menu of a section header, or **Settings â†’ Display â†’ Main Window**. Your layout syncs with iCloud. See [Customize the main window](/user-guide/main-view/#customize-the-main-window).
-- **Advisor section.** Your grade, up to three issues, your grade over the last 2 hours, and links to each page of the Advisor. While it is expanded, the grade shows only there. See [Advisor Section](/user-guide/main-view/advisor-section/).
+- **Advisor section.** Your grade, the issues that hold it back, the sites outside your network that don't respond, your grade over the last 2 hours, and links to each page of the Advisor, in the look of the Advisor window. While it is expanded, the grade shows only there. See [Advisor Section](/user-guide/main-view/advisor-section/).
 - **Collapsed sections show a summary.** A collapsed dashboard shows the Internet status and the latency of each hop. A collapsed Advisor shows its status and a small grade timeline. See [Collapsed sections](/user-guide/main-view/#collapsed-sections).
 - **One Monitors section.** Bandwidth, latency and Wi-Fi Signal monitors share one section and one header. **Shared Y-Axis Scale** has a choice for each unit: **Bandwidth** and **Latency**. See [Monitors](/user-guide/main-view/monitors/).
 - **Offline label.** When this Mac has no network, or most of your Internet sites don't respond, a red label drops down: **No Network** or **No Internet**. **Back Online** shows how long the outage lasted. See [When you are offline](/user-guide/main-view/#when-you-are-offline).
+- **Scroll bars.** Drag the thin scroll bar of a graph to look back in time. The main window shows a vertical scroll bar, as set in **System Settings â†’ Appearance**. See [Scroll back in a graph](/user-guide/main-view/monitors/#scroll-back-in-a-graph).
+- **Lighter on your Mac.** The main window uses much less of your Mac's processor, while it is open and while it is hidden.
 
 ## Internet Dashboard
 
 - **One dashboard.** The dashboard always shows the full path, from This Mac to the Internet, with the latency of each hop. See [Internet Dashboard](/user-guide/main-view/internet-dashboard/).
 - **A narrow layout.** In a one-column window, the dashboard shows the path as rows, one under the other. See [In a narrow window](/user-guide/main-view/internet-dashboard/#in-a-narrow-window).
 - **The Wi-Fi standard.** This Mac shows the standard of your Wi-Fi link, for example **Wi-Fi 7**.
+- **Your Mac, your icon.** This Mac shows an icon of your Mac model: a MacBook, an iMac, a Mac mini, a Mac Studio or a Mac Pro. On a wired connection, it shows the name of the adapter, or **Ethernet**.
+- **A pulse on a new grade.** The grade pulses once when it changes.
 
 ## Internet sites
 
@@ -31,6 +35,15 @@ PeakHour 6.2 runs on macOS 14.6 and later. The Advisor section and **Path Traceâ
 - **Add a site from the Configuration Assistant.** A new latency monitor starts with the **Internet Site** card, which adds the site to the Internet status. See [Configuration Assistant: Latency](/user-guide/configuration-assistant/configuration-assistant-latency/#internet-site).
 - **Your own monitors as sites.** Turn on **Internet Site** in the settings of a latency monitor from your ISP to a host. See [Use a latency monitor as a site](/user-guide/main-view/internet-sites/#use-a-latency-monitor-as-a-site).
 - **Setup asks about your sites.** First Time Setup asks what you use the Internet for, and suggests sites. After the upgrade, a card asks you one time to choose your sites. See [Choose your sites](/user-guide/main-view/internet-sites/#choose-your-sites).
+- **A site fails only for a reason.** A site counts as failing after 3 lost pings in a row, or 10 seconds with no reply. One lost ping, for example during a speed test, no longer turns the dashboard red. When pings are blocked, PeakHour reaches the site with a secure HTTPS request. See [How the sites make the status](/user-guide/main-view/internet-sites/#how-the-sites-make-the-status).
+- **A custom host is checked first.** When you add a host, PeakHour checks that it replies, and warns you when it doesn't.
+
+## A fairer grade on Wi-Fi
+
+- **The median of your last tests.** The responsiveness in the grade is the median of up to your last 3 speed tests on the same access point, so one slow test doesn't set your grade for hours. See [How the grade works](/user-guide/advisor/grade/).
+- **A slow upload on this Mac's Wi-Fi.** When uploads slow your connection down because this Mac's Wi-Fi link sends slowly, the Advisor says so: **On this Mac's Wi-Fi**. It suggests that you move closer to the access point, use another one, or test over a cable.
+- **A fair Speed Test verdict.** The Speed Test page no longer says that your Wi-Fi limits the speed when the test is faster than the Wi-Fi estimate. See [Your plan](/user-guide/advisor/speed-test/#your-plan).
+- **Dead sites in red.** The Internet page of the Advisor shows a site that doesn't respond in red, with **No response** or **Host not found**. See [The routes](/user-guide/advisor/the-internet/#the-routes).
 
 ## Wi-Fi Signal monitor
 
