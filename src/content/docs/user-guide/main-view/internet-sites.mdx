@@ -62,7 +62,7 @@ Click **Internet** at the top of the Internet column, or its latency graph, to o
 
 <div class="img-sm">
 
-![The Internet Sites popover with one row for each site: a status dot, the name, the host and the latency, then Edit Sites and Path Trace](./internet-sites-images/internet-sites-popover.png)
+![The Internet Sites popover with one row for each site: a status dot, the name, the host and the latency, then Edit Sites and The Internet](./internet-sites-images/internet-sites-popover.png)
 
 </div>
 
@@ -77,8 +77,8 @@ Each site has one row, in the order of your list:
 
 At the bottom of the popover:
 
-- **Edit Sites…** opens [Settings → Dashboard → Internet Sites](/user-guide/settings/dashboard/#internet-sites).
-- **Path Trace…** opens [The Internet](/user-guide/advisor/the-internet/) page of the PeakHour Advisor, with the route to each site. It needs macOS 26 or later.
+- The **Edit Sites…** button opens [Settings → Dashboard → Internet Sites](/user-guide/settings/dashboard/#internet-sites).
+- **The Internet ›** opens [The Internet](/user-guide/advisor/the-internet/) page of the PeakHour Advisor, with the route to each site. It needs macOS 26 or later.
 
 The **?** button at the top right opens this page.
 
@@ -109,7 +109,13 @@ The site picker groups more than 50 sites by what you use them for. Click a grou
 | **Social** | YouTube, Reddit, X (Twitter), Meta (Facebook), Instagram, TikTok, WhatsApp, LinkedIn |
 | **General** | Google, Cloudflare, Quad9, OpenDNS, Akamai, Fastly, Amazon, Apple |
 
-To measure a site that is not in the list, type its host name or IP address in **Host name or address**, and click **Add Host** or press Return. PeakHour checks the host first, which takes a few seconds (**Checking...**). When the host can't be found or doesn't reply, the picker reads **Host not found** or **No reply from this host**. Click **Add Anyway** to add it all the same. A site that is already in your list reads **In use**.
+To measure a site that is not in the list, type its host name or IP address in **Host name or address**, and click **Add Host** or press Return. PeakHour checks the host first, which takes a few seconds (**Checking...**). When the host can't be found or doesn't reply, the picker reads **Host not found** or **No reply from this host**. Click **Add Anyway** to add it all the same.
+
+<div class="img-md">
+
+![The host field of the site picker with Host not found and the Add Anyway button](./internet-sites-images/custom-host-check.png)
+
+</div> A site that is already in your list reads **In use**.
 
 :::tip
 Keep one site that is always fast and near you, such as **Cloudflare** or **Google**. It shows a problem with your connection clearly, even when a site that you use is slow on its own.
