@@ -31,6 +31,10 @@ No packet loss at all shows as **Perfect**.
 
 Speed and responsiveness come from the [speed test](/user-guide/settings/dashboard/#speed-test). Until a test has run, the grade leaves responsiveness out and treats speed as Good.
 
+One test can be low by chance, so the responsiveness in the grade is the median of up to your last 3 speed tests. They count only when they ran over the same connection and the same access point, with the same VPN state, within a few hours of each other: about 6.5 hours when tests run every 3 hours. The Advisor then says, for example, *The grade uses the median of your last 3 Speed Tests.* The Speed Test page and the log still show the value of each test.
+
+When the upload is the slower side on Wi-Fi, and the measured upload is less than half of the upload of your plan, the Advisor places the slow responsiveness **On this Mac's Wi-Fi**: the uploads wait on this Mac, because its Wi-Fi link sends more slowly than your plan. It then suggests that you move closer to the access point or connect to another one, and run the Speed Test over a cable at the router. It doesn't suggest Smart Queue Management in this case, because the queue is not at the router.
+
 The grade also watches for:
 
 - **A weak Wi-Fi signal** — −75 dBm or weaker.

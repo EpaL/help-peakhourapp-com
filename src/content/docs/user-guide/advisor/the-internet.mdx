@@ -5,7 +5,7 @@ sidebar:
   order: 3
 ---
 
-**The Internet** page looks past your own connection, at each site that PeakHour measures: the three [Internet Hosts](/user-guide/settings/dashboard/#internet-hosts) of the dashboard, and any [latency monitors](/user-guide/settings/monitors-settings/latency-monitor/) that you added yourself.
+**The Internet** page looks past your own connection, at each site that PeakHour measures: the [Internet sites](/user-guide/main-view/internet-sites/) of the dashboard, up to 10, and any [latency monitors](/user-guide/settings/monitors-settings/latency-monitor/) that you added yourself.
 
 ## Issues outside your network
 
@@ -43,7 +43,7 @@ Hover over a route below the map, and the map zooms to show that route from end 
 
 <div class="img-lg">
 
-![The routes to three sites, each a row of network boxes with the delay of each handoff](./the-internet-images/routes.png)
+![The routes to several sites, each a row of network boxes with the delay of each handoff, and three sites that do not respond in red](./the-internet-images/routes.png)
 
 </div>
 
@@ -54,7 +54,7 @@ Each site has one row. The row shows the networks your traffic crosses on the wa
 - The boxes and the arrows add up to the latency of the site.
 - **The site's box**, at the end, shows its latency. Click it for its latency, jitter and packet loss, and where it answers from.
 
-The routes appear one by one while PeakHour traces them. A site that doesn't answer shows **Not traced**.
+The routes appear one by one while PeakHour traces them. The box of each site shows its state: green when it responds, red when it doesn't, and grey while it has no result yet. Beside a site that doesn't respond, the row reads **No response**, or **Host not found** when its name can't be found. A site that responds but has no route, for example at a private address, shows **Not traced**.
 
 <div class="img-sm">
 
@@ -103,7 +103,7 @@ Click **How to read the route** under the rows for a short summary. In more deta
 
 Your grade measures your own connection, averaged over several sites. A single slow site says little about your connection. Its route crosses networks that neither you nor your ISP control, and its servers can be busy.
 
-When **every** site is slow, the problem is on your connection, and it shows under **Issues identified** on the [Your Network](/user-guide/advisor/your-network/) page instead.
+When **every** site is slow, the problem is on your connection, and it shows under **Issues identified** on the [Your Network](/user-guide/advisor/your-network/) page instead. When more than half of the sites don't respond, the last link of the path reads, for example, **2 of 3 not responding**.
 
 ## Your own monitors
 

@@ -1,65 +1,40 @@
 ---
 title: "Internet Dashboard"
-description: "How to read PeakHour's Internet Dashboard — the columns and their cards, the readouts, status colors, latency, packet loss and jitter."
+description: "How to read PeakHour's Internet Dashboard: the columns and their cards, the readouts, the narrow layout, status colors, latency, packet loss and jitter."
 sidebar:
   order: 2
 status: reviewed
 ---
 
-The Internet Dashboard is specifically crafted to offer you a quick and comprehensive overview of your internet connection's latency and quality. Once activated, monitors are established to track each step of your internet connection, evaluating latency and jitter at crucial points including your router, ISP, and three distinct websites on the internet.
+The Internet Dashboard is specifically crafted to offer you a quick and comprehensive overview of your internet connection's latency and quality. Once activated, monitors are established to track each step of your internet connection, evaluating latency and jitter at crucial points including your router, your ISP, and up to 10 [Internet sites](/user-guide/main-view/internet-sites/).
 
 In addition, the dashboard shows the upload and download speeds of your Mac along with those of your router (if set up). If enabled, the dashboard also runs periodic speed tests of your internet connection and shows the result of the last one.
 
 You can configure all of these settings in [Internet Dashboard](/user-guide/settings/dashboard/) settings.
 
-## Choosing a view
+## The path to the internet
 
-The Internet Dashboard offers two views. Use the toggle at the top of the dashboard to switch between them:
-
-<div class="img-narrow">
-
-![Simple / Detailed view toggle](./internet-dashboard-images/internet-dashboard-simple-detailed-pill.png)
-
-</div>
-
-- **Simple** — a compact, three-panel summary of your connection's health.
-- **Detailed** — the full path to the internet, in four columns with the latency between each hop and live speeds.
-
-Both are described below.
-
-## Simple View
-
-The Simple View distils your connection's health into three panels you can read at a glance:
+The Internet Dashboard shows the full path your traffic takes to reach the internet, in four columns — **This Mac**, **Router**, **ISP**, and **Internet** — with your connection's grade on the right.
 
 <div class="img-md">
 
-![Internet Dashboard simple view showing Link, Throughput and Health panels](./internet-dashboard-images/internet-dashboard-simple.png)
-
-</div>
-
-| Panel | What it shows |
-|-------|---------------|
-| **Link** | Your active network connection — its type (e.g. Wi-Fi 6E), name, and current link speed.|
-| **Throughput** | Real-time upload (↑) and download (↓) speeds, with a ring showing usage relative to your [connection's capacity](/user-guide/settings/monitors-settings/bandwidth-monitor/#bandwidth). |
-| **Health** | Overall connection quality — current latency, a recent latency graph, and a letter **grade** (A+ down to F) for your whole connection. Click it to open the [PeakHour Advisor](/user-guide/advisor/). See [Grade](#grade). |
-
-Hover over a panel to see an **i**. Click it to open an explanation of the panel. A second click, a click outside the explanation, or Escape closes it.
-
-:::note
-The **Link** speed is the speed of your Mac's connection to the local network (for example, the Wi-Fi or Ethernet link rate) — not the speed of your internet connection. Your internet speed is shown under **Throughput** and, when speed tests are enabled, in the **ISP** column of the [Detailed View](#detailed-view).
-:::
-
-## Detailed View
-
-Expanding the Internet Dashboard reveals the full path your traffic takes to reach the internet, in four columns — **This Mac**, **Router**, **ISP**, and **Internet** — with your connection's grade on the right.
-
-<div class="img-md">
-
-![Internet Dashboard detailed view showing the This Mac, Router, ISP and Internet columns with the latency between each hop and their speed readouts](./internet-dashboard-images/internet-dashboard-detailed.png)
+![The Internet Dashboard showing the This Mac, Router, ISP and Internet columns with the latency between each hop and their speed readouts](./internet-dashboard-images/internet-dashboard-detailed.png)
 
 </div>
 
 Each column shows its name, the latency to the next hop, and (where it applies) a pair of speed readouts. The sections below cover each column in turn.
+
+### In a narrow window
+
+When the main window is one column wide, the dashboard shows the path as rows, one under the other: **This Mac**, **Router**, **ISP** and **Internet**. Between two rows, a thin row shows the latency of that hop, with its timeline. The grade sits at the end of the Internet row.
+
+<div class="img-sm">
+
+![The dashboard in a one-column window, with This Mac, Router, ISP and Internet as rows, the hop latencies between them, and the grade at the end](./internet-dashboard-images/internet-dashboard-stacked.png)
+
+</div>
+
+When the dashboard is collapsed, its header shows a one-line summary. See [Collapsed sections](/user-guide/main-view/#collapsed-sections).
 
 ### Columns and cards
 
@@ -126,8 +101,10 @@ The column shows, from top to bottom:
 | Element | Description |
 |---------|-------------|
 | **Access point** | On Wi-Fi, the name of the access point that your Mac is connected to shows above the Mac icon, for example **Living Room**. A name in grey italics is a guess from the maker of the access point. To give the access point a name, click the pencil beside **Access Point** in the This Mac card, described below. On a Personal Hotspot, the name of the hotspot shows. When the access point has no name, nothing shows above the icon. |
+| **Wi-Fi standard** | On Wi-Fi, a small badge beside the Wi-Fi symbol gives the Wi-Fi standard of the link, for example **Wi-Fi 6E** or **Wi-Fi 7**. On Ethernet, there is no badge. |
 | **Latency** | The figure beside the graph (e.g. 4.7 ms) is the latency from your Mac to the next hop. |
-| **Name** | Your active connection — for example, the name of your Wi-Fi network. |
+| **Icon** | The icon matches your Mac: a MacBook, an iMac, a Mac mini, a Mac Studio or a Mac Pro. |
+| **Name** | Your active connection — for example, the name of your Wi-Fi network. On a wired connection, it reads the name of the adapter, or **Ethernet**. |
 | **Throughput** | The pair shows real-time download (↓) and upload (↑) speeds for your Mac. On Wi-Fi, a second pair shows the **Tx Rate** and the **Signal** of the Wi-Fi link. To see it, swipe left or right on the trackpad, or click the page dots under the pair. The page dots show when you hover over the column. |
 
 Click the column to open its card, with full details about your Mac's connection to the local network:
@@ -218,7 +195,7 @@ Like the Router, the ISP column sits mid-path and shows a latency graph on each 
 | **Speed test** | The pair shows the download (↓) and upload (↑) speeds of your last [speed test](/user-guide/settings/dashboard/#speed-test) — not real-time throughput. |
 
 :::note
-The **Speed test** readouts fill in after a speed test. Until then, the column reads **Speed Test not run yet**. To run tests on a schedule, turn on [Run Speed Tests](/user-guide/settings/dashboard/#speed-test).
+The **Speed test** readouts fill in after a speed test. Until then, the column shows empty readouts with **Run Now** under them. Click **Run Now** to run a test. While a test can't start, the line shows the reason instead, for example **Offline**. To run tests on a schedule, turn on [Run Speed Tests](/user-guide/settings/dashboard/#speed-test).
 :::
 
 Click the column to open its card, with your last speed test and details about your ISP:
@@ -232,6 +209,8 @@ Click the column to open its card, with your last speed test and details about y
 The header shows your ISP's logo and name (e.g. Comcast Cable Communications), with a link to its website.
 
 The **Speed Test** section shows the time of your last test, its **Download** and **Upload** speeds, and the download and upload **Responsiveness** in RPM, each with a pill. With an [Internet plan](/user-guide/settings/dashboard/#internet-plan) set, each speed has a bar such as **82% of plan**.
+
+Under the figures, click **Test Again** to run a new test. Before your first test, the button reads **Run Speed Test**. While the test runs, the button shows **Testing…** and **Cancel**, and the card stays open. The figures update when the test ends. While a test can't start, the button is grey: hover over it to see the reason, for example **Offline**.
 
 Click **Open Full Report ›** under the figures to see the whole test:
 
@@ -287,15 +266,19 @@ The **Internet** column represents the final hop — from your ISP out to the wi
 | **Latency** | The figure beside the graph is the latency from your ISP out to the internet. |
 | **Grade** | The overall connection quality grade, described in [Grade](#grade) below. |
 
-Click **Internet** at the top of the column to open the list of **Internet Hosts** — the endpoints PeakHour uses for connectivity checks:
+PeakHour measures the final hop with a list of up to 10 [Internet sites](/user-guide/main-view/internet-sites/), and combines them. The latency is the median of the sites. The Internet is unavailable only when more than half of the sites fail. By default, the sites are **Google**, **Cloudflare** and **Netflix**.
+
+When one site has a problem and the others don't, the status names it, for example **Netflix not responding**.
+
+Click **Internet** at the top of the column, or its graph, to open the **Internet Sites** popover, with the status and latency of each site:
 
 <div class="img-sm">
 
-![Internet Hosts list showing the monitored endpoints — GitHub, Zoom and Cloudflare — each with a status dot and its latency](./internet-dashboard-images/internet-dashboard-internet-popover.png)
+![The Internet Sites popover with the status, host and latency of each site, and Edit Sites and The Internet at the bottom](./internet-sites-images/internet-sites-popover.png)
 
 </div>
 
-PeakHour measures the final hop with three well-known sites and combines the results. By default, the sites are **Google**, **Cloudflare** and **Netflix**. Each host shows a status dot that tells if it is reachable now, the host name of the check, and its latency. You can change which hosts are monitored in [Settings → Dashboard](/user-guide/settings/dashboard/).
+See [The Internet Sites popover](/user-guide/main-view/internet-sites/#the-internet-sites-popover). To change the sites, click **Edit Sites…** in the popover, or open [Settings → Dashboard → Internet Sites](/user-guide/settings/dashboard/#internet-sites).
 
 ### Grade
 
@@ -303,7 +286,9 @@ The large badge at the end of the dashboard is your connection's **grade** — a
 
 - **Click the grade** to open the [PeakHour Advisor](/user-guide/advisor/), which explains the grade, shows where any problem starts, and suggests what to try.
 - **A number on its rim** shows how many issues hold the grade back, in the color of the worst one.
-- **The ring around it** counts down to the next update. PeakHour grades your connection every 30 seconds.
+- **The ring around it** counts down to the next update. PeakHour grades your connection every 30 seconds. When the grade changes, it pulses once.
+
+While the [Advisor section](/user-guide/main-view/advisor-section/#one-grade-on-screen) of the main window is expanded, the grade moves into that section, and the dashboard shows no grade.
 
 The grade needs macOS 26 or later, and **AI Advisor** turned on in [Settings → Dashboard](/user-guide/settings/dashboard/#ai-advisor). With the AI Advisor off, the button shows a stethoscope and the word **Advisor** instead of a grade. Click it to open the Advisor window, which still shows your speed tests, your history and the routes to each site.
 

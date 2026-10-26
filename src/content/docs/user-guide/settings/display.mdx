@@ -1,6 +1,6 @@
 ---
 title: "Display"
-description: "Display settings — refresh interval, bandwidth units, monitor layout, colors, congestion thresholds, and appearance."
+description: "Display settings: the sections of the main window, the refresh interval, bandwidth units, monitor layout, colors, congestion thresholds and appearance."
 sidebar:
   order: 24
 status: reviewed
@@ -13,6 +13,26 @@ The **Display** settings control how PeakHour looks and how often it updates.
 ![The Display settings page](./display-images/settings-display.png)
 
 </div>
+
+## Main Window
+
+The **Main Window** list sets which sections the [main window](/user-guide/main-view/) shows, and in which order.
+
+<div class="img-md">
+
+![The Main Window list in Display settings, with a checkbox, an icon, a name and a drag handle for each section, and Restore Defaults](./display-images/settings-main-window.png)
+
+</div>
+
+- **Select or clear the checkbox** of a section to show it or hide it.
+- **Drag a section** by its handle to move it.
+- **Restore Defaults** shows every section again, in the default order: **Usage Monitor**, **Internet Dashboard**, **Advisor**, **Monitors**.
+
+Each change shows in the main window at once. You can make the same changes from the menu of a section header. See [Customize the main window](/user-guide/main-view/#customize-the-main-window).
+
+A section whose feature is off is dim, with a note such as **Usage Monitor is off** or **Needs the Internet Dashboard**. Click the link beside the note to open the settings of that feature. The **Advisor** row shows only on macOS 26 and later.
+
+Your layout syncs with [iCloud](/user-guide/settings/icloud/).
 
 ## Refresh & Units
 
@@ -69,9 +89,9 @@ How much latency above a monitor's measured minimum counts as congestion:
 | Setting | Description |
 |---------|-------------|
 | **Slight Congestion** | Additional latency above the minimum before the connection is considered slightly congested (default 75 ms). |
-| **Heavy Congestion** | Additional latency before it's considered heavily congested (default 125 ms). |
+| **Heavy Congestion** | Additional latency above the **Slight Congestion** level before it's considered heavily congested (default 125 ms, so 200 ms above the minimum). |
 
-Click **Reset Thresholds…** to restore the defaults. Each monitor's minimum-latency baseline is set on its own [Latency Monitor](/user-guide/settings/monitors-settings/latency-monitor/#latency) settings.
+Click **Reset Thresholds…** to restore the defaults. Each monitor's minimum-latency baseline is set on its own [Latency Monitor](/user-guide/settings/monitors-settings/latency-monitor/#latency) settings. Each [Internet site](/user-guide/main-view/internet-sites/#each-site-against-its-own-baseline) uses these thresholds against its own minimum.
 
 ## Interface
 
