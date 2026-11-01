@@ -41,7 +41,7 @@ PeakHour can run a speed test on a schedule. The test measures your upload speed
 
 ## Provider Lookup
 
-**Lookup ISP Details** — identifies your internet provider (name, ASN, connection type, and approximate location) from your public IP address, shown in the **ISP** column of the dashboard and in its card. It also lets the PeakHour Advisor show the route to each site and a map of where each site answers from. It is off by default.
+**Look Up Provider Details** — identifies your internet provider (name, ASN, connection type, and approximate location) from your public IP address, shown in the **ISP** column of the dashboard and in its card. It also lets the PeakHour Advisor show the route to each site and a map of where each site answers from. The first time setup asks you to choose it on or off.
 
 **Clear Cached Data** — removes the lookups that PeakHour has cached on this Mac.
 
@@ -68,7 +68,7 @@ With a plan set, PeakHour:
 
 ### Which network the plan applies to
 
-When **Lookup ISP Details** is on, PeakHour ties the plan to the ISP you use when you save it. The footer then reads, for example, *The plan applies on Comcast (AS7922) only.* On another ISP, PeakHour doesn't use the plan, and the footer adds *This Mac uses another ISP now.* When **Lookup ISP Details** is off, the plan applies on every network. For more, see [Your Internet plan](/user-guide/settings/isp-information/#your-internet-plan).
+When **Look Up Provider Details** is on, PeakHour ties the plan to the ISP you use when you save it. The footer then reads, for example, *The plan applies on Comcast (AS7922) only.* On another ISP, PeakHour doesn't use the plan, and the footer adds *This Mac uses another ISP now.* When **Look Up Provider Details** is off, the plan applies on every network. For more, see [Your Internet plan](/user-guide/settings/isp-information/#your-internet-plan).
 
 The plan stays on this Mac. PeakHour doesn't sync it with [iCloud](/user-guide/settings/icloud/), so each Mac keeps its own plan.
 
@@ -80,7 +80,7 @@ On macOS 26 and later, the Advisor's [Speed Test](/user-guide/advisor/speed-test
 
 **AI Advisor** — grades your connection and explains what holds it back, in the [PeakHour Advisor](/user-guide/advisor/) window and on the dashboard. It is on by default, and needs macOS 26 or later. With it off, the Advisor window still opens, for your speed tests, your history and the routes to each site. See [With the AI Advisor off](/user-guide/advisor/#with-the-ai-advisor-off).
 
-**Private Cloud Compute** — lets a larger Apple model write the Advisor's explanations, and lets you [ask questions about your connection](/user-guide/advisor/ask/). It is off by default, and needs macOS 27 or later with Apple Intelligence. The line under the switch shows whether it is ready, and how much of today's limit is left. While **AI Advisor** is off, this switch shows off and is grey. Your choice comes back when you turn the AI Advisor on again.
+**Private Cloud Compute** — lets a larger Apple model write the Advisor's explanations, and lets you [ask questions about your connection](/user-guide/advisor/ask/). The first time setup asks you to choose it on or off. It needs macOS 27 or later with Apple Intelligence. The line under the switch shows whether it is ready, and how much of today's limit is left. While **AI Advisor** is off, this switch shows off and is grey. Your choice comes back when you turn the AI Advisor on again.
 
 :::note
 Without Private Cloud Compute, the AI Advisor runs entirely on your Mac. With it, your measurements go to Apple's servers, which don't keep them. Your Wi-Fi name, your Mac's name and the monitors you added stay on your Mac. See [What leaves your Mac](/user-guide/advisor/ask/#what-leaves-your-mac).
