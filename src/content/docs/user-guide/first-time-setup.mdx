@@ -15,27 +15,29 @@ Before you set up PeakHour on your Mac:
 
 ## Getting Started
 
-When you launch PeakHour for the first time, the First Time Setup Assistant will appear to guide you through the setup process.
+When you launch PeakHour for the first time, the First Time Setup Assistant appears and guides you through the setup.
 
 <div class="img-md">
 ![First Time Setup - Introduction](./first-time-setup-images/first-time-setup-intro.png)
 </div>
 
-Setup takes a few short steps:
+The setup has these steps:
 
-1. **Welcome** — a quick overview of what PeakHour does.
-2. **Discover Your Network** — PeakHour finds your router and lets you pick which features to enable.
-3. **Choose your sites** — tell PeakHour what you use the Internet for, and choose the sites it measures. This step shows only with the Internet Dashboard on.
-4. **Identify Your Internet Provider** — choose whether PeakHour looks up your ISP details (off by default).
-5. **Smarter AI Advisor** — choose where the AI Advisor writes its explanations. This step shows only on a Mac that can use Private Cloud Compute.
-6. **You're All Set** — confirm your configuration before finishing.
-7. **Stay in Touch** — optional: subscribe to updates or follow PeakHour on social.
+1. **Welcome**: an overview of what PeakHour does.
+2. **Discover Your Network**: PeakHour finds your router, and you choose which features to enable.
+3. **Choose Your Sites**: choose the sites that PeakHour checks to tell you if your Internet is working.
+4. **Your Privacy**: choose what leaves your Mac.
+5. **You're All Set**: check your configuration.
+6. **Start Monitoring**: choose a plan. Skip this step if you already have a license.
+7. **Stay in Touch**: optional. Join the mailing list or follow PeakHour.
 
-If you've previously used PeakHour on another Mac with iCloud sync enabled, see [Restoring from iCloud](#restoring-from-icloud) — setup can apply those settings in a single click.
+You can try the setup before you pay. PeakHour starts to monitor only after you start a free trial, buy a license or restore a purchase.
+
+If you used PeakHour on another Mac with iCloud sync on, see [Restoring from iCloud](#restoring-from-icloud). If you are moving from PeakHour 4, see [Upgrading from PeakHour 4](/troubleshooting/faq/purchasing-licensing/upgrade-from-peakhour-4/).
 
 ## 1. Welcome
 
-The Welcome screen introduces the three main views you'll work with in PeakHour: bandwidth monitoring for your router, ISP and internet endpoints; the Internet Dashboard; and the menu bar widget. Click **Get Started** to continue.
+The Welcome screen shows the main features of PeakHour: live monitors for this Mac, your router, your ISP and the Internet; the sites that set your Internet status; Speed Tests; and the AI Advisor. Click **Get Started** to continue.
 
 ## 2. Discover Your Network
 
@@ -43,60 +45,58 @@ The Welcome screen introduces the three main views you'll work with in PeakHour:
 ![Discover Your Network step](./first-time-setup-images/first-time-setup-discover.png)
 </div>
 
-PeakHour scans your local network for routers and gateways that support UPnP. If a device is found and is reporting usage correctly, it appears under **Devices Found** with a **Reporting** badge. If your router doesn't appear, see [Can't find your Internet router?](#cant-find-your-internet-router) below.
+PeakHour scans your local network for routers and gateways that support UPnP. When it finds a router that reports usage correctly, the router shows with a **Reporting** badge.
 
-Below the devices list, choose which features to enable:
+If PeakHour finds no router, the step shows **No routers detected**, your Wi-Fi and gateway addresses, and if the Internet is reachable. PeakHour can still monitor latency, quality and throughput. Click **Retry Scan** to scan again, or **How to turn on UPnP** to open [Turn on UPnP](/troubleshooting/upnp/turn-on-upnp/). See also [Can't find your Internet router?](#cant-find-your-internet-router) below.
+
+Below the network status, choose which features to enable:
 
 | Feature | Description |
 |---------|-------------|
-| **Internet Dashboard & AI Advisor** | An at-a-glance view of your network's health and live diagnostics. |
-| **Speed Tests** | Periodic speed tests for your speed and your latency under load. See [Speed Test](/user-guide/settings/dashboard/#speed-test). |
-| **Usage Monitoring** | Tracks bandwidth consumption against your data plan. |
+| **Internet Dashboard & AI Advisor** | An at-a-glance view of your network's health and live diagnostics. On by default. |
+| **Speed Tests** | Periodic speed tests for your speed and your latency under load. See [Speed Test](/user-guide/settings/dashboard/#speed-test). On by default. |
+| **Usage Monitoring** | Tracks bandwidth consumption against your data plan. Off by default. |
 
-All three are enabled by default. Click **Continue** to apply them, or **Skip – Set Up Later** to configure things manually from [Settings](/user-guide/settings/) later.
+Click **Continue**, or **Skip – Set Up Later** to configure PeakHour from [Settings](/user-guide/settings/) later.
 
 ### Can't find your Internet router?
 
-If the **Devices Found** list is empty or your router isn't appearing:
+If PeakHour finds no router:
 
-- Make sure UPnP is enabled on your router — see [Prerequisites](#prerequisites). Look for an option labelled **UPnP** or **Universal Plug & Play** in your router's admin interface.
-- Restart both your router and PeakHour after enabling UPnP so PeakHour re-runs discovery.
-- Some routers don't fully implement the UPnP spec, or implement it poorly. PeakHour validates what your router reports and marks it as **Reporting** when the data looks valid.
-- For deeper diagnostics, see [UPnP Troubleshooting](/troubleshooting/upnp/).
+- Make sure UPnP is on in your router. See [Turn on UPnP](/troubleshooting/upnp/turn-on-upnp/).
+- Click **Retry Scan** after you turn on UPnP.
+- Some routers implement UPnP poorly. PeakHour checks what your router reports, and shows **Reporting** only when the data is valid.
+- For more help, see [UPnP Troubleshooting](/troubleshooting/upnp/).
 
-**Using SNMP instead?** PeakHour can monitor SNMP-enabled routers and other devices, but SNMP doesn't support auto-discovery — SNMP devices won't appear in First Time Setup. Skip the Discover step and add them after setup from [Settings](/user-guide/settings/).
+**Using SNMP instead?** PeakHour can monitor SNMP routers and other devices, but SNMP has no auto-discovery, so SNMP devices do not show in the setup. Add them after the setup from [Settings](/user-guide/settings/).
 
-## 3. Choose your sites
-
-PeakHour measures the Internet with a list of [Internet sites](/user-guide/main-view/internet-sites/). This step helps you choose sites that you use. It has two pages.
+## 3. Choose Your Sites
 
 <div class="img-md">
-![The What Do You Use the Internet For? page, with seven cards such as Work & Video Calls, Gaming and Streaming](./first-time-setup-images/first-time-setup-sites-audiences.png)
+![Choose Your Sites step](./first-time-setup-images/first-time-setup-sites.png)
 </div>
 
-**What Do You Use the Internet For?** — click each card that fits: **Work & Video Calls**, **Gaming**, **Streaming**, **AI Tools**, **Cloud & Files**, **Social** or **General**. You can choose more than one, or none. Click **Continue**.
+PeakHour checks a list of sites to tell you if your Internet is working. First, choose what you use the Internet for, for example work and video calls, gaming or streaming. PeakHour then suggests sites for your choices. If you choose nothing, PeakHour suggests five everyday sites.
+
+On **Choose Your Sites**, the **Your Sites** card at the top shows the sites that PeakHour will check, up to 10. Each site shows its current response time. Click the × on a site to remove it.
+
+Below **Add More Sites**, click a site to add it. To add a site that is not in the list, click **Add a Site** at the end of the list, then type a host name or IP address.
+
+You can change your sites later in [Settings → Dashboard](/user-guide/settings/dashboard/).
+
+## 4. Your Privacy
 
 <div class="img-md">
-![The Choose Your Sites page, with the suggested sites selected at the top, and more sites in groups under them](./first-time-setup-images/first-time-setup-sites-choose.png)
+![Your Privacy step, with neither choice made](./first-time-setup-images/first-time-setup-privacyconsent.png)
 </div>
 
-**Choose Your Sites** — PeakHour suggests five sites from your choices, with **Cloudflare** first. With no card chosen, it suggests **Cloudflare** only. The suggested sites show selected under **Your Sites**. Click a site to add it or remove it, up to 10 sites. To add a site that isn't in the list, type its host name or address in **Host name or address**, and click **Add Host**. Click **Continue**.
+This step asks you to choose what leaves your Mac. Neither option is set until you choose **Off** or **On**. **Continue** is available when you have made each choice. You can change each choice later.
 
-*PeakHour pings each site directly. Your choice stays on this Mac.*
+### Look Up Your Provider
 
-Click **Skip** to keep the default sites: Google, Cloudflare and Netflix. You can change the sites at any time in [Settings → Dashboard → Internet Sites](/user-guide/settings/dashboard/#internet-sites).
+Provider Lookup adds your provider's name, its approximate location and logo to the [Internet Dashboard](/user-guide/main-view/internet-dashboard/). It also lets the [PeakHour Advisor](/user-guide/advisor/) show the route to each site.
 
-## 4. Identify Your Internet Provider
-
-<div class="img-md">
-![Identify Your Internet Provider step](./first-time-setup-images/first-time-setup-privacyconsent.png)
-</div>
-
-PeakHour can enrich your [Internet Dashboard](/user-guide/main-view/internet-dashboard/) with your provider's name, approximate location, and ISP and router brand logos. It also lets the [PeakHour Advisor](/user-guide/advisor/) show the route to each site. Enabling this lookup is optional.
-
-**Look up ISP details is off by default.** Leave the toggle off to keep PeakHour from contacting any third-party services, or turn it on to identify your provider. You can change this later under [Settings → Dashboard](/user-guide/settings/dashboard/#isp-information).
-
-When enabled, PeakHour uses these services to look up your provider and the route to each site:
+When it is on, PeakHour uses these services:
 
 | Service | What it provides |
 |---------|------------------|
@@ -106,29 +106,48 @@ When enabled, PeakHour uses these services to look up your provider and the rout
 | **PeeringDB** | A network's web domain, to find its logo. |
 | **Brandfetch** | ISP, router and network logos. |
 
+When it is off, nothing is sent to these services. The dashboard shows "Your ISP" with no provider details, and the Advisor shows no routes or site map.
+
 :::note
-These services receive internet addresses, network numbers and web domains — not your name, your Mac's name or your Wi-Fi name. For exactly what each one receives, see [ISP Information](/user-guide/settings/isp-information/#what-goes-where).
+These services receive internet addresses, network numbers and web domains. They do not receive your name, your Mac's name or your Wi-Fi name. For what each service receives, see [Provider Lookup](/user-guide/settings/isp-information/#what-goes-where).
 :::
 
-Click **Learn More** to open the [ISP Information](/user-guide/settings/isp-information/) page, or **Privacy Policy** to read exactly how this information is used, then click **Continue**.
+To change this later, use **Look Up Provider Details** in [Settings → Dashboard](/user-guide/settings/dashboard/#provider-lookup).
 
-## 5. Smarter AI Advisor
+### Private Cloud Compute
 
-On a Mac with macOS 27 and Apple Intelligence, setup asks where the AI Advisor writes its explanations. Turn on **Private Cloud Compute** to let a larger Apple model write them, or leave it off to keep the AI Advisor on your Mac. You can change it later in [Settings → Dashboard → AI Advisor](/user-guide/settings/dashboard/#ai-advisor). See [Private Cloud Compute](/user-guide/advisor/ask/#private-cloud-compute).
+This card shows only on Macs that support Apple Intelligence. When **Private Cloud Compute** is on, Apple's larger model writes the AI Advisor's explanations. Your measurements go to Apple's servers, which do not keep them. Your Wi-Fi name, Mac name and sites stay on your Mac.
 
-## 6. You're All Set
+When it is off, **On-Device Models** on your Mac write the explanations. Nothing is sent, and the Advisor works offline, but the explanations are less accurate. See [PeakHour Advisor](/user-guide/advisor/).
+
+## 5. You're All Set
 
 <div class="img-md">
 ![You're All Set summary screen](./first-time-setup-images/first-time-setup-youre-all-set.png)
 </div>
 
-Review the configuration PeakHour is about to apply:
+Check the configuration that PeakHour will apply:
 
-- **Internet Gateway** — the router PeakHour found in the previous step.
-- **Features** — the features you enabled: **Internet Dashboard**, **Speed Test**, **ISP Information** and **Usage Monitoring**.
-- **Launch at Login** — toggle on if you'd like PeakHour to start automatically when you log in to your Mac.
+- **Internet Gateway**: the router that PeakHour found.
+- **Features**: the features that you enabled.
+- **Launch at Login**: turn on to start PeakHour when you log in to your Mac.
 
-Click **Continue** to apply your configuration.
+Click **Continue**.
+
+## 6. Start Monitoring
+
+<div class="img-md">
+![Start Monitoring step with the plans](./first-time-setup-images/first-time-setup-start-monitoring.png)
+</div>
+
+If you do not have a license yet, this step shows your router and your sites, with their response time, and the plans:
+
+- **Yearly Subscription**: includes a one-week free trial. Click **Start Free Trial**.
+- **Lifetime License**: pay once. Click **Purchase Lifetime**.
+
+If you already bought PeakHour, click **Restore Purchases**. PeakHour starts to monitor when the trial, the purchase or the restore is complete.
+
+If you close the setup window before you choose a plan, PeakHour quits. The next time you open PeakHour, the setup starts again.
 
 ## 7. Stay in Touch
 
@@ -136,9 +155,9 @@ Click **Continue** to apply your configuration.
 ![Stay in Touch step](./first-time-setup-images/first-time-setup-stay-in-touch.png)
 </div>
 
-The final step is optional. Join the mailing list for occasional updates and tips (no spam), or follow PeakHour on [X](https://x.com/peakhourapp), [Mastodon](https://mastodon.social/@peakhour) or [Bluesky](https://bsky.app/profile/peakhour.app).
+This step is optional. Type your email address and click **Join** to get occasional updates and tips (no spam). Or follow PeakHour on X, Bluesky, YouTube or Instagram.
 
-Click **Get Started** to finish setup and start monitoring. 🎉
+Click **Get Started** to finish the setup.
 
 ## After Setup
 
@@ -165,7 +184,12 @@ If you can't see PeakHour at all, click its icon in the Dock to open the main wi
 ![iCloud restore option on the Welcome screen](./first-time-setup-images/first-time-setup-icloud-restore.png)
 </div>
 
-If you've previously set up PeakHour on another Mac signed in to the same Apple Account, the Welcome screen detects your saved settings and offers to restore them. Click **Restore & Finish** to apply your existing configuration in a single step, or **Set Up Manually** to go through the regular steps.
+If you set up PeakHour on another Mac signed in to the same Apple Account, the Welcome screen shows **Welcome Back to PeakHour** with the number of monitors in your saved settings.
+
+- Click **Restore & Finish** to apply your settings. **You're All Set** then shows the number of monitors that PeakHour restores. If you do not have a license on this Mac, **Start Monitoring** comes next, and it is the last step.
+- Click **Set Up Manually** to go through the setup steps.
+
+After an iCloud restore, the setup does not show **Stay in Touch**.
 
 ## Next Steps
 
