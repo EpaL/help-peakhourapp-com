@@ -16,14 +16,16 @@ If you're experiencing crashes or hangs, these steps will allow you to gather th
 
     ```sh
     log collect \
-      --predicate 'eventMessage CONTAINS[c] "peakhour"' \
+      --predicate 'subsystem BEGINSWITH "com.digitician.peakhour" OR eventMessage CONTAINS[c] "peakhour" OR (process == "PeakHour" AND (messageType == error OR messageType == fault OR NOT subsystem BEGINSWITH "com.apple."))' \
       --last 12h \
-      --output ~/Desktop/PeakHourLogs.logarchive
+      --output ~/Desktop/PeakHourLogs-$(date +%Y-%m-%d-%H%M%S).logarchive
     ```
 
     Change the `--last` argument to capture the time period in question (e.g. `30m` for the last 30 minutes, `2d` for the last 2 days, etc.)
 
-3.  Send the file `PeakHourLogs.logarchive` as directed.
+    Each run creates a new file on your Desktop, with the date and time in its name.
+
+3.  Right-click the new `PeakHourLogs-….logarchive` file on your Desktop and choose **Compress**. Send the `.zip` file as directed.
 
 ## Capturing SNMP / UPnP Debug Logs
 
@@ -55,9 +57,9 @@ If you're experiencing crashes or hangs, these steps will allow you to gather th
 
     ```sh
     log collect \
-      --predicate 'subsystem BEGINSWITH "com.digitician.peakhour" AND (category == "upnp" OR category == "snmp")' \
+      --predicate 'subsystem BEGINSWITH "com.digitician.peakhour" OR eventMessage CONTAINS[c] "peakhour" OR (process == "PeakHour" AND (messageType == error OR messageType == fault OR NOT subsystem BEGINSWITH "com.apple."))' \
       --last 12h \
-      --output ~/Desktop/PeakHourLogs.logarchive
+      --output ~/Desktop/PeakHourSNMPLogs-$(date +%Y-%m-%d-%H%M%S).logarchive
     ```
 
 6.  Run the following command to disable debug log writing:
@@ -66,7 +68,7 @@ If you're experiencing crashes or hangs, these steps will allow you to gather th
     sudo log config --mode "level:default,persist:default" --subsystem com.digitician.peakhour5
     ```
 
-7.  Send the file `PeakHourLogs.logarchive` as directed.
+7.  Right-click the new `PeakHourSNMPLogs-….logarchive` file on your Desktop and choose **Compress**. Send the `.zip` file as directed.
 
 8.  To disable SNMP / UPnP debug logging, run the following commands:
 
