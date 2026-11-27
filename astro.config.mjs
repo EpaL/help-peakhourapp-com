@@ -196,6 +196,8 @@ export default defineConfig({
                     { slug: 'troubleshooting/faq/purchasing-licensing/upgrade-from-peakhour-4' },
                     { slug: 'troubleshooting/faq/purchasing-licensing/download-older-versions' },
                     { slug: 'troubleshooting/faq/purchasing-licensing/upgrade-subscription-to-lifetime' },
+                    { slug: 'troubleshooting/faq/purchasing-licensing/peakhour-on-setapp' },
+                    { slug: 'troubleshooting/faq/purchasing-licensing/move-from-app-store-to-setapp' },
                   ],
                 },
               ],
