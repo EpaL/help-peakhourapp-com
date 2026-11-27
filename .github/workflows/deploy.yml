@@ -44,3 +44,17 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=peakhour-help --branch=main
+
+      # Tell Bing and the other IndexNow engines which pages changed. A failure
+      # here does not fail the deploy, because the pages are already live.
+      - name: Submit changed pages to IndexNow
+        continue-on-error: true
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            node scripts/submit-indexnow.mjs "$BEFORE" "$AFTER"
+          else
+            node scripts/submit-indexnow.mjs --all
+          fi
