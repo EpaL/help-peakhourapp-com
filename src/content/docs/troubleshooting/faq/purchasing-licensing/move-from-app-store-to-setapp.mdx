@@ -1,0 +1,61 @@
+---
+title: "Move from the App Store copy to Setapp"
+description: "Move your PeakHour monitors and settings from the Mac App Store copy to the Setapp copy with iCloud Sync, and see what stays behind."
+sidebar:
+  label: App Store → Setapp
+status: reviewed
+---
+
+You can move from the Mac App Store copy of PeakHour to the [Setapp copy](/troubleshooting/faq/purchasing-licensing/peakhour-on-setapp/). [iCloud Sync](/user-guide/settings/icloud/) moves your monitors and settings. Some data stays behind. See [What doesn't move](#what-doesnt-move).
+
+## Before you start
+
+### Find your passwords
+
+The Setapp copy doesn't get your passwords. Find these before you start:
+
+- the SNMPv3 **Auth Key** and **Privacy Key** of each router that uses SNMPv3;
+- your [PeakHour Remote](/user-guide/settings/remote/) password, if you use **Require Authentication**.
+
+### Your App Store license
+
+Your App Store license doesn't move to Setapp.
+
+- **Annual Pass or free trial**: your Annual Pass renews until you cancel it, and a free trial becomes a paid Annual Pass. Moving to Setapp or removing the App Store copy doesn't cancel it. To cancel it, open **Settings → About** in the App Store copy and click **Manage Subscription…** (or **Cancel Annual Pass…** if you also have a Lifetime License). Or, in the App Store, click your name at the bottom of the sidebar and open **Subscriptions**. Apple's [support page](https://support.apple.com/en-us/118428) has the steps.
+- **Lifetime License**: a Lifetime License from the App Store doesn't move to Setapp, and Setapp can't restore it. It still works in the App Store copy.
+
+:::note
+Apple gives no credit for the unused part of a subscription. When you cancel, your Annual Pass stays active until the end of the period you paid for, and then stops.
+:::
+
+## Move your settings
+
+1. In the App Store copy, open **Settings → iCloud** and turn on **Enable iCloud Sync**. PeakHour saves your monitors and settings to iCloud. Check that **Last Synced** shows the current time, or click **Save to iCloud**.
+2. Quit the App Store copy.
+3. Install PeakHour from Setapp and open it.
+4. The [First Time Setup](/user-guide/first-time-setup/#restoring-from-icloud) shows **Welcome Back to PeakHour** and offers to import your settings from iCloud. Click **Restore & Finish**.
+5. Type your passwords again:
+   - For each SNMPv3 router, open **Settings → Monitors**, select the monitor and click **Edit…**. Type the **Auth Key** and the **Privacy Key** again.
+   - For PeakHour Remote, open **Settings → Remote** and type the **Password** again.
+6. Remove the App Store copy if you don't need it.
+
+:::tip
+If you keep the App Store copy, turn off **Start PeakHour at Login** in its [Settings → General](/user-guide/settings/general/). Then the two copies don't start together when you log in.
+:::
+
+## What doesn't move
+
+iCloud Sync moves your monitors and settings. These stay in the App Store copy:
+
+| Data | In the Setapp copy |
+|------|--------------------|
+| **History**: the graphs in the [History view](/user-guide/history-view/) | The history starts again. |
+| **Advisor history**: your grades and speed tests on the Advisor's [History](/user-guide/advisor/history/) page | The Advisor history starts again. |
+| **SNMPv3 passwords**: the **Auth Key** and the **Privacy Key** of your routers | Type them again. |
+| **PeakHour Remote password** | Type it again. |
+
+## Don't run both copies
+
+Don't run the App Store copy and the Setapp copy at the same time. They share your iCloud settings and the PeakHour Remote port. When both copies are open, PeakHour shows an alert. Quit one of them.
+
+If you have a question, drop us a line at [support@peakhourapp.com](mailto:support@peakhourapp.com).
